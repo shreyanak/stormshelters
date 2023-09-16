@@ -16,7 +16,8 @@ Edu-find
 
 * the proposed project
 
-Site for finding educational opportunities for young low-income low-education individuals.
+Site for finding educational opportunities for low-income low-education individuals.
+This tool is meant for young people in poor urban areas who want to finish their education and experience upwards socioeconomic mobility.
 
 * URLs of at least three data sources that you will programmatically scrape using a RESTful API (be very sure about this)
 
@@ -35,8 +36,8 @@ Vocations or subjects
 
 * an estimate of the number of instances of each model
 
-1000
-200
+500
+125
 50
 
 * each model must have many attributes. describe five of those attributes for each model that you can filter or sort
@@ -81,5 +82,5 @@ Vocations:
 * describe three questions that your site will answer
 
 1. What are some opportunities for me if I don't have a high school diploma
-2. What are some opportunities for affordable education
+2. What are some opportunities for affordable education in my city
 3. What are some local schools near me that teach my preferred vocation
