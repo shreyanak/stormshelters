@@ -5,23 +5,28 @@ Group 5
 * names of the team members
 
 Rohit Chawla
+
 Aaron Kulkarni
+
 John Smith
+
 Shreya Nakka
+
 Adriana Reyes
 
 * name of the project (alphanumeric, no spaces, max 32 chars; this will also be your URL)
 
-****
+StormShelters
 
 
 * the proposed project
 
-We are focusing on the homeless/low-income population in Harris County. The area is extremely prone to natural disasters, weakening their infrastructure over time. Our site allows people in need of help, to be connected with people who want to.
+We are focusing on the homeless population in Harris County. The area is extremely prone to natural disasters, weakening their infrastructure over time. Our site allows people in need of help, to be connected with people who want to help.
 
 * URLs of at least three data sources that you will programmatically scrape using a RESTful API (be very sure about this)
 
 https://census.gov
+
 https://geohub.houstontx.gov/
 
 https://www.volunteerhub.com/
@@ -29,21 +34,27 @@ https://www.volunteerhub.com/
 https://opendata.dc.gov/datasets/homeless-shelter-locations/api
 
 https://wiki.openstreetmap.org/wiki/OSMPythonTools 
+
 https://www.weather.gov/documentation/services-web-api
+
 https://developer.twitter.com/en/docs/twitter-api
 
 * at least three models
 
-Cities
-Shelters/Emergency Relief
-Volunteer Opportunities
+1. Cities
+
+2. Shelters/Emergency Relief
+
+3. Volunteer Opportunities
 
 
 * an estimate of the number of instances of each model
 
-~45
-~200
-~250
+~45 Cities
+
+~200 Shelters
+
+~250 Volunteer
 
 * each model must have many attributes. describe five of those attributes for each model that you can filter or sort
 
@@ -80,8 +91,9 @@ Shelters/Emergency Relief:
 2. Image
 
 Volunteer Opportunities:
-1. 
-2. 
+1. Video/Image
+2. Website imbed
+3. Pinpoint on map
 
 * describe three questions that your site will answer
 
