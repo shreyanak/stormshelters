@@ -12,75 +12,79 @@ Adriana Reyes
 
 * name of the project (alphanumeric, no spaces, max 32 chars; this will also be your URL)
 
-Edu-find
+****
+
 
 * the proposed project
 
-Site for finding educational opportunities for low-income low-education individuals.
-This tool is meant for young people in poor urban areas who want to finish their education and experience upwards socioeconomic mobility.
+We are focusing on the homeless/low-income population in Harris County. The area is extremely prone to natural disasters, weakening their infrastructure over time. Our site allows people in need of help, to be connected with people who want to.
 
 * URLs of at least three data sources that you will programmatically scrape using a RESTful API (be very sure about this)
 
 https://census.gov
-https://educationdata.urban.org
-https://collegescorecard.ed.gov/data/documentation/
-https://nces.ed.gov/collegenavigator/
-https://developer.twitter.com/en/docs/twitter-api 
+https://geohub.houstontx.gov/
 
+https://www.volunteerhub.com/
+
+https://opendata.dc.gov/datasets/homeless-shelter-locations/api
+
+https://wiki.openstreetmap.org/wiki/OSMPythonTools 
+https://www.weather.gov/documentation/services-web-api
+https://developer.twitter.com/en/docs/twitter-api
 
 * at least three models
 
-School/community college/GED program
-Location(county) and demographics
-Vocations or subjects
+Cities
+Shelters/Emergency Relief
+Volunteer Opportunities
+
 
 * an estimate of the number of instances of each model
 
-500
-125
-50
+~45
+~200
+~250
 
 * each model must have many attributes. describe five of those attributes for each model that you can filter or sort
 
-School:
-1. Size/enrollment
-2. No of programs/degrees
-3. Cost after financial aid
-4. Scholarships
-5. Minimum grades/sat/requirements/acceptance rate
+Cities:
+1. Population
+2. Number of homeless
+3. Number of shelters
+4. Unsheltered population
+5. Number of disasters
 
-Location:
-1. State
-2. Average income
-3. No of high school diploma holders
-4. Age demographics
-5. Unemployment rate
-6. Cost of living
+Shelters/Emergency Relief:
+1. City
+2. Type
+3. Number of beds
+4. On-site medical clinic?
+5. Ages served
 
-Vocations:
-1. Average income after graduation
-2. Average time to graduate
-3. Number of jobs in US for this position
-4. Graduate debt
-5. Student loan repayment
+Volunteer Opportunities:
+1. Organization
+2. Category of help
+3. City
+4. User contact
+5. Opportunity form
 
 
 * describe two types of media for instances of each model
 
-School:
-1. Images/videos of school
-2. Twitter feed from schools official account
+Cities:
+1. Map
+2. Weather image (dynamic)
 
-Location:
-1. Heatmaps for income
-2. Maps pinpointing location
+Shelters/Emergency Relief:
+1. Pinpoint on map
+2. Image
 
-Vocations:
-1. Videos about vocation
-2. Image about vocation
+Volunteer Opportunities:
+1. 
+2. 
 
 * describe three questions that your site will answer
 
-1. What are some opportunities for me if I don't have a high school diploma
-2. What are some opportunities for affordable education in my city
-3. What are some local schools near me that teach my preferred vocation
+1. How can I help the underserved populations of Harris County in the event of a natural disaster?
+2. What organizations can I donate my time/money to in Harris County?
+3. Where can I find shelters or relief sites in Harris County?
