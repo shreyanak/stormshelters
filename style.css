@@ -7,3 +7,7 @@
 .btn {
     margin-top: 15px;
 }
+
+.navbar a {
+    float: left
+}
