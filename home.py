@@ -22,6 +22,5 @@ def katy():
 def cypress():
     return render_template('cypress.html')
 
-
 if __name__ == '__main__':
     app.run()

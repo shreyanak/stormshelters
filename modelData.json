@@ -1,0 +1,75 @@
+{
+	"city": [
+		{
+			"name": "Houston",
+			"population": "2,302,878",
+			"size": "601.7",
+			"homeless": "3,200",
+			"disasters": "26"
+		},
+		{
+			"name": "Katy",
+			"population": "27,111",
+			"size": "14.6",
+			"homeless": "200",
+			"disasters": "26"
+		},
+		{
+			"name": "Cypress",
+			"population": "184,851",
+			"size": "53",
+			"homeless": "500",
+			"disasters": "26"
+		}
+	],
+    "shelter": [
+        {
+            "city": "Houston",
+            "name": "Women & Family Development Center",
+            "type": "Women's shelter",
+            "beds": "200",
+            "ages": "All"
+        },
+        {
+            "city": "Houston",
+            "name": "Salvation Army",
+            "type": "Emergency",
+            "beds": "450",
+            "ages": "All"
+        },
+        {
+            "city": "Houston",
+            "name": "Cornerstone Community",
+            "type": "Men's shelter",
+            "beds": "200",
+            "ages": "18+"
+        }
+    ],
+    "volunteer": [
+        {
+            "name": "Star of Hope",
+            "category": "Homeless",
+            "city": "Houston",
+            "contact": "https://www.sohmission.org",
+            "form": "https://sohmission.galaxydigital.com/need/"
+        },
+        {
+            "name": "Salvation Army",
+            "category": "Homeless",
+            "city": "Houston",
+            "contact": "https://salvationarmyhouston.org/",
+            "form": "https://salvationarmyhouston.org/houston/volunteer#form"
+        },
+        {
+            "name": "SEARCH Homeless",
+            "category": "Homeless",
+            "city": "Houston",
+            "contact": "https://www.searchhomeless.org/",
+            "form": "https://www.searchhomeless.org/get-involved/volunteer/"
+        }
+
+    ]
+}
+			
+
+			
