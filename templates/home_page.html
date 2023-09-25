@@ -6,20 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="/style.css">
+    <!-- <link rel="stylesheet" href='/style.css'> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     
     <title>Harris County Emergency Resources</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    body, html {
+        height: 100%;
+        margin: 0;
+    }
+
+    .bg {
+        /* The image used */
+        background-image: url("/static/houston.jpg");
+
+        /* Full height */
+        height: 100%; 
+
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    </style>
+    
   </head>
   <body>
+    <div class="bg"></div>
     <h1 class="text-center">Harris County Emergency Resources</h1>
+    
+    <div class="navbar">
+        <a class=active href="#">Home</a>
+        <a href="#">About</a>
+        <a href="{{url_for('cities')}}">Cities</a>
+        <a href="#emergency">Shelters & Emergency Relief</a>
+        <a href="#volunteer">Volunteering</a>
+   
+    
+    
   </body>
 
-  <div class="navbar">
-    <a class=active href="#">Home</a>
-    <a href="#">About</a>
-    <a href="{{url_for('cities')}}">Cities</a>
-    <a href="#emergency">Shelters & Emergency Relief</a>
-    <a href="#volunteer">Volunteering</a>
+  
+
 
 </html>
