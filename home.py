@@ -6,6 +6,10 @@ app = Flask(__name__)
 def home():
     return render_template('home_page.html')
 
+@app.route('/home')
+def home_page():
+    return render_template('home_page.html')
+
 @app.route('/cities')
 def cities():
     return render_template('city-model.html')

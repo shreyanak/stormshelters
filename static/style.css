@@ -8,26 +8,4 @@
     margin-top: 15px;
 }
 
-.navbar a {
-    float: left
-}
 
-<<<<<<< HEAD:style.css
-.my-left {
-    padding-left: 20px;
-}
-
-.bg {
-    /* The image used */
-    background-image: url("splash_page.jpeg");
-
-    /* Full height */
-    height: 100%; 
-
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    }
-=======
->>>>>>> 12c036231e3a7e5434b3819c214e17efd87142cf:static/style.css
