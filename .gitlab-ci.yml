@@ -23,6 +23,7 @@ myJob:
     - python -V
     - echo "hello world"
     - pip3 install Flask
+    - python home.py
     # - pip install -r requirements.txt
   artifacts:
     untracked: true
