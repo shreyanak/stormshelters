@@ -21,14 +21,14 @@
     <h1 class="text-center">Severe Storms, Tornadoes, and Flooding</h1>
     <!-- data.shelter not correct?-->
     <script>
-        fetch('../storms_data.json')
+        fetch('../static/modelData.json')
           .then(response => response.json())
           .then(data => {
-              var storm_1 = data.storm.find(name => storm.name === 'Severe Storms, Tornadoes and Flooding');
-              document.getElementById("startDate").textContent = "Began: " + storm1_data.startDate;
-              document.getElementById("endDate").textContent = "Ended: " + storm1_data.endDate;
-              document.getElementById("type").textContent = "Type: " + storm1_data.type;
-              document.getElementById("totalAid").textContent = "Total FEMA Aid: " + storm1_data.totalAid;
+              var storm_data = data.storm.find(storm => storm.name === 'Severe Storms, Tornadoes and Flooding');
+              document.getElementById("startDate").textContent = "Began: " + storm_data.startDate;
+              document.getElementById("endDate").textContent = "Ended: " + storm_data.endDate;
+              document.getElementById("type").textContent = "Type: " + storm_data.type;
+              document.getElementById("totalAid").textContent = "Total FEMA Aid: " + storm_data.totalAid;
   
           })
   

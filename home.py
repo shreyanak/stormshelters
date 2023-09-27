@@ -44,6 +44,22 @@ def shelter2():
 def shelter3():
     return render_template('shelter3.html')
 
+# storm model
+@app.route('/storms')
+def storms():
+    return render_template('storm-model.html')
+
+@app.route('/storm1')
+def storm1():
+    return render_template('storm1.html')
+
+@app.route('/storm2')
+def storm2():
+    return render_template('storm2.html')
+
+@app.route('/storm3')
+def storm3():
+    return render_template('storm3.html')
 
 if __name__ == '__main__':
     app.run()
