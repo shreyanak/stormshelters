@@ -1,0 +1,37 @@
+# stages:       
+#   - build
+#   - test
+#   - deploy
+
+# build-job:       
+#   stage: build
+#   script:
+#     - pip install flask
+#     - python home.py
+
+
+stages:
+  - build
+  - test
+
+myJob:
+  stage: build
+  image: python:3.6
+  script:
+    - apt-get update -q -y
+    - apt-get install -y python3-pip
+    - python -V
+    - echo "hello world"
+    - pip install Flask
+    # - pip install -r requirements.txt
+  artifacts:
+    untracked: true
+
+myJob2:
+  stage: test
+  image: python:3.6
+  script:
+    - python home.py
+  artifacts:
+    paths:
+      - /
