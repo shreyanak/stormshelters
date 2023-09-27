@@ -25,8 +25,10 @@
         .then(data => {
             var katy_data = data.city.find(city => city.name === 'Katy');
             document.getElementById("population").textContent = "Population: " + katy_data.population;
+            document.getElementById("size").textContent = "Size: " + katy_data.size;
             document.getElementById("homeless").textContent = "Homeless Population: " + katy_data.homeless;
             document.getElementById("disasters").textContent = "Disasters: " + katy_data.disasters;
+            document.getElementById("shelters").textContent = "Number of Homeless Shelters: " + katy_data.shelters
             document.getElementById("about").textContent = katy_data.about;
 
         })
@@ -73,13 +75,14 @@
   <div class="instanceText" style="padding-left: 20px" id="instanceInformationList">
     <h3 class="text-left">About</h3>
     <p id="population">Population: </p>
+    <p id="size">Size: </p>
     <p id="homeless">Homeless Population: </p>
     <p id="disasters">Number of Disasters: </p>
+    <p id="shelters">Number of Homeless Shelters: </p>
     <p id="about"></p>
   </div>
   <div id="mapEmbed" style="justify-content: center; display: flex">
-
-      <iframe width="425" height="350" src="https://www.openstreetmap.org/export/embed.html?bbox=-x%2C26.058016587844723%2C-97.85728454589845%2C26.55352217163895&amp;layer=mapnik" style="border: 1px solid black"></iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d55399.76302740111!2d-95.89897096560028!3d29.792524201136327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640dff9ae358adf%3A0x17966e0d7c2b1125!2sKaty%2C%20TX!5e0!3m2!1sen!2sus!4v1695785527939!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
 </body>
 </html>
