@@ -23,7 +23,10 @@ myJob:
     - python -V
     - echo "hello world"
     - pip3 install Flask
-    - python home.py
+    - apt-get -qq install -y python python-virtualenv python-pip
+    - virtualenv venv
+    - . venv/bin/activate
+    - python home.py &
     # - pip install -r requirements.txt
   artifacts:
     untracked: true
