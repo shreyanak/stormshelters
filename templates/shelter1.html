@@ -29,7 +29,7 @@
               document.getElementById("type").textContent = "Type: " + shelter_data.type;
               document.getElementById("beds").textContent = "Beds: " + shelter_data.beds;
               document.getElementById("ages").textContent = "Ages: " + shelter_data.ages;
-  
+              document.getElementById("clinic").textContent = "On-site medical clinic? " + shelter_data.clinic;
           })
   
           .catch(error => console.error('Error:', error));
@@ -76,6 +76,7 @@
     <p id="type">Type: </p>
     <p id="beds">Beds: </p>
     <p id="ages">Ages: </p>
+    <p id="clinic">On-site Medical Clinic? </p>
   </div>
   <div id="mapEmbed" style="justify-content: center; display: flex">
 

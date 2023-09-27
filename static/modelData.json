@@ -24,25 +24,28 @@
 	],
     "shelter": [
         {
-            "city": "Houston",
             "name": "Women & Family Development Center",
+			"city": "Houston",
             "type": "Women's shelter",
             "beds": "200",
-            "ages": "All"
+            "ages": "All",
+			"clinic": "No"
         },
         {
-            "city": "Houston",
             "name": "The Salvation Army Greater Houston Area Command",
+			"city": "Houston",
             "type": "Emergency",
             "beds": "450",
-            "ages": "All"
+            "ages": "All",
+			"clinic": "No"
         },
         {
-            "city": "Houston",
             "name": "Cornerstone Community",
+			"city": "Houston",
             "type": "Men's shelter",
             "beds": "200",
-            "ages": "18+"
+            "ages": "18+",
+			"clinic": "Yes"
         }
     ],
     "storm":[
