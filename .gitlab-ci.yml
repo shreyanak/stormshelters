@@ -6,6 +6,5 @@ stages:
 build-job:       
   stage: build
   script:
-    - echo "Building code..."
-    - echo "Build complete."
-
+    - pip install flask
+    - python home.py
