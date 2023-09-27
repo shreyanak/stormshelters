@@ -19,7 +19,7 @@ myJob:
   image: python:3.6
   script:
     - apt-get update -q -y
-    - apt-get install -y python-pip
+    - apt-get install -y python3-pip
     - python -V
     - echo "hello world"
     - pip install flask
