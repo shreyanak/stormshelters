@@ -21,14 +21,14 @@
     <h1 class="text-center">Severe Storms, Tornadoes, and Flooding</h1>
     <!-- data.shelter not correct?-->
     <script>
-        fetch('../storms_data.json')
+        fetch('../static/storms_data.json')
           .then(response => response.json())
           .then(data => {
-              var storm_1 = data.storm.find(name => storm.name === 'Severe Storms, Tornadoes and Flooding');
-              document.getElementById("startDate").textContent = "Began: " + storm1_data.startDate;
-              document.getElementById("endDate").textContent = "Ended: " + storm1_data.endDate;
-              document.getElementById("type").textContent = "Type: " + storm1_data.type;
-              document.getElementById("totalAid").textContent = "Total FEMA Aid: " + storm1_data.totalAid;
+              var storm_1 = data.storm.find(storm => storm.name === 'Severe Storms');
+              document.getElementById("startDate").textContent = "Began: " + storm_1.startDate;
+              document.getElementById("endDate").textContent = "Ended: " + storm_1.endDate;
+              document.getElementById("type").textContent = "Type: " + storm_1.type;
+              document.getElementById("totalAid").textContent = "Total FEMA Aid: " + storm_1.totalAid;
   
           })
   
@@ -43,8 +43,6 @@
           <div class="carousel-item active">
             <img class="d-block w-100" src="/static/img/storm1_1.jpg" alt="First slide"      width=800px height="450px">
             <div class="carousel-caption d-none d-md-block">
-                <h5>This is the first image.</h5>
-                <p>Copy and paste.</p>
             </div>
           </div>
         </div>
@@ -53,7 +51,7 @@
   </div>
 
   <div class="instanceText" style="padding-left: 20px" id="instanceInformationList">
-    <h3 class="text-left">Began: </h3>
+    <h3 class="text-left">About: </h3>
     <p id="startDate">Ended: </p>
     <p id="endDate">Type: </p>
     <p id="type">Type: </p>

@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+import requests
 
 app = Flask(__name__)
 
@@ -46,7 +47,24 @@ def shelter3():
 
 @app.route('/about')
 def about():
+    gitlab_api_url = 'https://gitlab.com/api/v4/'
     return render_template('about.html')
+
+@app.route('/disasters')
+def disasters():
+    return render_template('storm-model.html')
+
+@app.route('/storm1')
+def storm1():
+    return render_template('storm1.html')
+
+@app.route('/storm2')
+def storm2():
+    return render_template('storm2.html')
+
+@app.route('/storm3')
+def storm3():
+    return render_template('storm3.html')
 
 if __name__ == '__main__':
     app.run()

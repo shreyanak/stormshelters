@@ -21,20 +21,35 @@
     <h1 class="text-center">Hurricane Ivan</h1>
     <!-- data.shelter not correct?-->
     <script>
-        fetch('../storms_data.json')
+        fetch('../static/storms_data.json')
           .then(response => response.json())
           .then(data => {
-              var storm_2 = data.storm.find(name => storm.name === 'Hurricane Ivan');
-              document.getElementById("startDate").textContent = "Began: " + storm2_data.startDate;
-              document.getElementById("endDate").textContent = "Ended: " + storm2_data.endDate;
-              document.getElementById("type").textContent = "Type: " + storm2_data.type;
-              document.getElementById("totalAid").textContent = "Total FEMA Aid: " + storm2_data.totalAid;
+              var storm_2 = data.storm.find(storm => storm.name === 'Hurricane Ivan');
+              document.getElementById("startDate").textContent = "Began: " + storm_2.startDate;
+              document.getElementById("endDate").textContent = "Ended: " + storm_2.endDate;
+              document.getElementById("type").textContent = "Type: " + storm_2.type;
+              document.getElementById("totalAid").textContent = "Total FEMA Aid: " + storm_2.totalAid;
   
           })
   
           .catch(error => console.error('Error:', error));
       </script>
 
+<div class="container" style="display: flex; justify-content: center">
+  <!--Bootstrap carousel test, from Bootstrap documentation-->
+  
+  <div style="width: 800px; height: 450px" id="carouselExampleControls" class="carousel slide active" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img class="d-block w-100" src="/static/img/storm2_1.jpg" alt="First slide"      width=800px height="450px">
+          <div class="carousel-caption d-none d-md-block">
+          </div>
+        </div>
+      </div>
+    </div>
+  
+</div>
+<!-- 
 <div style="width: 800px; height: 450px" id="carouselExampleControls" class="carousel slide active" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item">
@@ -42,8 +57,8 @@
       <div class="carousel-caption d-none d-md-block">
       </div>
       
-    </div>
-    <div class="carousel-item">
+    </div> -->
+    <!-- <div class="carousel-item">
       <img class="d-block w-100" src="/static/img/storm2_2.jpg" alt="Second slide" width=800px height="450px">
 
     </div>
@@ -61,14 +76,16 @@
   </a>
   <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
+    <span class="sr-only">Next</span> -->
+
+
+  <!-- </a>
 </div>
 
-</div>
+</div> -->
 
   <div class="instanceText" style="padding-left: 20px" id="instanceInformationList">
-    <h3 class="text-left">Began: </h3>
+    <h3 class="text-left">About </h3>
     <p id="startDate">Ended: </p>
     <p id="endDate">Type: </p>
     <p id="type">Type: </p>
