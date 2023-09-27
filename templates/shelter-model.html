@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <title>Shelter & Emergency Relief Model</title>
+  </head>
+  <body>
+    {% include 'navbar.html' %}
+    <h1 class="text-center">Shelter & Emergency Relief Model</h1>
+
+  <div class="container">
+    <div class="row">
+
+      <div class="col-sm-4 card">
+        <img class="card-img-top" src="/static/img/shelter1.jpeg" alt="Women & Family Development Center">
+        <div class="card-body">
+        <h4 class="card-title">Women & Family Development Center</h4>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Fact 1</li>
+          <li class="list-group-item">Fact 2</li>
+          <li class="list-group-item">Fact 3</li>
+          <li class="list-group-item">Fact 4</li>
+          <li class="list-group-item">Fact 5</li>
+        </ul>
+        <a href="{{url_for('shelter1')}}" class="btn btn-primary">Learn more</a>
+      </div>
+      </div>
+
+      <div class="col-sm-4 card">
+        <img class="card-img-top" src="/static/img/shelter2.jpg" alt="The Salvation Army Greater Houston Area Command">
+        <div class="card-body">
+        <h4 class="card-title">The Salvation Army Greater Houston Area Command</h4>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Fact 1</li>
+          <li class="list-group-item">Fact 2</li>
+          <li class="list-group-item">Fact 3</li>
+          <li class="list-group-item">Fact 4</li>
+          <li class="list-group-item">Fact 5</li>
+        </ul>
+        <a href="{{url_for('shelter2')}}" class="btn btn-primary">Learn more</a>
+      </div>
+      </div>
+
+      <div class="col-sm-4 card">
+        <img class="card-img-top" src="/static/img/shelter3.jpeg" alt="Cypress">
+        <div class="card-body">
+        <h4 class="card-title">Cornerstone Community</h4>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Fact 1</li>
+          <li class="list-group-item">Fact 2</li>
+          <li class="list-group-item">Fact 3</li>
+          <li class="list-group-item">Fact 4</li>
+          <li class="list-group-item">Fact 5</li>
+        </ul>
+        <a href="{{url_for('shelter3')}}" class="btn btn-primary">Learn more</a>
+      </div>
+      </div>
+
+    </div>
+  </div>
+
+  </body>
+
+</html>
