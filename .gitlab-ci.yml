@@ -18,14 +18,14 @@ myJob:
   stage: build
   image: python:3.6
   script:
+    - apt-get -qq install -y python python-virtualenv
+    - virtualenv venv
+    - . venv/bin/activate
     - apt-get update -q -y
     - apt-get install -y python3-pip
     - python -V
     - echo "hello world"
     - pip3 install Flask
-    - apt-get -qq install -y python python-virtualenv python-pip
-    - virtualenv venv
-    - . venv/bin/activate
     - python home.py &
     # - pip install -r requirements.txt
   artifacts:
