@@ -45,29 +45,29 @@
             "ages": "18+"
         }
     ],
-    "volunteer": [
+    "storm":[
         {
-            "name": "Star of Hope",
-            "category": "Homeless",
-            "city": "Houston",
-            "contact": "https://www.sohmission.org",
-            "form": "https://sohmission.galaxydigital.com/need/"
+            "name": "Severe Storms, Tornadoes and Flooding",
+			"startDate": "10/24/2002",
+			"endDate": "11/15/2002",
+			"type": "Severe storms",
+			"totalAid": "115969311.2"
+            
         },
         {
-            "name": "Salvation Army",
-            "category": "Homeless",
-            "city": "Houston",
-            "contact": "https://salvationarmyhouston.org/",
-            "form": "https://salvationarmyhouston.org/houston/volunteer#form"
-        },
-        {
-            "name": "SEARCH Homeless",
-            "category": "Homeless",
-            "city": "Houston",
-            "contact": "https://www.searchhomeless.org/",
-            "form": "https://www.searchhomeless.org/get-involved/volunteer/"
-        }
-
+			"name": "Hurricane Ivan",
+			"startDate": "09/14/2004",
+			"endDate": "10/30/2004",
+			"type": "Hurricane",
+			"totalAid": "26747466.42"
+		},
+		{
+			"name": "Hurricane Rita",
+			"startDate": "09/23/2005",
+			"endDate": "10/14/2005",
+			"type": "Hurricane",
+			"totalAid": "1237011539.98"
+		}
     ]
 }
 			
