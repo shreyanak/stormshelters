@@ -36,6 +36,8 @@ myJob2:
   image: python:3.6
   script:
     - python home.py
+  dependencies:
+    - myJob
   artifacts:
     paths:
       - /
