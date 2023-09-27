@@ -12,7 +12,7 @@
 
 stages:
   - build
-  - test
+  # - test
 
 myJob:
   stage: build
@@ -31,13 +31,13 @@ myJob:
   artifacts:
     untracked: true
 
-myJob2:
-  stage: test
-  image: python:3.6
-  script:
-    - python home.py
-  dependencies:
-    - myJob
-  artifacts:
-    paths:
-      - /
+# myJob2:
+#   stage: test
+#   image: python:3.6
+#   script:
+#     - python home.py
+#   dependencies:
+#     - myJob
+#   artifacts:
+#     paths:
+#       - /
