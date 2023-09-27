@@ -18,10 +18,10 @@ myJob:
   stage: build
   image: python:3.6
   script:
-    - apt-get install virtualenv
+    - apt-get update -q -y
+    - apt-get install python-virtualenv
     - virtualenv venv
     - . venv/bin/activate
-    - apt-get update -q -y
     - apt-get install -y python3-pip
     - python -V
     - echo "hello world"
