@@ -3,6 +3,7 @@
         {
             "name": "Houston",
             "population" : "2,302,878",
+			"size": "665",
             "homeless" : "3200",
             "disasters": "26",
 			"shelters": "28",

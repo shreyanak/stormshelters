@@ -17,7 +17,32 @@
   </head>
   
   <body>
-    {% include 'navbar.html' %}
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="index.html">StormShelters</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="city-model.html">Cities</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="shelter-model.html">Shelters & Emergency Relief</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="storm-model.html">Disasters</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
     <h1 class="text-center">Hurricane Ivan</h1>
     <!-- data.shelter not correct?-->
     <script>
@@ -42,7 +67,7 @@
   <div style="width: 800px; height: 450px" id="carouselExampleControls" class="carousel slide active" data-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img class="d-block w-100" src="/static/img/storm2_1.jpg" alt="First slide"      width=800px height="450px">
+          <img class="d-block w-100" src="./static/img/storm2_1.jpg" alt="First slide"      width=800px height="450px">
           <div class="carousel-caption d-none d-md-block">
           </div>
         </div>
@@ -68,7 +93,7 @@
   <h3 class="text-left">Related</h3>
   <div class="row">
     <div class="col-sm-4 card">
-      <img class="card-img-top" src="/static/img/katy.jpg" alt="Katy">
+      <img class="card-img-top" src="./static/img/katy.jpg" alt="Katy">
       <div class="card-body">
       <h4 class="card-title">Katy</h4>
       <ul class="list-group list-group-flush">
@@ -78,12 +103,12 @@
         <li class="list-group-item">Disasters: 26</li>
         <li class="list-group-item">Number of Homeless Shelters: 6</li>
       </ul>
-      <a href="{{url_for('katy')}}" class="btn btn-primary">Learn more</a>
+      <a href="katy.html" class="btn btn-primary">Learn more</a>
     </div>
     </div>
     
     <div class="col-sm-4 card">
-      <img class="card-img-top" src="/static/img/shelter1.jpeg" alt="Salvation Army">
+      <img class="card-img-top" src="./static/img/shelter1.jpeg" alt="Salvation Army">
       <div class="card-body">
       <h4 class="card-title">Women & Family Development Center</h4>
       <ul class="list-group list-group-flush">
@@ -93,7 +118,7 @@
         <li class="list-group-item">Ages: all</li>
         <li class="list-group-item">On-site medical clinic: no</li>
       </ul>
-      <a href="{{url_for('shelter1')}}" class="btn btn-primary">Learn more</a>
+      <a href="shelter2.html" class="btn btn-primary">Learn more</a>
     </div>
     </div>
   </div>
