@@ -17,11 +17,36 @@
   </head>
   
   <body>
-    {% include 'navbar.html' %}
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/index.html">StormShelters</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="city-model.html">Cities</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="shelter-model.html">Shelters & Emergency Relief</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="storm-model.html">Disasters</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
     <h1 class="text-center">The Salvation Army Greater Houston Area Command</h1>
     <!-- data.shelter correct?-->
     <script>
-        fetch('../static/modelData.json')
+        fetch('/static/modelData.json')
           .then(response => response.json())
           .then(data => {
               var shelter_data = data.shelter.find(shelter => shelter.name === 'The Salvation Army Greater Houston Area Command');
@@ -41,17 +66,17 @@
     <div style="width: 800px; height: 450px" id="carouselExampleControls" class="carousel slide active" data-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item">
-            <img class="d-block w-100" src="/static/img/shelter2.jpg" alt="First slide" width=800px height="450px">
+            <img class="d-block w-100" src="./static/img/shelter2.jpg" alt="First slide" width=800px height="450px">
             <div class="carousel-caption d-none d-md-block">
             </div>
             
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="/static/img/shelter2.jpg" alt="Second slide" width=800px height="450px">
+            <img class="d-block w-100" src="./static/img/shelter2.jpg" alt="Second slide" width=800px height="450px">
 
           </div>
           <div class="carousel-item active" style="border-radius: 50px;">
-            <img class="d-block w-100" src="/static/img/shelter2.jpg" alt="Third slide" width=800px height="450px">
+            <img class="d-block w-100" src="./static/img/shelter2.jpg" alt="Third slide" width=800px height="450px">
           </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -80,7 +105,7 @@
   <h3 class="text-left">Related</h3>
   <div class="row">
     <div class="col-sm-4 card">
-      <img class="card-img-top" src="/static/img/storm3_1.jpg" alt="Houston Hurricane Rita">
+      <img class="card-img-top" src="./static/img/storm3_1.jpg" alt="Houston Hurricane Rita">
       <div class="card-body">
       <h4 class="card-title">Hurricane Rita</h4>
       <ul class="list-group list-group-flush">
@@ -89,11 +114,11 @@
         <li class="list-group-item">Type: Hurricane</li>
         <li class="list-group-item">Total FEMA Aid: $1,237,011,539.98</li>
       </ul>
-      <a href="{{url_for('storm3')}}" class="btn btn-primary">Learn more</a>
+      <a href="storm3.html" class="btn btn-primary">Learn more</a>
     </div>
     </div>
     <div class="col-sm-4 card">
-      <img class="card-img-top" src="/static/img/houston.jpg" alt="Houston">
+      <img class="card-img-top" src="./static/img/houston.jpg" alt="Houston">
       <div class="card-body">
       <h4 class="card-title">Houston</h4>
       <ul class="list-group list-group-flush">
@@ -103,7 +128,7 @@
         <li class="list-group-item">Disasters: 26</li>
         <li class="list-group-item">Number of Homeless Shelters: 28</li>
       </ul>
-      <a href="{{url_for('houston')}}" class="btn btn-primary">Learn more</a>
+      <a href="houston.html" class="btn btn-primary">Learn more</a>
     </div>
     </div>
 

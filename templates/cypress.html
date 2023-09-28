@@ -16,13 +16,38 @@
     <title>Cypress</title>
   </head>
   <body>
-    {% include 'navbar.html' %}
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/index.html">StormShelters</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="city-model.html">Cities</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="shelter-model.html">Shelters & Emergency Relief</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="storm-model.html">Disasters</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
     <h1 class="text-center">Cypress</h1>
     <script>
-      fetch('../static/cities_data.json')
+      fetch('/static/cities_data.json')
         .then(response => response.json())
         .then(data => {
-            cypress_data = data.city.find(city => city.name === 'Cypress');
+            var cypress_data = data.city.find(city => city.name === 'Cypress');
             document.getElementById("population").textContent = "Population: " + cypress_data.population;
             document.getElementById("size").textContent = "Size: " + cypress_data.size;
             document.getElementById("homeless").textContent = "Homeless Population: " + cypress_data.homeless;
@@ -41,7 +66,7 @@
     <div style="width: 800px; height: 450px" id="carouselExampleControls" class="carousel slide active" data-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item">
-            <img class="d-block w-100" src="/static/img/cypress.jpg" alt="First slide"      width=800px height="450px">
+            <img class="d-block w-100" src="./static/img/cypress.jpg" alt="First slide"      width=800px height="450px">
             <div class="carousel-caption d-none d-md-block">
                 <h5>This is the first image.</h5>
                 <p>Copy and paste.</p>
@@ -49,12 +74,12 @@
             
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="/static/img/cypress.jpg" alt="Second slide" width=800px height="450px">
+            <img class="d-block w-100" src="./static/img/cypress.jpg" alt="Second slide" width=800px height="450px">
 
           </div>
           <div class="carousel-item active" style="border-radius: 50px;">
             <img class="d-block w-100" 
-                src="/static/img/cypress.jpg" 
+                src="./static/img/cypress.jpg" 
                 alt="Third slide"
                 width=800px
                 height="450px">
@@ -88,7 +113,7 @@
   <div class="row">
 
     <div class="col-sm-4 card">
-      <img class="card-img-top" src="/static/img/storm1_1.jpg" alt="Houston October 2002 Rainstorms">
+      <img class="card-img-top" src="./static/img/storm1_1.jpg" alt="Houston October 2002 Rainstorms">
       <div class="card-body">
       <h4 class="card-title">Severe Storms</h4>
       <ul class="list-group list-group-flush">
@@ -97,12 +122,12 @@
         <li class="list-group-item">Type: Severe Storm</li>
         <li class="list-group-item">Total Fema Aid: $115,969,311.20</li>
       </ul>
-      <a href="{{url_for('storm1')}}" class="btn btn-primary">Learn more</a>
+      <a href="storm1.html" class="btn btn-primary">Learn more</a>
     </div>
     </div>
 
     <div class="col-sm-4 card">
-      <img class="card-img-top" src="/static/img/shelter2.jpg" alt="The Salvation Army Greater Houston Area Command">
+      <img class="card-img-top" src="./static/img/shelter2.jpg" alt="The Salvation Army Greater Houston Area Command">
       <div class="card-body">
       <h4 class="card-title">The Salvation Army Greater Houston Area Command</h4>
       <ul class="list-group list-group-flush">
@@ -112,7 +137,7 @@
         <li class="list-group-item">Ages: All</li>
         <li class="list-group-item">On-site Medical Clinic? No</li>
       </ul>
-      <a href="{{url_for('shelter2')}}" class="btn btn-primary">Learn more</a>
+      <a href="shelter2.html" class="btn btn-primary">Learn more</a>
     </div>
     </div>
   </div>

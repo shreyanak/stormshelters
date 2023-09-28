@@ -26,7 +26,32 @@
     <title>City Model</title>
 </head>
 <body>
-    {% include 'navbar.html' %}
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/index.html">StormShelters</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="city-model.html">Cities</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="shelter-model.html">Shelters & Emergency Relief</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="storm-model.html">Disasters</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
     <h1 class="text-center">City Model</h1>
     <p>Total Instances: 3</p>
 
@@ -34,7 +59,7 @@
         <div class="row">
             <div class="col-sm-4">
                 <div class="card">
-                    <img class="card-img-top" src="/static/img/houston.jpg" alt="Houston">
+                    <img class="card-img-top" src="./static/img/houston.jpg" alt="Houston">
                     <div class="card-body">
                         <h4 class="card-title">Houston</h4>
                         <ul class="list-group list-group-flush">
@@ -44,14 +69,14 @@
                             <li class="list-group-item">Disasters: 26</li>
                             <li class="list-group-item">Number of Homeless Shelters: 28</li>
                         </ul>
-                        <a href="{{url_for('houston')}}" class="btn btn-primary">Learn more</a>
+                        <a href="houston.html" class="btn btn-primary">Learn more</a>
                     </div>
                 </div>
             </div>
 
             <div class="col-sm-4">
                 <div class="card">
-                    <img class="card-img-top" src="/static/img/katy.jpg" alt="Katy">
+                    <img class="card-img-top" src="./static/img/katy.jpg" alt="Katy">
                     <div class="card-body">
                         <h4 class="card-title">Katy</h4>
                         <ul class="list-group list-group-flush">
@@ -61,14 +86,14 @@
                             <li class="list-group-item">Disasters: 26</li>
                             <li class="list-group-item">Number of Homeless Shelters: 6</li>
                         </ul>
-                        <a href="{{url_for('katy')}}" class="btn btn-primary">Learn more</a>
+                        <a href="katy.html" class="btn btn-primary">Learn more</a>
                     </div>
                 </div>
             </div>
 
             <div class="col-sm-4">
                 <div class="card">
-                    <img class="card-img-top" src="/static/img/cypress.jpg" alt="Cypress">
+                    <img class="card-img-top" src="./static/img/cypress.jpg" alt="Cypress">
                     <div class="card-body">
                         <h4 class="card-title">Cypress</h4>
                         <ul class="list-group list-group-flush">
@@ -78,7 +103,7 @@
                             <li class="list-group-item">Disasters: 26</li>
                             <li class="list-group-item">Number of Homeless Shelters: 28</li>
                         </ul>
-                        <a href="{{url_for('cypress')}}" class="btn btn-primary">Learn more</a>
+                        <a href="cypress.html" class="btn btn-primary">Learn more</a>
                     </div>
                 </div>
             </div>
