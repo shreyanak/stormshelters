@@ -1,10 +1,14 @@
- frontend:
-    phases:
-        build:
-            commands: []
-    artifacts:
-        baseDirectory: /templates
-        files:
-            - '**/*'
-    cache:
-        paths: []
+ stages:
+    #  - frontend
+ 
+ script:
+     frontend:
+        phases:
+            build:
+                commands: []
+        artifacts:
+            baseDirectory: /templates
+            files:
+                - '**/*'
+        cache:
+            paths: []
