@@ -1,15 +1,17 @@
 # StormShelters
 ## Team Members
-| Team member  | Username | 
-| ------------- | ------------- |
-| Shreya Nakka  | @shreya.n  |  
+| Team member  | Username | EID |
+| ------------- | ------------- | --------- |
+| Shreya Nakka  | @shreya.n  |  sn26659
 | Rohit Chawla  | @rohitc28  |
-| Aaron Kulkarni| @aaronk2711 |
-| John Smith    | @johnrsmith2003 |
+| Aaron Kulkarni| @aaronk2711 | ak46822
+| John Smith    | @johnrsmith2003 | jrs8898
 | Adriana Reyes | @areye2020  |
 
 
 # Website Link
+
+https://www.stormshelters.me/
 
 
 # Git SHA
@@ -30,6 +32,6 @@
 | ----------|-------------------| --------------|
 |Shreya Nakka |10 | 15|
 |Rohit Chawla |8-10| 8-10|
-|Aaron Kulkarni| | |
+|Aaron Kulkarni|5 | 15|
 |John Smith    |10-12 | 15|
 |Adriana Reyes | | |
