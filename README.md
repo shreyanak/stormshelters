@@ -1,100 +1,17 @@
-## Canvas / Ed Discussion group number (please check this carefully)
+# StormShelters
+## Team Members
+| Team member  | Username | 
+| ------------- | ------------- |
+| Shreya Nakka  | @shreya.n  |  
+| Rohit Chawla  | @rohitc28  |
+| Aaron Kulkarni| @aaronk711 |
+| John Smith    | @johnrsmith2003 |
+| Adriana Reyes | @areye2020  |
 
-Group 5
+Link: stormshelters.me
 
-## Names of the team members:
+Git SHA: fd8493e0450fbe1b81cc2ccb8960571331b75b70
 
-- Rohit Chawla
+Estimated Completion: 10-12hr
 
-- Aaron Kulkarni
-
-- John Smith
-
-- Shreya Nakka
-
-- Adriana Reyes
-
-## Name of the project (alphanumeric, no spaces, max 32 chars; this will also be your URL)
-
-**StormShelters**
-
-
-## The proposed project
-
-We are focusing on the homeless population in Harris County. The area is extremely prone to natural disasters, weakening their infrastructure over time. Our site allows people in need of help, to be connected with people who want to help.
-
-## URLs of at least three data sources that you will programmatically scrape using a RESTful API (be very sure about this)
-
-- [Census] https://census.gov
-
-- [GeoHub] https://geohub.houstontx.gov/
-
-- [VolunteerHub] https://www.volunteerhub.com/
-
-- [OpenData] https://opendata.dc.gov/datasets/homeless-shelter-locations/api
-
-- [OpenStreetMap] https://wiki.openstreetmap.org/wiki/OSMPythonTools 
-
-- [Weather.gov] https://www.weather.gov/documentation/services-web-api
-
-## At least three models
-
-1. Cities
-
-2. Shelters/Emergency Relief
-
-3. Volunteer Opportunities
-
-
-## an estimate of the number of instances of each model
-
-- ~45 Cities
-
-- ~200 Shelters
-
-- ~250 Volunteer
-
-## Each model must have many attributes. Describe five of those attributes for each model that you can filter or sort
-
-### Cities:
-1. Population
-2. Number of homeless
-3. Number of shelters
-4. Unsheltered population
-5. Number of disasters
-
-### Shelters/Emergency Relief:
-1. City
-2. Type
-3. Number of beds
-4. On-site medical clinic?
-5. Ages served
-
-### Volunteer Opportunities:
-1. Organization
-2. Category of help
-3. City
-4. User contact
-5. Opportunity form
-
-
-## Describe two types of media for instances of each model
-
-### Cities:
-1. Map
-2. Weather image (dynamic)
-
-### Shelters/Emergency Relief:
-1. Pinpoint on map
-2. Image
-
-### Volunteer Opportunities:
-1. Video/Image
-2. Website imbed
-3. Pinpoint on map
-
-## Describe three questions that your site will answer
-
-1. How can I help the underserved populations of Harris County in the event of a natural disaster?
-2. What organizations can I donate my time/money to in Harris County?
-3. Where can I find shelters or relief sites in Harris County?
+Actual Completion: 15hr

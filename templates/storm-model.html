@@ -15,17 +15,19 @@
   <body>
     {% include 'navbar.html' %}
     <h1 class="text-center">Disasters</h1>
-
+    <p>Total Instances: 3</p>
   <div class="container">
     <div class="row">
 
       <div class="col-sm-4 card">
         <img class="card-img-top" src="/static/img/storm1_1.jpg" alt="Houston October 2002 Rainstorms">
         <div class="card-body">
-        <h4 class="card-title">Severe Storms, Tornadoes and Flooding</h4>
+        <h4 class="card-title">Severe Storms</h4>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">October 2002</li>
-          <li class="list-group-item">$115,969,311.20 in aid</li>
+          <li class="list-group-item">Start Date: October 2002</li>
+          <li class="list-group-item">End Date: November 2002</li>
+          <li class="list-group-item">Type: Severe Storm</li>
+          <li class="list-group-item">Total Fema Aid: $115,969,311.20</li>
         </ul>
         <a href="{{url_for('storm1')}}" class="btn btn-primary">Learn more</a>
       </div>
@@ -36,8 +38,10 @@
         <div class="card-body">
         <h4 class="card-title">Hurricane Ivan</h4>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">October 2002</li>
-          <li class="list-group-item">$115,969,311.20 in aid</li>
+          <li class="list-group-item">Start Date: September 2004</li>
+          <li class="list-group-item">End Date: October 2004</li>
+          <li class="list-group-item">Type: Hurricane</li>
+          <li class="list-group-item">Total FEMA Aid: $115,969,311.20</li>
         </ul>
         <a href="{{url_for('storm2')}}" class="btn btn-primary">Learn more</a>
       </div>
@@ -48,8 +52,10 @@
         <div class="card-body">
         <h4 class="card-title">Hurricane Rita</h4>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">September 2007</li>
-          <li class="list-group-item">$1,237,011,539.98 in aid</li>
+          <li class="list-group-item">Start Date: September 2005</li>
+          <li class="list-group-item">End Date: October 2005</li>
+          <li class="list-group-item">Type: Hurricane</li>
+          <li class="list-group-item">Total FEMA Aid: $1,237,011,539.98</li>
         </ul>
         <a href="{{url_for('storm3')}}" class="btn btn-primary">Learn more</a>
       </div>
