@@ -1,6 +1,6 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -16,81 +16,105 @@
         body {
             text-align: center
         }
-        .container {
+        .team-members-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .team-member-card {
             width: 15%;
-            display: inline-block;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin: 20px;
             text-align: center;
-            border: 1px;
+        }
+        
+        .team-member-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
         }
 
-       
-        .container img {
-            max-width: 80%;
-            max-height: 150%;
+        .team-member-card img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
         }
 
         .text {
-            margin-top: 10px; 
+            margin-top: 10px;
+            font-weight: bold;
         }
     </style>
     <title>City Model</title>
-  </head>
-  <body>
+</head>
+<body>
     {% include 'navbar.html' %}
     <h1 class="text-center">StormShelters</h1>
 
-    <div class="'center-text">
+    <div class="center-text">
         <p>StormShelters is an application that can provide those in Harris County that have been affected by natural disasters with resources for help and shelter. 
-            <br>Data sources used: Yelp, FEMA, Wikipedia, Census. 
-            <br>Tools used: GitLab repository with CI/CD, Visual Studio Code, Python3 with Flask Library, JavaScript, HTML/CSS, Postman, Bootstrap
+            Data sources used: Yelp, FEMA, Wikipedia, Census. 
+            Tools used: GitLab repository with CI/CD, Visual Studio Code, Python3 with Flask Library, JavaScript, HTML/CSS, Postman, Bootstrap
             <br>
             <br>
-            <br>Through our research, we have found interesting correlations between data we didn't realize was so closely connected. 
-            <br>The most interesting realization was how shelters were concentrated near the areas where many storms take place.
+            Through our research, we have found interesting correlations between data we didn't realize was so closely connected. 
+            The most interesting realization was how shelters were concentrated near the areas where many storms take place.
         </p>
     </div>
-    <div class="container">
-        <img src="/static/img/aaron.jpg" alt="Image 1">
-        <div class="text"><span style="font-weight: bold;">Aaron Kulkarni</span></div>
-        <div class="text">I am a CS major currently in my third year from New Jersey. My favorite activities outside of the classroom are basketball, judo, and guitar.</div>
-        <div class="text" id="issues_aaronk2711">Number of issues: </div>
-        <div class="text" id="commits_aaronk2711"> Number of commits: </div>
-        <div class="text" id="unitTests_aaronk2711">Number of unit tests: </div>
-    </div>
-    <div class="container">
-        <img src="/static/img/shreya.PNG" alt="Image 1">
-        <div class="text"><span style="font-weight: bold;">Shreya Nakka</span></div>
-        <div class="text">I'm a Computer Science major in my Junior year. In my free time, I enjoy playing tennis, volleyball, and painting.</div>
-        <div class="text" id="issues_shreya.n">Number of issues: </div>
-        <div class="text" id="commits_shreya.n">Number of commits: </div>
-        <div class="text" id="unitTests_shreya.n">Number of unit tests: </div>
-    </div>
-    <div class="container">
-        <img src="/static/img/rohit.jpeg" alt="Image 1">
-        <div class="text"><span style="font-weight: bold;">Rohit Chawla</span></div>
-        <div class="text">I'm a Computer Science major in my Junior year. I have lived in Austin my entire life and I enjoy playing board games.</div>
-        <div class="text" id="issues_rohitc28">Number of issues: </div>
-        <div class="text" id="commits_rohitc28">Number of commits: </div>
-        <div class="text" id="unitTests_rohitc28">Number of unit tests: </div>
-    </div>
-    <div class="container">
-        <img src="/static/img/john.jpg" alt="Image 1">
-        <div class="text"><span style="font-weight: bold;">John Smith</span></div>
-        <div class="text">I am a junior computer science major from the Rio Grande Valley. In my free time, I enjoy camping and spending time with family.</div>
-        <div class="text" id="issues_johnrsmith2003">Number of issues: </div>
-        <div class="text" id="commits_johnrsmith2003">Number of commits: </div>
-        <div class="text" id="unitTests_johnrsmith2003">Number of unit tests: </div>
-    </div>
-    <div class="container">
-        <img src="/static/img/adriana.png" alt="Image 1">
-        <div class="text"><span style="font-weight: bold;">Adriana Reyes</span></div>
-        <div class="text">I'm a senior computer science major from Austin. Outside of CS I like to play guitar, skateboard, and draw.</div>
-        <div class="text" id="issues_areye2020">Number of issues: </div>
-        <div class="text" id="commits_areye2020">Number of commits: </div>
-        <div class="text" id="unitTests_areye2020">Number of unit tests: </div>
+    
+    <!-- Team Member Cards Container -->
+    <div class="team-members-container">
+        <div class="team-member-card">
+            <img src="/static/img/aaron.jpg" alt="Image 1">
+            <div class="text">Aaron Kulkarni</div>
+            <div class="text">I am a CS major currently in my third year from New Jersey. My favorite activities outside of the classroom are basketball, judo, and guitar.</div>
+            <div class="text" id="issues_aaronk2711">Number of issues: </div>
+            <div class="text" id="commits_aaronk2711"> Number of commits: </div>
+            <div class="text" id="unitTests_aaronk2711">Number of unit tests: </div>
+        </div>
+        
+        <div class="team-member-card">
+            <img src="/static/img/shreya.PNG" alt="Image 1">
+            <div class="text">Shreya Nakka</div>
+            <div class="text">I'm a Computer Science major in my Junior year. In my free time, I enjoy playing tennis, volleyball, and painting.</div>
+            <div class="text" id="issues_shreya.n">Number of issues: </div>
+            <div class="text" id="commits_shreya.n">Number of commits: </div>
+            <div class="text" id="unitTests_shreya.n">Number of unit tests: </div>
+        </div>
+        
+        <div class="team-member-card">
+            <img src="/static/img/rohit.jpeg" alt="Image 1">
+            <div class="text">Rohit Chawla</div>
+            <div class="text">I'm a Computer Science major in my Junior year. I have lived in Austin my entire life and I enjoy playing board games.</div>
+            <div class="text" id="issues_rohitc28">Number of issues: </div>
+            <div class="text" id="commits_rohitc28">Number of commits: </div>
+            <div class="text" id="unitTests_rohitc28">Number of unit tests: </div>
+        </div>
+        
+        <div class="team-member-card">
+            <img src="/static/img/john.jpg" alt="Image 1">
+            <div class="text">John Smith</div>
+            <div class="text">I am a junior computer science major from the Rio Grande Valley. In my free time, I enjoy camping and spending time with family.</div>
+            <div class="text" id="issues_johnrsmith2003">Number of issues: </div>
+            <div class="text" id="commits_johnrsmith2003">Number of commits: </div>
+            <div class="text" id="unitTests_johnrsmith2003">Number of unit tests: </div>
+        </div>
+        
+        <div class="team-member-card">
+            <img src="/static/img/adriana.png" alt="Image 1">
+            <div class="text">Adriana Reyes</div>
+            <div class="text">I'm a senior computer science major from Austin. Outside of CS I like to play guitar, skateboard, and draw.</div>
+            <div class="text" id="issues_areye2020">Number of issues: </div>
+            <div class="text" id="commits_areye2020">Number of commits: </div>
+            <div class="text" id="unitTests_areye2020">Number of unit tests: </div>
+        </div>
     </div>    
-    </div>
-
+    
+    <!-- JavaScript for fetching and updating contributor data -->
     <script>
         const projectId = '50438097';
 
@@ -149,12 +173,10 @@
         fetchAndUpdateContributorData();
     </script>
 
-    <div class="'center-text">
+    <div class="center-text">
         <br>
         <a href="https://documenter.getpostman.com/view/29974721/2s9YJZ3jac">API Documentation</a>
-  </div>
+    </div>
 
-  </body>
-
+</body>
 </html>
-
