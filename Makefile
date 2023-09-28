@@ -18,8 +18,6 @@ push:
 	git commit -m "default commit"
 	git push
 	git status
-all:
-	python3 home.py
 
 # output versions of all tools
 versions:
