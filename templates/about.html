@@ -38,31 +38,109 @@
   <body>
     {% include 'navbar.html' %}
     <h1 class="text-center">StormShelters</h1>
+
     <div class="'center-text">
         <p>StormShelters is an application that can provide those in Harris County that have been affected by natural disasters with resources for help and shelter.</p>
     </div>
     <div class="container">
         <img src="/static/img/aaron.jpg" alt="Image 1">
+        <div class="text"><span style="font-weight: bold;">Aaron Kulkarni</span></div>
         <div class="text">I am a CS major currently in my third year from New Jersey. My favorite activities outside of the classroom are basketball, judo, and guitar.</div>
+        <div class="text" id="issues_aaronk2711">Number of issues: </div>
+        <div class="text" id="commits_aaronk2711"> Number of commits: </div>
+        <div class="text" id="unitTests_aaronk2711">Number of unit tests: </div>
     </div>
     <div class="container">
         <img src="/static/img/shreya.PNG" alt="Image 1">
+        <div class="text"><span style="font-weight: bold;">Shreya Nakka</span></div>
         <div class="text">I'm a Computer Science major in my Junior year. In my free time, I enjoy playing tennis, volleyball, and painting.</div>
+        <div class="text" id="issues_shreya.n">Number of issues: </div>
+        <div class="text" id="commits_shreya.n">Number of commits: </div>
+        <div class="text" id="unitTests_shreya.n">Number of unit tests: </div>
     </div>
     <div class="container">
         <img src="/static/img/rohit.jpeg" alt="Image 1">
+        <div class="text"><span style="font-weight: bold;">Rohit Chawla</span></div>
         <div class="text">I'm a Computer Science major in my Junior year. I have lived in Austin my entire life and I enjoy playing board games.</div>
+        <div class="text" id="issues_rohitc28">Number of issues: </div>
+        <div class="text" id="commits_rohitc28">Number of commits: </div>
+        <div class="text" id="unitTests_rohitc28">Number of unit tests: </div>
     </div>
     <div class="container">
         <img src="/static/img/john.jpg" alt="Image 1">
+        <div class="text"><span style="font-weight: bold;">John Smith</span></div>
         <div class="text">I am a junior computer science major from the Rio Grande Valley. In my free time, I enjoy camping and spending time with family.</div>
+        <div class="text" id="issues_johnrsmith2003">Number of issues: </div>
+        <div class="text" id="commits_johnrsmith2003">Number of commits: </div>
+        <div class="text" id="unitTests_johnrsmith2003">Number of unit tests: </div>
     </div>
     <div class="container">
         <img src="/static/img/adriana.png" alt="Image 1">
+        <div class="text"><span style="font-weight: bold;">Adriana Reyes</span></div>
         <div class="text">I'm a senior computer science major from Austin. Outside of CS I like to play guitar, skateboard, and draw.</div>
+        <div class="text" id="issues_areye2020">Number of issues: </div>
+        <div class="text" id="commits_areye2020">Number of commits: </div>
+        <div class="text" id="unitTests_areye2020">Number of unit tests: </div>
+    </div>    
     </div>
-        
-      </div>
+
+    <script>
+        const projectId = '50438097';
+
+        contributor_data = ["aaronk2711", "shreya.n", "rohitc28", "johnrsmith2003", "areye2020"]
+        commit_names = ["Aaron Kulkarni", "Shreya Nakka", "Rohit Chawla", "jrsmith0", "Adriana Reyes"]
+
+        async function fetchAndUpdateContributorData() {
+            for (var i = 0; i < contributor_data.length; i++) {
+                const contributorName = contributor_data[i];
+
+                console.log(contributorName)
+
+                // scrape issues
+                const issuesResponse = await fetch(`https://gitlab.com/api/v4/projects/${projectId}/issues?author_username=${contributorName}`);
+                if (!issuesResponse.ok) {
+                    throw new Error(`HTTP error! Status: ${issuesResponse.status}`);
+                }
+                const issuesData = await issuesResponse.json();
+
+                const issuesTextElement = document.getElementById(`issues_${contributorName}`);
+                issuesTextElement.textContent = `Number of issues: ${issuesData.length}`;
+
+
+                // scrape commits
+                const commitsResponse = await fetch(`https://gitlab.com/api/v4/projects/${projectId}/repository/commits?author_username=${contributorName}&per_page=100`);
+                if (!commitsResponse.ok) {
+                    throw new Error(`HTTP error! Status: ${commitsResponse.status}`);
+                }
+                const commitsData = await commitsResponse.json();
+
+                let count = 0
+                for (const commit of commitsData) {
+                    if (commit.author_name === commit_names[i]) {
+                        count++
+                    }
+                }
+
+                console.log(commitsData);
+
+                const commitsTextElement = document.getElementById(`commits_${contributorName}`);
+                commitsTextElement.textContent = `Number of commits: ${count}`;
+
+
+                // scrape unit tests
+                // const unitTestsResponse = await fetch(`https://gitlab.com/api/v4/projects/${projectId}/pipelines?username=${contributorName}&scope=success`);
+                // if (!unitTestsResponse.ok) {
+                //     throw new Error(`HTTP error! Status: ${unitTestsResponse.status}`);
+                // }
+                // const unitTestsData = await unitTestsResponse.json();
+
+                const unitTestsTextElement = document.getElementById(`unitTests_${contributorName}`);
+                unitTestsTextElement.textContent = `Number of unit tests: 0`;
+            }
+        }
+
+        fetchAndUpdateContributorData();
+    </script>
 
     </div>
   </div>
