@@ -1,43 +1,10 @@
-# stages:       
-#   - build
-#   - test
-#   - deploy
-
-# build-job:       
-#   stage: build
-#   script:
-#     - pip install flask
-#     - python home.py
-
-
-stages:
-  - build
-  # - test
-
-myJob:
-  stage: build
-  image: python:3.6
-  script:
-    - apt-get update -q -y
-    - apt-get install -y python3-virtualenv
-    - virtualenv venv
-    - . venv/bin/activate
-    - apt-get install -y python3-pip
-    - python -V
-    - echo "hello world"
-    - pip3 install Flask
-    - python home.py &
-    # - pip install -r requirements.txt
-  artifacts:
-    untracked: true
-
-# myJob2:
-#   stage: test
-#   image: python:3.6
-#   script:
-#     - python home.py
-#   dependencies:
-#     - myJob
-#   artifacts:
-#     paths:
-#       - /
+ frontend:
+    phases:
+        build:
+            commands: []
+    artifacts:
+        baseDirectory: /templates
+        files:
+            - '**/*'
+    cache:
+        paths: []
