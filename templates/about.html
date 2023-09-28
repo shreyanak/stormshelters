@@ -148,6 +148,8 @@
         commit_names = ["Aaron Kulkarni", "Shreya Nakka", "Rohit Chawla", "jrsmith0", "Adriana Reyes"]
 
         async function fetchAndUpdateContributorData() {
+            let total_commits = 0;
+            let total_issues = 0;
             for (var i = 0; i < contributor_data.length; i++) {
                 const contributorName = contributor_data[i];
 
@@ -162,6 +164,7 @@
 
                 const issuesTextElement = document.getElementById(`issues_${contributorName}`);
                 issuesTextElement.textContent = `Number of issues: ${issuesData.length}`;
+                total_issues += $issuesData.length;
 
 
                 // scrape commits
@@ -175,6 +178,7 @@
                 for (const commit of commitsData) {
                     if (commit.author_name === commit_names[i]) {
                         count++
+                        total_commits++;
                     }
                 }
 
@@ -193,12 +197,23 @@
 
                 const unitTestsTextElement = document.getElementById(`unitTests_${contributorName}`);
                 unitTestsTextElement.textContent = `Number of unit tests: 0`;
+
+                const totalCommitsText = document.getElementById(`total-commits`);
+                unitTestsTextElement.textContent = `Total commits: `;
+                
+                const totalIssuesText = document.getElementById(`total-issues`);
+                unitTestsTextElement.textContent = `Total issues: `;
             }
         }
 
         fetchAndUpdateContributorData();
     </script>
 
+    <div class="statistics" style="justify-content: left;">
+        <h4 id="total-commits">Total commits: </h4>
+        <h4 id="total-issues">Total issues: </h4>
+
+    </div>
     <div class="center-text">
         <br>
         <a href="https://documenter.getpostman.com/view/29974721/2s9YJZ3jac">API Documentation</a>
