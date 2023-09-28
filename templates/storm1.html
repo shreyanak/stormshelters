@@ -50,19 +50,47 @@
       </div>
     
   </div>
-
-
-  
-
   <div class="instanceText" style="padding-left: 20px" id="instanceInformationList">
     <h3 class="text-left">About: </h3>
-    <p id="startDate">Ended: </p>
-    <p id="endDate">Type: </p>
+    <p id="startDate">Start Date: </p>
+    <p id="endDate">End Date: </p>
     <p id="type">Type: </p>
     <p id="code">Code: </p>
     <p id="totalAid">Aid: </p>
   </div>
 </body>
+
+<h3 class="text-left">Related</h3>
+  <div class="row">
+    <div class="col-sm-4 card">
+      <img class="card-img-top" src="/static/img/houston.jpg" alt="Houston">
+      <div class="card-body">
+      <h4 class="card-title">Houston</h4>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Population: 2,302,878</li>
+        <li class="list-group-item">Size: undefined</li>
+        <li class="list-group-item">Homeless Population: 3200</li>
+        <li class="list-group-item">Disasters: 26</li>
+        <li class="list-group-item">Number of Homeless Shelters: 28</li>
+      </ul>
+      <a href="{{url_for('houston')}}" class="btn btn-primary">Learn more</a>
+    </div>
+    </div>
+    
+    <div class="col-sm-4 card">
+      <img class="card-img-top" src="/static/img/shelter2.jpg" alt="Salvation Army">
+      <div class="card-body">
+      <h4 class="card-title">The Salvation Army Greater Houston Area Command</h4>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">City: Houston</li>
+        <li class="list-group-item">Type: Emergency4</li>
+        <li class="list-group-item">Beds: 450</li>
+        <li class="list-group-item">On-site medical clinic: no</li>
+      </ul>
+      <a href="{{url_for('shelter2')}}" class="btn btn-primary">Learn more</a>
+    </div>
+    </div>
+  </div>
 
 
 </html>

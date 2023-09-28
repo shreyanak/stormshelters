@@ -6,7 +6,7 @@
 			"endDate": "11/15/2002",
 			"type": "Severe storms",
 			"code": "Disaster Declaration",
-			"totalAid": "115969311.2"
+			"totalAid": "$115,969,311.20"
             
         },
         {
@@ -15,7 +15,7 @@
 			"endDate": "10/30/2004",
 			"type": "Hurricane",
 			"code": "Emergency Declaration",
-			"totalAid": "26747466.42"
+			"totalAid": "$26,747,466.42"
 		},
 		{
 			"name": "Hurricane Rita",
@@ -23,7 +23,7 @@
 			"endDate": "10/14/2005",
 			"type": "Hurricane",
 			"code": "Emergency Declaration",
-			"totalAid": "1237011539.98"
+			"totalAid": "$1,237,011,539.98"
 		}
     ]
    
