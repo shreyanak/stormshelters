@@ -164,7 +164,8 @@
 
                 const issuesTextElement = document.getElementById(`issues_${contributorName}`);
                 issuesTextElement.textContent = `Number of issues: ${issuesData.length}`;
-                total_issues += $issuesData.length;
+                total_issues += issuesData.length;
+                console.log(total_issues);
 
 
                 // scrape commits
@@ -178,9 +179,10 @@
                 for (const commit of commitsData) {
                     if (commit.author_name === commit_names[i]) {
                         count++
-                        total_commits++;
                     }
                 }
+                total_commits += count;
+                console.log(total_commits);
 
                 console.log(commitsData);
 
@@ -200,7 +202,7 @@
 
                 const totalCommitsText = document.getElementById(`total-commits`);
                 unitTestsTextElement.textContent = `Total commits: `;
-                
+
                 const totalIssuesText = document.getElementById(`total-issues`);
                 unitTestsTextElement.textContent = `Total issues: `;
             }
