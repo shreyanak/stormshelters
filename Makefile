@@ -1,3 +1,4 @@
+# From the CS373 Collatz makefile, with modifications for the specific tools and files used in this project.
 config:
 	git config -l
 
