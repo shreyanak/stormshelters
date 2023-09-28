@@ -1,3 +1,7 @@
+config:
+	git config -l
+
+
 # get git status
 status:
 	@echo
@@ -5,16 +9,51 @@ status:
 	git remote -v
 	git status
 
-# download files from repo
-pull:
-	@echo
-	git pull
-	git status
-
+# upload files to the Website code repo
 push:
+	make clean
 	@echo
-	git add .gitignore
-	git add .
-	git commit -m "another commit"
+	git add *
+	git commit -m "default commit"
 	git push
 	git status
+all:
+	python3 home.py
+
+# output versions of all tools
+versions:
+	uname -p
+
+	@echo
+	uname -s
+
+	@echo
+	which git
+	@echo
+	git --version
+
+	@echo
+	which make
+	@echo
+	make --version | head -n 1
+
+	@echo
+	which pip
+	@echo
+	pip --version
+
+	@echo
+	which $(Flask)
+	@echo
+	flask --version
+
+	@echo
+	which $(PYTHON)
+	@echo
+	$(PYTHON) --version
+
+	@echo
+	which vim
+	@echo
+	vim --version | head -n 1
+

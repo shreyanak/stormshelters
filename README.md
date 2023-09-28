@@ -8,6 +8,7 @@
 | John Smith    | @johnrsmith2003 |
 | Adriana Reyes | @areye2020  |
 
+<<<<<<< HEAD
 
 # Website Link
 
@@ -30,3 +31,12 @@
 |Aaron Kulkarni| | |
 |John Smith    |10-12 | 15|
 |Adriana Reyes | | |
+=======
+Link: stormshelters.me
+
+Git SHA: fd8493e0450fbe1b81cc2ccb8960571331b75b70
+
+Estimated Completion: 10-12hr
+
+Actual Completion: 15hr
+>>>>>>> d5a06d8961bd1ffe3f0f675ba0381c86b6e556ac
