@@ -140,8 +140,8 @@
         </div>
     </div>    
     <div class="statistics" style="justify-content: left;">
-        <p id="total-commits">Total commits: 94</p>
-        <p id="total-issues">Total issues: 21</p>
+        <p id="total-commits">Total commits: </p>
+        <p id="total-issues">Total issues: </p>
     </div>
     <!-- JavaScript for fetching and updating contributor data -->
     <script>
@@ -204,10 +204,10 @@
                 unitTestsTextElement.textContent = `Number of unit tests: 0`;
 
                 const totalCommitsText = document.getElementById("total-commits");
-                totalCommitsText.textContent = "Total commits: ";
+                totalCommitsText.textContent = `Total commits: ${total_commits}`;
 
                 const totalIssuesText = document.getElementById("total-issues");
-                totalIssuesText.textContent = "Total issues: ";
+                totalIssuesText.textContent = `Total issues: ${total_issues}`;
             }
         }
 
