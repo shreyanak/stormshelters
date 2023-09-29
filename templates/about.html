@@ -165,7 +165,7 @@
                 const issuesTextElement = document.getElementById(`issues_${contributorName}`);
                 issuesTextElement.textContent = `Number of issues: ${issuesData.length}`;
                 total_issues += issuesData.length;
-                console.log(total_issues);
+                console.log("The total issues:" + total_issues);
 
 
                 // scrape commits
@@ -182,7 +182,7 @@
                     }
                 }
                 total_commits += count;
-                console.log(total_commits);
+                console.log("The total commits: " + total_commits);
 
                 console.log(commitsData);
 
@@ -201,10 +201,10 @@
                 unitTestsTextElement.textContent = `Number of unit tests: 0`;
 
                 const totalCommitsText = document.getElementById("total-commits");
-                unitTestsTextElement.textContent = "Total commits: ";
+                totalCommitsText.textContent = "Total commits: ";
 
                 const totalIssuesText = document.getElementById("total-issues");
-                unitTestsTextElement.textContent = "Total issues: ";
+                totalIssuesText.textContent = "Total issues: ";
             }
         }
 
