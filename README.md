@@ -18,7 +18,7 @@ https://www.stormshelters.me/
 
 | Phase #| SHA|
 | ------ |--- |
-| Phase 1|    |
+| Phase 1| 536deb8f9b81a8c9debce70c2fbe8efc71b266d1 |
 
 # Phase Leaders
 
