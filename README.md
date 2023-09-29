@@ -34,4 +34,4 @@ https://www.stormshelters.me/
 |Rohit Chawla |8-10| 8-10|
 |Aaron Kulkarni|5 | 15|
 |John Smith    |10-12 | 15|
-|Adriana Reyes | | |
+|Adriana Reyes | 10 | 15|
