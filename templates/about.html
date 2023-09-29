@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <!-- Required meta tags -->
@@ -83,12 +83,16 @@
     <div class="center-text">
         <p>StormShelters is an application that can provide those in Harris County that have been affected by natural disasters with resources for help and shelter. The website provides information on
             the different cities in the ocunty, the disasters they were struck by and different shelter locations nearby.
-            Data sources used: Yelp, FEMA, Wikipedia, Census. 
-            Tools used: GitLab repository with CI/CD, Visual Studio Code, JavaScript, HTML/CSS, Postman, Bootstrap
+            <br>Data sources used: Yelp, FEMA, Wikipedia, Census. 
+            <br>Tools used: Postman (API designing), Bootstrap (styling), GitLab repository with CI/CD, VS Code, JavaScript, HTML/CSS
             <br>
             <br>
-            Through our research, we have found interesting correlations between data we didn't realize was so closely connected. 
+            <br>Through our research, we have found interesting correlations between data we didn't realize was so closely connected. 
             The most interesting realization was how shelters were concentrated near the areas where many storms take place.
+            <br>
+            <br>
+            <div class="text" id="total_commits">Total Commits: </div>
+            <div class="text" id="total_issues">Total Issues: </div>
         </p>
     </div>
     
@@ -148,8 +152,6 @@
         commit_names = ["Aaron Kulkarni", "Shreya Nakka", "Rohit Chawla", "jrsmith0", "Adriana Reyes"]
 
         async function fetchAndUpdateContributorData() {
-            let total_commits = 0;
-            let total_issues = 0;
             for (var i = 0; i < contributor_data.length; i++) {
                 const contributorName = contributor_data[i];
 
@@ -164,8 +166,6 @@
 
                 const issuesTextElement = document.getElementById(`issues_${contributorName}`);
                 issuesTextElement.textContent = `Number of issues: ${issuesData.length}`;
-                total_issues += issuesData.length;
-                console.log(total_issues);
 
 
                 // scrape commits
@@ -181,15 +181,12 @@
                         count++
                     }
                 }
-                total_commits += count;
-                console.log(total_commits);
-
                 console.log(commitsData);
 
                 const commitsTextElement = document.getElementById(`commits_${contributorName}`);
                 commitsTextElement.textContent = `Number of commits: ${count}`;
 
-
+                
                 // scrape unit tests
                 // const unitTestsResponse = await fetch(`https://gitlab.com/api/v4/projects/${projectId}/pipelines?username=${contributorName}&scope=success`);
                 // if (!unitTestsResponse.ok) {
@@ -199,23 +196,38 @@
 
                 const unitTestsTextElement = document.getElementById(`unitTests_${contributorName}`);
                 unitTestsTextElement.textContent = `Number of unit tests: 0`;
+            }
 
-                const totalCommitsText = document.getElementById("total-commits");
-                unitTestsTextElement.textContent = "Total commits: ";
+            async function fetchAndUpdateTotalData() {
+                const contributorName = contributor_data[0];
 
-                const totalIssuesText = document.getElementById("total-issues");
-                unitTestsTextElement.textContent = "Total issues: ";
+                const totalCommitsResponse = await fetch(`https://gitlab.com/api/v4/projects/${projectId}/repository/commits?author_username=${contributorName}&per_page=100`);
+                if (!totalCommitsResponse.ok) {
+                    throw new Error(`HTTP error! Status: ${totalCommitsResponse.status}`);
+                }
+                const totalCommitsData = await totalCommitsResponse.json();
+
+                const totalCommitsTextElement = document.getElementById(`total_commits`);
+                totalCommitsTextElement.textContent = `Total commits: ${totalCommitsData.length}`;
+
+                // check if api call working
+                const totalIssuesResponse = await fetch(`https://gitlab.com/api/v4/projects/${projectId}/issues`);
+                if (!totalIssuesResponse.ok) {
+                    throw new Error(`HTTP error! Status: ${totalIssuesResponse.status}`);
+                }
+                const totalIssuesData = await totalIssuesResponse.json();
+                
+                console.log("hello");
+
+                const totalIssuesTextElement = document.getElementById(`total_issues`);
+                totalIssuesTextElement.textContent = `Total issues: ${totalIssuesData.length}`;
             }
         }
 
         fetchAndUpdateContributorData();
+        fetchAndUpdateTotalData();
     </script>
 
-    <div class="statistics" style="justify-content: left;">
-        <h4 id="total-commits">Total commits: </h4>
-        <h4 id="total-issues">Total issues: </h4>
-
-    </div>
     <div class="center-text">
         <br>
         <a href="https://documenter.getpostman.com/view/29974721/2s9YJZ3jac">API Documentation</a>
