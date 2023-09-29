@@ -3,7 +3,7 @@
 | Team member  | Username | EID |
 | ------------- | ------------- | --------- |
 | Shreya Nakka  | @shreya.n  |  sn26659
-| Rohit Chawla  | @rohitc28  |
+| Rohit Chawla  | @rohitc28  | rc48979
 | Aaron Kulkarni| @aaronk2711 | ak46822
 | John Smith    | @johnrsmith2003 | jrs8898
 | Adriana Reyes | @areye2020  |
