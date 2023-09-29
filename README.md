@@ -3,7 +3,7 @@
 | Team member  | Username | EID |
 | ------------- | ------------- | --------- |
 | Shreya Nakka  | @shreya.n  |  sn26659
-| Rohit Chawla  | @rohitc28  |
+| Rohit Chawla  | @rohitc28  | rc48979
 | Aaron Kulkarni| @aaronk2711 | ak46822
 | John Smith    | @johnrsmith2003 | jrs8898
 | Adriana Reyes | @areye2020  |
@@ -18,7 +18,7 @@ https://www.stormshelters.me/
 
 | Phase #| SHA|
 | ------ |--- |
-| Phase 1|    |
+| Phase 1| 536deb8f9b81a8c9debce70c2fbe8efc71b266d1 |
 
 # Phase Leaders
 
@@ -34,4 +34,4 @@ https://www.stormshelters.me/
 |Rohit Chawla |8-10| 8-10|
 |Aaron Kulkarni|5 | 15|
 |John Smith    |10-12 | 15|
-|Adriana Reyes | | |
+|Adriana Reyes | 10 | 15|
