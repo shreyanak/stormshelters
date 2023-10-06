@@ -99,7 +99,7 @@ def scrape_med_data():
         coord_list.append(city_coord)
 
     geo_place_url = 'https://api.geoapify.com/v2/places'
-    file = open("medical.json", "w")
+    
     for coord in coord_list:
 
         med_params = {
@@ -111,10 +111,18 @@ def scrape_med_data():
 
         hospital_response = requests.get(geo_place_url, params=med_params)
         hospital_data = hospital_response.json()
-        
-        json.dump(hospital_data, file, indent=2)
-        file.write('\n')
-        
-    file.close()
 
+        features = hospital_data["features"]
+
+        for f in features:
+            prop = f.get("properties")
+            city = prop.get("city") 
+            if city is not None:   
+                f_data = {"name": prop["name"], "city": prop["city"], "address": prop["formatted"], "distance_m": prop["distance"], "cat": prop["categories"]}
+                create_med_response.append(f_data)
+        
+    file = open("medical.json", "w")
+    json.dump(create_med_response, file, indent=2)
+    file.write('\n')    
+    file.close()
 
