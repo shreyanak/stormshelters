@@ -106,7 +106,7 @@ def scrape_med_data():
             'bias': 'proximity:{coord[0]},{coord[1]}'
         }
 
-        
+
 
 scrape_shelter_data()
 scrape_city_data()
