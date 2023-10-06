@@ -1,43 +1,6 @@
 {
   "businesses": [
     {
-      "id": "kDHs0jOBtzI02SA83BqKIw",
-      "alias": "sarahs-house-pasadena",
-      "name": "Sarah's House",
-      "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/v4Oj75FFOKr6d7dZt6WwOw/o.jpg",
-      "is_closed": false,
-      "url": "https://www.yelp.com/biz/sarahs-house-pasadena?adjust_creative=6aT9O-M3-H7ucEIOQsUt5w&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=6aT9O-M3-H7ucEIOQsUt5w",
-      "review_count": 2,
-      "categories": [
-        {
-          "alias": "homelessshelters",
-          "title": "Homeless Shelters"
-        }
-      ],
-      "rating": 3.0,
-      "coordinates": {
-        "latitude": 29.67371,
-        "longitude": -95.201762
-      },
-      "transactions": [],
-      "location": {
-        "address1": "711 Perla Rd",
-        "address2": null,
-        "address3": null,
-        "city": "Pasadena",
-        "zip_code": "77502",
-        "country": "US",
-        "state": "TX",
-        "display_address": [
-          "711 Perla Rd",
-          "Pasadena, TX 77502"
-        ]
-      },
-      "phone": "+17134751480",
-      "display_phone": "(713) 475-1480",
-      "distance": 16001.28878659595
-    },
-    {
       "id": "H1oUdOGpCW-VREm5FqV5iQ",
       "alias": "star-of-hope-cornerstone-community-houston",
       "name": "Star of Hope Cornerstone Community",
@@ -72,7 +35,44 @@
       },
       "phone": "+17132222220",
       "display_phone": "(713) 222-2220",
-      "distance": 27998.828363087796
+      "distance": 18014.05186588085
+    },
+    {
+      "id": "kDHs0jOBtzI02SA83BqKIw",
+      "alias": "sarahs-house-pasadena",
+      "name": "Sarah's House",
+      "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/v4Oj75FFOKr6d7dZt6WwOw/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/sarahs-house-pasadena?adjust_creative=6aT9O-M3-H7ucEIOQsUt5w&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=6aT9O-M3-H7ucEIOQsUt5w",
+      "review_count": 2,
+      "categories": [
+        {
+          "alias": "homelessshelters",
+          "title": "Homeless Shelters"
+        }
+      ],
+      "rating": 3.0,
+      "coordinates": {
+        "latitude": 29.67371,
+        "longitude": -95.201762
+      },
+      "transactions": [],
+      "location": {
+        "address1": "711 Perla Rd",
+        "address2": null,
+        "address3": null,
+        "city": "Pasadena",
+        "zip_code": "77502",
+        "country": "US",
+        "state": "TX",
+        "display_address": [
+          "711 Perla Rd",
+          "Pasadena, TX 77502"
+        ]
+      },
+      "phone": "+17134751480",
+      "display_phone": "(713) 475-1480",
+      "distance": 8228.989783289397
     },
     {
       "id": "LBW18DoltzUzDJbocj_ltQ",
@@ -81,7 +81,7 @@
       "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/5raceCQTN6_vaY6pPpnYdA/o.jpg",
       "is_closed": false,
       "url": "https://www.yelp.com/biz/magnificat-house-houston?adjust_creative=6aT9O-M3-H7ucEIOQsUt5w&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=6aT9O-M3-H7ucEIOQsUt5w",
-      "review_count": 8,
+      "review_count": 7,
       "categories": [
         {
           "alias": "homelessshelters",
@@ -109,87 +109,7 @@
       },
       "phone": "+17135294231",
       "display_phone": "(713) 529-4231",
-      "distance": 31779.557057626265
-    },
-    {
-      "id": "5y7PBtwqLlfd1mBnEvuxcw",
-      "alias": "star-of-hope-houston",
-      "name": "Star of Hope",
-      "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/eJlPQEkc6sFtVxV69_tpXA/o.jpg",
-      "is_closed": false,
-      "url": "https://www.yelp.com/biz/star-of-hope-houston?adjust_creative=6aT9O-M3-H7ucEIOQsUt5w&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=6aT9O-M3-H7ucEIOQsUt5w",
-      "review_count": 6,
-      "categories": [
-        {
-          "alias": "homelessshelters",
-          "title": "Homeless Shelters"
-        }
-      ],
-      "rating": 1.5,
-      "coordinates": {
-        "latitude": 29.725085,
-        "longitude": -95.455852
-      },
-      "transactions": [],
-      "location": {
-        "address1": "4848 Loop Central Dr",
-        "address2": "Ste 500",
-        "address3": null,
-        "city": "Houston",
-        "zip_code": "77081",
-        "country": "US",
-        "state": "TX",
-        "display_address": [
-          "4848 Loop Central Dr",
-          "Ste 500",
-          "Houston, TX 77081"
-        ]
-      },
-      "phone": "+17137480700",
-      "display_phone": "(713) 748-0700",
-      "distance": 37124.83201939012
-    },
-    {
-      "id": "EGHpGwxyWwWCvl3a6o4Rxg",
-      "alias": "goodwill-select-store-and-donation-center-houston-2",
-      "name": "Goodwill Select Store And Donation Center",
-      "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/O5Sx8nFAcQkKLWc1K_ffxg/o.jpg",
-      "is_closed": false,
-      "url": "https://www.yelp.com/biz/goodwill-select-store-and-donation-center-houston-2?adjust_creative=6aT9O-M3-H7ucEIOQsUt5w&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=6aT9O-M3-H7ucEIOQsUt5w",
-      "review_count": 14,
-      "categories": [
-        {
-          "alias": "thrift_stores",
-          "title": "Thrift Stores"
-        },
-        {
-          "alias": "donationcenter",
-          "title": "Donation Center"
-        }
-      ],
-      "rating": 3.0,
-      "coordinates": {
-        "latitude": 29.5735556,
-        "longitude": -95.1089634
-      },
-      "transactions": [],
-      "price": "$",
-      "location": {
-        "address1": "2411 Bay Area Blvd",
-        "address2": "",
-        "address3": "",
-        "city": "Houston",
-        "zip_code": "77058",
-        "country": "US",
-        "state": "TX",
-        "display_address": [
-          "2411 Bay Area Blvd",
-          "Houston, TX 77058"
-        ]
-      },
-      "phone": "+12817383844",
-      "display_phone": "(281) 738-3844",
-      "distance": 4249.689394033496
+      "distance": 13558.75357206791
     },
     {
       "id": "sew3zVylV6kck1BIfXu51Q",
@@ -226,89 +146,39 @@
       },
       "phone": "+12814849243",
       "display_phone": "(281) 484-9243",
-      "distance": 9300.886581255882
+      "distance": 18627.39520920041
     },
     {
-      "id": "L9nMfOMyMQxtS3fJmaIqvQ",
-      "alias": "turning-point-center-houston-2",
-      "name": "Turning Point Center",
-      "image_url": "",
+      "id": "IZQ2HPn0i-5gTh2gp614tw",
+      "alias": "covenant-house-houston",
+      "name": "Covenant House",
+      "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/nFoGrl2byfZ8jSWJLNPh8w/o.jpg",
       "is_closed": false,
-      "url": "https://www.yelp.com/biz/turning-point-center-houston-2?adjust_creative=6aT9O-M3-H7ucEIOQsUt5w&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=6aT9O-M3-H7ucEIOQsUt5w",
+      "url": "https://www.yelp.com/biz/covenant-house-houston?adjust_creative=6aT9O-M3-H7ucEIOQsUt5w&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=6aT9O-M3-H7ucEIOQsUt5w",
       "review_count": 2,
-      "categories": [
-        {
-          "alias": "homelessshelters",
-          "title": "Homeless Shelters"
-        }
-      ],
+      "categories": [],
       "rating": 2.5,
       "coordinates": {
-        "latitude": 29.8000640869141,
-        "longitude": -95.4813079833984
+        "latitude": 29.74304,
+        "longitude": -95.39323
       },
       "transactions": [],
       "location": {
-        "address1": "1701 Jacquelyn Dr",
-        "address2": null,
-        "address3": "",
-        "city": "Houston",
-        "zip_code": "77055",
-        "country": "US",
-        "state": "TX",
-        "display_address": [
-          "1701 Jacquelyn Dr",
-          "Houston, TX 77055"
-        ]
-      },
-      "phone": "+17139570099",
-      "display_phone": "(713) 957-0099",
-      "distance": 44122.267638323276
-    },
-    {
-      "id": "hSw6T7pLEcsiJWoPsFSv8g",
-      "alias": "galveston-island-humane-society-galveston",
-      "name": "Galveston Island Humane Society",
-      "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/jMl6OBm52FHVbWYzbR1bWw/o.jpg",
-      "is_closed": false,
-      "url": "https://www.yelp.com/biz/galveston-island-humane-society-galveston?adjust_creative=6aT9O-M3-H7ucEIOQsUt5w&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=6aT9O-M3-H7ucEIOQsUt5w",
-      "review_count": 8,
-      "categories": [
-        {
-          "alias": "animalshelters",
-          "title": "Animal Shelters"
-        },
-        {
-          "alias": "nonprofit",
-          "title": "Community Service/Non-Profit"
-        },
-        {
-          "alias": "petadoption",
-          "title": "Pet Adoption"
-        }
-      ],
-      "rating": 3.5,
-      "coordinates": {
-        "latitude": 29.28943,
-        "longitude": -94.8478499
-      },
-      "transactions": [],
-      "location": {
-        "address1": "6814 Broadway St",
+        "address1": "1111 Lovett Blvd",
         "address2": "",
         "address3": "",
-        "city": "Galveston",
-        "zip_code": "77554",
+        "city": "Houston",
+        "zip_code": "77006",
         "country": "US",
         "state": "TX",
         "display_address": [
-          "6814 Broadway St",
-          "Galveston, TX 77554"
+          "1111 Lovett Blvd",
+          "Houston, TX 77006"
         ]
       },
-      "phone": "+14097401919",
-      "display_phone": "(409) 740-1919",
-      "distance": 39482.94074256854
+      "phone": "+17135285994",
+      "display_phone": "(713) 528-5994",
+      "distance": 15463.800463751568
     },
     {
       "id": "hCKjkVxKO-hRT9FzrX5mmQ",
@@ -349,39 +219,39 @@
       },
       "phone": "+17138614849",
       "display_phone": "(713) 861-4849",
-      "distance": 36338.59753840792
+      "distance": 17368.361594800102
     },
     {
-      "id": "IZQ2HPn0i-5gTh2gp614tw",
-      "alias": "covenant-house-houston",
-      "name": "Covenant House",
-      "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/nFoGrl2byfZ8jSWJLNPh8w/o.jpg",
+      "id": "kALN3DLARe-OUb7m0CzhRA",
+      "alias": "bean-sand-and-gravel-houston",
+      "name": "Bean Sand & Gravel",
+      "image_url": "",
       "is_closed": false,
-      "url": "https://www.yelp.com/biz/covenant-house-houston?adjust_creative=6aT9O-M3-H7ucEIOQsUt5w&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=6aT9O-M3-H7ucEIOQsUt5w",
-      "review_count": 2,
+      "url": "https://www.yelp.com/biz/bean-sand-and-gravel-houston?adjust_creative=6aT9O-M3-H7ucEIOQsUt5w&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=6aT9O-M3-H7ucEIOQsUt5w",
+      "review_count": 1,
       "categories": [],
-      "rating": 2.5,
+      "rating": 1.0,
       "coordinates": {
-        "latitude": 29.74304,
-        "longitude": -95.39323
+        "latitude": 29.69835,
+        "longitude": -95.33554
       },
       "transactions": [],
       "location": {
-        "address1": "1111 Lovett Blvd",
+        "address1": "5221 Griggs Rd",
         "address2": "",
         "address3": "",
         "city": "Houston",
-        "zip_code": "77006",
+        "zip_code": "77021",
         "country": "US",
         "state": "TX",
         "display_address": [
-          "1111 Lovett Blvd",
-          "Houston, TX 77006"
+          "5221 Griggs Rd",
+          "Houston, TX 77021"
         ]
       },
-      "phone": "+17135285994",
-      "display_phone": "(713) 528-5994",
-      "distance": 33501.00297979996
+      "phone": "+17136491898",
+      "display_phone": "(713) 649-1898",
+      "distance": 11112.261956464545
     },
     {
       "id": "5uZThcFfaadyiA-nXpto1Q",
@@ -426,7 +296,49 @@
       },
       "phone": "",
       "display_phone": "",
-      "distance": 33278.06404061546
+      "distance": 17812.333272641223
+    },
+    {
+      "id": "EGHpGwxyWwWCvl3a6o4Rxg",
+      "alias": "goodwill-select-store-and-donation-center-houston-2",
+      "name": "Goodwill Select Store And Donation Center",
+      "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/O5Sx8nFAcQkKLWc1K_ffxg/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/goodwill-select-store-and-donation-center-houston-2?adjust_creative=6aT9O-M3-H7ucEIOQsUt5w&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=6aT9O-M3-H7ucEIOQsUt5w",
+      "review_count": 14,
+      "categories": [
+        {
+          "alias": "thrift_stores",
+          "title": "Thrift Stores"
+        },
+        {
+          "alias": "donationcenter",
+          "title": "Donation Center"
+        }
+      ],
+      "rating": 3.0,
+      "coordinates": {
+        "latitude": 29.5735556,
+        "longitude": -95.1089634
+      },
+      "transactions": [],
+      "price": "$",
+      "location": {
+        "address1": "2411 Bay Area Blvd",
+        "address2": "",
+        "address3": "",
+        "city": "Houston",
+        "zip_code": "77058",
+        "country": "US",
+        "state": "TX",
+        "display_address": [
+          "2411 Bay Area Blvd",
+          "Houston, TX 77058"
+        ]
+      },
+      "phone": "+12817383844",
+      "display_phone": "(281) 738-3844",
+      "distance": 22295.565168303474
     },
     {
       "id": "mZC3hcx8BeeUyUgi-zA0_w",
@@ -468,39 +380,7 @@
       },
       "phone": "+18323030270",
       "display_phone": "(832) 303-0270",
-      "distance": 34796.25948707831
-    },
-    {
-      "id": "kALN3DLARe-OUb7m0CzhRA",
-      "alias": "bean-sand-and-gravel-houston",
-      "name": "Bean Sand & Gravel",
-      "image_url": "",
-      "is_closed": false,
-      "url": "https://www.yelp.com/biz/bean-sand-and-gravel-houston?adjust_creative=6aT9O-M3-H7ucEIOQsUt5w&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=6aT9O-M3-H7ucEIOQsUt5w",
-      "review_count": 1,
-      "categories": [],
-      "rating": 1.0,
-      "coordinates": {
-        "latitude": 29.69835,
-        "longitude": -95.33554
-      },
-      "transactions": [],
-      "location": {
-        "address1": "5221 Griggs Rd",
-        "address2": "",
-        "address3": "",
-        "city": "Houston",
-        "zip_code": "77021",
-        "country": "US",
-        "state": "TX",
-        "display_address": [
-          "5221 Griggs Rd",
-          "Houston, TX 77021"
-        ]
-      },
-      "phone": "+17136491898",
-      "display_phone": "(713) 649-1898",
-      "distance": 26061.719285482646
+      "distance": 16051.956814864723
     },
     {
       "id": "g9-T_TqYKYoihF0KqWLBXQ",
@@ -537,53 +417,7 @@
       },
       "phone": "+17138639835",
       "display_phone": "(713) 863-9835",
-      "distance": 38896.25206284554
-    },
-    {
-      "id": "T3JBFothzTZrFhGnRoQPCw",
-      "alias": "houston-pets-alive-houston-3",
-      "name": "Houston Pets Alive",
-      "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/KCoIn8XXAe2ul3j5P0nNkQ/o.jpg",
-      "is_closed": false,
-      "url": "https://www.yelp.com/biz/houston-pets-alive-houston-3?adjust_creative=6aT9O-M3-H7ucEIOQsUt5w&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=6aT9O-M3-H7ucEIOQsUt5w",
-      "review_count": 26,
-      "categories": [
-        {
-          "alias": "nonprofit",
-          "title": "Community Service/Non-Profit"
-        },
-        {
-          "alias": "animalshelters",
-          "title": "Animal Shelters"
-        },
-        {
-          "alias": "petadoption",
-          "title": "Pet Adoption"
-        }
-      ],
-      "rating": 4.0,
-      "coordinates": {
-        "latitude": 29.812585,
-        "longitude": -95.473528
-      },
-      "transactions": [],
-      "location": {
-        "address1": "2800 Antoine Dr",
-        "address2": "Ste 2854",
-        "address3": null,
-        "city": "Houston",
-        "zip_code": "77092",
-        "country": "US",
-        "state": "TX",
-        "display_address": [
-          "2800 Antoine Dr",
-          "Ste 2854",
-          "Houston, TX 77092"
-        ]
-      },
-      "phone": "+18327869310",
-      "display_phone": "(832) 786-9310",
-      "distance": 44453.547265564666
+      "distance": 17501.01168801429
     },
     {
       "id": "rrnOqPE33GeWdkF0L7z12w",
@@ -628,14 +462,14 @@
       },
       "phone": "+12819993191",
       "display_phone": "(281) 999-3191",
-      "distance": 43584.33204407214
+      "distance": 20015.820545007355
     }
   ],
-  "total": 16,
+  "total": 12,
   "region": {
     "center": {
-      "longitude": -95.13439178466797,
-      "latitude": 29.542388394730963
+      "longitude": -95.23275375366211,
+      "latitude": 29.74276540369363
     }
   }
 }

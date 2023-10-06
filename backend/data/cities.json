@@ -1,0 +1,226 @@
+[
+  {
+    "name": "Baytown",
+    "pop": 82543,
+    "temp in f": 73.9,
+    "wind_mph": 10.5,
+    "condition": "Light rain",
+    "precip_in": 0.0
+  },
+  {
+    "name": "Bellaire",
+    "pop": 17262,
+    "temp in f": 73.4,
+    "wind_mph": 6.9,
+    "condition": "Partly cloudy",
+    "precip_in": 0.81
+  },
+  {
+    "name": "Deer Park",
+    "pop": 34240,
+    "temp in f": 73.9,
+    "wind_mph": 10.5,
+    "condition": "Light rain",
+    "precip_in": 1.05
+  },
+  {
+    "name": "Cypress",
+    "pop": 2173,
+    "temp in f": 73.9,
+    "wind_mph": 4.3,
+    "condition": "Partly cloudy",
+    "precip_in": 0.0
+  },
+  {
+    "name": "Highlands",
+    "pop": 7714,
+    "temp in f": 73.9,
+    "wind_mph": 10.5,
+    "condition": "Light rain",
+    "precip_in": 0.0
+  },
+  {
+    "name": "Houston",
+    "pop": 2293288,
+    "temp in f": 73.4,
+    "wind_mph": 6.9,
+    "condition": "Partly cloudy",
+    "precip_in": 0.66
+  },
+  {
+    "name": "Katy",
+    "pop": 21926,
+    "temp in f": 75.2,
+    "wind_mph": 5.6,
+    "condition": "Partly cloudy",
+    "precip_in": 0.23
+  },
+  {
+    "name": "Huffman",
+    "pop": "-",
+    "temp in f": 73.9,
+    "wind_mph": 5.6,
+    "condition": "Light rain",
+    "precip_in": 0.4
+  },
+  {
+    "name": "Kingwood",
+    "pop": "-",
+    "temp in f": 89.6,
+    "wind_mph": 5.6,
+    "condition": "Partly cloudy",
+    "precip_in": 0.0
+  },
+  {
+    "name": "Pasadena",
+    "pop": 151964,
+    "temp in f": 73.9,
+    "wind_mph": 10.5,
+    "condition": "Light rain",
+    "precip_in": 0.0
+  },
+  {
+    "name": "Spring",
+    "pop": 62569,
+    "temp in f": 73.9,
+    "wind_mph": 5.6,
+    "condition": "Light rain",
+    "precip_in": 0.33
+  },
+  {
+    "name": "Waller",
+    "pop": 3337,
+    "temp in f": 75.2,
+    "wind_mph": 5.6,
+    "condition": "Partly cloudy",
+    "precip_in": 0.0
+  },
+  {
+    "name": "Tomball",
+    "pop": 12333,
+    "temp in f": 73.9,
+    "wind_mph": 4.3,
+    "condition": "Partly cloudy",
+    "precip_in": 0.0
+  },
+  {
+    "name": "Humble",
+    "pop": 16603,
+    "temp in f": 73.9,
+    "wind_mph": 5.6,
+    "condition": "Light rain",
+    "precip_in": 0.0
+  },
+  {
+    "name": "Webster",
+    "pop": 12280,
+    "temp in f": 73.9,
+    "wind_mph": 11.9,
+    "condition": "Light rain",
+    "precip_in": 0.0
+  },
+  {
+    "name": "Aldine",
+    "pop": 15887,
+    "temp in f": 73.9,
+    "wind_mph": 5.6,
+    "condition": "Light rain",
+    "precip_in": 0.33
+  },
+  {
+    "name": "Jersey Village",
+    "pop": 7904,
+    "temp in f": 73.9,
+    "wind_mph": 4.3,
+    "condition": "Partly cloudy",
+    "precip_in": 0.31
+  },
+  {
+    "name": "Atascocita",
+    "pop": 84222,
+    "temp in f": 73.9,
+    "wind_mph": 5.6,
+    "condition": "Light rain",
+    "precip_in": 0.4
+  },
+  {
+    "name": "Southside Place",
+    "pop": 1480,
+    "temp in f": 73.4,
+    "wind_mph": 6.9,
+    "condition": "Partly cloudy",
+    "precip_in": 0.0
+  },
+  {
+    "name": "Hedwig Village",
+    "pop": 2343,
+    "temp in f": 73.4,
+    "wind_mph": 6.9,
+    "condition": "Partly cloudy",
+    "precip_in": 0.0
+  },
+  {
+    "name": "Bunker Hill Village",
+    "pop": 3821,
+    "temp in f": 73.4,
+    "wind_mph": 6.9,
+    "condition": "Partly cloudy",
+    "precip_in": 0.0
+  },
+  {
+    "name": "El Lago",
+    "pop": 3060,
+    "temp in f": 73.9,
+    "wind_mph": 11.9,
+    "condition": "Light rain",
+    "precip_in": 0.0
+  },
+  {
+    "name": "Sheldon",
+    "pop": 2176,
+    "temp in f": 73.9,
+    "wind_mph": 5.6,
+    "condition": "Light rain",
+    "precip_in": 0.0
+  },
+  {
+    "name": "Barrett",
+    "pop": 3668,
+    "temp in f": 73.9,
+    "wind_mph": 5.6,
+    "condition": "Light rain",
+    "precip_in": 0.64
+  },
+  {
+    "name": "Cloverleaf",
+    "pop": 25576,
+    "temp in f": 73.9,
+    "wind_mph": 10.5,
+    "condition": "Light rain",
+    "precip_in": 0.0
+  },
+  {
+    "name": "Morgans Point",
+    "pop": 260,
+    "temp in f": 73.9,
+    "wind_mph": 11.9,
+    "condition": "Light rain",
+    "precip_in": 0.0
+  },
+  {
+    "name": "La Porte",
+    "pop": 35566,
+    "temp in f": 73.9,
+    "wind_mph": 11.9,
+    "condition": "Light rain",
+    "precip_in": 0.0
+  },
+  {
+    "name": "Galena Park",
+    "pop": 10770,
+    "temp in f": 73.9,
+    "wind_mph": 10.5,
+    "condition": "Light rain",
+    "precip_in": 0.0
+  }
+]
