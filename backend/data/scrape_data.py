@@ -88,26 +88,33 @@ def scrape_med_data():
             'country': 'US'
         }
     
-    coord_response = requests.get(url, params=params, headers=headers)
-    coord_data = coord_response.json()
+        coord_response = requests.get(url, params=params, headers=headers)
+        coord_data = coord_response.json()
 
-    city_coord = []
-    # longitude
-    city_coord[0] = coord_data['longitude']
-    # latitude
-    city_coord[1] = coord_data['latitude']
-    coord_list.append(city_coord)
+        city_coord = [0] * 2
+        # longitude
+        city_coord[0] = coord_data[0]['longitude']
+        # latitude
+        city_coord[1] = coord_data[0]['latitude']
+        coord_list.append(city_coord)
 
+    geo_place_url = 'https://api.geoapify.com/v2/places'
+    file = open("medical.json", "w")
     for coord in coord_list:
 
         med_params = {
             'apiKey': '8e30cd9a70c440b59c2e1c7e486db8b1',
-            'categories': 'healthcare.hospital',
-            'bias': 'proximity:{coord[0]},{coord[1]}'
+            'categories': 'healthcare.pharmacy',
+            'bias': f'proximity:{coord[0]},{coord[1]}',
+            'limit': 5
         }
 
+        hospital_response = requests.get(geo_place_url, params=med_params)
+        hospital_data = hospital_response.json()
+        
+        json.dump(hospital_data, file, indent=2)
+        file.write('\n')
+        
+    file.close()
 
 
-scrape_shelter_data()
-scrape_city_data()
-scrape_med_data()

@@ -74,8 +74,8 @@
   {
     "name": "Pasadena",
     "pop": 151964,
-    "temp in f": 84.0,
-    "wind_mph": 10.5,
+    "temp in f": 82.4,
+    "wind_mph": 11.9,
     "condition": "Partly cloudy",
     "precip_in": 0.0
   },
@@ -194,8 +194,8 @@
   {
     "name": "Cloverleaf",
     "pop": 25576,
-    "temp in f": 82.4,
-    "wind_mph": 11.9,
+    "temp in f": 84.0,
+    "wind_mph": 10.5,
     "condition": "Partly cloudy",
     "precip_in": 0.0
   },
