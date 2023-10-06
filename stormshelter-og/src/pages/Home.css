@@ -1,0 +1,21 @@
+/* Add your styles for the Home component here */
+
+.home-container {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .bg {
+    /* The image used */
+    background-image: url("../img/splash.jpeg");
+  
+    /* Full height */
+    height: 100%; 
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
