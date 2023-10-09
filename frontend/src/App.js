@@ -6,6 +6,9 @@ import About from './pages/About';
 import Disasters from './pages/Disasters';
 import Shelter from './pages/Shelter';
 import Cities from './pages/Cities';
+import HoustonComponent from './pages/houston'
+import Cypress from './pages/cypress';
+import Katy from './pages/katy';
 
 function App() {
   return (
@@ -17,6 +20,9 @@ function App() {
         <Route path="/cities" element={<Cities />} />
         <Route path="/disasters" element={<Disasters />} />
         <Route path="/shelter" element={<Shelter />} />
+        <Route path="/houston" element={<HoustonComponent />} />
+        <Route path="/katy" element={<Katy />} />
+        <Route path="/cypress" element={<Cypress />} />
       </Routes>
     </Router>
   );
