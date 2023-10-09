@@ -1,0 +1,21 @@
+# app packages
+beautifulsoup4==4.11.2
+flask-restless-ng==2.5.0
+flask-sqlalchemy==3.0.3
+flask==2.2.3
+pillow==9.4.0
+psycopg2-binary==2.9.5
+requests==2.28.2
+selenium-wire==5.1.0
+sqlalchemy==1.4.39
+waitress==2.1.2
+
+# dev packages
+black==23.1.0
+coverage==7.2.1
+flake8==6.0.0
+mypy==1.0.1
+types-beautifulsoup4==4.11.6.7
+types-requests==2.28.11.15
+types-waitress==2.1.4.5
+types-pillow==9.4.0.19

@@ -1,0 +1,13 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    image: idb-backend
+  client:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    image: idb-frontend
+    ports:
+      - "80:80"
