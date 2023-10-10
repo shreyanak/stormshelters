@@ -1,14 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Navbar from './components/Navbar'; // Import the Navbar component
-import Home from './pages/Home';
-import About from './pages/About';
-import Disasters from './pages/Disasters';
-import Shelter from './pages/Shelter';
-import Cities from './pages/Cities';
-import HoustonComponent from './pages/houston'
-import Cypress from './pages/cypress';
-import Katy from './pages/katy';
+import Navbar from './components/Navbar';
+import Home from './components/Home';
+import About from './components/About';
+import Disasters from './components/Disasters';
+import Shelter from './components/Shelter';
+import Cities from './components/Cities';
+import CityDetail from './components/CityDetail';
 
 function App() {
   return (
@@ -20,9 +18,7 @@ function App() {
         <Route path="/cities" element={<Cities />} />
         <Route path="/disasters" element={<Disasters />} />
         <Route path="/shelter" element={<Shelter />} />
-        <Route path="/houston" element={<HoustonComponent />} />
-        <Route path="/katy" element={<Katy />} />
-        <Route path="/cypress" element={<Cypress />} />
+        <Route path="/city/:cityName" element={<CityDetail />} />
       </Routes>
     </Router>
   );
