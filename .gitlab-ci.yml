@@ -44,9 +44,10 @@ stages:
   - build
   - test
 
-artifacts:
-  paths:
-    - ./build
+variables:
+  artifacts:
+    paths:
+      - ./build
 
 frontend-build:
   stage: build
