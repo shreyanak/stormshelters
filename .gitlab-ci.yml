@@ -48,6 +48,7 @@ frontend-build:
   stage: build
   image: node:18.18.0
   script:
+    - CI=false npm run build
     - cd frontend
     - npm install
     - npm run build
