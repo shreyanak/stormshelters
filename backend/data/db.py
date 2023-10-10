@@ -30,9 +30,9 @@ def main() :
     food_attributes = {'id', 'name', 'image_url', 'rating', 'display_phone'}
     medical_attributes = {'name', 'city', 'address', 'distance'}
 
-    # add_data('shelters.json', shelter_attributes)
+    add_data('shelters.json', shelter_attributes)
     # add_data('medical.json', medical_attributes)
-    add_data('cities.json', city_attriutes)
+    # add_data('cities.json', city_attriutes)
     # add_data('food.json', food_attributes)
 
 
@@ -45,18 +45,26 @@ def main() :
 def add_data(file, desired_attrib) :
     my_file = open(file)
     json_load = json.load(my_file)
-    if (type(json_load) == list) :
-        for category in json_load :
-            for instance in category:
-                for 
-    try: 
-        for category in json_load.values() : 
-            for instance in category :
-                for attrib in instance :
-                    if (attrib in desired_attrib) :
-                        print(attrib, " = ", instance[attrib])
-    except TypeError :
-        pass
+    # JSON files either contain DICT or LIST
+    if type(json_load) == dict :
+        try: 
+            for category in json_load.values() : 
+                for instance in category :
+                    for attrib in instance :
+                        if (attrib in desired_attrib) :
+                            print(attrib, " = ", instance[attrib])
+                            # point where we add to database
+        except TypeError :
+            pass
+    else :
+        for i in json_load :
+            for j in i.keys() :
+                if (j in desired_attrib):
+                    print(j, " = ", i[j])
+                    # point where we add to database
+
+
+    
 
 if __name__ == "__main__":
     main()
