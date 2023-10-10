@@ -44,11 +44,6 @@ stages:
   - build
   - test
 
-variables:
-  artifacts:
-    paths:
-      - ./build
-
 frontend-build:
   stage: build
   image: node:18.18.0
