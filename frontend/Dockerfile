@@ -1,14 +1,16 @@
 # ==== CONFIGURE =====
 FROM node:alpine 
-# set working directory to /app inside the container
-WORKDIR /app
+# set working directory to /frontend inside the container
+WORKDIR /frontend
+ENV PATH /app/node_modules/.bin:$PATH
+
 # copy app files
-COPY . ./
+COPY frontend ./
 
 # ==== BUILD =====
 # install dependencies
-COPY package*.json ./
 RUN npm install
+RUN npm run build
 
 # ==== RUN =======
 # expose the port on which the app will be running

@@ -77,7 +77,7 @@ function About() {
       <div className="team-members-container">
         {contributorData.map((contributor, index) => (
           <div className="team-member-card" key={index}>
-            <img src={`./static/img/${contributor.name.toLowerCase()}.jpg`} alt={`Image ${index + 1}`} />
+            <img src={`./static/img/${contributor.name.toLowerCase()}.jpg`} alt={`contributor ${index + 1}`} />
             <div className="text">{contributor.name}</div>
             <div className="text">{`${contributor.description}`}</div>
             <div className="text">{`Number of issues: ${contributor.issues}`}</div>
