@@ -1,4 +1,4 @@
-const cityJSON = [
+const cityData = [
   {
     "name": "Baytown",
     "pop": 82543,
@@ -225,4 +225,4 @@ const cityJSON = [
   }
 ]
 
-export default cityJSON
+export default cityData
