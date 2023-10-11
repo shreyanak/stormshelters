@@ -1,13 +1,16 @@
 services:
-  api:
+  backend:
     build:
       context: .
       dockerfile: backend/Dockerfile
     image: idb-backend
-  client:
+    ports:
+      - "5000:5000"
+  frontend:
     build:
       context: .
       dockerfile: frontend/Dockerfile
     image: idb-frontend
     ports:
-      - "80:80"
+      - "3000:3000"
+    command: npm start
