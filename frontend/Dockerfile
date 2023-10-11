@@ -2,7 +2,7 @@
 FROM node:alpine 
 # set working directory to /frontend inside the container
 WORKDIR /frontend
-ENV PATH /app/node_modules/.bin:$PATH
+# ENV PATH /app/node_modules/.bin:$PATH
 
 # copy app files
 COPY frontend ./
@@ -10,7 +10,7 @@ COPY frontend ./
 # ==== BUILD =====
 # install dependencies
 RUN npm install
-RUN npm run build
+RUN CI=false npm run build
 
 # ==== RUN =======
 # expose the port on which the app will be running
