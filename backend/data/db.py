@@ -25,24 +25,28 @@ def main() :
 
     # Object we execute queries on
     cursor = stormshelters_db.cursor()
-    shelter_attributes = {'id', 'name', 'image_url', 'rating', 'display_phone'}
-    city_attriutes = {'name', 'pop', 'wind_mph', 'condition', 'percip_in'}
-    food_attributes = {'id', 'name', 'image_url', 'rating', 'display_phone'}
+    cursor.execute("USE models")
+    shelter_attributes = {'name', 'image_url', 'rating', 'phone'}
+    city_attriutes = {'name', 'pop', 'wind_mph', 'cond'}
+    food_attributes = {'name', 'image_url', 'rating', 'phone'}
     medical_attributes = {'name', 'city', 'address', 'distance'}
+    # todo: add a check so that we update/don't add duplicate data instead of flushing the data each time
+    cursor.execute("delete from shelters where sql_id_shelter > 0")
+    cursor.execute("delete from cities where sql_id_cities > 0")
+    cursor.execute("delete from medical where sql_id_medical > 0")
+    cursor.execute("delete from food where sql_id_food > 0")
 
-    add_data('shelters.json', shelter_attributes)
-    # add_data('medical.json', medical_attributes)
-    # add_data('cities.json', city_attriutes)
-    # add_data('food.json', food_attributes)
+    add_data(cursor, 'shelters.json', shelter_attributes, 'shelters')
+    add_data(cursor, 'medical.json', medical_attributes, 'medical')
+    add_data(cursor, 'cities.json', city_attriutes, 'cities')
+    add_data(cursor, 'food.json', food_attributes, 'food')
+    cursor.execute('COMMIT')
+    cursor.close()
 
 
     # JSON interface
 
-        # print(i[1])
-    # cursor.execute("SELECT * FROM models")s
-    # print(cursor.execute("SHOW TABLES"))
-
-def add_data(file, desired_attrib) :
+def add_data(cursor, file, desired_attrib, table) :
     my_file = open(file)
     json_load = json.load(my_file)
     # JSON files either contain DICT or LIST
@@ -50,21 +54,35 @@ def add_data(file, desired_attrib) :
         try: 
             for category in json_load.values() : 
                 for instance in category :
-                    for attrib in instance :
-                        if (attrib in desired_attrib) :
-                            print(attrib, " = ", instance[attrib])
-                            # point where we add to database
+                    db_query(instance, desired_attrib, table, cursor)
+
         except TypeError :
+            print(TypeError)
             pass
     else :
-        for i in json_load :
-            for j in i.keys() :
-                if (j in desired_attrib):
-                    print(j, " = ", i[j])
-                    # point where we add to database
+        for instance in json_load :
+            db_query(instance, desired_attrib, table, cursor)
 
+def db_query(instance, desired_attrib, table, cursor) :
+    # debug
 
-    
+    attribs = ""
+    values = ""
+    delim = '"'
+    ran = 0
+    for attrib in instance :
+        print (attrib)
+        if (attrib in desired_attrib) :
+            if ran :
+                attribs += ", " + str(attrib)
+                values += ", " + delim + str(instance[attrib]) + delim
+            else :
+                attribs += str(attrib)
+                values += delim + str(instance[attrib]) + delim 
+                ran = 1
+    query = "INSERT INTO " + str(table) + " (" + attribs + ") values (" + values + ")"
+    print(query)
+    cursor.execute(query)
 
 if __name__ == "__main__":
     main()
