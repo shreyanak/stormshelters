@@ -126,3 +126,4 @@ def scrape_med_data():
     file.write('\n')    
     file.close()
 
+scrape_shelter_data()
