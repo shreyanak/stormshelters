@@ -17,7 +17,7 @@ class Pharmacy(db.Model):
     distance_m = db.Column(db.Float)
     category = db.Column(db.Text)
 
-class Shelter:
+class Shelter(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.Text)
     url = db.Column(db.Text)
@@ -27,7 +27,7 @@ class Shelter:
     display_phone = db.Column(db.String)
     image_url = db.Column(db.Text)
 
-class Food:
+class Food(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.Text)
     url = db.Column(db.Text)
@@ -37,7 +37,7 @@ class Food:
     display_phone = db.Column(db.String)
     image_url = db.Column(db.Text)
 
-class Cities:
+class Cities(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String)
     pop = db.Column(db.Float)

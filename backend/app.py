@@ -1,7 +1,6 @@
 from flask import Flask, Response, session, request, jsonify
-from models import db, app, Cities, Pharmacy, Shelter
 from schema import cities_schema, pharmacy_schema, shelter_schema
-
+from models import db, app, Pharmacy, Cities, Shelter, Food
 
 
 @app.route('/')
@@ -25,7 +24,7 @@ def get_cities():
                     }})
 
 @app.route('/pharmacies',  methods=['GET'])
-def get_cities():
+def get_pharmacy():
     query = db.session.query(Pharmacy)
     result = query.paginate(page=1, per_page=30, error_out=False) 
 
@@ -41,7 +40,7 @@ def get_cities():
 
 
 @app.route('/shelters',  methods=['GET'])
-def get_cities():
+def get_shelters():
     query = db.session.query(Shelter)
     result = query.paginate(page=1, per_page=10, error_out=False) 
 
