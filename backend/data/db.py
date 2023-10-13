@@ -111,7 +111,7 @@ def load_food():
     cursor = stormshelters_db.cursor()
     # Define the SQL query to insert data
     insert_query = """
-    INSERT INTO food_new (name, url, is_closed, city, rating, display_address, display_phone, image_url)
+    INSERT INTO shelters_new (name, url, is_closed, city, rating, display_address, display_phone, image_url)
     VALUES (%(name)s, %(url)s, %(is_closed)s, %(city)s, %(rating)s, %(display_address)s, %(display_phone)s, %(image_url)s)
     """
 

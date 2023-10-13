@@ -41,8 +41,8 @@ class Cities(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String)
     pop = db.Column(db.Float)
-    temp_in_f = db.Column(db.float)
-    wind_mph = db.Column(db.float)
-    cond = db.Column(db.float)
-    precip_in = db.Column(db.float)
+    temp_in_f = db.Column(db.Float)
+    wind_mph = db.Column(db.Float)
+    cond = db.Column(db.Float)
+    precip_in = db.Column(db.Float)
 
