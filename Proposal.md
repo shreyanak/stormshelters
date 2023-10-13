@@ -27,15 +27,11 @@ We are focusing on the homeless population in Harris County. The area is extreme
 
 - [Census] https://census.gov
 
-- [GeoHub] https://geohub.houstontx.gov/
+- [Yelp Fusion] https://fusion.yelp.com/ 
 
-- [VolunteerHub] https://www.volunteerhub.com/
+- [MediaWiki] https://www.mediawiki.org/wiki/API:Main_page
 
-- [OpenData] https://opendata.dc.gov/datasets/homeless-shelter-locations/api
-
-- [OpenStreetMap] https://wiki.openstreetmap.org/wiki/OSMPythonTools 
-
-- [Weather.gov] https://www.weather.gov/documentation/services-web-api
+- [OpenFEMA] https://www.fema.gov/about/reports-and-data/openfema
 
 ## At least three models
 

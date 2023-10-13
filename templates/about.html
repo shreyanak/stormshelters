@@ -143,7 +143,10 @@
             <div class="text" id="unitTests_areye2020">Number of unit tests: </div>
         </div>
     </div>    
-    
+    <div class="statistics" style="justify-content: left;">
+        <p id="total-commits">Total commits: </p>
+        <p id="total-issues">Total issues: </p>
+    </div>
     <!-- JavaScript for fetching and updating contributor data -->
     <script>
         const projectId = '50438097';
@@ -233,6 +236,27 @@
         <a href="https://documenter.getpostman.com/view/29974721/2s9YJZ3jac">API Documentation</a>
         <br>
         <a href="https://gitlab.com/cs373-group5/stormshelters">GitLab Repository</a>
+    </div>
+
+    <div class="text-left">
+        <br>
+        <h2>Tools Used:</h2>
+        <ul>
+            <li>VS Code: integrated environment for command line and pushing to Git</li>
+            <li>VS Code Liveshare: remotely edit the same project simultaneously</li>
+            <li>Zoom: for remote collaboration</li>
+            <li>AWS Amplify and Route53: Hosting the website directly from the GitLab repository and configuring the different domain provisions (i.e .dev, .amplify, .www)</li>
+        </ul>
+
+        <h2>Data sources:</h2>
+        <ul>
+            <li><a href="https://census.gov">Census</li>
+            <li><a href="https://fusion.yelp.com">Yelp Fusion</li>
+            <li><a href="https://www.mediawiki.org/wiki/API:Main_page">MediaWiki</li>
+            <li><a href="https://www.fema.gov/about/reports-and-data/openfema">OpenFEMA</li>
+        </ul>
+        <p>Each of these sites provides a RESTful API. For Phase 1, we first analyzed the documentation to find the appropiate endpoints. Then, we scraped the data using a curl request and filtered the data by hand to find the appropiate information. Finally, we added the data to a JSON file so that it could be re-used across different pages.</p>
+        <br>
     </div>
 
 </body>
