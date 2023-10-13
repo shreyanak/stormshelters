@@ -11,6 +11,7 @@ sqlalchemy==1.4.39
 waitress==2.1.2
 Werkzeug==2.2.2
 mysql.connector==2.2.9
+flask-cors==4.0.0
 
 # dev packages
 black==23.1.0

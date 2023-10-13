@@ -1,6 +1,6 @@
 from flask import Flask, Response, session, request, jsonify
 from schema import cities_schema, pharmacy_schema, shelter_schema
-from models import db, app, Pharmacy, Cities, Shelter, Food
+from models import db, app, Pharmacy, Cities, Shelter
 
 
 @app.route('/')
@@ -61,10 +61,7 @@ def get_shelters():
 @app.route('/cities/<int:city_id>', methods=['GET'])
 def get_single_city(city_id):
     try:
-        # Query the "Cities" table by the provided city_id
         city = db.session.query(Cities).filter_by(id=city_id).one()
-
-        # Serialize the city instance using a schema (assuming you have a 'city_schema' defined)
         city_data = cities_schema.dump(city)
 
         return jsonify({"city": city_data})
