@@ -2,13 +2,13 @@
   padding: 20px;
 }
 
-.card-container {
+.shelter-card-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 
-.card {
+.shelter-card {
   border-radius: 15px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s, box-shadow 0.2s;
@@ -16,17 +16,17 @@
   flex-direction: column;
 }
 
-.card:hover {
+.shelter-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
 
-.card-img-top {
+.shelter-card-img-top {
   max-width: 100%;
   height: auto;
 }
 
-.button-container {
+.shelter-button-container {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -35,7 +35,7 @@
   padding: 10px;
 }
 
-.button {
+.shelter-button {
   width: 20%;
   padding: 10px 20px;
   background-color: #007bff;
@@ -47,6 +47,6 @@
   transition: background-color 0.3s ease;
 }
 
-.button:hover {
+.shelter-button:hover {
   background-color: #0056b3;
 }

@@ -20,7 +20,7 @@ function Shelters() {
       <h1>Shelter Model</h1>
       <p>Total Instances: {shelterData[0].businesses.length}</p>
 
-      <div className="card-container">
+      <div className="shelter-card-container">
         {chunkedShelterData.map((chunk, rowIndex) => (
           <div className="row" key={rowIndex}>
             {chunk.map((shelter, colIndex) => (
