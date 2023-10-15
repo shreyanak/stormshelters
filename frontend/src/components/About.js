@@ -9,11 +9,11 @@ function About() {
   useEffect(() => {
     const projectId = '50438097';
     const contributorData = [
-      { name: 'aaronk2711', displayName: 'Aaron Kulkarni' },
-      { name: 'shreya.n', displayName: 'Shreya Nakka' },
-      { name: 'rohitc28', displayName: 'Rohit Chawla' },
-      { name: 'johnrsmith2003', displayName: 'John Smith' },
-      { name: 'areye2020', displayName: 'Adriana Reyes' },
+      { name: 'aaronk2711', displayName: 'Aaron Kulkarni', name3: 'aaron-kulkarni' },
+      { name: 'shreya.n', displayName: 'Shreya Nakka', name3: ''   },
+      { name: 'rohitc28', displayName: 'Rohit Chawla', name3: ''   },
+      { name: 'jrsmith0', displayName: 'John Smith', name3: ''     },
+      { name: 'areye2020', displayName: 'Adriana Reyes', name3: '' },
     ];
 
     async function fetchData() {
@@ -21,7 +21,7 @@ function About() {
       let totalIssuesCount = 0;
 
       for (const contributor of contributorData) {
-        const { name, displayName } = contributor;
+        const { name, displayName, name3 } = contributor;
 
         // Fetch issues
         const issuesResponse = await fetch(`https://gitlab.com/api/v4/projects/${projectId}/issues?author_username=${name}`);
@@ -29,13 +29,15 @@ function About() {
         const issuesCount = issuesData.length;
 
         // Fetch commits
-        const commitsResponse = await fetch(`https://gitlab.com/api/v4/projects/${projectId}/repository/commits?author_username=${name}&per_page=100`);
-        const commitsData = await commitsResponse.json();
         let commitsCount = 0;
-
-        for (const commit of commitsData) {
-          if (commit.author_name === displayName) {
-            commitsCount++;
+        for (let pageNumber = 1; pageNumber <= 3; pageNumber++) {
+          const commitsResponse = await fetch(`https://gitlab.com/api/v4/projects/${projectId}/repository/commits?author_username=${name}&per_page=100&page=${pageNumber}`);
+          const commitsData = await commitsResponse.json();
+          
+          for (const commit of commitsData) {
+            if (commit.author_name === displayName || commit.author_name === name || commit.author_name === name3) {
+              commitsCount++;
+            }
           }
         }
 
