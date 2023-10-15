@@ -2,9 +2,11 @@ from flask import Flask, Response, session, request, jsonify
 from flask_cors import CORS
 from schema import cities_schema, pharmacy_schema, shelter_schema
 from models import db, app, Pharmacy, Cities, Shelter
+import pymysql
 
 app = Flask(__name__)
 CORS(app)
+
 
 @app.route('/')
 def home():
