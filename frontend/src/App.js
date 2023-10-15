@@ -4,7 +4,7 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import About from './components/About';
 import Disasters from './components/Disasters';
-import Shelter from './components/Shelter';
+import Shelters from './components/Shelter';
 import Cities from './components/Cities';
 import CityDetail from './components/CityDetail';
 
@@ -17,7 +17,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/cities" element={<Cities />} />
         <Route path="/disasters" element={<Disasters />} />
-        <Route path="/shelter" element={<Shelter />} />
+        <Route path="/shelter" element={<Shelters />} />
         <Route path="/city/:cityName" element={<CityDetail />} />
       </Routes>
     </Router>
