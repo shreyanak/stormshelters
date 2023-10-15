@@ -1,7 +1,10 @@
 from flask import Flask, Response, session, request, jsonify
+from flask_cors import CORS
 from schema import cities_schema, pharmacy_schema, shelter_schema
 from models import db, app, Pharmacy, Cities, Shelter
 
+app = Flask(__name__)
+CORS(app)
 
 @app.route('/')
 def home():
@@ -107,4 +110,4 @@ def split_strings_shelter(shelter):
 
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=5000)
+    app.run(port=8080)
