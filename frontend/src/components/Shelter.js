@@ -2,7 +2,6 @@ import React from 'react';
 import '../css/Shelter.css';
 import ShelterCard from './ShelterModel';
 import shelterData from '../data/shelter-data';
-import { Link } from 'react-router-dom';
 
 function Shelters() {
   // chunk the shelter data into groups of three for grid
