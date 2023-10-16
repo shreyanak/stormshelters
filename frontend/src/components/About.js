@@ -2,26 +2,29 @@ import React, { useEffect, useState } from 'react';
 import '../css/About.css';
 
 function About() {
-  const [contributorData, setContributorData] = useState([]);
+  const [contributorStats, setContributorStats] = useState([]);
   const [totalCommits, setTotalCommits] = useState(0);
   const [totalIssues, setTotalIssues] = useState(0);
 
   useEffect(() => {
     const projectId = '50438097';
     const contributorData = [
-      { name: 'aaronk2711', displayName: 'Aaron Kulkarni', name3: 'aaron-kulkarni' },
-      { name: 'shreya.n', displayName: 'Shreya Nakka', name3: ''   },
-      { name: 'rohitc28', displayName: 'Rohit Chawla', name3: ''   },
-      { name: 'jrsmith0', displayName: 'John Smith', name3: ''     },
-      { name: 'areye2020', displayName: 'Adriana Reyes', name3: '' },
+      { name: 'aaronk2711', displayName: 'Aaron Kulkarni', name3: 'aaron-kulkarni', description: 'I am a CS major currently in my third year from New Jersey. My favorite activities outside of the classroom are basketball, judo, and guitar. Major Responsibilities: Backend'},
+      { name: 'shreya.n', displayName: 'Shreya Nakka', name3: '', description: 'I am a Computer Science major in my Junior year. In my free time, I enjoy playing tennis, volleyball, and painting. Major Responsibilities: Frontend'},
+      { name: 'rohitc28', displayName: 'Rohit Chawla', name3: '', description: 'I am a Computer Science major in my Junior year. I have lived in Austin my entire life and I enjoy playing board games. Major Responsibilities: Frontend'},
+      { name: 'jrsmith0', displayName: 'John Smith', name3: '', description: 'I am a junior computer science major from the Rio Grande Valley. In my free time, I enjoy camping and spending time with family. Major Responsibilities: Frontend'},
+      { name: 'areye2020', displayName: 'Adriana Reyes', name3: '', description: 'I am a senior computer science major from Austin. Outside of CS I like to play guitar, skateboard, and draw. Major responsibilities: Frontend'},
     ];
+
+    // const currentWorkingDirectory = process.cwd();
+    // console.log('Current working directory:', currentWorkingDirectory);
 
     async function fetchData() {
       let totalCommitsCount = 0;
       let totalIssuesCount = 0;
 
       for (const contributor of contributorData) {
-        const { name, displayName, name3 } = contributor;
+        const { name, displayName, name3, description } = contributor;
 
         // Fetch issues
         const issuesResponse = await fetch(`https://gitlab.com/api/v4/projects/${projectId}/issues?author_username=${name}`);
@@ -44,12 +47,14 @@ function About() {
         totalCommitsCount += commitsCount;
         totalIssuesCount += issuesCount;
 
-        setContributorData((prevData) => [
+        setContributorStats((prevData) => [
           ...prevData,
           {
-            name: displayName,
+            name: name,
+            displayName: displayName,
             issues: issuesCount,
             commits: commitsCount,
+            description: description
           },
         ]);
       }
@@ -77,10 +82,10 @@ function About() {
         where many storms take place.
       </p>
       <div className="team-members-container">
-        {contributorData.map((contributor, index) => (
+        {contributorStats.map((contributor, index) => (
           <div className="team-member-card" key={index}>
-            <img src={`./static/img/${contributor.name.toLowerCase()}.jpg`} alt={`contributor ${index + 1}`} />
-            <div className="text">{contributor.name}</div>
+            <img src={`../img/${contributor.name}.jpg`} alt={`contributor ${index + 1}`} />
+            <div className="text">{contributor.displayName}</div>
             <div className="text">{`${contributor.description}`}</div>
             <div className="text">{`Number of issues: ${contributor.issues}`}</div>
             <div className="text">{`Number of commits: ${contributor.commits}`}</div>
