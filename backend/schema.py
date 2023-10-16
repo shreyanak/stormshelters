@@ -1,14 +1,14 @@
 #schema for json that is returned from RESTful API
 from flask_marshmallow import Marshmallow
 
-from models import Cities, Pharmacy, Shelter
+from models import City, Pharmacy, Shelter
 from marshmallow_sqlalchemy import SQLAlchemyAutoSchema, fields
 
 ma = Marshmallow()
 
-class CitiesSchema(SQLAlchemyAutoSchema):
+class CitySchema(SQLAlchemyAutoSchema):
     class Meta:
-        model = Cities
+        model = City
 
 class ShelterSchema(SQLAlchemyAutoSchema):
     class Meta:
@@ -18,7 +18,7 @@ class PharmacySchema(SQLAlchemyAutoSchema):
     class Meta:
         model = Pharmacy
 
-cities_schema = CitiesSchema()
+city_schema = CitySchema()
 shelter_schema = ShelterSchema()
 pharmacy_schema = PharmacySchema()
 

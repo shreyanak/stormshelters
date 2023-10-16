@@ -7,6 +7,7 @@ import Pharmacies from './components/Pharmacies';
 import Shelters from './components/Shelter';
 import Cities from './components/Cities';
 import CityDetail from './components/CityDetail';
+import ShelterDetail from './components/ShelterDetail';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/pharmacies" element={<Pharmacies />} />
         <Route path="/shelter" element={<Shelters />} />
         <Route path="/city/:cityName" element={<CityDetail />} />
+        <Route path="/shelter/:shelterName" element={<ShelterDetail />} />
       </Routes>
     </Router>
   );
