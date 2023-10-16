@@ -8,16 +8,19 @@ const ShelterCard = ({ shelterData }) => {
   }
 
   return (
-    <div className="card">
-      <div className="card-body">
-        <h4 className="card-title">{shelterData.name}</h4>
+    <div className="shelter-card">
+      <div className="shelter-image-container">
+        <img src={shelterData.image_url} alt={shelterData.name} className="shelter-card-img-top" />
+      </div>
+      <div className="shelter-card-body">
+        <h4 className="shelter-card-title">{shelterData.name}</h4>
         <ul className="list-group list-group-flush">
           <li className="list-group-item">Address: {shelterData.location.display_address.join(", ")}</li>
           <li className="list-group-item">Phone: {shelterData.display_phone}</li>
           <li className="list-group-item">Rating: {shelterData.rating}</li>
         </ul>
-        <div className="button-container">
-          <Link to={`/shelter/${shelterData.name}`} className="button">
+        <div className="shelter-button-container">
+          <Link to={`/shelter/${shelterData.alias}`} className="shelter-button">
             Learn More
           </Link>
         </div>

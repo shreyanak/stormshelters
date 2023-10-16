@@ -2,7 +2,6 @@ import React from 'react';
 import '../css/Shelter.css';
 import ShelterCard from './ShelterModel';
 import shelterData from '../data/shelter-data';
-import { Link } from 'react-router-dom';
 
 function Shelters() {
   // chunk the shelter data into groups of three for grid
@@ -20,7 +19,7 @@ function Shelters() {
       <h1>Shelter Model</h1>
       <p>Total Instances: {shelterData[0].businesses.length}</p>
 
-      <div className="card-container">
+      <div className="shelter-card-container">
         {chunkedShelterData.map((chunk, rowIndex) => (
           <div className="row" key={rowIndex}>
             {chunk.map((shelter, colIndex) => (
