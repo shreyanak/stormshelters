@@ -12,6 +12,8 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "mysql://admin:StormShelters2023@stormsh
 db = SQLAlchemy(app)
 
 class Pharmacy(db.Model):
+    __table_args__ = {'schema':'models'}
+    __tablename__ = 'pharmacies_new'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.Text)
     city = db.Column(db.String)
@@ -20,31 +22,38 @@ class Pharmacy(db.Model):
     category = db.Column(db.Text)
 
 class Shelter(db.Model):
+    __table_args__ = {'schema':'models'}
+    __tablename__ = 'shelters_new'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.Text)
     url = db.Column(db.Text)
     is_closed = db.Column(db.Boolean)
+    city = db.Column(db.String)
     rating = db.Column(db.Float)
     display_address = db.Column(db.Text)
     display_phone = db.Column(db.String)
     image_url = db.Column(db.Text)
 
-class Food(db.Model):
-    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    name = db.Column(db.Text)
-    url = db.Column(db.Text)
-    is_closed = db.Column(db.Boolean)
-    rating = db.Column(db.Float)
-    display_address = db.Column(db.Text)
-    display_phone = db.Column(db.String)
-    image_url = db.Column(db.Text)
+# class Food(db.Model):
+#     __table_args__ = {'schema':'models'}
+#     __tablename__ = 'shelters_new'
+#     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+#     name = db.Column(db.Text)
+#     url = db.Column(db.Text)
+#     is_closed = db.Column(db.Boolean)
+#     rating = db.Column(db.Float)
+#     display_address = db.Column(db.Text)
+#     display_phone = db.Column(db.String)
+#     image_url = db.Column(db.Text)
 
-class Cities(db.Model):
+class City(db.Model):
+    __table_args__ = {'schema':'models'}
+    __tablename__ = 'cities_new'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String)
     pop = db.Column(db.Float)
     temp_in_f = db.Column(db.Float)
     wind_mph = db.Column(db.Float)
-    cond = db.Column(db.Float)
+    cond = db.Column(db.String)
     precip_in = db.Column(db.Float)
 
