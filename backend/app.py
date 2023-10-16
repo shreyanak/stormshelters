@@ -1,8 +1,6 @@
-from flask import Flask, Response, session, request, jsonify
-from flask_cors import CORS
-from models import db, app, Pharmacy, City, Shelter
-from schema import city_schema, pharmacy_schema, shelter_schema
-import pymysql
+from flask import jsonify
+from .models import db, app, Pharmacy, Shelter, City
+from .schema import city_schema, pharmacy_schema, shelter_schema
 
 @app.route('/')
 def home():
@@ -64,8 +62,8 @@ def get_shelters():
 @app.route('/cities/<int:city_id>', methods=['GET'])
 def get_single_city(city_id):
     try:
-        city = db.session.query(Cities).filter_by(id=city_id).one()
-        city_data = cities_schema.dump(city)
+        city = db.session.query(City).filter_by(id=city_id).one()
+        city_data = city_schema.dump(city)
 
         return jsonify({"city": city_data})
     except IndexError:
