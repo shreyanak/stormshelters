@@ -1,6 +1,6 @@
 from flask import jsonify
-from .models import db, app, Pharmacy, Shelter, City
-from .schema import city_schema, pharmacy_schema, shelter_schema
+from models import db, app, Pharmacy, Shelter, City
+from schema import city_schema, pharmacy_schema, shelter_schema
 
 @app.route('/')
 def home():
