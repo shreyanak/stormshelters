@@ -1,32 +1,27 @@
-from flask import Flask, Response, session, request, jsonify
-from flask_cors import CORS
-from schema import cities_schema, pharmacy_schema, shelter_schema
-from models import db, app, Pharmacy, Cities, Shelter
-import pymysql
-
-app = Flask(__name__)
-CORS(app)
-
+from flask import jsonify
+from models import db, app, Pharmacy, Shelter, City
+from schema import city_schema, pharmacy_schema, shelter_schema
 
 @app.route('/')
 def home():
-    return ""
+    return "Hello this is something"
 
 # get model page of cities
 @app.route('/cities',  methods=['GET'])
 def get_cities():
-    query = db.session.query(Cities)
+    query = db.session.query(City)
     result = query.paginate(page=1, per_page=10, error_out=False) 
 
-    schema_dump = cities_schema.dump(result, many=True)
-    for city in schema_dump:
-        split_strings_city(city)   
+    schema_dump = city_schema.dump(result, many=True)
+    # for city in schema_dump:
+    #     split_strings_city(city)   
     
-    total = result.count()     
+    total = query.count()     
     return jsonify({"cities" : schema_dump,
                     "meta": {
                         "count": total
                     }})
+    # return jsonify ({"cities" : schema_dump})
 
 # get model page of pharmacies
 @app.route('/pharmacies',  methods=['GET'])
@@ -35,10 +30,10 @@ def get_pharmacy():
     result = query.paginate(page=1, per_page=30, error_out=False) 
 
     schema_dump = pharmacy_schema.dump(result, many=True)
-    for pharmacy in schema_dump:
-        split_strings_pharmacy(pharmacy)   
+    # for pharmacy in schema_dump:
+    #     split_strings_pharmacy(pharmacy)   
     
-    total = result.count()     
+    total = query.count()     
     return jsonify({"pharmacies" : schema_dump,
                     "meta": {
                         "count": total
@@ -50,12 +45,13 @@ def get_shelters():
     # shelter
     query = db.session.query(Shelter)
     result = query.paginate(page=1, per_page=10, error_out=False) 
+
     schema_dump = shelter_schema.dump(result, many=True)
 
-    for shelter in schema_dump:
-        split_strings_shelter(shelter)  
+    # for shelter in schema_dump:
+    #     split_strings_shelter(shelter)  
 
-    total = result.count()
+    total = query.count()
 
     return jsonify({"shelters" : schema_dump,
                     "meta": {
@@ -66,8 +62,8 @@ def get_shelters():
 @app.route('/cities/<int:city_id>', methods=['GET'])
 def get_single_city(city_id):
     try:
-        city = db.session.query(Cities).filter_by(id=city_id).one()
-        city_data = cities_schema.dump(city)
+        city = db.session.query(City).filter_by(id=city_id).one()
+        city_data = city_schema.dump(city)
 
         return jsonify({"city": city_data})
     except IndexError:
@@ -112,4 +108,4 @@ def split_strings_shelter(shelter):
 
 
 if __name__ == '__main__':
-    app.run(port=8080)
+    app.run(port=5000, debug=True)

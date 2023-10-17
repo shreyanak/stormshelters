@@ -1,39 +1,50 @@
 import React from 'react';
-import '../css/City.css';
-import CityCard from './CityModel';
-import cityData from '../data/city-data';
-
+import '../css/Pharmacy.css';
+import PharmacyCard from './PharmacyModel';
 import { Link } from 'react-router-dom'
+// import axios from 'axios'
+console.log("hello?");
+
+fetch("pharmacies/1")
+.then(res => res.json())
+.then(data => {
+  console.log(data);
+
+});
+// const pharmacyData = await response.json();
+const pharmacyData = {"a": 1, "b": 2, "c": 3};
 
 
-
-
+// THIS SYNTAX IS AWFUL.
+// axios.get('localhost:3001/pharmacies1').then(response => {
+//    const ourResponse = response.data;
+//    pharmacyData = ourResponse;
+//    console.log("response " + response);
+   
+   
+   
+//   });
+  console.log(pharmacyData);
 
 function Pharmacies() {
-    // chunk the city data into groups of three for grid
-  function connectDB() {
-    // Database connection, since Pharmiacies pulls from multiple JSON files
-    const mysql = require('mysql');
-    const con = mysql.createConnection({
-      host:  "stormshelters-db.clwbujmk0ylk.us-east-2.rds.amazonaws.com",
-      user: "admin",
-      password: "StormShelters2023",
-      database: "models"
-    });
-    con.connect();
+  // chunk the city data into groups of three for grid
+  function chunkArray(arr, chunkSize) {
+    const chunkedArray = [];
+    for (let i = 0; i < arr.length; i += chunkSize) {
+      chunkedArray.push(arr.slice(i, i + chunkSize));
+    }
+    return chunkedArray;
   }
-  connectDB();
-  const pharmacyData = con.query("SELECT * from pharmacies_new");
-  console.log(pharmacyData);
+  const chunkedPharmacyData = chunkArray(pharmacyData, 3);
 
   return (
     <div className="pharmacies-container">
       <div className="card-container">
-        {chunkedCityData.map((chunk, rowIndex) => (
+        {chunkedPharmacyData.map((chunk, rowIndex) => (
           <div className="row" key={rowIndex}>
             {chunk.map((city, colIndex) => (
               <div className="col-sm-4" key={colIndex}>
-                  <CityCard cityData={city} />
+                  <PharmacyCard pharmacyData={city} />
               </div>
             ))}
           </div>
@@ -43,4 +54,6 @@ function Pharmacies() {
   );
 }
 
-export default Cities;
+export default Pharmacies;
+
+

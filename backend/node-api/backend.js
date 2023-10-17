@@ -18,25 +18,57 @@ const con = mysql.createConnection({
 // The following code is not for the faint of heart. Viewer discretion is advised.
 con.connect(function(err) {
     if (err) throw err;
-    app.get("/pharmacies", (request, response) => {
-        con.query("SELECT * from pharmacies_new", function(err, myResult) {
-            if (err) throw err;
-            response.json(myResult);
-        });
+    
+    app.get("/pharmacies/:id", (request, response) => {
+        id = request.params;
+        console.log(request.params)
+        if (id.id > 0) {
+            con.query("SELECT * from pharmacies_new WHERE id = " + id.id, function(err, myResult) {
+                if (err) throw err;
+                response.json(myResult);
+            }); 
+        } else {
+            con.query("SELECT * from pharmacies_new", function(err, myResult) {
+                if (err) throw err;
+                response.json(myResult);
+            }); 
+        }
+        // console.log(id);
     });
-    app.get("/food", (request, response) => {
-        con.query("SELECT * from food_new", function(err, myResult) {
-            if (err) throw err;
-            response.json(myResult);
-        });
+    
+    app.get("/cities/:id", (request, response) => {
+        id = request.params;
+        console.log(request.params)
+        if (id.id > 0) {
+            con.query("SELECT * from cities_new WHERE id = " + id.id, function(err, myResult) {
+                if (err) throw err;
+                response.json(myResult);
+            }); 
+        } else {
+            con.query("SELECT * from cities_new", function(err, myResult) {
+                if (err) throw err;
+                response.json(myResult);
+            }); 
+        }
+        // console.log(id);
     });
-    app.get("/cities", (request, response) => {
-        con.query("SELECT * from cities_new", function(err, myResult) {
-            if (err) throw err;
-            response.json(myResult);
-        });
+
+    app.get("/shelters/:id", (request, response) => {
+        id = request.params;
+        console.log(request.params)
+        if (id.id > 0) {
+            con.query("SELECT * from shelters_new WHERE id = " + id.id, function(err, myResult) {
+                if (err) throw err;
+                response.json(myResult);
+            }); 
+        } else {
+            con.query("SELECT * from shelters_new", function(err, myResult) {
+                if (err) throw err;
+                response.json(myResult);
+            }); 
+        }
+        // console.log(id);
     });
- 
 });
 
 app.listen(PORT, () => {

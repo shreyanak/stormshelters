@@ -12,5 +12,8 @@ COPY requirements.txt ./
 RUN pip3 install -r requirements.txt
 COPY . ./
 
-EXPOSE 8080
-CMD ["gunicorn", "wsgi:app", "-w 2", "-b 0.0.0.0:8080", "-t 30"]
+EXPOSE 5000
+EXPOSE 8000
+# CMD ["python", "app.py"]
+# CMD ["/bin/bash"]
+CMD ["gunicorn", "-w", "2", "-b", "0.0.0.0:8000", "app:app"]
