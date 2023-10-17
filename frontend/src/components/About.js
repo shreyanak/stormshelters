@@ -20,12 +20,14 @@ function About() {
       let totalCommitsCount = 0;
       let totalIssuesCount = 0;
 
+      // fetch issues
       const issuesResponse = await fetch(`https://gitlab.com/api/v4/projects/${projectId}/issues?per_page=100`);
       const issuesData = await issuesResponse.json();
 
       for (const contributor of contributorData) {
         let { name, displayName, name3, description } = contributor;
 
+        // count issues
         if (name === 'jrsmith0') {
           name = 'johnrsmith2003';
         }
@@ -37,23 +39,11 @@ function About() {
           }
         }
 
-        // fetch issues
-        
-
-        // Fetch issues
-        // const issuesResponse = await fetch(`https://gitlab.com/api/v4/projects/${projectId}/issues?author_username=${name}&per_page=100`);
-        // const issuesData = await issuesResponse.json();
-
-        // const testIssuesResponse = await fetch(`https://gitlab.com/api/v4/projects/${projectId}/issues?per_page=100`);
-        // const testIssuesData = await testIssuesResponse.json();
-        // console.log(testIssuesData);
-
-        // Fetch commits
-
         if (name === 'johnrsmith2003') {
           name = 'jrsmith0';
         }
 
+        // fetch + count commits
         let commitsCount = 0;
         for (let pageNumber = 1; pageNumber <= 3; pageNumber++) {
           const commitsResponse = await fetch(`https://gitlab.com/api/v4/projects/${projectId}/repository/commits?author_username=${name}&per_page=100&page=${pageNumber}`);
