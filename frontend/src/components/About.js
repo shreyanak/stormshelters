@@ -121,7 +121,7 @@ function About() {
       </div>
       <div className="center-text">
         <br />
-        <a href="https://documenter.getpostman.com/view/29974721/2s9YJZ3jac">API Documentation</a>
+        <a href="https://documenter.getpostman.com/view/29974721/2s9YR6aDwG">API Documentation</a>
         <br />
         <a href="https://gitlab.com/cs373-group5/stormshelters">GitLab Repository</a>
       </div>
@@ -137,10 +137,10 @@ function About() {
 
         <h2>Data sources:</h2>
         <ul>
-          <li><a href="https://census.gov">Census</a></li>
+          <li><a href="http://api.weatherapi.com/v1/forecast.json">Weather API</a></li>
           <li><a href="https://fusion.yelp.com">Yelp Fusion</a></li>
-          <li><a href="https://www.mediawiki.org/wiki/API:Main_page">MediaWiki</a></li>
-          <li><a href="https://www.fema.gov/about/reports-and-data/openfema">OpenFEMA</a></li>
+          <li><a href="https://developers.google.com/maps/documentation/geocoding/overview">GeoCoding API</a></li>
+          <li><a href="https://www.geoapify.com/geocoding-api">GeoApify</a></li>
         </ul>
         <p>Each of these sites provides a RESTful API. For Phase 1, we first analyzed the documentation to find the appropriate endpoints. Then, we scraped the data using a curl request and filtered the data by hand to find the appropriate information. Finally, we added the data to a JSON file so that it could be re-used across different pages.</p>
         <br />
