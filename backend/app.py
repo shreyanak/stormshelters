@@ -12,27 +12,21 @@ def get_cities():
     query = db.session.query(City)
     result = query.paginate(page=1, per_page=10, error_out=False) 
 
-    schema_dump = city_schema.dump(result, many=True)
-    # for city in schema_dump:
-    #     split_strings_city(city)   
+    schema_dump = city_schema.dump(result, many=True)  
     
     total = query.count()     
     return jsonify({"cities" : schema_dump,
                     "meta": {
                         "count": total
                     }})
-    # return jsonify ({"cities" : schema_dump})
 
 # get model page of pharmacies
 @app.route('/pharmacies',  methods=['GET'])
 def get_pharmacy():
     query = db.session.query(Pharmacy)
-    result = query.paginate(page=1, per_page=30, error_out=False) 
+    result = query.paginate(page=1, per_page=15, error_out=False) 
 
     schema_dump = pharmacy_schema.dump(result, many=True)
-    # for pharmacy in schema_dump:
-    #     split_strings_pharmacy(pharmacy)   
-    
     total = query.count()     
     return jsonify({"pharmacies" : schema_dump,
                     "meta": {
@@ -42,14 +36,10 @@ def get_pharmacy():
 # get model page of shelters
 @app.route('/shelters',  methods=['GET'])
 def get_shelters():
-    # shelter
     query = db.session.query(Shelter)
     result = query.paginate(page=1, per_page=10, error_out=False) 
 
     schema_dump = shelter_schema.dump(result, many=True)
-
-    # for shelter in schema_dump:
-    #     split_strings_shelter(shelter)  
 
     total = query.count()
 
@@ -85,7 +75,7 @@ def get_single_shelter(shelter_id):
 def get_single_pharmacy(pharm_id):
     try:
         pharmacy = db.session.query(Pharmacy).filter_by(id=pharm_id).one()
-        pharm_data = shelter_schema.dump(pharmacy)
+        pharm_data = pharmacy_schema.dump(pharmacy)
 
         return jsonify({"pharmacy": pharm_data})
     except IndexError:

@@ -19,7 +19,7 @@ class Pharmacy(db.Model):
     city = db.Column(db.String)
     address = db.Column(db.Text)
     distance_m = db.Column(db.Float)
-    category = db.Column(db.Text)
+    categories = db.Column(db.Text)
 
 class Shelter(db.Model):
     __table_args__ = {'schema':'models'}
