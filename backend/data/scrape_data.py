@@ -118,7 +118,7 @@ def scrape_med_data():
             prop = f.get("properties")
             city = prop.get("city") 
             if city is not None:   
-                f_data = {"name": prop["name"], "city": prop["city"], "address": prop["formatted"], "distance_m": prop["distance"], "cat": prop["categories"]}
+                f_data = {"name": prop["name"], "city": prop["city"], "address": prop["formatted"], "distance_m": prop["distance"], "cat": prop["categories"], "latitude":prop["lat"], "longitude": prop["lon"]}
                 create_med_response.append(f_data)
         
     file = open("medical.json", "w")
@@ -126,4 +126,4 @@ def scrape_med_data():
     file.write('\n')    
     file.close()
 
-scrape_shelter_data()
+scrape_med_data()
