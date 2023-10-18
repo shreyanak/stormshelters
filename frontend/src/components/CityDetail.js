@@ -5,8 +5,17 @@ import '../css/CityDetail.css';
 
 function CityDetail() {
   const { cityName } = useParams();
-  const selectedCity = cityData.find((city) => city.name === cityName);
+  var apiRequest = new XMLHttpRequest();
 
+  var url = `http://localhost:8000/cities/${cityName}`;
+  console.log(url);
+  apiRequest.open('GET', url, false); 
+  apiRequest.send(null);
+  var selectedCity = (JSON.parse(apiRequest.responseText).city);
+
+  // console.log(JSON.parse(apiRequest.responseText).city);
+  // var help = JSON.stringify(selectedCity);
+  // console.log(help);
   if (!selectedCity) {
     return <div>City not found</div>;
   }
@@ -17,7 +26,7 @@ function CityDetail() {
     <div className="city-detail-container">
       <h1 className="city-title">{name}</h1>
       <div className="image-container">
-        <img
+        <img 
           src="https://www.southernliving.com/thmb/Nm6DnVCFUKM7dQSsqkutPxrNpuo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-1167434230-1-a6613ae7e7f145a8aa62baa816f8d910.jpg"
           alt="City"
           className="city-image"
