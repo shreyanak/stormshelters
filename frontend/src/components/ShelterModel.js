@@ -15,7 +15,7 @@ const ShelterCard = ({ shelterData }) => {
       <div className="shelter-card-body">
         <h4 className="shelter-card-title">{shelterData.name}</h4>
         <ul className="list-group list-group-flush">
-          <li className="list-group-item">Address: {shelterData.display_address}</li>
+          <li className="list-group-item">Address: {shelterData.display_address }</li>
           <li className="list-group-item">Phone: {shelterData.display_phone}</li>
           <li className="list-group-item">Rating: {shelterData.rating}</li>
         </ul>

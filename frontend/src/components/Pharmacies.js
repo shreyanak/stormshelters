@@ -1,11 +1,29 @@
 import React from 'react';
 import '../css/Pharmacy.css';
 import PharmacyCard from './PharmacyModel';
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+
+var nextPage = 1;
+
+function nextPharm() {
+  nextPage++;
+  window.location.href = `http://localhost:3001/pharmacies?page=${nextPage}`;
+}
 
 function Pharmacies() {
   var apiRequest = new XMLHttpRequest();
-  apiRequest.open('GET', "https://api.stormshelters.me/pharmacies", false); 
+  var query = window.location.search;
+  var urlParam = new URLSearchParams(query);
+  var page = urlParam.get('page');
+
+
+  if (page > 0) {
+    nextPage = page;
+  }
+
+  var url = `http://localhost:8000/pharmacies?page=${page}`;
+  apiRequest.open('GET', url, false); 
+
   apiRequest.send(null);
   var pharmacyData = (JSON.parse(apiRequest.responseText)).pharmacies;
 
@@ -32,6 +50,12 @@ function Pharmacies() {
           </div>
         ))}
       </div>
+      <div className="show-more">
+        <div className="button-container">
+            <Link onClick={nextPharm} className="button">Next</Link>
+        </div>
+      </div>
+
     </div>
   );
 }
