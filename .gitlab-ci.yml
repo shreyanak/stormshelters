@@ -1,5 +1,5 @@
 stages:
-  - deploy
+- deploy
 
 deploy:
   stage: deploy
@@ -8,4 +8,4 @@ deploy:
   - scp -r ./backend ubuntu@$BACKEND_SERVER_IP:/home/ubuntu/stormshelters/backend
   - "bash -" < ./remote.sh
   only:
-    - dev
+  - dev
