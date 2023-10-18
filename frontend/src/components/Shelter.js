@@ -1,5 +1,6 @@
 import React from 'react';
 import '../css/Shelter.css';
+// import shelterData from '../data/shelter-data';
 import ShelterCard from './ShelterModel';
 
 function Shelters() {
@@ -22,7 +23,7 @@ function Shelters() {
   return (
     <div className="shelters-container">
       <h1>Shelter Model</h1>
-      <p>Total Instances: {shelterData.length}</p>
+      {/* <p>Total Instances: {shelterData.length}</p> */}
 
       <div className="shelter-card-container">
         {chunkedShelterData.map((chunk, rowIndex) => (

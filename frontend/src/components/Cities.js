@@ -4,7 +4,7 @@ import CityCard from './CityModel';
 
 function Cities() {
   var apiRequest = new XMLHttpRequest();
-  apiRequest.open('GET', "https://api.stormshelters.me/cities", false); 
+  apiRequest.open('GET', "https://api.stormshelters.me/cities/page", false); 
   apiRequest.send(null);
   var cityData = (JSON.parse(apiRequest.responseText)).cities;
   function chunkArray(arr, chunkSize) {
@@ -24,9 +24,9 @@ function Cities() {
       <div className="card-container">
         {chunkedCityData.map((chunk, rowIndex) => (
           <div className="row" key={rowIndex}>
-            {chunk.map((city, colIndex) => (
+            {chunk.map((pharmacy, colIndex) => (
               <div className="col-sm-4" key={colIndex}>
-                  <CityCard cityData={city} />
+                  <CityCard cityData={pharmacy} />
               </div>
             ))}
           </div>
