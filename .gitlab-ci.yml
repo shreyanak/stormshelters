@@ -4,8 +4,12 @@ stages:
 deploy:
   stage: deploy
   script:
-   - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
-   - scp -r ./backend ubuntu@$BACKEND_SERVER_IP:/home/ubuntu/stormshelters/backend
-   - cat ./remote.sh | ssh ubuntu@$BACKEND_SERVER_IP "bash -"
+   - echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
+   - chmod 600 ~/.ssh/id_rsa
+   - eval "$(ssh-agent -s)"
+   - ssh-add ~/.ssh/id_rsa
+   - ssh-keyscan -H '$BACKEND_SERVER_IP' >> ~/.ssh/known_hosts
+   - scp -r ./backend $BACKEND_SERVER_IP:/home/ubuntu/stormshelters/backend
+   - cat ./remote.sh | ssh $BACKEND_SERVER_IP "bash -"
   only:
    - dev
