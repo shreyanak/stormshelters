@@ -9,7 +9,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.7718884,
+    "longitude": -94.9759886
   },
   {
     "name": "H-E-B Pharmacy",
@@ -21,7 +23,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.7958615,
+    "longitude": -94.9777303
   },
   {
     "name": "Walgreens",
@@ -33,7 +37,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.7690433,
+    "longitude": -94.9189179
   },
   {
     "name": "Walgreens",
@@ -50,7 +56,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.806399,
+    "longitude": -94.98143099999999
   },
   {
     "name": "Walgreens",
@@ -62,7 +70,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.6647686,
+    "longitude": -95.0863507
   },
   {
     "name": "Walgreens",
@@ -74,7 +84,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.7066521,
+    "longitude": -95.4670967
   },
   {
     "name": "Randalls Pharmacy",
@@ -86,7 +98,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.7064464,
+    "longitude": -95.4696286
   },
   {
     "name": "H-E-B Pharmacy",
@@ -98,7 +112,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.7075368,
+    "longitude": -95.4700166
   },
   {
     "name": "CVS Pharmacy",
@@ -110,7 +126,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.704422,
+    "longitude": -95.475731
   },
   {
     "name": "CVS Pharmacy",
@@ -125,7 +143,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.705301499999997,
+    "longitude": -95.43967345029637
   },
   {
     "name": "Walgreens",
@@ -137,7 +157,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.681614,
+    "longitude": -95.1238875
   },
   {
     "name": "Walmart Pharmacy",
@@ -149,7 +171,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.6666099,
+    "longitude": -95.099783
   },
   {
     "name": "H-E-B Pharmacy",
@@ -161,7 +185,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.666908,
+    "longitude": -95.096314
   },
   {
     "name": "Walgreens",
@@ -173,7 +199,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.6647686,
+    "longitude": -95.0863507
   },
   {
     "name": "CVS Pharmacy",
@@ -185,7 +213,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.6635951,
+    "longitude": -95.0875215
   },
   {
     "name": "H-E-B Pharmacy",
@@ -197,7 +227,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.9577705,
+    "longitude": -95.673734
   },
   {
     "name": "Walgreens",
@@ -209,7 +241,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.9477432,
+    "longitude": -95.6766234
   },
   {
     "name": "H-E-B Pharmacy",
@@ -221,7 +255,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.9925377,
+    "longitude": -95.7450852
   },
   {
     "name": "H-E-B Pharmacy",
@@ -233,7 +269,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 30.0027826,
+    "longitude": -95.6385734
   },
   {
     "name": "Walgreens",
@@ -250,7 +288,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.806399,
+    "longitude": -94.98143099999999
   },
   {
     "name": "H-E-B Pharmacy",
@@ -262,7 +302,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.7958615,
+    "longitude": -94.9777303
   },
   {
     "name": "CVS Pharmacy",
@@ -274,7 +316,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.7718884,
+    "longitude": -94.9759886
   },
   {
     "name": "Walgreens",
@@ -289,7 +333,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.853943100000002,
+    "longitude": -95.18806404919204
   },
   {
     "name": "CVS Pharmacy",
@@ -301,7 +347,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.7632412,
+    "longitude": -95.3628385
   },
   {
     "name": "Randalls Pharmacy",
@@ -313,7 +361,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.7489076,
+    "longitude": -95.3748243
   },
   {
     "name": "Mid Town Specialty RX Pharmacy",
@@ -324,7 +374,9 @@
       "commercial.health_and_beauty",
       "commercial.health_and_beauty.pharmacy",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.7444269,
+    "longitude": -95.3655938
   },
   {
     "name": "Walgreens",
@@ -339,7 +391,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.7471973,
+    "longitude": -95.3782201576291
   },
   {
     "name": "Iridium Pharmacy",
@@ -351,7 +405,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.7578023,
+    "longitude": -95.3475537
   },
   {
     "name": "Walgreens",
@@ -363,7 +419,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.7736549,
+    "longitude": -95.8193776
   },
   {
     "name": "H-E-B Pharmacy",
@@ -375,7 +433,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.7730001,
+    "longitude": -95.8219099
   },
   {
     "name": "Brookshire Brothers Pharmacy",
@@ -387,7 +447,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.8005323,
+    "longitude": -95.8096455
   },
   {
     "name": "Walgreens",
@@ -399,7 +461,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.8010172,
+    "longitude": -95.8083431
   },
   {
     "name": "Tayco Farms",
@@ -412,7 +476,9 @@
       "commercial.health_and_beauty",
       "commercial.health_and_beauty.pharmacy",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.9823797,
+    "longitude": -95.08880230287204
   },
   {
     "name": "Walgreens",
@@ -424,7 +490,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.9975347,
+    "longitude": -95.1627099
   },
   {
     "name": "H-E-B Pharmacy",
@@ -436,7 +504,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 30.0003282,
+    "longitude": -95.1649152
   },
   {
     "name": "CVS Pharmacy",
@@ -448,7 +518,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 30.0007562,
+    "longitude": -95.1729512
   },
   {
     "name": "CVS Pharmacy",
@@ -463,7 +535,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 30.04813455,
+    "longitude": -95.18248443726497
   },
   {
     "name": "CVS Pharmacy",
@@ -478,7 +552,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 30.04813455,
+    "longitude": -95.18248443726497
   },
   {
     "name": "Walgreens",
@@ -490,7 +566,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 30.0520192,
+    "longitude": -95.1863954
   },
   {
     "name": "H-E-B Pharmacy",
@@ -502,7 +580,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 30.0527844,
+    "longitude": -95.1842088
   },
   {
     "name": "Kelsey-Seybold Pharmacy",
@@ -514,7 +594,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 30.0461349,
+    "longitude": -95.1832586
   },
   {
     "name": "Kroger Pharmacy",
@@ -526,7 +608,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 30.0667532,
+    "longitude": -95.187566
   },
   {
     "name": "Walgreens",
@@ -538,7 +622,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.6656133,
+    "longitude": -95.1871984
   },
   {
     "name": "Walgreens",
@@ -553,7 +639,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.67198505,
+    "longitude": -95.27633805245804
   },
   {
     "name": "CVS Pharmacy",
@@ -568,7 +656,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.6728594,
+    "longitude": -95.27797568736054
   },
   {
     "name": "CVS Pharmacy",
@@ -580,7 +670,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.652398,
+    "longitude": -95.1527302
   },
   {
     "name": "H-E-B Pharmacy",
@@ -592,7 +684,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.6487433,
+    "longitude": -95.1441311
   },
   {
     "name": "H-E-B Pharmacy",
@@ -604,7 +698,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 30.0682829,
+    "longitude": -95.4493084
   },
   {
     "name": "H-E-B Pharmacy",
@@ -616,7 +712,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 30.1080093,
+    "longitude": -95.387241
   },
   {
     "name": "CVS Pharmacy",
@@ -631,7 +729,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 30.11170555,
+    "longitude": -95.38811698474063
   },
   {
     "name": "Brookshire Brothers Pharmacy",
@@ -643,7 +743,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 30.0582123,
+    "longitude": -95.9138177
   },
   {
     "name": "CVS Pharmacy",
@@ -655,7 +757,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 30.062334,
+    "longitude": -95.911503
   },
   {
     "name": "Brookshire Brothers Pharmacy",
@@ -667,7 +771,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 30.0969957,
+    "longitude": -96.0647084
   },
   {
     "name": "H-E-B Pharmacy",
@@ -679,7 +785,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.9925377,
+    "longitude": -95.7450852
   },
   {
     "name": "H-E-B Pharmacy",
@@ -691,7 +799,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 30.0883488,
+    "longitude": -95.6295424
   },
   {
     "name": "Walgreens",
@@ -706,7 +816,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 30.0873505,
+    "longitude": -95.63132250000001
   },
   {
     "name": "H-E-B Pharmacy",
@@ -718,7 +830,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 30.054176,
+    "longitude": -95.5771636
   },
   {
     "name": "Walgreens",
@@ -730,7 +844,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 30.003372,
+    "longitude": -95.2723253
   },
   {
     "name": "CVS Pharmacy",
@@ -742,7 +858,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 30.0189564,
+    "longitude": -95.2687544
   },
   {
     "name": "Walgreens",
@@ -757,7 +875,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.97935125,
+    "longitude": -95.21860305870214
   },
   {
     "name": "CVS Pharmacy",
@@ -769,7 +889,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 30.0486473,
+    "longitude": -95.2349907
   },
   {
     "name": "CVS Pharmacy",
@@ -784,7 +906,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.93774935,
+    "longitude": -95.26958452528558
   },
   {
     "name": "CVS Pharmacy",
@@ -796,7 +920,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.5549683,
+    "longitude": -95.1209094
   },
   {
     "name": "CVS Pharmacy",
@@ -808,7 +934,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.5486358,
+    "longitude": -95.0955375
   },
   {
     "name": "Walgreens",
@@ -820,7 +948,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.557305,
+    "longitude": -95.1231388
   },
   {
     "name": "Walgreens",
@@ -832,7 +962,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.5060121,
+    "longitude": -95.1051093
   },
   {
     "name": "H-E-B Pharmacy",
@@ -844,7 +976,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.5527421,
+    "longitude": -95.1490279
   },
   {
     "name": "Walgreens",
@@ -856,7 +990,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.9018119,
+    "longitude": -95.3558564
   },
   {
     "name": "Walgreens",
@@ -868,7 +1004,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.8692348,
+    "longitude": -95.3293491
   },
   {
     "name": "Tidwell Professional Pharmacy",
@@ -879,7 +1017,9 @@
       "commercial.health_and_beauty",
       "commercial.health_and_beauty.pharmacy",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.8477316,
+    "longitude": -95.3493185
   },
   {
     "name": "Walgreens",
@@ -893,7 +1033,9 @@
       "healthcare.pharmacy",
       "wheelchair",
       "wheelchair.yes"
-    ]
+    ],
+    "latitude": 29.859962,
+    "longitude": -95.3838292
   },
   {
     "name": "Walgreens",
@@ -905,7 +1047,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.9146686,
+    "longitude": -95.4056751
   },
   {
     "name": "CVS Pharmacy",
@@ -920,7 +1064,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.88662135,
+    "longitude": -95.54034072291253
   },
   {
     "name": "H-E-B Pharmacy",
@@ -932,7 +1078,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.9105159,
+    "longitude": -95.5859429
   },
   {
     "name": "Walgreens",
@@ -944,7 +1092,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.9215947,
+    "longitude": -95.6041019
   },
   {
     "name": "Walgreens",
@@ -956,7 +1106,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.9317543,
+    "longitude": -95.5841728
   },
   {
     "name": "Walgreens",
@@ -968,7 +1120,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.9975347,
+    "longitude": -95.1627099
   },
   {
     "name": "H-E-B Pharmacy",
@@ -980,7 +1134,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 30.0003282,
+    "longitude": -95.1649152
   },
   {
     "name": "CVS Pharmacy",
@@ -992,7 +1148,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 30.0007562,
+    "longitude": -95.1729512
   },
   {
     "name": "Kelsey-Seybold Pharmacy",
@@ -1004,7 +1162,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 30.0461349,
+    "longitude": -95.1832586
   },
   {
     "name": "CVS Pharmacy",
@@ -1019,7 +1179,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.705301499999997,
+    "longitude": -95.43967345029637
   },
   {
     "name": "Randalls Pharmacy",
@@ -1031,7 +1193,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.7050017,
+    "longitude": -95.4257078
   },
   {
     "name": "Walgreens",
@@ -1044,7 +1208,9 @@
       "commercial.health_and_beauty",
       "commercial.health_and_beauty.pharmacy",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.6920607,
+    "longitude": -95.43933512135627
   },
   {
     "name": "Randalls Pharmacy",
@@ -1056,7 +1222,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.7215167,
+    "longitude": -95.4422632
   },
   {
     "name": "Campbell's Compounding",
@@ -1067,7 +1235,9 @@
       "commercial.health_and_beauty",
       "commercial.health_and_beauty.pharmacy",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.7077741,
+    "longitude": -95.4180942
   },
   {
     "name": "H-E-B Pharmacy",
@@ -1079,7 +1249,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.7872598,
+    "longitude": -95.5318913
   },
   {
     "name": "CVS Pharmacy",
@@ -1091,7 +1263,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.7824101,
+    "longitude": -95.5409454
   },
   {
     "name": "CVS Pharmacy",
@@ -1103,7 +1277,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.7857915,
+    "longitude": -95.543482
   },
   {
     "name": "CVS Pharmacy",
@@ -1115,7 +1291,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.7830165,
+    "longitude": -95.485324
   },
   {
     "name": "CVS Pharmacy",
@@ -1127,7 +1305,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.8090579,
+    "longitude": -95.5239035
   },
   {
     "name": "CVS Pharmacy",
@@ -1139,7 +1319,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.7824101,
+    "longitude": -95.5409454
   },
   {
     "name": "H-E-B Pharmacy",
@@ -1151,7 +1333,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.7872598,
+    "longitude": -95.5318913
   },
   {
     "name": "CVS Pharmacy",
@@ -1163,7 +1347,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.7857915,
+    "longitude": -95.543482
   },
   {
     "name": "Walgreens",
@@ -1175,7 +1361,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.7738888,
+    "longitude": -95.5586501
   },
   {
     "name": "Randalls Pharmacy",
@@ -1187,7 +1375,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.7735146,
+    "longitude": -95.5595341
   },
   {
     "name": "CVS Pharmacy",
@@ -1202,7 +1392,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.57788625,
+    "longitude": -95.03208428759952
   },
   {
     "name": "Randalls Pharmacy",
@@ -1213,7 +1405,9 @@
       "commercial.health_and_beauty",
       "commercial.health_and_beauty.pharmacy",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.538502,
+    "longitude": -95.0637028
   },
   {
     "name": "CVS Pharmacy",
@@ -1225,7 +1419,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.538968,
+    "longitude": -95.022769
   },
   {
     "name": "Walgreens",
@@ -1237,7 +1433,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.5376648,
+    "longitude": -95.0198514
   },
   {
     "name": "CVS Pharmacy",
@@ -1249,7 +1447,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.5486358,
+    "longitude": -95.0955375
   },
   {
     "name": "Walgreens",
@@ -1264,7 +1464,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.853943100000002,
+    "longitude": -95.18806404919204
   },
   {
     "name": "H-E-B Pharmacy",
@@ -1276,7 +1478,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.9231229,
+    "longitude": -95.196355
   },
   {
     "name": "Market Street Pharmacy",
@@ -1288,7 +1492,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 32.0357514,
+    "longitude": -102.129749
   },
   {
     "name": "Walgreens",
@@ -1303,7 +1509,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 32.0285516,
+    "longitude": -102.08397566722456
   },
   {
     "name": "Walgreens",
@@ -1315,7 +1523,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 32.0193952,
+    "longitude": -102.1240568
   },
   {
     "name": "H-E-B Pharmacy",
@@ -1327,7 +1537,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 32.0180548,
+    "longitude": -102.126695
   },
   {
     "name": "Walmart Pharmacy",
@@ -1339,7 +1551,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 32.02938925,
+    "longitude": -102.14829082821102
   },
   {
     "name": "CVS Pharmacy",
@@ -1351,7 +1565,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.7728943,
+    "longitude": -95.2485775
   },
   {
     "name": "Walgreens",
@@ -1366,7 +1582,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.853943100000002,
+    "longitude": -95.18806404919204
   },
   {
     "name": "Walgreens",
@@ -1378,7 +1596,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.681614,
+    "longitude": -95.1238875
   },
   {
     "name": "H-E-B Pharmacy",
@@ -1390,7 +1610,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 31.0808914,
+    "longitude": -97.4548204
   },
   {
     "name": "CVS Pharmacy",
@@ -1402,7 +1624,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 31.0938113,
+    "longitude": -97.3850551
   },
   {
     "name": "H-E-B Pharmacy",
@@ -1414,7 +1638,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 31.1019794,
+    "longitude": -97.3530853
   },
   {
     "name": "Westside Drug",
@@ -1425,7 +1651,9 @@
       "commercial.health_and_beauty",
       "commercial.health_and_beauty.pharmacy",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 31.0861524,
+    "longitude": -97.3634818
   },
   {
     "name": "CVS Pharmacy",
@@ -1437,7 +1665,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 31.0751269,
+    "longitude": -97.3683633
   },
   {
     "name": "Walgreens",
@@ -1449,7 +1679,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.6647686,
+    "longitude": -95.0863507
   },
   {
     "name": "CVS Pharmacy",
@@ -1461,7 +1693,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.6635951,
+    "longitude": -95.0875215
   },
   {
     "name": "H-E-B Pharmacy",
@@ -1473,7 +1707,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.666908,
+    "longitude": -95.096314
   },
   {
     "name": "Walmart Pharmacy",
@@ -1485,7 +1721,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.6666099,
+    "longitude": -95.099783
   },
   {
     "name": "CVS Pharmacy",
@@ -1500,7 +1738,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.57788625,
+    "longitude": -95.03208428759952
   },
   {
     "name": "CVS Pharmacy",
@@ -1512,7 +1752,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.7728943,
+    "longitude": -95.2485775
   },
   {
     "name": "CVS Pharmacy",
@@ -1524,7 +1766,9 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.7166053,
+    "longitude": -95.2954571
   },
   {
     "name": "Walgreens",
@@ -1537,7 +1781,9 @@
       "healthcare",
       "healthcare.pharmacy",
       "office"
-    ]
+    ],
+    "latitude": 29.7148199,
+    "longitude": -95.295457
   },
   {
     "name": "East End Pharmacy",
@@ -1552,6 +1798,8 @@
       "commercial.health_and_beauty.pharmacy",
       "healthcare",
       "healthcare.pharmacy"
-    ]
+    ],
+    "latitude": 29.744765,
+    "longitude": -95.30278726810602
   }
 ]
