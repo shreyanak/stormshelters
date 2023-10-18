@@ -2,7 +2,7 @@ stages:
  - deploy
  - test
 
-deploy:
+backend-deploy:
   stage: deploy
   script:
    - mkdir -p ~/.ssh
@@ -24,8 +24,8 @@ postman_tests:
     - cd backend
     - newman --version
     - newman run postman_tests.json
-  depends_on:
-      - deploy
+  needs:
+      - backend-deploy
 
 python-tests:
   image: python:3
@@ -33,5 +33,5 @@ python-tests:
   script:
     - cd backend
     - python tests.py
-  depends_on:
-      - deploy
+  needs:
+      - backend-deploy
