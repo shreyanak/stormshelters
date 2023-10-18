@@ -2,8 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../css/City.css';
 
+
+
 const CityCard = ({ cityData }) => {
   const { name, pop, temp, wind_mph, condition, precip_in } = cityData;
+  console.log("data: " + cityData);
 
   return (
     <div className="card">

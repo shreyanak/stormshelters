@@ -3,14 +3,14 @@ import '../css/Pharmacy.css';
 import PharmacyCard from './PharmacyModel';
 import { Link } from 'react-router-dom'
 // import axios from 'axios'
-console.log("hello?");
+// console.log("hello?");
 
-fetch("pharmacies/1")
-.then(res => res.json())
-.then(data => {
-  console.log(data);
+// fetch("pharmacies/1")
+// .then(res => res.json())
+// .then(data => {
+//   console.log(data);
 
-});
+// });
 // const pharmacyData = await response.json();
 const pharmacyData = {"a": 1, "b": 2, "c": 3};
 
