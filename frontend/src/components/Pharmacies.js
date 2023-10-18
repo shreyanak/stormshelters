@@ -21,6 +21,8 @@ function Pharmacies() {
 
   return (
     <div className="pharmacies-container">
+      <h1>Pharmacies</h1>
+      <p>Total Instances: {pharmacyData.length}</p>
       <div className="card-container">
         {chunkedPharmacyData.map((chunk, rowIndex) => (
           <div className="row" key={rowIndex}>
