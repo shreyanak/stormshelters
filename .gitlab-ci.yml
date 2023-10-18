@@ -6,12 +6,9 @@ deploy:
   stage: deploy
   script:
    - mkdir -p ~/.ssh
-   - echo "$SSH_PRIVATE_KEY" | > ~/.ssh/id_rsa
-   - echo "$SSH_PRIVATE_KEY"
    - chmod 700 ~/.ssh
-   - chmod 600 ~/.ssh/id_rsa
    - eval "$(ssh-agent -s)"
-   - ssh-add ~/.ssh/id_rsa
+   - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
    - ssh-keyscan -H $BACKEND_SERVER_IP >> ~/.ssh/known_hosts
    - scp -r ./backend $BACKEND_SERVER_IP:/home/ubuntu/stormshelters/backend
    - cat ./remote.sh | ssh $BACKEND_SERVER_IP "bash -"
@@ -27,6 +24,8 @@ postman_tests:
     - cd backend
     - newman --version
     - newman run postman_tests.json
+  depends_on:
+      - deploy
 
 python-tests:
   image: python:3
@@ -34,3 +33,5 @@ python-tests:
   script:
     - cd backend
     - python tests.py
+  depends_on:
+      - deploy
