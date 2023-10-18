@@ -45,7 +45,7 @@ function About() {
 
         // fetch + count commits
         let commitsCount = 0;
-        for (let pageNumber = 1; pageNumber <= 3; pageNumber++) {
+        for (let pageNumber = 1; pageNumber <= 4; pageNumber++) {
           const commitsResponse = await fetch(`https://gitlab.com/api/v4/projects/${projectId}/repository/commits?author_username=${name}&per_page=100&page=${pageNumber}`);
           const commitsData = await commitsResponse.json();
           
