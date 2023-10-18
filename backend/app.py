@@ -1,4 +1,4 @@
-from flask import jsonify
+from flask import jsonify, request
 from models import db, app, Pharmacy, Shelter, City
 from schema import city_schema, pharmacy_schema, shelter_schema
 
@@ -10,12 +10,14 @@ def home():
 @app.route('/cities',  methods=['GET'])
 def get_cities():
     query = db.session.query(City)
-    result = query.paginate(page=1, per_page=10, error_out=False) 
+    page = request.args.get('page', 1, int)
+    per_page = request.args.get('per_page', 10, int)
 
-    schema_dump = city_schema.dump(result, many=True)  
+    result = query.paginate(page=page, per_page=per_page, error_out=False) 
+    schema = city_schema.dump(result, many=True)
     
     total = query.count()     
-    return jsonify({"cities" : schema_dump,
+    return jsonify({"cities" : schema,
                     "meta": {
                         "count": total
                     }})
@@ -24,7 +26,9 @@ def get_cities():
 @app.route('/pharmacies',  methods=['GET'])
 def get_pharmacy():
     query = db.session.query(Pharmacy)
-    result = query.paginate(page=1, per_page=15, error_out=False) 
+    page = request.args.get('page', 1, int)
+    per_page = request.args.get('per_page', 10, int)
+    result = query.paginate(page=page, per_page=per_page, error_out=False) 
 
     schema_dump = pharmacy_schema.dump(result, many=True)
     total = query.count()     
@@ -36,8 +40,10 @@ def get_pharmacy():
 # get model page of shelters
 @app.route('/shelters',  methods=['GET'])
 def get_shelters():
+    page = request.args.get('page', 1, int)
+    per_page = request.args.get('per_page', 10, int)
     query = db.session.query(Shelter)
-    result = query.paginate(page=1, per_page=10, error_out=False) 
+    result = query.paginate(page=page, per_page=per_page, error_out=False) 
 
     schema_dump = shelter_schema.dump(result, many=True)
 
