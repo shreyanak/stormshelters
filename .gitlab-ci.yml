@@ -1,5 +1,6 @@
 stages:
  - deploy
+ - test
 
 deploy:
   stage: deploy
@@ -14,3 +15,21 @@ deploy:
    - cat ./remote.sh | ssh $BACKEND_SERVER_IP "bash -"
   only:
    - dev
+
+postman_tests:
+  stage:
+    test
+
+  image:
+    name: postman/newman_alpine33
+    entrypoint: [""]
+  script:
+    - cd backend
+    - newman --version
+    - newman run postman_tests.json
+
+python-tests:
+  image: python:3
+  stage: test
+  script:
+    - python teests.py
