@@ -69,8 +69,8 @@ def load_medical():
     cursor = stormshelters_db.cursor()
     # Define the SQL query to insert data
     insert_query = """
-    INSERT INTO pharmacies_new (name, city, address, distance_m, categories)
-    VALUES (%(name)s, %(city)s, %(address)s, %(distance_m)s, "healthcare")
+    INSERT INTO pharmacies_new (name, city, address, distance_m, categories, longitude, latitude)
+    VALUES (%(name)s, %(city)s, %(address)s, %(distance_m)s, "healthcare", %(longitude)s, %(latitude)s)
     """
     for entry in med_data:
         extracted_data = {
@@ -79,6 +79,9 @@ def load_medical():
             "address": entry["address"],
             "distance_m": entry["distance_m"],
             "categories ": "healthcare",
+            "longitude":entry["longitude"],
+            "latitude":entry["latitude"]
+            
         }
 
         cursor.execute(insert_query, extracted_data)
@@ -111,8 +114,8 @@ def load_food():
     cursor = stormshelters_db.cursor()
     # Define the SQL query to insert data
     insert_query = """
-    INSERT INTO shelters_new (name, url, is_closed, city, rating, display_address, display_phone, image_url)
-    VALUES (%(name)s, %(url)s, %(is_closed)s, %(city)s, %(rating)s, %(display_address)s, %(display_phone)s, %(image_url)s)
+    INSERT INTO shelters (name, url, is_closed, city, rating, display_address, display_phone, image_url, latitude, longitude)
+    VALUES (%(name)s, %(url)s, %(is_closed)s, %(city)s, %(rating)s, %(display_address)s, %(display_phone)s, %(image_url)s, %(latitude)s, %(longitude)s)
     """
 
     for entry in food_data.get("businesses"):
@@ -124,7 +127,9 @@ def load_food():
             "city": entry["location"]["city"],
             "display_address": ', '.join(entry["location"]["display_address"]),
             "display_phone": entry["display_phone"],
-            "image_url": entry["image_url"]
+            "image_url": entry["image_url"],
+            "latitude": entry['coordinates']['latitude'],
+            "longitude": entry['coordinates']['longitude']
         }
         cursor.execute(insert_query, extracted_data)
 
@@ -155,8 +160,8 @@ def load_shelters():
     cursor = stormshelters_db.cursor()
     # Define the SQL query to insert data
     insert_query = """
-    INSERT INTO shelters_new (name, url, is_closed, city, rating, display_address, display_phone, image_url)
-    VALUES (%(name)s, %(url)s, %(is_closed)s, %(city)s, %(rating)s, %(display_address)s, %(display_phone)s, %(image_url)s)
+    INSERT INTO shelters (name, url, is_closed, city, rating, display_address, display_phone, image_url, latitude, longitude)
+    VALUES (%(name)s, %(url)s, %(is_closed)s, %(city)s, %(rating)s, %(display_address)s, %(display_phone)s, %(image_url)s, %(latitude)s, %(longitude)s)
     """
 
     for entry in food_data.get("businesses"):
@@ -168,9 +173,14 @@ def load_shelters():
             "city": entry["location"]["city"],
             "display_address": ', '.join(entry["location"]["display_address"]),
             "display_phone": entry["display_phone"],
-            "image_url": entry['image_url']
+            "image_url": entry['image_url'],
+            "latitude": entry['coordinates']['latitude'],
+            "longitude": entry['coordinates']['longitude']
         }
         cursor.execute(insert_query, extracted_data)
 
     stormshelters_db.commit()
     print('Data inserted successfully') 
+
+load_shelters()
+load_food()

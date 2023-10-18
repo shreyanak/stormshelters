@@ -5,7 +5,6 @@ import '../css/CityDetail.css';
 
 function CityDetail() {
   const { cityName } = useParams();
-
   var apiRequest = new XMLHttpRequest();
 
   var url = `http://localhost:8000/cities/${cityName}`;
