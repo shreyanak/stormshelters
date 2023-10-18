@@ -6,7 +6,8 @@ deploy:
   stage: deploy
   script:
    - mkdir -p ~/.ssh
-   - echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
+   - echo "$SSH_PRIVATE_KEY" | > ~/.ssh/id_rsa
+   - chmod 700 ~/.ssh
    - chmod 600 ~/.ssh/id_rsa
    - eval "$(ssh-agent -s)"
    - ssh-add ~/.ssh/id_rsa
@@ -17,9 +18,7 @@ deploy:
    - dev
 
 postman_tests:
-  stage:
-    test
-
+  stage: test
   image:
     name: postman/newman_alpine33
     entrypoint: [""]
@@ -32,4 +31,5 @@ python-tests:
   image: python:3
   stage: test
   script:
-    - python teests.py
+    - cd backend
+    - python tests.py
