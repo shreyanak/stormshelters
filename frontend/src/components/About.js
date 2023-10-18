@@ -96,7 +96,7 @@ function About() {
       </p>
       <div className="team-members-container">
         {contributorStats.map((contributor, index) => (
-          <div className="team-member-card" key={index}>
+          <div className="about-card" key={index}>
             <img src={`../img/${contributor.name}.jpg`} alt={`contributor ${index + 1}`} />
             <div className="text">{contributor.displayName}</div>
             <div className="text">{`${contributor.description}`}</div>
@@ -106,7 +106,7 @@ function About() {
           </div>
         ))}
       </div>
-      <div className="statistics" style={{ justifyContent: 'left' }}>
+      <div className="statistics">
         <p>{`Total commits: ${totalCommits}`}</p>
         <p>{`Total issues: ${totalIssues}`}</p>
       </div>
