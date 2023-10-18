@@ -1,9 +1,13 @@
 import React from 'react';
 import '../css/Shelter.css';
 import ShelterCard from './ShelterModel';
-import shelterData from '../data/shelter-data';
 
 function Shelters() {
+  var apiRequest = new XMLHttpRequest();
+  apiRequest.open('GET', "https://api.stormshelters.me/shelters", false); 
+  apiRequest.send(null);
+  var shelterData = (JSON.parse(apiRequest.responseText)).Shelter;
+
   // chunk the shelter data into groups of three for grid
   function chunkArray(arr, chunkSize) {
     const chunkedArray = [];
@@ -12,12 +16,12 @@ function Shelters() {
     }
     return chunkedArray;
   }
-  const chunkedShelterData = chunkArray(shelterData[0].businesses, 3);
+  const chunkedShelterData = chunkArray(shelterData, 3);
 
   return (
     <div className="shelters-container">
       <h1>Shelter Model</h1>
-      <p>Total Instances: {shelterData[0].businesses.length}</p>
+      <p>Total Instances: {shelterData.length}</p>
 
       <div className="shelter-card-container">
         {chunkedShelterData.map((chunk, rowIndex) => (

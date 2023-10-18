@@ -1,15 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../css/City.css';
-// import axios from 'axios';
-
-// todo: we need to replace the URL with the production URL for our backend server
-
 
 const PharmacyCard = ({ cityData }) => {
   const { name, pop, temp, wind_mph, condition, precip_in } = cityData;
 
-  return (
+  return (  
     <div className="card">
       <div className="card-body">
         <h4 className="card-title">{name}</h4>

@@ -1,22 +1,12 @@
 import React from 'react';
 import '../css/City.css';
 import CityCard from './CityModel';
-// import cityData from '../data/city-data';
-// import { Link } from 'react-router-dom'
-
-
-
-
-
 
 function Cities() {
   var apiRequest = new XMLHttpRequest();
-  apiRequest.open('GET', "http://localhost:8000/cities", false); // Just to a flipping synchronous request. IF there isn't any data to display, then DON't display data!
-  apiRequest.send();
-  var cityData = JSON.parse(apiRequest.responseText);
-
-  console.log("hello? " + cityData);
-  // chunk the city data into groups of three for grid
+  apiRequest.open('GET', "https://api.stormshelters.me/cities", false); 
+  apiRequest.send(null);
+  var cityData = (JSON.parse(apiRequest.responseText)).cities;
   function chunkArray(arr, chunkSize) {
     const chunkedArray = [];
     for (let i = 0; i < arr.length; i += chunkSize) {
@@ -25,8 +15,6 @@ function Cities() {
     return chunkedArray;
   }
   const chunkedCityData = chunkArray(cityData, 3);
-  console.log("chunked data: " + chunkedCityData);
-
   
   return (
     <div className="cities-container">
@@ -44,6 +32,14 @@ function Cities() {
           </div>
         ))}
       </div>
+{/* 
+      <div className="show-more">
+        <div className="button-container">
+            <Link to={`/cities/`} className="button">
+              Learn More
+            </Link>
+        </div>
+      </div> */}
     </div>
   );
 }

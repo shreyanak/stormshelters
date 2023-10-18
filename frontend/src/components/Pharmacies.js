@@ -1,32 +1,14 @@
 import React from 'react';
 import '../css/Pharmacy.css';
 import PharmacyCard from './PharmacyModel';
-import { Link } from 'react-router-dom'
-// import axios from 'axios'
-// console.log("hello?");
-
-// fetch("pharmacies/1")
-// .then(res => res.json())
-// .then(data => {
-//   console.log(data);
-
-// });
-// const pharmacyData = await response.json();
-const pharmacyData = {"a": 1, "b": 2, "c": 3};
-
-
-// THIS SYNTAX IS AWFUL.
-// axios.get('localhost:3001/pharmacies1').then(response => {
-//    const ourResponse = response.data;
-//    pharmacyData = ourResponse;
-//    console.log("response " + response);
-   
-   
-   
-//   });
-  console.log(pharmacyData);
+// import { Link } from 'react-router-dom'
 
 function Pharmacies() {
+  var apiRequest = new XMLHttpRequest();
+  apiRequest.open('GET', "https://api.stormshelters.me/pharmacies", false); 
+  apiRequest.send(null);
+  var pharmacyData = (JSON.parse(apiRequest.responseText)).pharmacies;
+
   // chunk the city data into groups of three for grid
   function chunkArray(arr, chunkSize) {
     const chunkedArray = [];
