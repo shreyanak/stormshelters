@@ -4,15 +4,14 @@ import cityData from '../data/city-data';
 import '../css/CityDetail.css';
 
 function CityDetail() {
-
   const { cityName } = useParams();
-  const selectedCity = cityData.find(city => city.name === cityName);
+  const selectedCity = cityData.find((city) => city.name === cityName);
 
   if (!selectedCity) {
     return <div>City not found</div>;
   }
 
-  const { name, pop, temp, wind_mph, condition, precip_in } = selectedCity;
+  const { name, pop, 'temp in f': temp, wind_mph, condition, precip_in } = selectedCity;
 
   return (
     <div className="city-detail-container">
