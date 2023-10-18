@@ -9,45 +9,45 @@ class Tests(unittest.TestCase):
         with client:
             response = client.get('/cities')
             self.assertEqual(response.status_code, 200)
-            data = response.json["data"]
+            data = response.json["cities"]
             self.assertEqual(len(data), 10)
 
     def test_shelters_page(self):
         with client:
             response = client.get('/shelters')
             self.assertEqual(response.status_code, 200)
-            data = response.json["data"]
+            data = response.json["shelters"]
             self.assertEqual(len(data), 10)
 
     def test_pharmacies_page(self):
         with client:
             response = client.get('/pharmacies')
             self.assertEqual(response.status_code, 200)
-            data = response.json["data"]
-            self.assertEqual(len(data), 15)
+            data = response.json["pharmacies"]
+            self.assertEqual(len(data), 10)
 
     def test_city(self):
         with client:
-            response = client.get("/cities/5")
+            response = client.get("/cities/6")
             self.assertEqual(response.status_code, 200)
-            data = response.json["data"]
+            data = response.json["city"]
             self.assertEqual(data["name"], "Houston")
 
     def test_shelter(self):
         with client:
             response = client.get("/shelters/34")
             self.assertEqual(response.status_code, 200)
-            data = response.json["data"]
+            data = response.json["shelter"]
             self.assertEqual(data["name"], "The Abundant Harvest")
             self.assertEqual(data["city"], "Spring")
 
     def test_pharmacy(self):
         with client:
-            response = client.get("/pharmacies/")
+            response = client.get("/pharmacies/121")
             self.assertEqual(response.status_code, 200)
-            data = response.json["data"]
-            self.assertEqual(data["name"], "Walgreens")
-            self.assertEqual(data["city"], "Deer Park")
+            data = response.json["pharmacy"]
+            self.assertEqual(data["name"], "CVS Pharmacy")
+            self.assertEqual(data["city"], "Jacinto City")
 
 if __name__ == "__main__":
     unittest.main()
