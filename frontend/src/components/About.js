@@ -9,11 +9,11 @@ function About() {
   useEffect(() => {
     const projectId = '50438097';
     const contributorData = [
-      { name: 'aaronk2711', displayName: 'Aaron Kulkarni', name3: 'aaron-kulkarni', description: 'I am a CS major currently in my third year from New Jersey. My favorite activities outside of the classroom are basketball, judo, and guitar. Major Responsibilities: Backend'},
-      { name: 'shreya.n', displayName: 'Shreya Nakka', name3: '', description: 'I am a Computer Science major in my Junior year. In my free time, I enjoy playing tennis, volleyball, and painting. Major Responsibilities: Backend'},
-      { name: 'rohitc28', displayName: 'Rohit Chawla', name3: '', description: 'I am a Computer Science major in my Junior year. I have lived in Austin my entire life and I enjoy playing board games. Major Responsibilities: Frontend'},
-      { name: 'jrsmith0', displayName: 'John Smith', name3: '', description: 'I am a junior computer science major from the Rio Grande Valley. In my free time, I enjoy camping and spending time with family. Major Responsibilities: Frontend'},
-      { name: 'areye2020', displayName: 'Adriana Reyes', name3: '', description: 'I am a senior computer science major from Austin. Outside of CS I like to play guitar, skateboard, and draw. Major responsibilities: Frontend'},
+      { name: 'aaronk2711', displayName: 'Aaron Kulkarni', name3: 'aaron-kulkarni', description: 'I am a CS major currently in my third year from New Jersey. My favorite activities outside of the classroom are basketball, judo, and guitar. Major Responsibilities: Backend', unittests:0},
+      { name: 'shreya.n', displayName: 'Shreya Nakka', name3: '', description: 'I am a Computer Science major in my Junior year. In my free time, I enjoy playing tennis, volleyball, and painting. Major Responsibilities: Backend', unittests:6},
+      { name: 'rohitc28', displayName: 'Rohit Chawla', name3: '', description: 'I am a Computer Science major in my Junior year. I have lived in Austin my entire life and I enjoy playing board games. Major Responsibilities: Frontend', unittests:0},
+      { name: 'jrsmith0', displayName: 'John Smith', name3: '', description: 'I am a junior computer science major from the Rio Grande Valley. In my free time, I enjoy camping and spending time with family. Major Responsibilities: Frontend', unittests:0},
+      { name: 'areye2020', displayName: 'Adriana Reyes', name3: '', description: 'I am a senior computer science major from Austin. Outside of CS I like to play guitar, skateboard, and draw. Major responsibilities: Frontend', unittests:0},
     ];
 
     async function fetchData() {
@@ -66,7 +66,8 @@ function About() {
             displayName: displayName,
             issues: issuesCount,
             commits: commitsCount,
-            description: description
+            description: description,
+            unittests: contributor.unittests
           },
         ]);
       }
@@ -101,7 +102,7 @@ function About() {
             <div className="text">{`${contributor.description}`}</div>
             <div className="text">{`Number of issues: ${contributor.issues}`}</div>
             <div className="text">{`Number of commits: ${contributor.commits}`}</div>
-            <div className="text">Number of unit tests: 0</div>
+            <div className="text">{`Number of unit tests: ${contributor.unittests}`}</div>
           </div>
         ))}
       </div>
