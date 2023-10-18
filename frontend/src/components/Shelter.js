@@ -6,7 +6,8 @@ function Shelters() {
   var apiRequest = new XMLHttpRequest();
   apiRequest.open('GET', "https://api.stormshelters.me/shelters", false); 
   apiRequest.send(null);
-  var shelterData = (JSON.parse(apiRequest.responseText)).Shelter;
+  var shelterData = (JSON.parse(apiRequest.responseText)).shelters;
+  console.log(shelterData);
 
   // chunk the shelter data into groups of three for grid
   function chunkArray(arr, chunkSize) {
