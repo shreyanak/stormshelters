@@ -5,11 +5,13 @@ stages:
 backend-deploy:
   stage: deploy
   script:
-   - mkdir -p ~/.ssh
-   - chmod 700 ~/.ssh
+   - 'command -v ssh-agent >/dev/null || ( apt-get update -y && apt-get install openssh-client wget gnupg -y )'
    - eval "$(ssh-agent -s)"
    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+   - mkdir -p ~/.ssh
+   - chmod 700 ~/.ssh
    - ssh-keyscan -H $BACKEND_SERVER_IP >> ~/.ssh/known_hosts
+   - chmod 644 ~/.ssh/known_hosts
    - scp -r ./backend $BACKEND_SERVER_IP:/home/ubuntu/stormshelters/backend
    - cat ./remote.sh | ssh $BACKEND_SERVER_IP "bash -"
   only:
