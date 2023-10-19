@@ -1,5 +1,6 @@
 import mysql.connector
 import json
+import requests
 
 
 def load_cities() :
@@ -44,6 +45,69 @@ def load_cities() :
 
     stormshelters_db.commit()
     print('Data inserted successfully')
+
+def load_cities_images():
+    # AWS RPS DB info
+    storm_host = "stormshelters-db.clwbujmk0ylk.us-east-2.rds.amazonaws.com"
+    storm_user = "admin"
+    storm_password = "StormShelters2023"
+    storm_database = "models"
+
+    print("attempting to connect")
+
+    # Database connection
+    stormshelters_db = mysql.connector.connect(
+        host = storm_host,
+        user = storm_user,
+        password = storm_password,
+        database = storm_database
+    )
+
+    cursor = stormshelters_db.cursor()
+    get_cities_query = """SELECT name FROM cities_new WHERE image_url IS NULL"""
+
+    cursor.execute(get_cities_query)
+    city_names = cursor.fetchall()
+
+    # iterate through city names, load each url
+    for city_name in city_names:
+        # google custom search, get image url
+        image_url = fetch_image_url(city_name)
+
+        if image_url:
+            # query and add url to sql
+            load_image_query = f"""UPDATE cities_new SET image = '{image_url}' WHERE name = '{city_name}'"""
+            cursor.execute(load_image_query)
+            stormshelters_db.commit()
+        else:
+            print("failed to get image url")
+
+    cursor.close()
+    stormshelters_db.close()
+
+
+def fetch_image_url(query):
+    api_key = "AIzaSyAcJPY_z5AiJAF0bngy4Ek6M0E3pTTGcTk"
+    cse_id = "b4dcf4643af1e4b07"    # custom search engine ID
+
+    url = f'https://www.googleapis.com/customsearch/v1?key={api_key}&cx={cse_id}&q={query}&searchType=image'
+
+    # GET request
+    response = requests.get(url)
+
+    # 200 is code for success
+    if response.status_code == 200:
+        images_data = response.json()
+
+        if 'items' in images_data and len(images_data['items']) > 0:
+            # gets image link of first image
+            image_link = images_data['items'][0]['link']
+            print("image link: ", image_link)
+        else:
+            print("no search results found")
+    else:
+        print("request failed with status code: ", response.status_code)
+
 
 def load_medical():
        # AWS RPS DB info

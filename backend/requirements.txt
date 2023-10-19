@@ -14,6 +14,7 @@ mysql-connector==2.2.9
 marshmallow_sqlalchemy==0.29.0
 pymysql==1.1.0
 
+
 # dev packages
 black==23.1.0
 coverage==7.2.1

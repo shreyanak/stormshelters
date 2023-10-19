@@ -1,35 +1,34 @@
-import React from 'react';
-import '../css/Shelter.css';
+import React, { useState, useEffect } from 'react';
+import '../css/City.css';
 import ShelterCard from './ShelterModel';
-import { Link } from 'react-router-dom'
-
-var nextPage = 1;
-
-function nextShelter() {
-  nextPage++;
-  window.location.href = `http://localhost:3001/shelters?page=${nextPage}`;
-}
 
 function Shelters() {
+  // Step 1: Define state variable to store shelter data
+  const [shelterData, setShelterData] = useState([]);
+  const [pageNum, setPageNum] = useState(1);
 
-  var apiRequest = new XMLHttpRequest();
-  var query = window.location.search;
-  var urlParam = new URLSearchParams(query);
-  var page = urlParam.get('page');
+  // Step 2: Create an asynchronous function to fetch data
+  const fetchData = async (page) => {
+    try {
+      const apiUrl = `https://api.stormshelters.me/shelters?page=${page}`;
+      const response = await fetch(apiUrl);
+      if (response.ok) {
+        const data = await response.json();
+        setShelterData(data.shelters)
+      } else {
+        console.error('Error fetching data:', response.status);
+      }
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
 
+  // Step 3: Fetch data when the component mounts or when the page parameter changes
+  useEffect(() => {
+    fetchData(pageNum);
+  }, [pageNum]);
 
-  if (page > 0) {
-    nextPage = page;
-  }
-
-  var url = `http://localhost:8000/shelters?page=${page}`;
-  apiRequest.open('GET', url, false); 
-
-
-  apiRequest.send(null);
-  var shelterData = (JSON.parse(apiRequest.responseText)).shelters;
-  console.log(shelterData);
-
+  
   // chunk the shelter data into groups of three for grid
   function chunkArray(arr, chunkSize) {
     const chunkedArray = [];
@@ -40,10 +39,12 @@ function Shelters() {
   }
   const chunkedShelterData = chunkArray(shelterData, 3);
 
+
+  // Step 5: Use React Router to handle navigation
   return (
     <div className="shelters-container">
-      <h1>Shelter Model</h1>
-      {/* <p>Total Instances: {shelterData.length}</p> */}
+      <h1>Shelters & Food pantries</h1>
+      <p>Total Instances: {shelterData.length}</p>
 
       <div className="shelter-card-container">
         {chunkedShelterData.map((chunk, rowIndex) => (
@@ -56,15 +57,34 @@ function Shelters() {
           </div>
         ))}
       </div>
-
       <div className="show-more">
-        <div className="button-container">
-            <Link onClick={nextShelter} className="button">Next</Link>
-        </div>
+      <div className="button-group">
+        <button
+          onClick={() => {
+            if (shelterData.length > 0) {
+              setPageNum((prev) => prev - 1);
+            }
+          }}
+          disabled={pageNum === 1}
+          className="shelter-button prev-button"
+        >
+          Previous
+        </button>
+        <button
+          onClick={() => {
+            if (shelterData.length > 0) {
+              setPageNum((prev) => prev + 1);
+            }
+          }}
+          disabled={shelterData.length === 0}
+          className="shelter-button next-button"
+        >
+          Next
+        </button>
       </div>
-
     </div>
-  );
+  </div>
+);
 }
 
 export default Shelters;

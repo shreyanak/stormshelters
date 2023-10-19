@@ -11,7 +11,7 @@ def home():
 def get_cities():
     query = db.session.query(City)
     page = request.args.get('page', 1, int)
-    per_page = request.args.get('per_page', 10, int)
+    per_page = request.args.get('per_page', 12, int)
 
     result = query.paginate(page=page, per_page=per_page, error_out=False) 
     schema = city_schema.dump(result, many=True)
@@ -27,7 +27,7 @@ def get_cities():
 def get_pharmacy():
     query = db.session.query(Pharmacy)
     page = request.args.get('page', 1, int)
-    per_page = request.args.get('per_page', 10, int)
+    per_page = request.args.get('per_page', 12, int)
     result = query.paginate(page=page, per_page=per_page, error_out=False) 
 
     schema_dump = pharmacy_schema.dump(result, many=True)
@@ -41,7 +41,7 @@ def get_pharmacy():
 @app.route('/shelters',  methods=['GET'])
 def get_shelters():
     page = request.args.get('page', 1, int)
-    per_page = request.args.get('per_page', 10, int)
+    per_page = request.args.get('per_page', 12, int)
     query = db.session.query(Shelter)
     result = query.paginate(page=page, per_page=per_page, error_out=False) 
 

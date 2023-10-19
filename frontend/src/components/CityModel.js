@@ -25,7 +25,7 @@ const CityCard = ({ cityData }) => {
         </ul>
         {/* </Link> */}
         <div className="button-container">
-          <Link to={`/city/${name}`} className="button">
+          <Link to={`/cities/${name}`} className="button">
             Learn More
           </Link>
         </div>

@@ -18,6 +18,8 @@
   flex-direction: column;
   height: 500px;
   background-color: #333;
+  padding: 20px;
+  margin: 20px 0;
 }
 
 .shelter-card:hover {
@@ -41,21 +43,32 @@
 
 .shelter-card-body {
   padding: 20px;
+  color: white;
 }
 
 .shelter-card-title {
   text-align: center;
 }
 
-.shelter-button-container {
+.button-container {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 15px;
 }
 
+.button-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  padding: 15px;
+  gap: 20px;
+}
+
 .shelter-button {
-  width: 40%;
+  width: 30%;
+  height: 60px;
   padding: 10px 20px;
   background-color: #007bff;
   color: #fff;
@@ -64,8 +77,10 @@
   text-decoration: none;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin: auto;
 }
 
 .shelter-button:hover {
   background-color: #0056b3;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }

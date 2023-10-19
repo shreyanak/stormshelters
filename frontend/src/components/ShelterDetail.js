@@ -22,17 +22,6 @@ const ShelterDetail = () => {
         <p className="info-item">Rating: {currentShelter.rating}</p>
         <p className="info-item">Address: {currentShelter.location.display_address.join(', ')}</p>
         <div className="map-container">
-          {/* ifame not working properly */}
-          <iframe
-            width="100%"
-            height="400"
-            frameBorder="0"
-            style={{ border: 0 }}
-            src={`https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=${currentShelter.location.display_address.join(
-              '+'
-            )}`}
-            allowFullScreen
-          ></iframe>
         </div>
       </div>
     </div>
