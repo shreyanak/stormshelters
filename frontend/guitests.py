@@ -49,48 +49,47 @@ class Test(unittest.TestCase):
         self.assertEqual(self.driver.current_url, url + "pharmacies/")
 
     def test_city_card(self):
-        self.driver.get(url + '/cities')
+        self.driver.get(url + 'cities')
         self.driver.implicitly_wait(5)
-        WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div/div/div[1]/div[1]/div[1]/div/div/div/a")))
-        button = self.driver.find_element(By.XPATH, "/html/body/div/div/div[1]/div[1]/div[1]/div/div/div/a")
+        button = self.driver.find_element(By.XPATH, '/html/body/div/div/div[1]/div[1]/div[1]/div/div/div/a')
         button.click()
         self.assertEqual(self.driver.current_url, url + "cities/Baytown")
 
-    # def test_pharmacy_card(self):
-    #     self.driver.get(url)
-    #     self.driver.implicitly_wait(5)
-    #     button = self.driver.find_element(By.XPATH, '//*[@id="root"]/div/div[1]/div[2]/div[1]/div/div/div/a')
-    #     button.click()
-    #     self.assertEqual(self.driver.current_url, url + "pharmacies/Walgreens")
 
+    def test_shelter_card(self):
+        self.driver.get(url + 'shelter')
+        self.driver.implicitly_wait(5)
+        button = self.driver.find_element(By.XPATH, '/html/body/div/div/div[1]/div[1]/div[3]/div/div[2]/div/a')
+        button.click()
+        self.assertEqual(self.driver.current_url, url + "shelter/Hope%20Center%20Houston")
 
-    # def test_shelter_card(self):
-    #     self.driver.get(url)
-    #     self.driver.implicitly_wait(5)
-    #     button = self.driver.find_element(By.XPATH, '//*[@id="root"]/div/div[1]/div[2]/div[1]/div/div[2]/div/a')
-    #     button.click()
-    #     self.assertEqual(self.driver.current_url, url + "shelter/The Abundant Harvest")
+    def test_pharmacy_card(self):
+        self.driver.get(url + 'pharmacies')
+        self.driver.implicitly_wait(5)
+        button = self.driver.find_element(By.XPATH, '/html/body/div/div/div[1]/div[2]/div[1]/div/div/div/a')
+        button.click()
+        self.assertEqual(self.driver.current_url, url + "pharmacies/Walgreens")
 
-    # def test_next_button_shelter(self):
-    #     self.driver.get(url)
-    #     self.driver.implicitly_wait(5)
-    #     button = self.driver.find_element(By.XPATH, '//*[@id="root"]/div/div[2]/div/button[2]')
-    #     button.click()
-    #     self.assertEqual(self.driver.current_url, url + 'shelter/')
+    def test_next_button_shelter(self):
+        self.driver.get(url +'shelter')
+        self.driver.implicitly_wait(5)
+        button = self.driver.find_element(By.XPATH, '/html/body/div/div/div[2]/div/button[2]')
+        button.click()
+        self.assertEqual(self.driver.current_url, url + 'shelter/')
 
-    # def test_prev_button_city(self):
-    #     self.driver.get(url)
-    #     self.driver.implicitly_wait(5)
-    #     button = self.driver.find_element(By.XPATH, '//*[@id="root"]/div/div[2]/div/button[2]')
-    #     button.click()
-    #     self.assertEqual(self.driver.current_url, url + 'cities/')
+    def test_prev_button_city(self):
+        self.driver.get(url + 'cities')
+        self.driver.implicitly_wait(5)
+        button = self.driver.find_element(By.XPATH, '/html/body/div/div/div[2]/div/button[2]')
+        button.click()
+        self.assertEqual(self.driver.current_url, url + 'cities/')
 
-    # def test_home_navbar(self):
-    #     self.driver.get(url + '/cities')
-    #     self.driver.implicitly_wait(5)
-    #     button = self.driver.find_element(By.LINK_TEXT, 'StormShelters')
-    #     button.click()
-    #     self.assertEqual(self.driver.current_url, url)
+    def test_home_navbar(self):
+        self.driver.get(url + 'cities')
+        self.driver.implicitly_wait(5)
+        button = self.driver.find_element(By.LINK_TEXT, 'StormShelters')
+        button.click()
+        self.assertEqual(self.driver.current_url, url)
 
 if __name__ == "__main__":
     unittest.main()
