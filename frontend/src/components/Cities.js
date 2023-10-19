@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import '../css/City.css';
-import { Link, useParams } from 'react-router-dom';
 import CityCard from './CityModel';
 
 function Cities() {
   // Step 1: Define state variable to store city data
   const [cityData, setCityData] = useState([]);
   const [pageNum, setPageNum] = useState(1);
-  const [hasMoreData, setHasMoreData] = useState(true);
 
   // Step 2: Create an asynchronous function to fetch data
   const fetchData = async (page) => {
@@ -44,7 +42,7 @@ function Cities() {
   // Step 5: Use React Router to handle navigation
   return (
     <div className="cities-container">
-      <h1>City Model</h1>
+      <h1>Cities</h1>
       <p>Total Instances: {cityData.length}</p>
 
       <div className="card-container">
