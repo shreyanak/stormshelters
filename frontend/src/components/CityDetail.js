@@ -4,11 +4,11 @@ import cityData from '../data/city-data';
 import '../css/CityDetail.css';
 
 function CityDetail() {
-  const { cityName } = useParams();
+  const { id } = useParams();
   var apiRequest = new XMLHttpRequest();
 
-  var url = `http://localhost:8000/cities/${cityName}`;
-  console.log(url);
+  var url = `https://api.stormshelters/cities/${id}`;
+  console.log(id);
   apiRequest.open('GET', url, false); 
   apiRequest.send(null);
   var selectedCity = (JSON.parse(apiRequest.responseText).city);

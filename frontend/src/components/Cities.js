@@ -1,39 +1,50 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import '../css/City.css';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import CityCard from './CityModel';
 
-var nextPage = 1;
-
 function nextCity() {
-  nextPage++;
-  window.location.href = `http://localhost:3001/cities?page=${nextPage}`;
+  
 }
+
 function Cities() {
-  var apiRequest = new XMLHttpRequest();
-  var query = window.location.search;
-  var urlParam = new URLSearchParams(query);
-  var page = urlParam.get('page');
+  // Step 1: Define state variable to store city data
+  const [cityData, setCityData] = useState([]);
+  const [pageNum, setPageNum] = useState(1);
 
+  // Step 2: Create an asynchronous function to fetch data
+  const fetchData = async (page) => {
+    try {
+      const apiUrl = `https://api.stormshelters.me/cities?page=${page}`;
+      const response = await fetch(apiUrl);
+      if (response.ok) {
+        const data = await response.json();
+        setCityData(data.cities);
+      } else {
+        console.error('Error fetching data:', response.status);
+      }
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
 
-  if (page > 0) {
-    nextPage = page;
-  }
+  // Step 3: Fetch data when the component mounts or when the page parameter changes
+  useEffect(() => {
+    fetchData(pageNum);
+  }, [pageNum]);
 
-  var url = `http://localhost:8000/cities?page=${page}`;
-  // console.log(url);
-  apiRequest.open('GET', url, false); 
-  apiRequest.send(null);
-  var cityData = (JSON.parse(apiRequest.responseText)).cities;
-  function chunkArray(arr, chunkSize) {
+  // Step 4: Render data in the desired format
+  const chunkArray = (arr, chunkSize) => {
     const chunkedArray = [];
     for (let i = 0; i < arr.length; i += chunkSize) {
       chunkedArray.push(arr.slice(i, i + chunkSize));
     }
     return chunkedArray;
-  }
+  };
+
   const chunkedCityData = chunkArray(cityData, 3);
 
+  // Step 5: Use React Router to handle navigation
   return (
     <div className="cities-container">
       <h1>City Model</h1>
@@ -42,9 +53,9 @@ function Cities() {
       <div className="card-container">
         {chunkedCityData.map((chunk, rowIndex) => (
           <div className="row" key={rowIndex}>
-            {chunk.map((pharmacy, colIndex) => (
+            {chunk.map((city, colIndex) => (
               <div className="col-sm-4" key={colIndex}>
-                  <CityCard cityData={pharmacy} />
+                <CityCard cityData={city} />
               </div>
             ))}
           </div>
@@ -53,13 +64,16 @@ function Cities() {
 
       <div className="show-more">
         <div className="button-container">
-            <Link onClick={nextCity} className="button">Next</Link>
+          <button onClick={() => setPageNum((prev) => prev + 1)} disabled={pageNum==3}>
+            Next
+          </button>
+          <button onClick={() => setPageNum((prev) => prev - 1)} disabled={pageNum==1}>
+            Previous
+          </button>
         </div>
       </div>
-
     </div>
   );
 }
-
 
 export default Cities;

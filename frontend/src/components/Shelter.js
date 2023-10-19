@@ -7,7 +7,7 @@ var nextPage = 1;
 
 function nextShelter() {
   nextPage++;
-  window.location.href = `http://localhost:3001/shelters?page=${nextPage}`;
+  window.location.href = `https://api.stormshelters.me/shelters?page=${nextPage}`;
 }
 
 function Shelters() {
@@ -22,7 +22,7 @@ function Shelters() {
     nextPage = page;
   }
 
-  var url = `http://localhost:8000/shelters?page=${page}`;
+  var url = `https://api.stormshelters.me/shelters?page=${page}`;
   apiRequest.open('GET', url, false); 
 
 
