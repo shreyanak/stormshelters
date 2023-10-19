@@ -70,6 +70,8 @@ function Cities() {
           <button onClick={() => setPageNum((prev) => prev - 1)} disabled={pageNum==1}>
             Previous
           </button>
+          
+
         </div>
       </div>
     </div>

@@ -15,12 +15,14 @@ const ShelterCard = ({ shelterData }) => {
       <div className="shelter-card-body">
         <h4 className="shelter-card-title">{shelterData.name}</h4>
         <ul className="list-group list-group-flush">
-          <li className="list-group-item">Address: {shelterData.display_address }</li>
           <li className="list-group-item">Phone: {shelterData.display_phone}</li>
           <li className="list-group-item">Rating: {shelterData.rating}</li>
+          <li className="list-group-item">Closed: {shelterData.is_closed}</li>
+          <li className="list-group-item">City: {shelterData.city}</li>
+          <li className="list-group-item">Address: {shelterData.display_address }</li>
         </ul>
         <div className="shelter-button-container">
-          <Link to={`/shelter/${shelterData.alias}`} className="shelter-button">
+          <Link to={`/shelter/${shelterData.name}`} className="shelter-button">
             Learn More
           </Link>
         </div>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../css/Pharmacy.css';
 import PharmacyCard from './PharmacyModel';
 
-function Cities() {
+function Pharmacies() {
   // Step 1: Define state variable to store city data
   const [pharmacyData, setPharmacyData] = useState([]);
   const [pageNum, setPageNum] = useState(1);
@@ -76,4 +76,4 @@ function Cities() {
   );
 }
 
-export default Cities;
+export default Pharmacies;
