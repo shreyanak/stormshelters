@@ -3,14 +3,13 @@ import { useParams } from 'react-router-dom';
 import '../css/CityDetail.css';
 
 function CityDetail() {
-  const { id } = useParams();
   const [cityData, setCityData] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`https://api.stormshelters.me/cities/${id}`);
+        const response = await fetch(`https://api.stormshelters.me/cities/${name}`);
         console.log(response)
         if (!response.ok) {
           throw new Error("City not found");

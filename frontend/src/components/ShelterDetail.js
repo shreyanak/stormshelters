@@ -1,11 +1,19 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import shelterData from '../data/shelter-data';
+// import shelterData from '../data/shelter-data';
 import '../css/ShelterDetail.css';
 
 const ShelterDetail = () => {
   const { shelterName } = useParams();
-  const currentShelter = shelterData[0].businesses.find(shelter => shelter.alias === shelterName);
+//   const currentShelter = shelterData[0].businesses.find(shelter => shelter.alias === shelterName);
+    var apiRequest = new XMLHttpRequest();
+
+    var url = `http://localhost:8000/shelters/${shelterName}`;
+    console.log(url);
+    apiRequest.open('GET', url, false); 
+    apiRequest.send(null);
+    var currentShelter = (JSON.parse(apiRequest.responseText).shelter);
+
 
   if (!currentShelter) {
     return <div>No shelter found</div>;
