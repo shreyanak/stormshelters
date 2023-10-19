@@ -19,8 +19,8 @@ function App() {
         <Route path="/cities" element={<Cities />} />
         <Route path="/pharmacies" element={<Pharmacies />} />
         <Route path="/shelter" element={<Shelters />} />
-        <Route path="/city/:cityName" element={<CityDetail />} />
-        <Route path="/shelter/:shelterName" element={<ShelterDetail />} />
+        <Route path="/city/:id" element={<CityDetail />} />
+        <Route path="/shelter/:shelter_id" element={<ShelterDetail />} />
       </Routes>
     </Router>
   );

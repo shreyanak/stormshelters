@@ -1,15 +1,34 @@
-import React from 'react';
-import '../css/Shelter.css';
-// import shelterData from '../data/shelter-data';
+import React, { useState, useEffect } from 'react';
+import '../css/City.css';
 import ShelterCard from './ShelterModel';
 
 function Shelters() {
-  var apiRequest = new XMLHttpRequest();
-  apiRequest.open('GET', "https://api.stormshelters.me/shelters", false); 
-  apiRequest.send(null);
-  var shelterData = (JSON.parse(apiRequest.responseText)).shelters;
-  console.log(shelterData);
+  // Step 1: Define state variable to store shelter data
+  const [shelterData, setShelterData] = useState([]);
+  const [pageNum, setPageNum] = useState(1);
 
+  // Step 2: Create an asynchronous function to fetch data
+  const fetchData = async (page) => {
+    try {
+      const apiUrl = `https://api.stormshelters.me/shelters?page=${page}`;
+      const response = await fetch(apiUrl);
+      if (response.ok) {
+        const data = await response.json();
+        setShelterData(data.shelters)
+      } else {
+        console.error('Error fetching data:', response.status);
+      }
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
+  // Step 3: Fetch data when the component mounts or when the page parameter changes
+  useEffect(() => {
+    fetchData(pageNum);
+  }, [pageNum]);
+
+  
   // chunk the shelter data into groups of three for grid
   function chunkArray(arr, chunkSize) {
     const chunkedArray = [];
@@ -20,10 +39,12 @@ function Shelters() {
   }
   const chunkedShelterData = chunkArray(shelterData, 3);
 
+
+  // Step 5: Use React Router to handle navigation
   return (
     <div className="shelters-container">
-      <h1>Shelter Model</h1>
-      {/* <p>Total Instances: {shelterData.length}</p> */}
+      <h1>Shelters & Food pantries</h1>
+      <p>Total Instances: {shelterData.length}</p>
 
       <div className="shelter-card-container">
         {chunkedShelterData.map((chunk, rowIndex) => (
@@ -36,8 +57,34 @@ function Shelters() {
           </div>
         ))}
       </div>
+      <div className="show-more">
+      <div className="button-group">
+        <button
+          onClick={() => {
+            if (shelterData.length > 0) {
+              setPageNum((prev) => prev - 1);
+            }
+          }}
+          disabled={pageNum === 1}
+          className="shelter-button prev-button"
+        >
+          Previous
+        </button>
+        <button
+          onClick={() => {
+            if (shelterData.length > 0) {
+              setPageNum((prev) => prev + 1);
+            }
+          }}
+          disabled={shelterData.length === 0}
+          className="shelter-button next-button"
+        >
+          Next
+        </button>
+      </div>
     </div>
-  );
+  </div>
+);
 }
 
 export default Shelters;
