@@ -29,10 +29,43 @@ class Test(unittest.TestCase):
 
     def test1(self):
         self.driver.get(url)
-        button = self.driver.find_element(By.CLASS_NAME, 'navbar')
+        button = self.driver.find_element(By.LINK_TEXT, 'About')
         button.click()
         self.assertEqual(self.driver.current_url, url + "about/")
 
-    # def test2(self):
+    def test2(self):
+        self.driver.get(url)
+        button = self.driver.find_element(By.LINK_TEXT, 'Cities')
+        button.click()
+        self.assertEqual(self.driver.current_url, url + "cities/")
+
+    def test3(self):
+        self.driver.get(url)
+        button = self.driver.find_element(By.LINK_TEXT, 'Shelter & Relief')
+        button.click()
+        self.assertEqual(self.driver.current_url, url + "shelter/")
+
+    def test4(self):
+        self.driver.get(url)
+        button = self.driver.find_element(By.LINK_TEXT, 'Pharmacies')
+        button.click()
+        self.assertEqual(self.driver.current_url, url + "pharmacies/")
+
+    def test_city_card(self):
+        self.driver.get(url)
+        button = self.driver.find_element(By.XPATH, '//*[@id="root"]/div/div[1]/div[1]/div[1]/div/div/div/a')
+        button.click()
+        self.assertEqual(self.driver.current_url, url + "cities/Baytown")
+
+    def test_pharmacy_card(self):
+        self.driver.get(url)
+        button = self.driver.find_element(By.XPATH, '//*[@id="root"]/div/div[1]/div[2]/div[1]/div/div/div/a')
+        button.click()
+        self.assertEqual(self.driver.current_url, url + "pharmacies/Walgreens")
 
 
+    def test_shelter_card(self):
+        self.driver.get(url)
+        button = self.driver.find_element(By.XPATH, '//*[@id="root"]/div/div[1]/div[2]/div[1]/div/div[2]/div/a')
+        button.click()
+        self.assertEqual(self.driver.current_url, url + "shelter/The Abundant Harvest")

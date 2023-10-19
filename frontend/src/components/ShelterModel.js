@@ -20,7 +20,7 @@ const ShelterCard = ({ shelterData }) => {
           <li className="list-group-item">Rating: {shelterData.rating}</li>
         </ul>
         <div className="shelter-button-container">
-          <Link to={`/shelter/${shelterData.alias}`} className="shelter-button">
+          <Link to={`/shelter/${shelterData.name}`} className="shelter-button">
             Learn More
           </Link>
         </div>

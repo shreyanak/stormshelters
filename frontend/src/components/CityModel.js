@@ -4,6 +4,7 @@ import '../css/City.css';
 
 
 
+
 const CityCard = ({ cityData }) => {
   const { name, pop, temp, wind_mph, condition, precip_in, id } = cityData;
   console.log("data: " + id);
