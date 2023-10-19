@@ -3,14 +3,11 @@ import '../css/City.css';
 import { Link, useParams } from 'react-router-dom';
 import CityCard from './CityModel';
 
-function nextCity() {
-  
-}
-
 function Cities() {
   // Step 1: Define state variable to store city data
   const [cityData, setCityData] = useState([]);
   const [pageNum, setPageNum] = useState(1);
+  const [hasMoreData, setHasMoreData] = useState(true);
 
   // Step 2: Create an asynchronous function to fetch data
   const fetchData = async (page) => {
@@ -19,7 +16,7 @@ function Cities() {
       const response = await fetch(apiUrl);
       if (response.ok) {
         const data = await response.json();
-        setCityData(data.cities);
+        setCityData(data.cities)
       } else {
         console.error('Error fetching data:', response.status);
       }
@@ -64,7 +61,12 @@ function Cities() {
 
       <div className="show-more">
         <div className="button-container">
-          <button onClick={() => setPageNum((prev) => prev + 1)} disabled={pageNum==3}>
+          <button onClick={() => {
+    if (cityData.length > 0) {
+      setPageNum((prev) => prev + 1);
+    }
+  }}
+  disabled={cityData.length === 0}>
             Next
           </button>
           <button onClick={() => setPageNum((prev) => prev - 1)} disabled={pageNum==1}>

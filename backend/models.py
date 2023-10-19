@@ -20,6 +20,8 @@ class Pharmacy(db.Model):
     address = db.Column(db.Text)
     distance_m = db.Column(db.Float)
     categories = db.Column(db.Text)
+    longitude = db.Column(db.Float)
+    latitide = db.Column(db.Float)
 
 class Shelter(db.Model):
     __table_args__ = {'schema':'models'}
@@ -33,18 +35,8 @@ class Shelter(db.Model):
     display_address = db.Column(db.Text)
     display_phone = db.Column(db.String)
     image_url = db.Column(db.Text)
-
-# class Food(db.Model):
-#     __table_args__ = {'schema':'models'}
-#     __tablename__ = 'shelters_new'
-#     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-#     name = db.Column(db.Text)
-#     url = db.Column(db.Text)
-#     is_closed = db.Column(db.Boolean)
-#     rating = db.Column(db.Float)
-#     display_address = db.Column(db.Text)
-#     display_phone = db.Column(db.String)
-#     image_url = db.Column(db.Text)
+    longitide = db.Column(db.Float)
+    latitude = db.Column(db.Float)
 
 class City(db.Model):
     __table_args__ = {'schema':'models'}
