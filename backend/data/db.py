@@ -103,6 +103,7 @@ def fetch_image_url(query):
             # gets image link of first image
             image_link = images_data['items'][0]['link']
             print("image link: ", image_link)
+            return image_link
         else:
             print("no search results found")
     else:
@@ -245,6 +246,3 @@ def load_shelters():
 
     stormshelters_db.commit()
     print('Data inserted successfully') 
-
-load_shelters()
-load_food()

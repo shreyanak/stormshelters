@@ -21,7 +21,7 @@ class Pharmacy(db.Model):
     distance_m = db.Column(db.Float)
     categories = db.Column(db.Text)
     longitude = db.Column(db.Float)
-    latitide = db.Column(db.Float)
+    latitude = db.Column(db.Float)
 
 class Shelter(db.Model):
     __table_args__ = {'schema':'models'}
@@ -35,7 +35,7 @@ class Shelter(db.Model):
     display_address = db.Column(db.Text)
     display_phone = db.Column(db.String)
     image_url = db.Column(db.Text)
-    longitide = db.Column(db.Float)
+    longitude = db.Column(db.Float)
     latitude = db.Column(db.Float)
 
 class City(db.Model):

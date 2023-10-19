@@ -61,9 +61,7 @@ function Shelters() {
       <div className="button-group">
         <button
           onClick={() => {
-            if (shelterData.length > 0) {
-              setPageNum((prev) => prev - 1);
-            }
+            setPageNum((prev) => prev - 1);
           }}
           disabled={pageNum === 1}
           className="shelter-button prev-button"
