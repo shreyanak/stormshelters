@@ -42,41 +42,49 @@ function Shelters() {
 
   // Step 5: Use React Router to handle navigation
   return (
-    <div className="shelter-container">
-    <h1>Shelters & Food pantries</h1>
-    <p>Total Instances: {shelterData.length}</p>
+    <div className="shelters-container">
+      <h1>Shelters & Food pantries</h1>
+      <p>Total Instances: {shelterData.length}</p>
 
-    <div className="shelter-card-container">
-      {chunkedShelterData.map((chunk, rowIndex) => (
-        <div className="row" key={rowIndex}>
-          {chunk.map((shelter, colIndex) => (
-            <div className="col-sm-4" key={colIndex}>
-              <ShelterCard shelterData={shelter} />
-            </div>
-          ))}
-        </div>
-      ))}
-    </div>
-
-
-
+      <div className="shelter-card-container">
+        {chunkedShelterData.map((chunk, rowIndex) => (
+          <div className="row" key={rowIndex}>
+            {chunk.map((shelter, colIndex) => (
+              <div className="col-sm-4" key={colIndex}>
+                <ShelterCard shelterData={shelter} />
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
       <div className="show-more">
-        <div className="button-container">
-          <button onClick={() => {
-    if (shelterData.length > 0) {
-      setPageNum((prev) => prev + 1);
-    }
-  }}
-  disabled={shelterData.length === 0}>
-            Next
-          </button>
-          <button onClick={() => setPageNum((prev) => prev - 1)} disabled={pageNum===1}>
-            Previous
-          </button>
-        </div>
+      <div className="button-group">
+        <button
+          onClick={() => {
+            if (shelterData.length > 0) {
+              setPageNum((prev) => prev - 1);
+            }
+          }}
+          disabled={pageNum === 1}
+          className="shelter-button prev-button"
+        >
+          Previous
+        </button>
+        <button
+          onClick={() => {
+            if (shelterData.length > 0) {
+              setPageNum((prev) => prev + 1);
+            }
+          }}
+          disabled={shelterData.length === 0}
+          className="shelter-button next-button"
+        >
+          Next
+        </button>
       </div>
     </div>
-  );
+  </div>
+);
 }
 
 export default Shelters;
