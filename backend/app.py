@@ -55,10 +55,10 @@ def get_shelters():
                     }})
 
 # get instance of city
-@app.route('/cities/<string:city_name>', methods=['GET'])
-def get_single_city(city_name):
+@app.route('/cities/<int:city_id>', methods=['GET'])
+def get_single_city(city_id):
     try:
-        city = db.session.query(City).filter_by(name=city_name).one()
+        city = db.session.query(City).filter_by(id=city_id).one()
         city_data = city_schema.dump(city)
 
         return jsonify({"city": city_data})
@@ -66,10 +66,10 @@ def get_single_city(city_name):
         return jsonify({"error": "City not found"}, 404)
 
 # get instance of shelter
-@app.route('/shelters/<string:shelter_name>', methods=['GET'])
-def get_single_shelter(shelter_name):
+@app.route('/shelters/<int:shelter_id>', methods=['GET'])
+def get_single_shelter(shelter_id):
     try:
-        shelter = db.session.query(Shelter).filter_by(name=shelter_name).one()
+        shelter = db.session.query(Shelter).filter_by(id=shelter_id).one()
         shelter_data = shelter_schema.dump(shelter)
 
         return jsonify({"shelter": shelter_data})
@@ -77,10 +77,10 @@ def get_single_shelter(shelter_name):
         return jsonify({"error": "Shelter/Food not found"}, 404)
 
 # get instance of pahrmacy
-@app.route('/pharmacies/<string:pharm_name>', methods=['GET'])
-def get_single_pharmacy(pharm_name):
+@app.route('/pharmacies/<int:pharm_id>', methods=['GET'])
+def get_single_pharmacy(pharm_id):
     try:
-        pharmacy = db.session.query(Pharmacy).filter_by(name=pharm_name).one()
+        pharmacy = db.session.query(Pharmacy).filter_by(id=pharm_id).one()
         pharm_data = pharmacy_schema.dump(pharmacy)
 
         return jsonify({"pharmacy": pharm_data})

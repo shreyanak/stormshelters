@@ -24,6 +24,7 @@ const CityCard = ({ cityData }) => {
           <li className="list-group-item">Wind: {wind_mph}</li>
           <li className="list-group-item">Conditions: {condition}</li>
           <li className="list-group-item">Precipitations: {precip_in}</li>
+          <li className="list-group-item">ID: {id}</li>
         </ul>
         {/* </Link> */}
         <div className="shelter-button-container">

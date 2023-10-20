@@ -48,9 +48,9 @@ function Cities() {
       <div className="shelter-card-container">
         {chunkedCityData.map((chunk, rowIndex) => (
           <div className="row" key={rowIndex}>
-            {chunk.map((city, colIndex) => (
+            {chunk.map((id, colIndex) => (
               <div className="col-sm-4" key={colIndex}>
-                <CityCard cityData={city} />
+                <CityCard cityData={ id } />
               </div>
             ))}
           </div>

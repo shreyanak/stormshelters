@@ -5,13 +5,16 @@ import '../css/CityDetail.css';
 function CityDetail() {
   const [cityData, setCityData] = useState(null);
   const [error, setError] = useState(null);
+  const { id } = useParams();
+  console.log(id);
+
 
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         // const response = await fetch(`https://api.stormshelters.me/cities/${id}`);
-        const response = await fetch(`localhost:8000/${name}`);
+        const response = await fetch(`localhost:8000/cities/${id}`);
         
         console.log(response)
         if (!response.ok) {
