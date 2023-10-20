@@ -24,7 +24,6 @@ function App() {
         <Route path="/city/:id" element={<CityDetail />} />
         <Route path="/shelter/:id" element={<ShelterDetail />} />
         <Route path="/pharmacy/:id" element={<PharmacyDetail />} />
-
       </Routes>
     </Router>
   );

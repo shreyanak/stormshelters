@@ -6,11 +6,12 @@ function CityDetail() {
   const [cityData, setCityData] = useState(null);
   const [error, setError] = useState(null);
 
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         // const response = await fetch(`https://api.stormshelters.me/cities/${id}`);
-        const response = await fetch(`localhost:8000/${id}`);
+        const response = await fetch(`localhost:8000/${name}`);
         
         console.log(response)
         if (!response.ok) {
