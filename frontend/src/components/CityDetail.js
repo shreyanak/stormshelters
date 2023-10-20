@@ -24,7 +24,7 @@ function CityDetail() {
   
     fetchData();
   }, []);
-
+  console.log(cityData);
 
 
   const { name, pop, 'temp in f': temp, wind_mph, condition, precip_in } = cityData;
