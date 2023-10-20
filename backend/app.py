@@ -69,7 +69,7 @@ def get_single_city(city_name):
 @app.route('/shelters/<string:shelter_name>', methods=['GET'])
 def get_single_shelter(shelter_name):
     try:
-        shelter = db.session.query(Shelter).filter_by(id=shelter_name).one()
+        shelter = db.session.query(Shelter).filter_by(name=shelter_name).one()
         shelter_data = shelter_schema.dump(shelter)
 
         return jsonify({"shelter": shelter_data})
@@ -80,7 +80,7 @@ def get_single_shelter(shelter_name):
 @app.route('/pharmacies/<string:pharm_name>', methods=['GET'])
 def get_single_pharmacy(pharm_name):
     try:
-        pharmacy = db.session.query(Pharmacy).filter_by(id=pharm_name).one()
+        pharmacy = db.session.query(Pharmacy).filter_by(name=pharm_name).one()
         pharm_data = pharmacy_schema.dump(pharmacy)
 
         return jsonify({"pharmacy": pharm_data})
