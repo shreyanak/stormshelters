@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import '../css/Shelter.css';
 import CityCard from './CityModel';
+import { useParams } from 'react-router-dom';
 
 function Cities() {
     // Step 1: Define state variable to store shelter data
   const [cityData, setCityData] = useState([]);
   const [pageNum, setPageNum] = useState(1);
+  const { id } = useParams();
 
     // Step 2: Create an asynchronous function to fetch data
   const fetchData = async (page) => {
@@ -25,7 +27,7 @@ function Cities() {
   // Step 3: Fetch data when the component mounts or when the page parameter changes
   useEffect(() => {
     fetchData(pageNum);
-  }, [pageNum]);
+  }, [pageNum, id]);
 
 
   // chunk the shelter data into groups of three for grid

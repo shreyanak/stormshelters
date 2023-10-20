@@ -6,7 +6,7 @@ import '../css/Shelter.css';
 
 
 const CityCard = ({ cityData }) => {
-  const { name, pop, temp, wind_mph, condition, precip_in, id } = cityData;
+  const { id, name, pop, temp, wind_mph, condition, precip_in } = cityData;
   console.log("data: " + id);
 
 
