@@ -5,7 +5,6 @@ import '../css/ShelterDetail.css';
 
 const ShelterDetail = () => {
   const { shelterName } = useParams();
-//   const currentShelter = shelterData[0].businesses.find(shelter => shelter.alias === shelterName);
     var apiRequest = new XMLHttpRequest();
 
     var url = `http://localhost:8000/shelters/${shelterName}`;

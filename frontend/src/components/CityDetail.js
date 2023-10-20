@@ -3,38 +3,25 @@ import { useParams } from 'react-router-dom';
 import '../css/CityDetail.css';
 
 function CityDetail() {
-  const [cityData, setCityData] = useState(null);
-  const [error, setError] = useState(null);
+  // const [cityData, setCityData] = useState(null);
+  // const [error, setError] = useState(null);
   const { id } = useParams();
   console.log(id);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        console.log("in the try");
-        // const response = await fetch(`https://api.stormshelters.me/cities/${id}`);
-        var url = `localhost:8000/cities/${id}`;
-        console.log("url: " + url);
-        const response = await fetch(url);
-        
-        console.log(response)
-        if (!response.ok) {
-          throw new Error("City not found");
-        }
-  
-        const data = await response.json();
-        setCityData(data.city);
-      } catch (error) {
-        setError(error.message);
-      }
-    };
-  
-    fetchData();
-  }, [id]);
+
+  // JRS - please leave this code the same.
+  var apiRequest = new XMLHttpRequest();
+
+  var url = `http://localhost:8000/cities/${id}`;
+  console.log(url);
+  apiRequest.open('GET', url, false); 
+  apiRequest.send(null);
+  var cityData = (JSON.parse(apiRequest.responseText).city);
+
   console.log(cityData);
 
 
-  const { cid, city_name, pop, 'temp in f': temp, wind_mph, condition, precip_in } = cityData;
+  const { city_name, pop, 'temp in f': temp, wind_mph, condition, precip_in } = cityData;
 
   return (
     <div className="city-detail-container">
