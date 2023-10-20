@@ -120,10 +120,15 @@ function About() {
         <br />
         <h2>Tools Used:</h2>
         <ul>
-          <li>VS Code: integrated environment for command line and pushing to Git</li>
-          <li>VS Code Liveshare: remotely edit the same project simultaneously</li>
-          <li>Zoom: for remote collaboration</li>
-          <li>AWS Amplify and Route53: Hosting the website directly from the GitLab repository and configuring the different domain provisions (i.e .dev, .amplify, .www)</li>
+          <li>VS Code: Integrated Development Environment</li>
+          <li>Zoom: Remote collaboration</li>
+          <li>Namecheap: Domain name registration</li>
+          <li>Route 53: Domain name resolution</li>
+          <li>AWS Amplify: Frontend server hosting</li>
+          <li>AWS EC2: Backend server hosting</li>
+          <li>AWS RDS: Database hosting</li>
+          <li>Postman: API Documentation</li>
+          <li>Selenium/Jest: Testing Frameworks</li>
         </ul>
 
         <h2>Data sources:</h2>
