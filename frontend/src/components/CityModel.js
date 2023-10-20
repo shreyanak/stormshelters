@@ -27,7 +27,7 @@ const CityCard = ({ cityData }) => {
         </ul>
         {/* </Link> */}
         <div className="shelter-button-container">
-          <Link to={`/cities/${name}`} className="button">
+          <Link to={`/cities/${id}`} className="button">
             Learn More
           </Link>
         </div>

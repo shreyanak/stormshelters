@@ -2,23 +2,21 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import '../css/CityDetail.css';
 
-function CityDetail() {
-  const [cityData, setCityData] = useState(null);
+function PharmacyDetail() {
+  const [pharmacyData, setPharmacyData] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // const response = await fetch(`https://api.stormshelters.me/cities/${id}`);
-        const response = await fetch(`localhost:8000/${id}`);
-        
+        const response = await fetch(`https://api.stormshelters.me/pharmacies/${name}`);
         console.log(response)
         if (!response.ok) {
           throw new Error("City not found");
         }
   
         const data = await response.json();
-        setCityData(data.city);
+        setPharmacyData(data.city);
       } catch (error) {
         setError(error.message);
       }
@@ -26,10 +24,10 @@ function CityDetail() {
   
     fetchData();
   }, []);
-  console.log(cityData);
+  console.log(pharmacyData);
 
 
-  const { name, pop, 'temp in f': temp, wind_mph, condition, precip_in } = cityData;
+  const { name, city, address, distance_m, categories, longitude, latitude } = pharmacyData;
 
   return (
     <div className="city-detail-container">
@@ -43,23 +41,20 @@ function CityDetail() {
       </div>
       <div className="city-detail-card-container">
         <div className="city-detail-card">
-          <p>Population: {pop}</p>
+          <p>City: {city}</p>
         </div>
         <div className="city-detail-card">
-          <p>Temperature: {temp}</p>
+          <p>Address: {address}</p>
         </div>
         <div className="city-detail-card">
-          <p>Wind: {wind_mph}</p>
+          <p>Distance: {distance_m}</p>
         </div>
         <div className="city-detail-card">
-          <p>Conditions: {condition}</p>
-        </div>
-        <div className="city-detail-card">
-          <p>Precipitations: {precip_in}</p>
+          <p>Category: {categories}</p>
         </div>
       </div>
     </div>
   );
 }
 
-export default CityDetail;
+export default PharmacyDetail;
