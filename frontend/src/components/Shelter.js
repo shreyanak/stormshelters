@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../css/City.css';
+import '../css/Shelter.css';
 import ShelterCard from './ShelterModel';
 
 function Shelters() {
