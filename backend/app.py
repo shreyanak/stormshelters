@@ -55,10 +55,10 @@ def get_shelters():
                     }})
 
 # get instance of city
-@app.route('/cities/<string:city_name>', methods=['GET'])
-def get_single_city(city_name):
+@app.route('/cities/<int:id>', methods=['GET'])
+def get_single_city(city_id):
     try:
-        city = db.session.query(City).filter_by(name=city_name).one()
+        city = db.session.query(City).filter_by(id=city_id).one()
         city_data = city_schema.dump(city)
 
         return jsonify({"city": city_data})
