@@ -1,0 +1,12 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "backend.js",
+  "scripts": {
+    "script" : "/node-api/backend.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

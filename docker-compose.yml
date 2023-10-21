@@ -1,0 +1,21 @@
+version: "3.8"
+services:
+  backend:
+    build:
+      context: ./backend
+    container_name: backend
+    image: idb-backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/usr/src/app
+      - /usr/src/app/node_modules
+  frontend:
+    build:
+      context: ./frontend
+    container_name: frontend
+    image: idb-frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
