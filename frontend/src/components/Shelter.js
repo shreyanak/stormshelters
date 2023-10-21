@@ -39,7 +39,7 @@ function Shelters() {
     }
     return chunkedArray;
   }
-  const chunkedShelterData = chunkArray(shelterData, 3);
+  const chunkedShelterData = chunkArray(shelterData, 1);
 
 
   // Step 5: Use React Router to handle navigation

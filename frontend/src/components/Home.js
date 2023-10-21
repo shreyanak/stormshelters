@@ -1,47 +1,35 @@
 import React from 'react';
+import Carousel from 'react-bootstrap/Carousel';
 import { Link } from 'react-router-dom';
 import '../css/Home.css';
 
 function Home() {
+  
   return (
     <div className="home-container">
-      <div className="bg">
-        {/* container for splash */}
-      </div>
-
-      <div className="shelters-container">
+      <div className="shelter-card-container">
         {/* Card for Cities */}
         <div className="shelter-card">
           <div className="shelter-card-body">
             <h3 className="shelter-card-title">Cities</h3>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec aliquam est. Nullam eu risus sed orci
-              ultricies pharetra.
+              View the weather conditions of your city to see if a storm is in the forecast. Please work.
             </p>
           </div>
           <div className="button-container">
-            <Link to="/cities">
-              <button className="shelter-button">Learn More</button>
-            </Link>
           </div>
         </div>
 
         {/* Card for Shelters */}
         <div className="shelter-card">
-          <div className="shelter-image-container">
-            {/* Insert image for Shelters */}
-          </div>
+
           <div className="shelter-card-body">
             <h3 className="shelter-card-title">Shelters</h3>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec aliquam est. Nullam eu risus sed orci
-              ultricies pharetra.
+              View the areas to take refuge in the Houston area. Filter by address to find the most convenient location for you.
             </p>
           </div>
           <div className="button-container">
-            <Link to="/shelter">
-              <button className="shelter-button">Learn More</button>
-            </Link>
           </div>
         </div>
 
@@ -50,18 +38,20 @@ function Home() {
           <div className="shelter-card-body">
             <h3 className="shelter-card-title">Food and Pharmacies</h3>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec aliquam est. Nullam eu risus sed orci
-              ultricies pharetra.
+              View the highest-rated locations where you can stock up for the next storm or replenish your supplies while you recover. Also find where you can purchase essential medical supplies closest to you.
             </p>
-          </div>
-          <div className="button-container">
-            <Link to="/pharmacies">
-              <button className="shelter-button">Learn More</button>
-            </Link>
           </div>
         </div>
       </div>
+      
+    <Carousel>
+      <Carousel.Item>Test</Carousel.Item>
+      <Carousel.Item>Test</Carousel.Item>
+
+    </Carousel>
+
     </div>
+
   );
 }
 

@@ -56,20 +56,14 @@ const ShelterDetail = () => {
       </div>
       <div>
 
-      </div>
-      <div class="more-instances">
-        <h2>Related Instances</h2>
-        <div className="shelters-container">
-          <div className="shelter-card-container">
-            <CityCard cityData = {newCityData}/> 
-          </div>
-          <div className="shelter-card-container">
+      <div className="shelter-container-container">
+        <h1>Related Instances</h1>
+        <div className="shelter-card-container">
+          <CityCard cityData = {newCityData}/> 
           <PharmacyCard pharmacyData = {newPharmData}/> 
-          </div>
-          <div className="shelter-card-container">
           <ShelterCard shelterData = {newShelterData}/> 
-          </div>
         </div>
+      </div>
       
       </div>
     </div>

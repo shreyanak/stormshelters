@@ -6,6 +6,7 @@ const PharmacyCard = ({ pharmacyData }) => {
   const { address, categories, city, distance_m, name } = pharmacyData;
 
   return (  
+    <Link style={{textDecoration: 'none'}} to={`/pharmacies/${pharmacyData.id}`}>
     <div className="card">
       <div className="card-body">
         {/* <img className="card-img-top" src={im} */}
@@ -17,13 +18,9 @@ const PharmacyCard = ({ pharmacyData }) => {
           <li className="list-group-item">Category: {categories}</li>
           <li className="list-group-item">Distance: {distance_m}</li>
         </ul>
-        <div className="button-container">
-          <Link to={`/pharmacies/${pharmacyData.id}`} className="button">
-            Learn More
-          </Link>
-        </div>
       </div>
     </div>
+    </Link>
   );
 };
 
