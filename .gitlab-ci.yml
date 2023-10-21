@@ -1,6 +1,6 @@
-# stages:
-#  - deploy
-#  - test
+stages:
+ - deploy
+ - test
 
 # backend-deploy:
 #   stage: deploy
@@ -38,10 +38,10 @@
 #   needs:
 #       - backend-deploy
 
-# selenium-tests:
-#   image: joyzoursky/python-chromedriver:3.9-selenium
-#   stage: test
-#   before_script:
-#     - pip install -r frontend/requirements.txt
-#   script:
-#     - python guitests.py
+selenium-tests:
+  image: joyzoursky/python-chromedriver:3.9-selenium
+  stage: test
+  before_script:
+    - pip install -r frontend/requirements.txt
+  script:
+    - python guitests.py
