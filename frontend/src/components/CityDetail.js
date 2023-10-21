@@ -30,7 +30,7 @@ function CityDetail() {
 
   // Third request
   var newpharmreq = new XMLHttpRequest();
-  var similarPharmacyURL = `https://api.stormshelters.me/pharmacies/${Math.floor(Math.random() * 70)}`
+  var similarPharmacyURL = `https://api.stormshelters.me/pharmacies/${Math.floor(Math.random() * 50)}`
   newpharmreq.open('GET', similarPharmacyURL, false); 
   newpharmreq.send(null);
   var newPharmData = (JSON.parse(newpharmreq.responseText).pharmacy);
@@ -60,31 +60,25 @@ function CityDetail() {
           <p>Population: {pop}</p>
         </div>
         <div className="city-detail-card">
-          <p>Temperature: {temp_in_f}</p>
+          <p>Temperature: {temp_in_f}°F</p>
         </div>
         <div className="city-detail-card">
-          <p>Wind: {wind_mph}</p>
+          <p>Wind: {wind_mph}mph</p>
         </div>
         <div className="city-detail-card">
           <p>Conditions: {cond}</p>
         </div>
         <div className="city-detail-card">
-          <p>Precipitations: {precip_in}</p>
+          <p>Precipitation: {precip_in} inches</p>
         </div>
       </div>
 
-      <div class="more-instances">
-        <h2>Related Instances</h2>
-        <div className="shelters-container">
-          <div className="shelter-card-container">
+      <div className="shelter-container-container">
+        <h1>Related Instances</h1>
+        <div className="shelter-card-container">
             <CityCard cityData = {newCityData}/> 
-          </div>
-          <div className="shelter-card-container">
           <PharmacyCard pharmacyData = {newPharmData}/> 
-          </div>
-          <div className="shelter-card-container">
           <ShelterCard shelterData = {newShelterData}/> 
-          </div>
         </div>
       
       </div>

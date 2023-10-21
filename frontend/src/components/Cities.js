@@ -44,7 +44,7 @@ function Cities() {
     return chunkedArray;
   };
 
-  const chunkedCityData = chunkArray(cityData, 3);
+  const chunkedCityData = chunkArray(cityData, 1);
 
   // Step 5: Use React Router to handle navigation
   return (

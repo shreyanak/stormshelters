@@ -13,7 +13,9 @@
   position: relative;
   z-index: 1;
 }
-
+.shelter-container-container {
+  padding: 50px;
+}
 .shelter-card {
   border-radius: 15px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -24,6 +26,7 @@
   background-color: #333;
   padding: 20px;
   margin: 20px 0;
+  text-decoration: none;
 }
 
 .shelter-card:hover {
@@ -46,12 +49,13 @@
 }
 
 .shelter-card-body {
-  padding: 20px;
+  padding: 10px;
+  align-items: center;
   color: white;
 }
 
 .shelter-card-title {
-  text-align: center;
+  text-align: left;
 }
 
 .button-container {
@@ -88,6 +92,15 @@
   background-color: #0056b3;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
+.shelter-button:disabled:hover {
+  background-color: #323639;
+  cursor: not-allowed;
+}
+.shelter-button:disabled {
+  background-color: #323639;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: none;
+}
 
 .bg {
   position: relative;
@@ -96,4 +109,8 @@
   background-size: cover;
   background-position: center;
   z-index: 0;
+}
+
+.list-group-item {
+ list-style-type: circle; 
 }

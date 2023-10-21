@@ -62,27 +62,15 @@ function PharmacyDetail() {
         </div>
         
       </div>
-      <div className="city-detail-card-container">
-        <div className="city-detail-card">
-          <p>City: {city}</p>
+      <div className="shelter-container-container">
+        <h1>Related Instances</h1>
+        <div className="shelter-card-container">
+          <CityCard cityData = {newCityData}/> 
+          <PharmacyCard pharmacyData = {newPharmData}/> 
+          <ShelterCard shelterData = {newShelterData}/> 
         </div>
-        <div className="city-detail-card">
-          <p>Address: {address}</p>
-        </div>
-        <div className="city-detail-card">
-          <p>Distance: {distance_m}</p>
-        </div>
-        <div className="city-detail-card">
-          <p>Category: {categories}</p>
-        </div>
-        
       </div>
-
- 
-    
     </div>
-
-    
   );
 }
 
