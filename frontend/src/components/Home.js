@@ -13,7 +13,7 @@ function Home() {
           <div className="shelter-card-body">
             <h3 className="shelter-card-title">Cities</h3>
             <p>
-              View the weather conditions of your city to see if a storm is in the forecast.
+              View the weather conditions of your city to see if a storm is in the forecast. Please work.
             </p>
           </div>
           <div className="button-container">
