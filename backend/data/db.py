@@ -94,25 +94,30 @@ def load_cities_images():
 
 
 def fetch_image_url(query):
-    api_key = "AIzaSyAcJPY_z5AiJAF0bngy4Ek6M0E3pTTGcTk"
-    cse_id = "b4dcf4643af1e4b07"    # custom search engine ID
-
-    url = f'https://www.googleapis.com/customsearch/v1?key={api_key}&cx={cse_id}&q={query}&searchType=image'
-
+    # api_key = "AIzaSyAcJPY_z5AiJAF0bngy4Ek6M0E3pTTGcTk"
+    # cse_id = "b4dcf4643af1e4b07"    # custom search engine ID
+    
+    api = 'jnbFGKT4ma1y4roN6w5ngHjGkKfrE2vPMaxzD7cOMGb9ykNWWSiFtVjP'
+    # url = f'https://www.googleapis.com/customsearch/v1?key={api_key}&cx={cse_id}&q={query}&searchType=image'
+    url = f'https://api.pexels.com/v1/search?query={query}&per_page=1'
     # GET request
-    response = requests.get(url)
+    response = requests.get(url, headers={'Authorization':'jnbFGKT4ma1y4roN6w5ngHjGkKfrE2vPMaxzD7cOMGb9ykNWWSiFtVjP'})
 
     # 200 is code for success
     if response.status_code == 200:
         images_data = response.json()
-
-        if 'items' in images_data and len(images_data['items']) > 0:
-            # gets image link of first image
-            image_link = images_data['items'][0]['link']
-            print("image link: ", image_link)
-            return image_link
-        else:
-            print("no search results found")
+        # print(images_data)
+        # if 'photos' in images_data and len(images_data['photos']) > 0:
+        # gets image link of first image
+        test = images_data.get('photos')
+        # print("type: " + type(test))
+        # if i[2]:
+                # for j in i.values() :
+                #     if j == 'url' :
+                #         thing = j
+        # print(j)
+        # else:
+        #     print("no search results found")
     else:
         print("request failed with status code: ", response.status_code)
 
