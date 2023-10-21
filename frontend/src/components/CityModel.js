@@ -6,7 +6,7 @@ import '../css/Shelter.css';
 
 
 const CityCard = ({ cityData }) => {
-  const { id, name, pop, temp, wind_mph, condition, precip_in } = cityData;
+  const { id, name, pop, temp_in_f, wind_mph, cond, precip_in } = cityData;
   console.log("data: " + id);
 
 
@@ -20,11 +20,10 @@ const CityCard = ({ cityData }) => {
           <h2 className="shelter-card-title">{name}</h2>
         <ul className="list-group list-group-flush">
           <li className="list-group-item">Population: {pop}</li>
-          <li className="list-group-item">Temperature: {temp}</li>
+          <li className="list-group-item">Temperature: {temp_in_f}</li>
           <li className="list-group-item">Wind: {wind_mph}</li>
-          <li className="list-group-item">Conditions: {condition}</li>
+          <li className="list-group-item">Conditions: {cond}</li>
           <li className="list-group-item">Precipitations: {precip_in}</li>
-          <li className="list-group-item">ID: {id}</li>
         </ul>
         {/* </Link> */}
         <div className="shelter-button-container">

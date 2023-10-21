@@ -43,8 +43,7 @@ function CityDetail() {
   var newShelterData = (JSON.parse(newshelterreq.responseText).shelter);
 
 
-
-  const { name, pop, 'temp in f': temp, wind_mph, condition, precip_in } = cityData;
+  const { name, pop, temp_in_f, wind_mph, cond, precip_in } = cityData;
 
   return (
     <div className="city-detail-container">
@@ -61,13 +60,13 @@ function CityDetail() {
           <p>Population: {pop}</p>
         </div>
         <div className="city-detail-card">
-          <p>Temperature: {temp}</p>
+          <p>Temperature: {temp_in_f}</p>
         </div>
         <div className="city-detail-card">
           <p>Wind: {wind_mph}</p>
         </div>
         <div className="city-detail-card">
-          <p>Conditions: {condition}</p>
+          <p>Conditions: {cond}</p>
         </div>
         <div className="city-detail-card">
           <p>Precipitations: {precip_in}</p>
