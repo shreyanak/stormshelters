@@ -1,15 +1,39 @@
 import { useParams } from 'react-router-dom';
+import CityCard from './CityModel';
+import PharmacyCard from './PharmacyModel';
+import ShelterCard from './ShelterModel';
 import '../css/CityDetail.css';
 
 function PharmacyDetail() {
   const { id } = useParams();
-  var apiRequest = new XMLHttpRequest();
+  var mainURL = `https://api.stormshelters.me/pharmacies/${id}`;
+  var mainreq = new XMLHttpRequest();
+  mainreq.open('GET', mainURL, false); 
+  mainreq.send(null);
+  var pharmacyData = (JSON.parse(mainreq.responseText).pharmacy);
 
-  var url = `https://api.stormshelters.me/pharmacies/${ id }`;
-  console.log(url);
-  apiRequest.open('GET', url, false); 
-  apiRequest.send(null);
-  var pharmacyData = (JSON.parse(apiRequest.responseText).pharmacy);
+  // Second request
+  var newcityreq = new XMLHttpRequest();
+  var similarCityURL = `https://api.stormshelters.me/cities/${Math.floor(Math.random() * 23)}`;
+  newcityreq.open('GET', similarCityURL, false); 
+  newcityreq.send(null);
+  var newCityData = (JSON.parse(newcityreq.responseText).city);
+
+  // Third request
+  var newpharmreq = new XMLHttpRequest();
+  var similarPharmacyURL = `https://api.stormshelters.me/pharmacies/${Math.floor(Math.random() * 70)}`
+  newpharmreq.open('GET', similarPharmacyURL, false); 
+  newpharmreq.send(null);
+  var newPharmData = (JSON.parse(newpharmreq.responseText).pharmacy);
+
+  // Final request
+  var newshelterreq = new XMLHttpRequest();
+  var similarShelterURL = `https://api.stormshelters.me/shelters/${Math.floor(Math.random() * 12)}`
+  newshelterreq.open('GET', similarShelterURL, false); 
+  newshelterreq.send(null);
+  var newShelterData = (JSON.parse(newshelterreq.responseText).shelter);
+
+
 
   const { name, city, address, distance_m, categories, longitude, latitude } = pharmacyData;
 
@@ -36,27 +60,26 @@ function PharmacyDetail() {
         <div className="city-detail-card">
           <p>Category: {categories}</p>
         </div>
+        
       </div>
-
-      <div class="embed">
-        <iframe 
-          width="300" 
-          height="170" 
-          frameborder="0" 
-          scrolling="no" 
-          marginheight="0" 
-          marginwidth="0" 
-          src="https://www.google.com/maps/embed/v1/place
-          ?&q=Eiffel+Tower,Paris+France"
-        >
-        </iframe>
-      </div>
-      <div class="similar-instances">
-        <h2>Explore similar pages</h2>
+      <div className="city-detail-card-container">
+        <div className="city-detail-card">
+          <p>City: {city}</p>
+        </div>
+        <div className="city-detail-card">
+          <p>Address: {address}</p>
+        </div>
+        <div className="city-detail-card">
+          <p>Distance: {distance_m}</p>
+        </div>
+        <div className="city-detail-card">
+          <p>Category: {categories}</p>
+        </div>
         
       </div>
 
-
+ 
+    
     </div>
 
     

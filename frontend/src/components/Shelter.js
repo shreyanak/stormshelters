@@ -6,6 +6,7 @@ function Shelters() {
   // Step 1: Define state variable to store shelter data
   const [shelterData, setShelterData] = useState([]);
   const [pageNum, setPageNum] = useState(1);
+  const [numInstances, setMetaData ] = useState(1);
 
   // Step 2: Create an asynchronous function to fetch data
   const fetchData = async (page) => {
@@ -15,6 +16,7 @@ function Shelters() {
       if (response.ok) {
         const data = await response.json();
         setShelterData(data.shelters)
+        setMetaData(data.meta)
       } else {
         console.error('Error fetching data:', response.status);
       }
@@ -74,12 +76,13 @@ function Shelters() {
               setPageNum((prev) => prev + 1);
             }
           }}
-          disabled={shelterData.length === 0}
+          disabled={numInstances.count - (shelterData.length * pageNum) < 12}
           className="shelter-button next-button"
         >
           Next
         </button>
       </div>
+      <h3 class="text-center">Page {pageNum} of {Math.ceil(numInstances.count / 12)}</h3>
     </div>
   </div>
 );

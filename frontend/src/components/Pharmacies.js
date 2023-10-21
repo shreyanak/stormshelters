@@ -6,6 +6,7 @@ function Pharmacies() {
   // Step 1: Define state variable to store city data
   const [pharmacyData, setPharmacyData] = useState([]);
   const [pageNum, setPageNum] = useState(1);
+  const [numInstances, setMetaData ] = useState(1);
 
   // Step 2: Create an asynchronous function to fetch data
   const fetchData = async (page) => {
@@ -15,6 +16,7 @@ function Pharmacies() {
       if (response.ok) {
         const data = await response.json();
         setPharmacyData(data.pharmacies)
+        setMetaData(data.meta)
       } else {
         console.error('Error fetching data:', response.status);
       }
@@ -64,13 +66,15 @@ function Pharmacies() {
       setPageNum((prev) => prev + 1);
     }
   }}
-  disabled={pharmacyData.length === 0}>
+  disabled={numInstances.count - (pharmacyData.length * pageNum) < 12}>
             Next
           </button>
           <button onClick={() => setPageNum((prev) => prev - 1)} disabled={pageNum==1}>
             Previous
           </button>
         </div>
+        <h3 class="text-center">Page {pageNum} of {Math.ceil(numInstances.count / 12)}</h3>
+
       </div>
      
     </div>

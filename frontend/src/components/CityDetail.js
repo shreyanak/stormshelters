@@ -1,34 +1,46 @@
 import { useParams } from 'react-router-dom';
 import '../css/CityDetail.css';
+import '../css/Shelter.css';
+
 import CityCard from './CityModel';
 import PharmacyCard from './PharmacyModel';
 import ShelterCard from './ShelterModel';
+import ReactDOM from 'react-dom';
+import React from 'react';
 
-function getStuff(url, type) {
-  var apiRequest = new XMLHttpRequest();
 
-  console.log(url);
-  apiRequest.open('GET', url, false); 
-  apiRequest.send(null);
-  return  (type);
-}
 function CityDetail() {
   const { id } = useParams();
 
   // JRS 10/20 - please leave this code the same.
   // If it needs to be modified, please contact me first.
+  // Primary request
   var mainURL = `https://api.stormshelters.me/cities/${id}`;
-  var cityData = getStuff(mainURL, 'city');
+  var mainreq = new XMLHttpRequest();
+  mainreq.open('GET', mainURL, false); 
+  mainreq.send(null);
+  var cityData = (JSON.parse(mainreq.responseText).city);
 
-  var similarCityURL = `https://api.stormshelters.me/cities/${23}`;
-  var similarCity = getStuff(similarCityURL);
-  var similarPharmacyURL = `https://api.stormshelters.me/pharmacies/${5}`
-  var similarPharmacy = getStuff(similarPharmacyURL, 'pharmacy');
-  console.log(similarCity);
-  // const test = PharmacyCard({similarPharmacy});
+  // Second request
+  var newcityreq = new XMLHttpRequest();
+  var similarCityURL = `https://api.stormshelters.me/cities/${Math.floor(Math.random() * 23)}`;
+  newcityreq.open('GET', similarCityURL, false); 
+  newcityreq.send(null);
+  var newCityData = (JSON.parse(newcityreq.responseText).city);
 
-  var similarShelterURL = `https://api.stormshelters.me/shelters/${23}`
-  var similarShelter = getStuff(similarShelterURL, 'shelter');
+  // Third request
+  var newpharmreq = new XMLHttpRequest();
+  var similarPharmacyURL = `https://api.stormshelters.me/pharmacies/${Math.floor(Math.random() * 70)}`
+  newpharmreq.open('GET', similarPharmacyURL, false); 
+  newpharmreq.send(null);
+  var newPharmData = (JSON.parse(newpharmreq.responseText).pharmacy);
+
+  // Final request
+  var newshelterreq = new XMLHttpRequest();
+  var similarShelterURL = `https://api.stormshelters.me/shelters/${Math.floor(Math.random() * 12)}`
+  newshelterreq.open('GET', similarShelterURL, false); 
+  newshelterreq.send(null);
+  var newShelterData = (JSON.parse(newshelterreq.responseText).shelter);
 
 
 
@@ -64,7 +76,18 @@ function CityDetail() {
 
       <div class="more-instances">
         <h2>Related Instances</h2>
-       
+        <div className="shelters-container">
+          <div className="shelter-card-container">
+            <CityCard cityData = {newCityData}/> 
+          </div>
+          <div className="shelter-card-container">
+          <PharmacyCard pharmacyData = {newPharmData}/> 
+          </div>
+          <div className="shelter-card-container">
+          <ShelterCard shelterData = {newShelterData}/> 
+          </div>
+        </div>
+      
       </div>
     </div>
   );
