@@ -4,10 +4,10 @@ import { useParams } from 'react-router-dom';
 import '../css/ShelterDetail.css';
 
 const ShelterDetail = () => {
-  const { shelterName } = useParams();
+    const { id } = useParams();
     var apiRequest = new XMLHttpRequest();
 
-    var url = `http://localhost:8000/shelters/${shelterName}`;
+    var url = `https://api.stormshelters.me/shelters/${ id }`;
     console.log(url);
     apiRequest.open('GET', url, false); 
     apiRequest.send(null);
@@ -27,7 +27,7 @@ const ShelterDetail = () => {
       <div className="shelter-info">
         <p className="info-item">Phone: {currentShelter.display_phone}</p>
         <p className="info-item">Rating: {currentShelter.rating}</p>
-        <p className="info-item">Address: {currentShelter.location.display_address.join(', ')}</p>
+        <p className="info-item">Address: {currentShelter.display_address}</p>
         <div className="map-container">
         </div>
       </div>

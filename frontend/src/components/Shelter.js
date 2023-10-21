@@ -49,9 +49,9 @@ function Shelters() {
       <div className="shelter-card-container">
         {chunkedShelterData.map((chunk, rowIndex) => (
           <div className="row" key={rowIndex}>
-            {chunk.map((shelter, colIndex) => (
+            {chunk.map((id, colIndex) => (
               <div className="col-sm-4" key={colIndex}>
-                <ShelterCard shelterData={shelter} />
+                <ShelterCard shelterData={ id } />
               </div>
             ))}
           </div>

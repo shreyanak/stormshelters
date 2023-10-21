@@ -2,6 +2,8 @@ import mysql.connector
 import json
 import requests
 
+def main():
+    load_cities_images()
 
 def load_cities() :
 
@@ -64,7 +66,7 @@ def load_cities_images():
     )
 
     cursor = stormshelters_db.cursor()
-    get_cities_query = """SELECT name FROM cities_new WHERE image_url IS NULL"""
+    get_cities_query = """SELECT name FROM cities_new"""
 
     cursor.execute(get_cities_query)
     city_names = cursor.fetchall()
@@ -73,15 +75,20 @@ def load_cities_images():
     for city_name in city_names:
         # google custom search, get image url
         image_url = fetch_image_url(city_name)
-
+        print(image_url)
         if image_url:
             # query and add url to sql
-            load_image_query = f"""UPDATE cities_new SET image = '{image_url}' WHERE name = '{city_name}'"""
+            real_name = city_name[0]
+            print(real_name)
+            cursor.execute(f"SELECT id FROM cities_new WHERE name = '{real_name}'")
+            city_id = cursor.fetchall()
+            print(city_id)
+            load_image_query = f"""UPDATE cities_new SET image = '{image_url}' WHERE id = '{city_id}'"""
             cursor.execute(load_image_query)
             stormshelters_db.commit()
         else:
             print("failed to get image url")
-
+    
     cursor.close()
     stormshelters_db.close()
 
@@ -246,3 +253,7 @@ def load_shelters():
 
     stormshelters_db.commit()
     print('Data inserted successfully') 
+
+
+if __name__ == "__main__":
+  main()
