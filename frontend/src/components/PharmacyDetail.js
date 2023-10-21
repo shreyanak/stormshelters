@@ -1,31 +1,15 @@
-import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import '../css/CityDetail.css';
 
 function PharmacyDetail() {
-  const [pharmacyData, setPharmacyData] = useState(null);
-  const [error, setError] = useState(null);
+  const { id } = useParams();
+  var apiRequest = new XMLHttpRequest();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(`https://api.stormshelters.me/pharmacies/${name}`);
-        console.log(response)
-        if (!response.ok) {
-          throw new Error("City not found");
-        }
-  
-        const data = await response.json();
-        setPharmacyData(data.city);
-      } catch (error) {
-        setError(error.message);
-      }
-    };
-  
-    fetchData();
-  }, []);
-  console.log(pharmacyData);
-
+  var url = `https://api.stormshelters.me/pharmacies/${ id }`;
+  console.log(url);
+  apiRequest.open('GET', url, false); 
+  apiRequest.send(null);
+  var pharmacyData = (JSON.parse(apiRequest.responseText).pharmacy);
 
   const { name, city, address, distance_m, categories, longitude, latitude } = pharmacyData;
 
@@ -53,7 +37,29 @@ function PharmacyDetail() {
           <p>Category: {categories}</p>
         </div>
       </div>
+
+      <div class="embed">
+        <iframe 
+          width="300" 
+          height="170" 
+          frameborder="0" 
+          scrolling="no" 
+          marginheight="0" 
+          marginwidth="0" 
+          src="https://www.google.com/maps/embed/v1/place
+          ?&q=Eiffel+Tower,Paris+France"
+        >
+        </iframe>
+      </div>
+      <div class="similar-instances">
+        <h2>Explore similar pages</h2>
+        
+      </div>
+
+
     </div>
+
+    
   );
 }
 

@@ -48,9 +48,9 @@ function Pharmacies() {
       <div className="card-container">
         {chunkedPharmacyData.map((chunk, rowIndex) => (
           <div className="row" key={rowIndex}>
-            {chunk.map((pharmacies, colIndex) => (
+            {chunk.map((id, colIndex) => (
               <div className="col-sm-4" key={colIndex}>
-                <PharmacyCard pharmacyData={pharmacies} />
+                <PharmacyCard pharmacyData={id} />
               </div>
             ))}
           </div>
@@ -72,7 +72,9 @@ function Pharmacies() {
           </button>
         </div>
       </div>
+     
     </div>
+    
   );
 }
 

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import '../css/Shelter.css';
 import CityCard from './CityModel';
+import PharmacyCard from './PharmacyModel';
+import ShelterCard from './ShelterModel';
 import { useParams } from 'react-router-dom';
 
 function Cities() {

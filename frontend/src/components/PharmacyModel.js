@@ -18,7 +18,7 @@ const PharmacyCard = ({ pharmacyData }) => {
           <li className="list-group-item">Distance: {distance_m}</li>
         </ul>
         <div className="button-container">
-          <Link to={`/pharmacies/${name}`} className="button">
+          <Link to={`/pharmacies/${pharmacyData.id}`} className="button">
             Learn More
           </Link>
         </div>
