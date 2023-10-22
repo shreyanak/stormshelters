@@ -44,4 +44,4 @@ selenium-tests:
   before_script:
     - pip install -r frontend/requirements.txt
   script:
-    - python guitests.py
+    - python frontend/guitests.py
