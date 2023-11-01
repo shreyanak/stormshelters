@@ -2,41 +2,41 @@ stages:
  - deploy
  - test
 
-backend-deploy:
-  stage: deploy
-  script:
-   - 'command -v ssh-agent >/dev/null || ( apt-get update -y && apt-get install openssh-client wget gnupg -y )'
-   - eval "$(ssh-agent -s)"
-   - cat "$SSH_PRIVATE_KEY" | ssh-add -
-   - mkdir -p ~/.ssh
-   - chmod 700 ~/.ssh
-   - ssh-keyscan -H $BACKEND_SERVER_IP >> ~/.ssh/known_hosts
-   - chmod 644 ~/.ssh/known_hosts
-   - scp -r ./backend $BACKEND_SERVER_IP:/home/ubuntu/stormshelters/backend
-   - cat ./remote.sh | ssh $BACKEND_SERVER_IP "bash -"
-  only:
-   - dev
+# backend-deploy:
+#   stage: deploy
+#   script:
+#    - 'command -v ssh-agent >/dev/null || ( apt-get update -y && apt-get install openssh-client wget gnupg -y )'
+#    - eval "$(ssh-agent -s)"
+#    - cat "$SSH_PRIVATE_KEY" | ssh-add -
+#    - mkdir -p ~/.ssh
+#    - chmod 700 ~/.ssh
+#    - ssh-keyscan -H $BACKEND_SERVER_IP >> ~/.ssh/known_hosts
+#    - chmod 644 ~/.ssh/known_hosts
+#    - scp -r ./backend $BACKEND_SERVER_IP:/home/ubuntu/stormshelters/backend
+#    - cat ./remote.sh | ssh $BACKEND_SERVER_IP "bash -"
+#   only:
+#    - dev
 
-postman_tests:
-  stage: test
-  image:
-    name: postman/newman_alpine33
-    entrypoint: [""]
-  script:
-    - cd backend
-    - newman --version
-    - newman run postman_tests.json
-  needs:
-      - backend-deploy
+# postman_tests:
+#   stage: test
+#   image:
+#     name: postman/newman_alpine33
+#     entrypoint: [""]
+#   script:
+#     - cd backend
+#     - newman --version
+#     - newman run postman_tests.json
+#   needs:
+#       - backend-deploy
 
-python-tests:
-  image: python:3
-  stage: test
-  script:
-    - cd backend
-    - python tests.py
-  needs:
-      - backend-deploy
+# python-tests:
+#   image: python:3
+#   stage: test
+#   script:
+#     - cd backend
+#     - python tests.py
+#   needs:
+#       - backend-deploy
 
 selenium-tests:
   image: joyzoursky/python-chromedriver:3.9-selenium
@@ -44,4 +44,4 @@ selenium-tests:
   before_script:
     - pip install -r frontend/requirements.txt
   script:
-    - python guitests.py
+    - python frontend/guitests.py

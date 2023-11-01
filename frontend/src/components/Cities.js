@@ -69,7 +69,7 @@ function Cities() {
         <button
             onClick={() => setPageNum((prev) => prev - 1)}
         
-            disabled={pageNum == 1}
+            disabled={pageNum === 1}
             className="shelter-button prev-button"
           >
             Previous

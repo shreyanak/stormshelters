@@ -122,7 +122,7 @@ def fetch_image_url(query):
         print("request failed with status code: ", response.status_code)
 
 
-def load_medical():
+def load_pharmacies():
        # AWS RPS DB info
     storm_host = "stormshelters-db.clwbujmk0ylk.us-east-2.rds.amazonaws.com"
     storm_user = "admin"
