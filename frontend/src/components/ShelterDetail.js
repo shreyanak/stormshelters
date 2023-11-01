@@ -2,9 +2,12 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import CityCard from './CityModel';
 import PharmacyCard from './PharmacyModel';
+import { LoadScript, GoogleMap, Marker } from '@react-google-maps/api';
 import ShelterCard from './ShelterModel';
 // import shelterData from '../data/shelter-data';
 import '../css/CityDetail.css';
+
+const GOOGLE_API_KEY_MAP = 'AIzaSyAP0iwpFt7n8429SqZpI_N-OXxTC5ywfn8';
 
 const ShelterDetail = () => {
     const { id } = useParams();
@@ -42,19 +45,33 @@ const ShelterDetail = () => {
   }
 
   return (
-    <div className="city-detail-container">
-      <h1 className="city-name">{currentShelter.name}</h1>
-      <div className="city-image-container">
-        <img src={currentShelter.image_url} alt={currentShelter.name} className="city-image" />
+    <div className="shelter-detail-container">
+      <h1 className="shelter-name">{currentShelter.name}</h1>
+      <div className="shelter-image-container">
+        <img src={currentShelter.image_url} alt={currentShelter.name} className="shelter-image" />
       </div>
-      <div className="city-detail-card-container">
-        <p className="city-detail-card">Phone: {currentShelter.display_phone}</p>
-        <p className="city-detail-card">Rating: {currentShelter.rating}</p>
-        <p className="city-detail-card">Address: {currentShelter.display_address}</p>
+      <div className="shelter-detail-card-container">
+        <p className="shelter-detail-card">Phone: {currentShelter.display_phone}</p>
+        <p className="shelter-detail-card">Rating: {currentShelter.rating}</p>
+        <p className="shelter-detail-card">Address: {currentShelter.display_address}</p>
         <div className="map-container">
         </div>
       </div>
       <div>
+
+      <div className="map-container">
+        <LoadScript googleMapsApiKey={GOOGLE_API_KEY_MAP}>
+          <GoogleMap
+            mapContainerStyle={{ width: '600px', height: '400px' }}
+            zoom={15}
+            center={{ lat: currentShelter.latitude, lng: currentShelter.longitude }}
+          >
+            <Marker
+              position={{ lat: currentShelter.latitude, lng: currentShelter.longitude }}
+            />
+          </GoogleMap>
+        </LoadScript>
+      </div>
 
       <div className="shelter-container-container">
         <h1>Related Instances</h1>
