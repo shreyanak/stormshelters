@@ -1,6 +1,8 @@
 from flask import jsonify, request
 from models import db, app, Pharmacy, Shelter, City
 from schema import city_schema, pharmacy_schema, shelter_schema
+from sqlalchemy import or_
+
 
 @app.route('/')
 def home():
@@ -86,6 +88,114 @@ def get_single_pharmacy(pharm_id):
         return jsonify({"pharmacy": pharm_data})
     except IndexError:
         return jsonify({"error": "Pharmacy not found"}, 404) 
+    
+# site wide searching - different search bar
+# and model specific searching 
+@app.route("/search/<string:model>/<string:query>", methods=['GET'])
+def search_models(model, query):
+    terms = query.split()
+    model = model.strip().lower()
+    if model == "city":
+        freq = search_cities(terms)
+        cities = sorted(freq.keys(), key = lambda x: freq[x], reverse = True)
+        result = city_schema.dump(cities, many=True)
+    elif model == 'shelter':
+        freq = search_shelters(terms)
+        shelters = sorted(freq.keys(), key = lambda x: freq[x], reverse = True)
+        result = shelter_schema.dump(shelters, many=True)
+    elif model == "pharmacies":
+        freq = search_pharmacies(terms)
+        pharmacies = sorted(freq.keys(), key = lambda x: freq[x], reverse = True)
+        result = pharmacy_schema.dump(pharmacies, many=True)
+    elif model == 'all':
+        freq = {
+        **search_cities(terms),
+        **search_shelters(terms),
+        **search_pharmacies(terms)
+        }
+        order = sorted(freq.keys(), key = lambda x: freq[x], reverse = True)
+        cities = [city for city in order if type(city) == City]
+        shelters = [shelter for shelter in order if type(shelter) == Shelter]
+        pharmacies = [pharmacy for pharmacy in order if type(pharmacy) == Pharmacy]
+
+        city_results = city_schema.dump(cities, many = True)
+        shelter_results = shelter_schema.dump(shelters, many = True)
+        pharmacy_results = pharmacy_schema.dump(pharmacies, many=True)
+
+        return jsonify({
+            "cities": city_results,
+            "shelters":shelter_results,
+            "pharmacies":pharmacy_results
+        })
+    else: 
+        jsonify({"Invalid model": 400})
+    return jsonify({"data": result})
+
+        
+
+# returns cities consiting of search terms
+def search_cities(terms):
+    freq = {}
+    for term in terms:
+        queries = []
+        queries.append(City.name.contains(term))
+        queries.append(City.temp_in_f.contains(term))
+        queries.append(City.pop.contains(term))
+        queries.append(City.cond.contains(term))
+        queries.append(City.wind_mph.contains(term))
+        cities = City.query.filter(or_(*queries))
+        for city in cities:
+            if city not in freq:
+                freq[city] = 1
+            else:
+                freq[city] += 1
+    return freq
+
+# returns shelters consisting of search terms
+def search_shelters(terms):
+    freq = {}
+    for term in terms:
+        queries = []
+        queries.append(Shelter.city.contains(term))
+        queries.append(Shelter.display_address.contains(term))
+        queries.append(Shelter.display_phone.contains(term))
+        queries.append(Shelter.name.contains(term))
+        queries.append(Shelter.image_url.contains(term))
+        queries.append(Shelter.latitude.contains(term))
+        queries.append(Shelter.longitude.contains(term))
+        queries.append(Shelter.url.contains(term))
+        shelters = Shelter.query.filter(or_(*queries))
+        for sh in shelters:
+            if sh not in freq:
+                freq[sh] = 1
+            else:
+                freq[sh] += 1
+    return freq
+
+# returns pharmacies consisting of search terms
+def search_pharmacies(terms):
+    freq = {}
+    for term in terms:
+        queries = []
+        queries.append(Pharmacy.city.contains(term))
+        queries.append(Pharmacy.address.contains(term))
+        queries.append(Pharmacy.name.contains(term))
+        queries.append(Pharmacy.categories.contains(term))
+        queries.append(Pharmacy.distance_m.contains(term))
+        pharmacies = Pharmacy.query.filter(or_(*queries))
+        for ph in pharmacies:
+            if ph not in freq:
+                freq[ph] = 1
+            else:
+                freq[ph] += 1
+    return freq
+
+
+
+
+    
+
+
 
 
 def split_strings_city(city):
