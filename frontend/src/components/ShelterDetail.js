@@ -45,15 +45,17 @@ const ShelterDetail = () => {
   }
 
   return (
-    <div className="shelter-detail-container">
-      <h1 className="shelter-name">{currentShelter.name}</h1>
+    <div className="city-detail-container">
+      <h1 className="city-title">{currentShelter.name}</h1>
       <div className="shelter-image-container">
-        <img src={currentShelter.image_url} alt={currentShelter.name} className="shelter-image" />
+        <img src={currentShelter.image_url} alt={currentShelter.name} className="city-image" />
       </div>
-      <div className="shelter-detail-card-container">
-        <p className="shelter-detail-card">Phone: {currentShelter.display_phone}</p>
-        <p className="shelter-detail-card">Rating: {currentShelter.rating}</p>
-        <p className="shelter-detail-card">Address: {currentShelter.display_address}</p>
+      <div className="city-detail-card-container">
+        <p className="city-detail-card">Phone: {currentShelter.display_phone}</p>
+        <p className="city-detail-card">City: {currentShelter.city}</p>
+        <p className="city-detail-card">Rating: {currentShelter.rating}</p>
+        <p className="city-detail-card">Address: {currentShelter.display_address}</p>
+        <p className="city-detail-card">Closed: {currentShelter.closed_display}</p>
         <div className="map-container">
         </div>
       </div>
