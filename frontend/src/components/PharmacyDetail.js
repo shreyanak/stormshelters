@@ -3,6 +3,9 @@ import CityCard from './CityModel';
 import PharmacyCard from './PharmacyModel';
 import ShelterCard from './ShelterModel';
 import '../css/CityDetail.css';
+import { LoadScript, GoogleMap, Marker } from '@react-google-maps/api';
+
+const GOOGLE_API_KEY_MAP = 'AIzaSyAP0iwpFt7n8429SqZpI_N-OXxTC5ywfn8';
 
 function PharmacyDetail() {
   const { id } = useParams();
@@ -38,33 +41,48 @@ function PharmacyDetail() {
   const { name, city, address, distance_m, categories, longitude, latitude } = pharmacyData;
 
   return (
-    <div className="city-detail-container">
-      <h1 className="city-title">{name}</h1>
+    <div className="pharmacy-detail-container">
+      <h1 className="pharmacy-title">{name}</h1>
       <div className="image-container">
         <img 
           src="https://www.southernliving.com/thmb/Nm6DnVCFUKM7dQSsqkutPxrNpuo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-1167434230-1-a6613ae7e7f145a8aa62baa816f8d910.jpg"
-          alt="City"
-          className="city-image"
+          alt="Pharmacy"
+          className="pharmacy-image"
         />
       </div>
-      <div className="city-detail-card-container">
-        <div className="city-detail-card">
+      <div className="pharmacy-detail-card-container">
+        <div className="pharmacy-detail-card">
           <p>City: {city}</p>
         </div>
-        <div className="city-detail-card">
+        <div className="pharmacy-detail-card">
           <p>Address: {address}</p>
         </div>
-        <div className="city-detail-card">
+        <div className="pharmacy-detail-card">
           <p>Distance: {distance_m}</p>
         </div>
-        <div className="city-detail-card">
+        <div className="pharmacy-detail-card">
           <p>Category: {categories}</p>
         </div>
         
       </div>
-      <div className="shelter-container-container">
+
+      <div className="map-container">
+        <LoadScript googleMapsApiKey={GOOGLE_API_KEY_MAP}>
+          <GoogleMap
+            mapContainerStyle={{ width: '600px', height: '400px' }}
+            zoom={15}
+            center={{ lat: latitude, lng: longitude }}
+          >
+            <Marker
+              position={{ lat: latitude, lng: longitude }}
+            />
+          </GoogleMap>
+        </LoadScript>
+      </div>
+
+      <div className="pharmacy-container-container">
         <h1>Related Instances</h1>
-        <div className="shelter-card-container">
+        <div className="pharmacy-card-container">
           <CityCard cityData = {newCityData}/> 
           <PharmacyCard pharmacyData = {newPharmData}/> 
           <ShelterCard shelterData = {newShelterData}/> 
