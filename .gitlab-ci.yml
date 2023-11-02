@@ -58,6 +58,7 @@ python-tests:
   stage: test
   script:
     - cd backend
+    - pip3 install -r requirements.txt
     - python tests.py
   # needs:
   #     - backend-deploy
