@@ -70,19 +70,21 @@ function Shelters() {
         >
           Previous
         </button>
+
         <button
           onClick={() => {
             if (shelterData.length > 0) {
               setPageNum((prev) => prev + 1);
             }
           }}
-          disabled={numInstances.count - (shelterData.length * pageNum) < 12}
-          className="shelter-button next-button"
+          disabled={pageNum === Math.ceil(numInstances.count / 9)}
+
+            className="shelter-button next-button"
         >
           Next
         </button>
       </div>
-      <h3 class="text-center">Page {pageNum} of {Math.ceil(numInstances.count / 12)}</h3>
+      <h3 class="text-center">Page {pageNum} of {Math.ceil(numInstances.count / 9)}</h3>
     </div>
   </div>
 );

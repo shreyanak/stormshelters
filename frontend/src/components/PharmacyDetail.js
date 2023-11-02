@@ -3,6 +3,10 @@ import CityCard from './CityModel';
 import PharmacyCard from './PharmacyModel';
 import ShelterCard from './ShelterModel';
 import '../css/CityDetail.css';
+import '../css/ShelterDetail.css';
+import { LoadScript, GoogleMap, Marker } from '@react-google-maps/api';
+
+const GOOGLE_API_KEY_MAP = 'AIzaSyAP0iwpFt7n8429SqZpI_N-OXxTC5ywfn8';
 
 function PharmacyDetail() {
   const { id } = useParams();
@@ -43,7 +47,7 @@ function PharmacyDetail() {
       <div className="image-container">
         <img 
           src="https://www.southernliving.com/thmb/Nm6DnVCFUKM7dQSsqkutPxrNpuo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-1167434230-1-a6613ae7e7f145a8aa62baa816f8d910.jpg"
-          alt="City"
+          alt="Pharmacy"
           className="city-image"
         />
       </div>
@@ -62,6 +66,22 @@ function PharmacyDetail() {
         </div>
         
       </div>
+
+      <div className="map-container" style={{ margin: '0 auto', width: '600px', height: '400px' }}>
+  <LoadScript googleMapsApiKey={GOOGLE_API_KEY_MAP}>
+    <GoogleMap
+      mapContainerStyle={{ width: '100%', height: '100%' }}
+      zoom={15}
+      center={{ lat: latitude, lng: longitude }}
+    >
+      <Marker
+        position={{ lat: latitude, lng: longitude }}
+      />
+    </GoogleMap>
+  </LoadScript>
+</div>
+
+
       <div className="shelter-container-container">
         <h1>Related Instances</h1>
         <div className="shelter-card-container">

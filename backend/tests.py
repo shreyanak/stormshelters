@@ -10,21 +10,21 @@ class Tests(unittest.TestCase):
             response = client.get('/cities')
             self.assertEqual(response.status_code, 200)
             data = response.json["cities"]
-            self.assertEqual(len(data), 12)
+            self.assertEqual(len(data), 9)
 
     def test_shelters_page(self):
         with client:
             response = client.get('/shelters')
             self.assertEqual(response.status_code, 200)
             data = response.json["shelters"]
-            self.assertEqual(len(data), 12)
+            self.assertEqual(len(data), 9)
 
     def test_pharmacies_page(self):
         with client:
             response = client.get('/pharmacies')
             self.assertEqual(response.status_code, 200)
             data = response.json["pharmacies"]
-            self.assertEqual(len(data), 12)
+            self.assertEqual(len(data), 9)
 
     def test_city(self):
         with client:

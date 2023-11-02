@@ -104,7 +104,7 @@
 
 .bg {
   position: relative;
-  background-image: url("../img/splash.jpeg");
+  background-image: url("https://i.abcnewsfe.com/a/2faca673-3ac1-4c5b-92f8-f69a6f09364c/lightning-pa-ht-ps-230627_1687872248320_hpMain_16x9.jpg");
   height: 100vh;
   background-size: cover;
   background-position: center;
@@ -113,4 +113,15 @@
 
 .list-group-item {
  list-style-type: circle; 
+}
+
+.text-container {
+  position: absolute; /* Position the text container absolutely within the parent */
+  top: 50%; /* Vertically center the text */
+  left: 50%; /* Horizontally center the text */
+  transform: translate(-50%, -50%); /* Center the text precisely */
+  text-align: center; /* Center-align text content */
+  color: white; /* Set text color to white */
+  padding: 20px; /* Add padding around the text */
+  background-color: rgba(0, 0, 0, 0.5); /* Add a semi-transparent background color */
 }

@@ -80,8 +80,10 @@ function Cities() {
               if (cityData.length > 0) {
                 setPageNum((prev) => prev + 1);
               }
-            }}
-            disabled={(cityData.length) < 12}
+            }
+          }
+            disabled={pageNum === Math.ceil(numInstances.count / 9)}
+
             className="shelter-button next-button"
           >
             Next
@@ -89,7 +91,7 @@ function Cities() {
           </button>
 
         </div>
-        <h3 class="text-center">Page {pageNum} of {Math.ceil(numInstances.count / 12)}</h3>
+        <h3 class="text-center">Page {pageNum} of {Math.ceil(numInstances.count / 9)}</h3>
       </div>
     </div>
   );

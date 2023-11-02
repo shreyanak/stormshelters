@@ -60,23 +60,33 @@ function Pharmacies() {
       </div>
 
       <div className="show-more">
-        <div className="button-container">
-          <button onClick={() => {
-    if (pharmacyData.length > 0) {
-      setPageNum((prev) => prev + 1);
-    }
-  }}
-  disabled={numInstances.count - (pharmacyData.length * pageNum) < 12}>
-            Next
-          </button>
-          <button onClick={() => setPageNum((prev) => prev - 1)} disabled={pageNum==1}>
+        <div className="button-group">
+        <button
+            onClick={() => setPageNum((prev) => prev - 1)}
+        
+            disabled={pageNum === 1}
+            className="shelter-button prev-button"
+          >
             Previous
           </button>
-        </div>
-        <h3 class="text-center">Page {pageNum} of {Math.ceil(numInstances.count / 12)}</h3>
 
+          <button
+            onClick={() => {
+              if (pharmacyData.length > 0) {
+                setPageNum((prev) => prev + 1);
+              }
+            }}
+            disabled={pageNum === Math.ceil(numInstances.count / 9)}
+
+            className="shelter-button next-button"
+          >
+            Next
+            
+          </button>
+
+        </div>
+        <h3 class="text-center">Page {pageNum} of {Math.ceil(numInstances.count / 9)}</h3>
       </div>
-     
     </div>
     
   );
