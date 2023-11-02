@@ -8,6 +8,10 @@ import ShelterCard from './ShelterModel';
 import ReactDOM from 'react-dom';
 import React from 'react';
 
+import { LoadScript, GoogleMap, Marker } from '@react-google-maps/api';
+
+const GOOGLE_API_KEY_MAP = 'AIzaSyAP0iwpFt7n8429SqZpI_N-OXxTC5ywfn8';
+
 
 function CityDetail() {
   const { id } = useParams();
@@ -73,10 +77,10 @@ function CityDetail() {
         </div>
       </div>
 
-      <div className="shelter-container-container">
+      <div className="city-container-container">
         <h1>Related Instances</h1>
-        <div className="shelter-card-container">
-            <CityCard cityData = {newCityData}/> 
+        <div className="city-card-container">
+          <CityCard cityData = {newCityData}/> 
           <PharmacyCard pharmacyData = {newPharmData}/> 
           <ShelterCard shelterData = {newShelterData}/> 
         </div>
