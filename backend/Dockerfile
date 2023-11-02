@@ -3,7 +3,7 @@ FROM python:3.11
 RUN apt-get update
 RUN apt-get install -y python3
 RUN pip3 install --upgrade pip
-RUN apt-get install libssl-dev
+RUN apt-get install -y libssl-dev
 
 WORKDIR /backend
 
