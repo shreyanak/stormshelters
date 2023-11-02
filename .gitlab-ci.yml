@@ -1,6 +1,6 @@
-stages:
- - deploy
- - test
+# stages:
+#  - deploy
+#  - test
 
 # backend-deploy:
 #   stage: deploy
@@ -28,6 +28,30 @@ stages:
 #     - newman run postman_tests.json
 #   needs:
 #       - backend-deploy
+
+
+cache:
+  paths:
+    - node_modules
+
+stages:
+  - build
+  - test
+
+frontend-build:
+  stage: build
+  image: node:18.18.0
+  script:
+    - cd frontend
+    - npm install
+    - CI=false npm run build
+
+backend-build:
+  stage: build
+  image: python:3.10
+  script:
+    - cd backend
+    - pip3 install -r requirements.txt
 
 python-tests:
   image: python:3
