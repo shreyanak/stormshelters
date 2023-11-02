@@ -3,7 +3,8 @@ import json
 import requests
 
 def main():
-    load_cities_images()
+    # load_cities_images()
+    load_pharm_images()
 
 def load_cities() :
 
@@ -74,7 +75,8 @@ def load_cities_images():
     # iterate through city names, load each url
     for city_name in city_names:
         # google custom search, get image url
-        image_url = fetch_image_url(city_name)
+        print(city_name[0])
+        image_url = fetch_image_url(city_name[0] + ' texas')
         print(image_url)
         if image_url:
             # query and add url to sql
@@ -82,23 +84,74 @@ def load_cities_images():
             print(real_name)
             cursor.execute(f"SELECT id FROM cities_new WHERE name = '{real_name}'")
             city_id = cursor.fetchall()
-            print(city_id)
-            load_image_query = f"""UPDATE cities_new SET image = '{image_url}' WHERE id = '{city_id}'"""
+            print(city_id[0][0])
+            load_image_query = f"""UPDATE cities_new SET image = '{image_url}' WHERE id = '{city_id[0][0]}'"""
             cursor.execute(load_image_query)
             stormshelters_db.commit()
         else:
             print("failed to get image url")
+    stormshelters_db.commit()
     
     cursor.close()
     stormshelters_db.close()
 
 
-def fetch_image_url(query):
-    # api_key = "AIzaSyAcJPY_z5AiJAF0bngy4Ek6M0E3pTTGcTk"
-    # cse_id = "b4dcf4643af1e4b07"    # custom search engine ID
+def load_pharm_images():
+    # AWS RPS DB info
+    storm_host = "stormshelters-db.clwbujmk0ylk.us-east-2.rds.amazonaws.com"
+    storm_user = "admin"
+    storm_password = "StormShelters2023"
+    storm_database = "models"
+
+    print("attempting to connect")
+
+    # Database connection
+    stormshelters_db = mysql.connector.connect(
+        host = storm_host,
+        user = storm_user,
+        password = storm_password,
+        database = storm_database
+    )
+
+    cursor = stormshelters_db.cursor()
+    get_pharm_query = """SELECT name FROM pharmacies_new"""
+    get_pharm_city = """SELECT city FROM pharmacies_new"""
+
+
+    cursor.execute(get_pharm_query)
+    pharm_names = cursor.fetchall()
+    cursor.execute(get_pharm_city)
+    pharm_city = cursor.fetchall()
+
+    # iterate through city names, load each url
+    for name in pharm_names:
+        # google custom search, get image url
+        print(name[0])
+        image_url = fetch_image_url(name[0] + ' in ' + pharm_city[0][0])
+        print(image_url)
+        if image_url:
+            # query and add url to sql
+
+            cursor.execute(f"SELECT id FROM cities_new WHERE name = '{name[0]}'")
+            id = cursor.fetchall()
+            print(id[0][0])
+            load_image_query = f"""UPDATE pharmacies_new SET image = '{image_url}' WHERE id = '{id[0][0]}'"""
+            cursor.execute(load_image_query)
+            stormshelters_db.commit()
+        else:
+            print("failed to get image url")
+    stormshelters_db.commit()
     
+    cursor.close()
+    stormshelters_db.close()
+
+
+
+# Using Pexels API
+# Written by Rohit, modified by John
+def fetch_image_url(query):
+    print("query: " + query)
     api = 'jnbFGKT4ma1y4roN6w5ngHjGkKfrE2vPMaxzD7cOMGb9ykNWWSiFtVjP'
-    # url = f'https://www.googleapis.com/customsearch/v1?key={api_key}&cx={cse_id}&q={query}&searchType=image'
     url = f'https://api.pexels.com/v1/search?query={query}&per_page=1'
     # GET request
     response = requests.get(url, headers={'Authorization':'jnbFGKT4ma1y4roN6w5ngHjGkKfrE2vPMaxzD7cOMGb9ykNWWSiFtVjP'})
@@ -106,18 +159,13 @@ def fetch_image_url(query):
     # 200 is code for success
     if response.status_code == 200:
         images_data = response.json()
-        # print(images_data)
-        # if 'photos' in images_data and len(images_data['photos']) > 0:
-        # gets image link of first image
         test = images_data.get('photos')
-        # print("type: " + type(test))
-        # if i[2]:
-                # for j in i.values() :
-                #     if j == 'url' :
-                #         thing = j
-        # print(j)
-        # else:
-        #     print("no search results found")
+        for element in test :
+            string_url = element.get('url')
+            if string_url :
+                return string_url
+            else :
+                return 0
     else:
         print("request failed with status code: ", response.status_code)
 
