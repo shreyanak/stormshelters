@@ -7,8 +7,8 @@ const ShelterCard = ({ shelterData }) => {
     return <div>No shelter data available</div>;
   }
 
-  // var closed_display = shelterData.is_closed ? 'Yes': 'No';
-  // console.log(closed_display);
+  var closed_display = shelterData.is_closed ? 'Yes': 'No';
+ console.log(closed_display);
   return (
     <Link style={{textDecoration: 'none'}} to={`/shelter/${shelterData.id}`}>
 
