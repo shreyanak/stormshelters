@@ -54,29 +54,27 @@ function CityDetail() {
   const { name, pop, temp_in_f, wind_mph, cond, precip_in } = cityData;
 
   useEffect(() => {
+    async function geocode() {
+      const address = cities_in_harris[id - 1];
 
-    const script = document.createElement('script');
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${GOOGLE_API_KEY_MAP}&libraries=places`;
-    script.async = true;
-    script.defer = true;
+      const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(address)}&key=${GOOGLE_API_KEY_MAP}`;
 
-    script.onload = () => {
-      const geocoder = new window.google.maps.Geocoder();
-      // const address = `${cities_in_harris[id - 1]}`;
-      const address = `baytown,tx`;
+      const response = await fetch(url);
+      const data = await response.json();
 
-      console.log(address);
+      if (data.status === 'OK') {
+        const result = data.results[0];
+        const lat = result.geometry.location.lat;
+        const lng = result.geometry.location.lng;
 
-      geocoder.geocode({ address }, (results, status) => {
-        if (status === 'OK' && results[0]) {
-          const { location } = results[0].geometry;
-          const newCoords = { lat: location.lat(), lng: location.lng() };
-          setCoords(newCoords);
-        }
-      });
-    };
+        setCoords({ lat, lng });
+      } else {
+        console.error('Geocoding failed', data);
+      }
+    }
 
-    document.head.appendChild(script);
+    geocode();
+
   }, []);
 
   return (
@@ -89,6 +87,7 @@ function CityDetail() {
           className="city-image"
         />
       </div>
+
       <div className="city-detail-card-container">
         <div className="city-detail-card">
           <p>Population: {pop}</p>
@@ -105,13 +104,11 @@ function CityDetail() {
         <div className="city-detail-card">
           <p>Precipitation: {precip_in} inches</p>
         </div>
-      </div>
 
-      <div className="map-container">
-        {coords && (
+        <div className="map-container" style={{ margin: '0 auto', width: '600px', height: '400px' }}>
           <LoadScript googleMapsApiKey={GOOGLE_API_KEY_MAP}>
             <GoogleMap
-              mapContainerStyle={{ width: '600px', height: '400px' }}
+              mapContainerStyle={{ width: '100%', height: '100%' }}
               zoom={15}
               center={coords}
             >
@@ -120,17 +117,16 @@ function CityDetail() {
               />
             </GoogleMap>
           </LoadScript>
-        )}
-      </div>
-
-      <div className="city-container-container">
-        <h1>Related Instances</h1>
-        <div className="shelter-card-container">
-          <CityCard cityData = {newCityData}/> 
-          <PharmacyCard pharmacyData = {newPharmData}/> 
-          <ShelterCard shelterData = {newShelterData}/> 
         </div>
-      
+
+        <div className="city-container-container">
+          <h1>Related Instances</h1>
+          <div className="shelter-card-container">
+            <CityCard cityData = {newCityData}/> 
+            <PharmacyCard pharmacyData = {newPharmData}/> 
+            <ShelterCard shelterData = {newShelterData}/> 
+          </div>
+        </div>
       </div>
     </div>
   );
