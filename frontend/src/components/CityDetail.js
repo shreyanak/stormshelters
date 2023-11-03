@@ -7,14 +7,18 @@ import PharmacyCard from './PharmacyModel';
 import ShelterCard from './ShelterModel';
 import ReactDOM from 'react-dom';
 import React from 'react';
+import { useEffect, useState } from 'react';
 
 import { LoadScript, GoogleMap, Marker } from '@react-google-maps/api';
 
 const GOOGLE_API_KEY_MAP = 'AIzaSyAP0iwpFt7n8429SqZpI_N-OXxTC5ywfn8';
 
+const cities_in_harris = ['baytown,tx', 'bellaire,tx', 'deer park,tx', 'cypress,tx', 'highlands,tx', 'houston,tx', 'katy,tx', 'huffman,tx', 'kingwood,tx', 'pasadena,tx', 'spring,tx', 'waller,tx', 'tomball,tx', 'humble,tx', 'webster,tx', 'aldine,tx', 'jersey village,tx', 'atascocita,tx', 'southside place,tx', 'hedwig village,tx', 'bunker hill village,tx', 'el lago,tx', 'sheldon,tx', 'barrett,tx', 'cloverleaf,tx', 'morgans point,tx', 'la porte,tx', 'galena park,tx']
+
 
 function CityDetail() {
   const { id } = useParams();
+  const [coords, setCoords] = useState(null);
 
   // JRS 10/20 - please leave this code the same.
   // If it needs to be modified, please contact me first.
@@ -49,6 +53,32 @@ function CityDetail() {
 
   const { name, pop, temp_in_f, wind_mph, cond, precip_in } = cityData;
 
+  useEffect(() => {
+
+    const script = document.createElement('script');
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${GOOGLE_API_KEY_MAP}&libraries=places`;
+    script.async = true;
+    script.defer = true;
+
+    script.onload = () => {
+      const geocoder = new window.google.maps.Geocoder();
+      // const address = `${cities_in_harris[id - 1]}`;
+      const address = `baytown,tx`;
+
+      console.log(address);
+
+      geocoder.geocode({ address }, (results, status) => {
+        if (status === 'OK' && results[0]) {
+          const { location } = results[0].geometry;
+          const newCoords = { lat: location.lat(), lng: location.lng() };
+          setCoords(newCoords);
+        }
+      });
+    };
+
+    document.head.appendChild(script);
+  }, []);
+
   return (
     <div className="city-detail-container">
       <h1 className="city-title">{name}</h1>
@@ -75,6 +105,22 @@ function CityDetail() {
         <div className="city-detail-card">
           <p>Precipitation: {precip_in} inches</p>
         </div>
+      </div>
+
+      <div className="map-container">
+        {coords && (
+          <LoadScript googleMapsApiKey={GOOGLE_API_KEY_MAP}>
+            <GoogleMap
+              mapContainerStyle={{ width: '600px', height: '400px' }}
+              zoom={15}
+              center={coords}
+            >
+              <Marker
+                position={coords}
+              />
+            </GoogleMap>
+          </LoadScript>
+        )}
       </div>
 
       <div className="city-container-container">
