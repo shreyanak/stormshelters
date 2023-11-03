@@ -125,7 +125,7 @@ function CityDetail() {
 
       <div className="city-container-container">
         <h1>Related Instances</h1>
-        <div className="city-card-container">
+        <div className="shelter-card-container">
           <CityCard cityData = {newCityData}/> 
           <PharmacyCard pharmacyData = {newPharmData}/> 
           <ShelterCard shelterData = {newShelterData}/> 
