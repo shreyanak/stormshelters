@@ -5,63 +5,49 @@ import PharmacyCard from './PharmacyModel';
 import ShelterCard from './ShelterModel';
 import SearchBar from './SearchBar';
 import { useParams } from 'react-router-dom';
+import SearchBar from './SearchBar';
 
+var cardList;
+var model, query, searchJSON;
+function backendSearch(model, query){
+  var mainURL = `https://api.stormshelters.me/search/${model}/${query}`;
+  var mainreq = new XMLHttpRequest();
+  mainreq.open('GET', mainURL, false); 
+  mainreq.send(null);
+  searchJSON = (JSON.parse(mainreq.responseText).model);
+}
 function Cities() {
-    // Step 1: Define state variable to store shelter data
-  const [cityData, setCityData] = useState([]);
-  const [pageNum, setPageNum] = useState(1);
-  const [numInstances, setMetaData ] = useState(1);
+  model = useParams({ model });
+  query = useParams({ query });
+  backendSearch(model, query);
 
-
-    // Step 2: Create an asynchronous function to fetch data
-  const fetchData = async (page) => {
-    try {
-      const apiUrl = `https://api.stormshelters.me/cities?page=${page}`;
-      const response = await fetch(apiUrl);
-      if (response.ok) {
-        const data = await response.json();
-        setCityData(data.cities);
-        setMetaData(data.meta)
-
-      } else {
-        console.error('Error fetching data:', response.status);
+  for (model in searchJSON) {
+    // Model is the key in the JSON dict
+    // searchJSON[model] is a list
+    if (searchJSON[model].length > 0) {
+      // now, entry is a dictionary that we want to hand to the card generator
+      var index = 0;
+      for (entry in searchJSON[model]) {
+        cardList[index] = <SearchCard data ={ entry } />
+        index++;
       }
-    } catch (error) {
-      console.error('Error fetching data:', error);
     }
-  };
-  // Step 3: Fetch data when the component mounts or when the page parameter changes
-  useEffect(() => {
-    fetchData(pageNum);
-  }, [pageNum]);
-
-
-  // chunk the shelter data into groups of three for grid
-  const chunkArray = (arr, chunkSize) => {
-    const chunkedArray = [];
-    for (let i = 0; i < arr.length; i += chunkSize) {
-      chunkedArray.push(arr.slice(i, i + chunkSize));
-    }
-    return chunkedArray;
-  };
-
-  const chunkedCityData = chunkArray(cityData, 1);
-  const searchCity = <SearchBar model='city' />;
+  }
+  const chunkedSearchData = chunkArray(searchJSON, 1);
   
 
   // Step 5: Use React Router to handle navigation
   return (
     <div className="shelters-container">
       <h1>Cities</h1>
-      <p>Total Instances: {cityData.length}</p>
-      <SearchBar model='city' />
+      <p>Total Instances: {searchJSON.length}</p>
 
       <div className="shelter-card-container">
-        {chunkedCityData.map((chunk, rowIndex) => (
+        {chunkedSearchData.map((chunk, rowIndex) => (
           <div className="row" key={rowIndex}>
             {chunk.map((id, colIndex) => (
               <div className="col-sm-4" key={colIndex}>
-                <CityCard cityData={ id } />
+                cardList[id]
               </div>
             ))}
           </div>
