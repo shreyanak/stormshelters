@@ -68,21 +68,20 @@ function PharmacyDetail() {
       </div>
 
       <div className="map-container" style={{ margin: '0 auto', width: '600px', height: '400px' }}>
-  <LoadScript googleMapsApiKey={GOOGLE_API_KEY_MAP}>
-    <GoogleMap
-      mapContainerStyle={{ width: '100%', height: '100%' }}
-      zoom={15}
-      center={{ lat: latitude, lng: longitude }}
-    >
-      <Marker
-        position={{ lat: latitude, lng: longitude }}
-      />
-    </GoogleMap>
-  </LoadScript>
-</div>
+      <LoadScript googleMapsApiKey={GOOGLE_API_KEY_MAP}>
+        <GoogleMap
+          mapContainerStyle={{ width: '100%', height: '100%' }}
+          zoom={15}
+          center={{ lat: latitude, lng: longitude }}
+        >
+          <Marker
+            position={{ lat: latitude, lng: longitude }}
+          />
+        </GoogleMap>
+      </LoadScript>
 
 
-      <div className="shelter-container-container">
+      <div className="city-container-container">
         <h1>Related Instances</h1>
         <div className="shelter-card-container">
           <CityCard cityData = {newCityData}/> 
@@ -91,6 +90,8 @@ function PharmacyDetail() {
         </div>
       </div>
     </div>
+    </div>
+
   );
 }
 
