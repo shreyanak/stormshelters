@@ -4,7 +4,7 @@ import '../css/City.css';
 
 const PharmacyCard = ({ pharmacyData }) => {
   const { address, categories, city, distance_m, name, image } = pharmacyData;
-  console.log(image)
+  // console.log(image)
   return (  
     <Link style={{textDecoration: 'none'}} to={`/pharmacies/${pharmacyData.id}`}>
     <div className="shelter-card">
