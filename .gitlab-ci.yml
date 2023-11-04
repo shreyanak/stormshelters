@@ -81,7 +81,7 @@ selenium-tests:
   script:
     - python frontend/guitests.py
 
-  jest-test:
+jest-test:
   image: node:14
   script:
     - npm install
