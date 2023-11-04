@@ -1,12 +1,13 @@
 import { BrowserRouter } from 'react-router-dom';
 import renderer from 'react-test-renderer';
 
+
 import App from '../App.js'
 
 import Navbar from '../components/Navbar.js';
 
 import About from '../components/About.js';
-
+import Home from '../components/Home.js';
 import CityCard from '../components/CityModel.js';
 
 it('Init NavBar', () => {
@@ -39,22 +40,27 @@ it('Init NavBar', () => {
     expect(tree).toMatchSnapshot();
   });
   
+  it('Init HomeCard', () => {
+    const component = renderer.create(
+      <BrowserRouter>
+        <Home />
+      </BrowserRouter>,
+    );
+  
+    let tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 
 //   it('Init CityCard', () => {
-//     const city = {
-//         name: 'Baytown',
-//         population: 82543,
-
-
-
-//     }
 //     const component = renderer.create(
 //       <BrowserRouter>
-//         <CityCard city={city} />
+//         <CityCard />
 //       </BrowserRouter>,
 //     );
   
 //     let tree = component.toJSON();
 //     expect(tree).toMatchSnapshot();
 //   });
+  
+  
   
