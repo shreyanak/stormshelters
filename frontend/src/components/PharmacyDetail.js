@@ -39,14 +39,14 @@ function PharmacyDetail() {
 
 
 
-  const { name, city, address, distance_m, categories, longitude, latitude } = pharmacyData;
+  const { name, city, address, distance_m, categories, longitude, latitude, image } = pharmacyData;
 
   return (
     <div className="city-detail-container">
       <h1 className="city-title">{name}</h1>
       <div className="image-container">
         <img 
-          src="https://www.southernliving.com/thmb/Nm6DnVCFUKM7dQSsqkutPxrNpuo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-1167434230-1-a6613ae7e7f145a8aa62baa816f8d910.jpg"
+          src={image}
           alt="Pharmacy"
           className="city-image"
         />

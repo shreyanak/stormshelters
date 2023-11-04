@@ -28,6 +28,8 @@ function Home() {
         
       <div className="shelter-card-container" id="shelterCardContainer">
         {/* Card for Cities */}
+        <Link style={{textDecoration: 'none'}} to={`/cities`}>
+
         <div className="shelter-card">
         <img class="shelter-image-container" src="https://ane4bf-datap1.s3-eu-west-1.amazonaws.com/wmocms/s3fs-public/styles/featured_media_detail/public/23613146140_6edfea579f_k.jpg?m0oNCnmjJAswk0CJrWZ.iW.ge6XbrfR1&itok=YBQjaq77" alt="Food and Pharmacies Image"/>
           <div className="shelter-card-body">
@@ -39,8 +41,11 @@ function Home() {
           <div className="button-container">
           </div>
         </div>
+        </Link>
 
         {/* Card for Shelters */}
+        <Link style={{textDecoration: 'none'}} to={`/shelters`}>
+
         <div className="shelter-card">
         <img class="shelter-image-container" src='https://i.cbc.ca/1.5499955.1584413818!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_780/welcome-inn.jpg'/>
           <div className="shelter-card-body">
@@ -52,8 +57,10 @@ function Home() {
           <div className="button-container">
           </div>
         </div>
+        </Link>
 
         {/* Card for Food and Pharmacies */}
+        <Link style={{textDecoration: 'none'}} to={`/pharmacies`}>
         <div className="shelter-card">
         <img class="shelter-image-container" src='https://medicopharmacyrx.com/wp-content/uploads/2021/07/types-of-pharmacy.jpg' alt='Pharmacy Image'/>
           <div className="shelter-card-body">
@@ -63,11 +70,13 @@ function Home() {
             </p>
           </div>
         </div>
+        </Link>
       </div>
       
   
 
     </div>
+
 
   );
 }

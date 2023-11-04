@@ -22,6 +22,7 @@ class Pharmacy(db.Model):
     categories = db.Column(db.Text)
     longitude = db.Column(db.Float)
     latitude = db.Column(db.Float)
+    image = db.Column(db.String)
 
 class Shelter(db.Model):
     __table_args__ = {'schema':'models'}
@@ -48,4 +49,6 @@ class City(db.Model):
     wind_mph = db.Column(db.Float)
     cond = db.Column(db.String)
     precip_in = db.Column(db.Float)
+    image = db.Column(db.String)
+
 

@@ -6,13 +6,14 @@ import '../css/Shelter.css';
 
 
 const CityCard = ({ cityData }) => {
-  const { id, name, pop, temp_in_f, wind_mph, cond, precip_in } = cityData;
+  const { id, name, pop, temp_in_f, wind_mph, cond, precip_in, image } = cityData;
+  console.log(image)
   return (
     <Link style={{textDecoration: 'none'}} to ={`/cities/${id}`}>
 
     <div className="shelter-card">
       <div className="shelter-image-container">
-      <img className="shelter-card-img-top" src='https://www.southernliving.com/thmb/Nm6DnVCFUKM7dQSsqkutPxrNpuo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-1167434230-1-a6613ae7e7f145a8aa62baa816f8d910.jpg'></img>
+      <img className="shelter-card-img-top" src={image}></img>
       </div>
       <div className="shelter-card-body">
         {/* <Link to={`/city/${id}`} > */}

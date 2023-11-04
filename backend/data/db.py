@@ -72,11 +72,21 @@ def load_cities_images():
     cursor.execute(get_cities_query)
     city_names = cursor.fetchall()
 
+    used_url = []
+    list_pos = 0
     # iterate through city names, load each url
     for city_name in city_names:
         # google custom search, get image url
         print(city_name[0])
-        image_url = fetch_image_url(city_name[0] + ' texas')
+        pos = 0
+        while True :
+            image_url = fetch_image_url(city_name[0] + ' texas', pos)
+            if not image_url in used_url : 
+                list_pos = list_pos + 1
+                used_url.insert(list_pos, image_url)
+                break
+            pos = pos + 1
+               
         print(image_url)
         if image_url:
             # query and add url to sql
@@ -114,31 +124,45 @@ def load_pharm_images():
     )
 
     cursor = stormshelters_db.cursor()
-    get_pharm_query = """SELECT name FROM pharmacies_new"""
-    get_pharm_city = """SELECT city FROM pharmacies_new"""
+    get_pharmacy_query = """SELECT name FROM pharmacies_new"""
 
-
-    cursor.execute(get_pharm_query)
-    pharm_names = cursor.fetchall()
-    cursor.execute(get_pharm_city)
-    pharm_city = cursor.fetchall()
+    cursor.execute(get_pharmacy_query)
+    pharmacy_names = cursor.fetchall()
+    cvs_default = "https://1000logos.net/wp-content/uploads/2020/03/CVS-Pharmacy-Logo.png"
+    walgreens_default = "https://www.walgreens.com/images/adaptive/si/1485908_WAG_Signature_logo_RGB_750x208.png"
+    heb_default = "https://upload.wikimedia.org/wikipedia/en/thumb/a/a1/H-E-B_logo.svg/1280px-H-E-B_logo.svg.png"
 
     # iterate through city names, load each url
-    for name in pharm_names:
+    print (pharmacy_names)
+    id = 0
+    for pharmacy_name in pharmacy_names:
+        id = id + 1
         # google custom search, get image url
-        print(name[0])
-        image_url = fetch_image_url(name[0] + ' in ' + pharm_city[0][0])
+        print(pharmacy_name[0])
+        image_url = fetch_image_url(pharmacy_name[0], 0)       
         print(image_url)
+        if not image_url : 
+            if pharmacy_name[0] == 'CVS Pharmacy' : 
+                image_url = cvs_default
+            if pharmacy_name[0] == 'Walgreens' : 
+                image_url = walgreens_default
+            if pharmacy_name[0] == 'H-E-B Pharmacy' :
+                image_url = heb_default
+    
         if image_url:
             # query and add url to sql
-
-            cursor.execute(f"SELECT id FROM cities_new WHERE name = '{name[0]}'")
-            id = cursor.fetchall()
-            print(id[0][0])
-            load_image_query = f"""UPDATE pharmacies_new SET image = '{image_url}' WHERE id = '{id[0][0]}'"""
+            real_name = pharmacy_name[0]
+            print(real_name)
+            # cursor.execute(f"SELECT id FROM pharmacies_new WHERE name = '{real_name}'")
+            # pharm_id = cursor.fetchall()
+            # print(pharm_id[0][0])
+            load_image_query = f"""UPDATE pharmacies_new SET image = '{image_url}' WHERE id = '{id}'"""
             cursor.execute(load_image_query)
             stormshelters_db.commit()
+            # print("hello!")
         else:
+         
+
             print("failed to get image url")
     stormshelters_db.commit()
     
@@ -147,25 +171,47 @@ def load_pharm_images():
 
 
 
+
 # Using Pexels API
 # Written by Rohit, modified by John
-def fetch_image_url(query):
+def fetch_image_url(query, pos):
     print("query: " + query)
-    api = 'jnbFGKT4ma1y4roN6w5ngHjGkKfrE2vPMaxzD7cOMGb9ykNWWSiFtVjP'
-    url = f'https://api.pexels.com/v1/search?query={query}&per_page=1'
+    api_key = "AIzaSyAcJPY_z5AiJAF0bngy4Ek6M0E3pTTGcTk"
+    cse_id = "b4dcf4643af1e4b07"    # custom search engine ID
+
+    url = f'https://www.googleapis.com/customsearch/v1?key={api_key}&cx={cse_id}&q={query}&searchType=image'
+
     # GET request
-    response = requests.get(url, headers={'Authorization':'jnbFGKT4ma1y4roN6w5ngHjGkKfrE2vPMaxzD7cOMGb9ykNWWSiFtVjP'})
+    response = requests.get(url)
+
+
+    # api = 'jnbFGKT4ma1y4roN6w5ngHjGkKfrE2vPMaxzD7cOMGb9ykNWWSiFtVjP'
+    # url = f'https://api.pexels.com/v1/search?query={query}&per_page=1'
+    # GET request
+    # response = requests.get(url, headers={'Authorization':'jnbFGKT4ma1y4roN6w5ngHjGkKfrE2vPMaxzD7cOMGb9ykNWWSiFtVjP'})
 
     # 200 is code for success
     if response.status_code == 200:
         images_data = response.json()
-        test = images_data.get('photos')
-        for element in test :
-            string_url = element.get('url')
-            if string_url :
-                return string_url
-            else :
-                return 0
+        
+        print(images_data["items"][pos]["link"])
+        query_result = images_data["items"][pos]["link"]
+        if query_result:
+            return query_result
+        return 0
+        # for element in images_data :
+        #     print (element)
+            # if element.values()[0] == 'kind' : 
+
+                # for property in element :
+                #     print (property)
+                #     if property == 'link' :
+                #         print (property)
+            # string_url = element.get('link')
+            # if string_url :
+            #     return string_url
+            # else :
+            #     return 0
     else:
         print("request failed with status code: ", response.status_code)
 

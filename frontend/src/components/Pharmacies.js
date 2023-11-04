@@ -11,7 +11,7 @@ function Pharmacies() {
   // Step 2: Create an asynchronous function to fetch data
   const fetchData = async (page) => {
     try {
-      const apiUrl = `https://api.stormshelters.me/pharmacies?page=${page}`;
+      const apiUrl = `https://api.stormsheltersm.me/pharmacies?page=${page}`;
       const response = await fetch(apiUrl);
       if (response.ok) {
         const data = await response.json();
