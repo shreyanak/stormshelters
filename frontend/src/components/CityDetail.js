@@ -31,21 +31,21 @@ function CityDetail() {
 
   // Second request
   var newcityreq = new XMLHttpRequest();
-  var similarCityURL = `https://api.stormshelters.me/cities/${Math.floor(Math.random() * 23)}`;
+  var similarCityURL = `https://api.stormshelters.me/cities/${Math.floor(Math.random() * 27)+ 1}`;
   newcityreq.open('GET', similarCityURL, false); 
   newcityreq.send(null);
   var newCityData = (JSON.parse(newcityreq.responseText).city);
 
   // Third request
   var newpharmreq = new XMLHttpRequest();
-  var similarPharmacyURL = `https://api.stormshelters.me/pharmacies/${Math.floor(Math.random() * 50)}`
+  var similarPharmacyURL = `https://api.stormshelters.me/pharmacies/${Math.floor(Math.random() * 124) + 1}`
   newpharmreq.open('GET', similarPharmacyURL, false); 
   newpharmreq.send(null);
   var newPharmData = (JSON.parse(newpharmreq.responseText).pharmacy);
 
   // Final request
   var newshelterreq = new XMLHttpRequest();
-  var similarShelterURL = `https://api.stormshelters.me/shelters/${Math.floor(Math.random() * 12)}`
+  var similarShelterURL = `https://api.stormshelters.me/shelters/${Math.floor(Math.random() * 36) + 1}`
   newshelterreq.open('GET', similarShelterURL, false); 
   newshelterreq.send(null);
   var newShelterData = (JSON.parse(newshelterreq.responseText).shelter);

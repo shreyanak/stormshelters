@@ -80,3 +80,9 @@ selenium-tests:
     - pip install -r frontend/requirements.txt
   script:
     - python frontend/guitests.py
+
+  jest-test:
+  image: node:14
+  script:
+    - npm install
+    - npm test
