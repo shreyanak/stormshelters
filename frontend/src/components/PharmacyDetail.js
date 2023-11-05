@@ -82,7 +82,7 @@ function PharmacyDetail() {
 </div>
 
 
-      <div className="shelter-container-container">
+      <div className="city-container-container">
         <h1>Related Instances</h1>
         <div className="shelter-card-container">
           <CityCard cityData = {newCityData}/> 
