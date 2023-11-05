@@ -44,7 +44,7 @@ function Home() {
         </Link>
 
         {/* Card for Shelters */}
-        <Link style={{textDecoration: 'none'}} to={`/shelters`}>
+        <Link style={{textDecoration: 'none'}} to={`/shelter`}>
 
         <div className="shelter-card">
         <img class="shelter-image-container" src='https://i.cbc.ca/1.5499955.1584413818!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_780/welcome-inn.jpg'/>

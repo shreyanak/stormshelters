@@ -23,6 +23,7 @@
 }
 
 .city-detail-card-container {
+  background-color: #1a1a1a;
   display: flex;
   justify-content: center;
   align-items: center;
