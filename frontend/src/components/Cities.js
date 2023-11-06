@@ -15,7 +15,7 @@ function Cities() {
     // Step 2: Create an asynchronous function to fetch data
   const fetchData = async (page) => {
     try {
-      const apiUrl = `https://api.stormshelters.me/cities?page=${page}`;
+      const apiUrl = `https://api.stormshelters.me/cities?page=${page}&per_page=${9}`;
       const response = await fetch(apiUrl);
       if (response.ok) {
         const data = await response.json();

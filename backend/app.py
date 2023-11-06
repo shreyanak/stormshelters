@@ -6,18 +6,37 @@ from sqlalchemy import or_
 
 @app.route('/')
 def home():
-    return "Hello this is something"
+    return "API Home"
 
 # get model page of cities
 @app.route('/cities',  methods=['GET'])
 def get_cities():
+
     query = db.session.query(City)
-    page = request.args.get('page', 1, int)
-    per_page = request.args.get('per_page', 9, int)
+    page = request.args.get('page', type=int, default=1)
+    per_page = request.args.get('per_page', type=int, default=9)
+    # city, pop, temp
+    sort = request.args.get('sort')
+    # asc, dec
+    order = request.args.get('order')
+
+    # sort every entry by city name in asc
+    if sort == 'city' and order == 'asc':
+        query = query.order_by(City.name)
+    elif sort == 'city' and order == 'desc':
+        query = query.order_by(City.name.desc())
+    elif sort == 'pop' and order == 'asc':
+        query = query.order_by(City.pop)
+    elif sort =='pop' and order =='desc':
+        query = query.order_by(City.pop.desc())
+    elif sort == 'temp' and order == 'asc':
+        query = query.order_by(City.temp_in_f)
+    elif sort == 'temp' and order == 'desc':
+        query = query.order_by(City.temp_in_f.desc())
 
     result = query.paginate(page=page, per_page=per_page, error_out=False) 
     schema = city_schema.dump(result, many=True)
-    
+ 
     total = query.count()     
     return jsonify({"cities" : schema,
                     "meta": {
@@ -30,8 +49,24 @@ def get_pharmacy():
     query = db.session.query(Pharmacy)
     page = request.args.get('page', 1, int)
     per_page = request.args.get('per_page', 9, int)
-    result = query.paginate(page=page, per_page=per_page, error_out=False) 
+  
+    sort = request.args.get('sort')
+    order = request.args.get('order')
 
+    if sort == 'name' and order == 'asc':
+        query = query.order_by(Pharmacy.name)
+    elif sort == 'name' and order == 'desc':
+        query = query.order_by(Pharmacy.name.desc())
+    elif sort == 'city' and order == 'asc':
+        query = query .order_by(Pharmacy.city)
+    elif sort == 'city' and order == 'desc':
+        query = query.order_by(Pharmacy.city.desc())
+    elif sort == 'dist' and order == 'asc':
+        query = query.order_by(Pharmacy.distance_m)
+    elif sort == 'dist' and order == 'desc':
+        query = query.order_by(Pharmacy.distance_m.desc())
+
+    result = query.paginate(page=page, per_page=per_page, error_out=False) 
     schema_dump = pharmacy_schema.dump(result, many=True)
     total = query.count()     
     return jsonify({"pharmacies" : schema_dump,
@@ -45,8 +80,24 @@ def get_shelters():
     page = request.args.get('page', 1, int)
     per_page = request.args.get('per_page', 9, int)
     query = db.session.query(Shelter)
-    result = query.paginate(page=page, per_page=per_page, error_out=False) 
+    sort = request.args.get('sort')
+    order = request.args.get('order')
 
+    if sort == 'name' and order == 'asc':
+        query = query.order_by(Shelter.name)
+    elif sort == 'name' and order == 'desc':
+        query = query.order_by(Shelter.name.desc())
+    elif sort == 'rating' and order == 'asc':
+        query = query.order_by(Shelter.rating)
+    elif sort == 'rating' and order == 'desc':
+        query = query.order_by(Shelter.rating.desc())
+    elif sort == 'city' and order == 'asc':
+        query = query.order_by(Shelter.city)
+    elif sort == 'city' and order == 'desc':
+        query = query.order_by(Shelter.city.desc())
+
+
+    result = query.paginate(page=page, per_page=per_page, error_out=False) 
     schema_dump = shelter_schema.dump(result, many=True)
 
     total = query.count()
