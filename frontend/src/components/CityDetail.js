@@ -119,7 +119,7 @@ function CityDetail() {
           </LoadScript>
         </div>
 
-        <div className="city-container-container">
+        <div className="shelter-container-container">
           <h1>Related Instances</h1>
           <div className="shelter-card-container">
             <CityCard cityData = {newCityData}/> 
@@ -127,6 +127,7 @@ function CityDetail() {
             <ShelterCard shelterData = {newShelterData}/> 
           </div>
         </div>
+        
       </div>
     </div>
   );

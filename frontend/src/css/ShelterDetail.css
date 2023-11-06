@@ -5,6 +5,7 @@
     padding-top: 50px;
   }
   
+  
   .shelter-name {
     text-align: center;
     margin-bottom: 20px;
@@ -38,3 +39,16 @@
     margin-top: 20px;
   }
   
+  .shelter-container-container {
+    padding: 40px;
+    margin: auto;
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 20px;
+    background-color: #272727;
+    text-align: left;
+  }
+
+  .map-container { 
+    background-color: #1a1a1a;
+  }

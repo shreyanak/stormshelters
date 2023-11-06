@@ -44,13 +44,16 @@ function PharmacyDetail() {
   return (
     <div className="city-detail-container">
       <h1 className="city-title">{name}</h1>
-      <div className="image-container">
+     <div className="instance-media">
+     <div className="image-container">
         <img 
           src={image}
           alt="Pharmacy"
           className="city-image"
         />
-      </div>
+       </div>
+   
+
       <div className="city-detail-card-container">
         <div className="city-detail-card">
           <p>City: {city}</p>
@@ -64,34 +67,34 @@ function PharmacyDetail() {
         <div className="city-detail-card">
           <p>Category: {categories}</p>
         </div>
-        
       </div>
 
       <div className="map-container" style={{ margin: '0 auto', width: '600px', height: '400px' }}>
-      <LoadScript googleMapsApiKey={GOOGLE_API_KEY_MAP}>
-        <GoogleMap
-          mapContainerStyle={{ width: '100%', height: '100%' }}
-          zoom={15}
-          center={{ lat: latitude, lng: longitude }}
-        >
-          <Marker
-            position={{ lat: latitude, lng: longitude }}
-          />
-        </GoogleMap>
-      </LoadScript>
+            <LoadScript googleMapsApiKey={GOOGLE_API_KEY_MAP}>
+              <GoogleMap
+                mapContainerStyle={{ width: '100%', height: '100%' }}
+                zoom={15}
+                center={{ lat: latitude, lng: longitude }}
+              >
+                <Marker
+                  position={{ lat: latitude, lng: longitude }}
+                />
+              </GoogleMap>
+            </LoadScript>
+            </div>
+        </div>
 
-
-      <div className="city-container-container">
+        
+      <div className="shelter-container-container">
         <h1>Related Instances</h1>
         <div className="shelter-card-container">
           <CityCard cityData = {newCityData}/> 
           <PharmacyCard pharmacyData = {newPharmData}/> 
           <ShelterCard shelterData = {newShelterData}/> 
         </div>
+
       </div>
     </div>
-    </div>
-
   );
 }
 

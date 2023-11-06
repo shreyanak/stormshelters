@@ -3,7 +3,7 @@
   background-color: #1a1a1a;
   color: #fff;
   padding: 20px;
-  height: 125vh;
+  height: 125%;
   width: 100%;
 }
 
@@ -22,8 +22,9 @@
   border-radius: 8px;
 }
 
+
 .city-detail-card-container {
-  background-color: #1a1a1a;
+  background-color: #1a1a1f;
   display: flex;
   justify-content: center;
   align-items: center;
