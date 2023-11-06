@@ -44,7 +44,7 @@ https://documenter.getpostman.com/view/29974721/2s9YR6aDwG
 | ----------|-------------------| --------------|
 |Shreya Nakka |10 | 15|
 |Rohit Chawla |8-10| 8-10|
-|Aaron Kulkarni|5 | 15|
+|Aaron Kulkarni|5| 15|
 |John Smith    |10-12 | 15|
 |Adriana Reyes | 10 | 15|
 
