@@ -8,7 +8,7 @@ const ShelterCard = ({ shelterData }) => {
   }
 
   var closed_display = shelterData.is_closed ? 'Yes': 'No';
-  console.log(closed_display);
+ console.log(closed_display);
   return (
     <Link style={{textDecoration: 'none'}} to={`/shelter/${shelterData.id}`}>
 
@@ -21,7 +21,7 @@ const ShelterCard = ({ shelterData }) => {
         <ul className="list-group list-group-flush">
           <li className="list-group-item">Phone: {shelterData.display_phone}</li>
           <li className="list-group-item">Rating: {shelterData.rating}</li>
-          <li className="list-group-item">Closed: {closed_display}</li>
+          <li className="list-group-item">Closed: {shelterData.is_closed}</li>
           <li className="list-group-item">City: {shelterData.city}</li>
           <li className="list-group-item">Address: {shelterData.display_address }</li>
         </ul>

@@ -3,14 +3,18 @@ import { Link } from 'react-router-dom';
 import '../css/City.css';
 
 const PharmacyCard = ({ pharmacyData }) => {
-  const { address, categories, city, distance_m, name } = pharmacyData;
-
+  const { address, categories, city, distance_m, name, image } = pharmacyData;
+  // console.log(image)
   return (  
     <Link style={{textDecoration: 'none'}} to={`/pharmacies/${pharmacyData.id}`}>
-    <div className="card">
-      <div className="card-body">
+    <div className="shelter-card">
+      <div className="shelter-image-container">
+      <img className="shelter-card-img-top" src={image}></img>
+      </div>
+      <div className="shelter-card-body">
         {/* <img className="card-img-top" src={im} */}
-        <h4 className="card-title">{name}</h4>
+
+        <h4 className="shelter-card-title">{name}</h4>
         <ul className="list-group list-group-flush">
           <li className="list-group-item">Name: {name}</li>
           <li className="list-group-item">Address: {address}</li>

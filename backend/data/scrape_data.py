@@ -127,3 +127,5 @@ def scrape_med_data():
     file.close()
 
 scrape_med_data()
+
+
