@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function SortMenu({ onSortOptionChange }) {
+function SortCity({ onSortOptionChange }) {
   const [selectedOption, setSelectedOption] = useState(''); // Store the selected option
   const [selectedOrder, setSelectedOrder] = useState('asc'); // Default sorting order
 
@@ -19,15 +19,18 @@ function SortMenu({ onSortOptionChange }) {
     <div>
       <label>Sort By: </label>
       <select value={selectedOption} onChange={handleOptionChange}>
+        <option value="None">Select</option>
         <option value="City Asc">City (Ascending)</option>
         <option value="City Desc">City (Descending)</option>
         <option value="Population Asc">Population (Ascending)</option>
         <option value="Population Desc">Population (Descending)</option>
         <option value="Temperature Asc">Temperature (Ascending)</option>
         <option value="Temperature Desc">Temperature (Descending)</option>
+        <option value="Wind Asc">Wind mph (Ascending)</option>
+        <option value="Wind Desc">Wind mph (Descending)</option>
       </select>
     </div>
   );
 }
 
-export default SortMenu;
+export default SortCity;

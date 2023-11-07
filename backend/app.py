@@ -33,6 +33,10 @@ def get_cities():
         query = query.order_by(City.temp_in_f)
     elif sort == 'temp' and order == 'desc':
         query = query.order_by(City.temp_in_f.desc())
+    elif sort == 'wind' and order =='asc':
+        query = query.order_by(City.wind_mph)
+    elif sort == 'wind' and order == 'desc':
+        query = query.order_by(City.wind_mph.desc())
 
     result = query.paginate(page=page, per_page=per_page, error_out=False) 
     schema = city_schema.dump(result, many=True)

@@ -1,17 +1,39 @@
 import React, { useState, useEffect } from 'react';
 import '../css/Pharmacy.css';
 import PharmacyCard from './PharmacyModel';
+import SortPharmacy from './SortPharmacy';
 
 function Pharmacies() {
   // Step 1: Define state variable to store city data
   const [pharmacyData, setPharmacyData] = useState([]);
   const [pageNum, setPageNum] = useState(1);
   const [numInstances, setMetaData ] = useState(1);
-
+  const [selectedSortOption, setSelectedSortOption] = useState(''); // Default sorting option
+  const [selectedSortOrder, setSelectedSortOrder] = useState(''); // Default sorting order
   // Step 2: Create an asynchronous function to fetch data
-  const fetchData = async (page) => {
+  const fetchData = async (page, sortOption) => {
     try {
-      const apiUrl = `https://api.stormshelters.me/pharmacies?page=${page}`;
+      let apiUrl = `https://api.stormshelters.me/pharmacies?page=${page}`;
+      
+      if (sortOption === 'Name Asc') {
+        apiUrl += `&sort=name&order=asc`
+      }
+      else if (sortOption === 'Name Desc') {
+        apiUrl += `&sort=name&order=desc`
+      }
+      else if (sortOption === 'City Asc'){
+        apiUrl += `&sort=city&order=asc`
+      }
+      else if (sortOption === 'City Desc'){
+        apiUrl += `&sort=city&order=desc`
+      }
+      else if (sortOption === 'Distance Asc'){
+        apiUrl += `&sort=dist&order=asc`
+      }
+      else if (sortOption === 'Distance Desc'){
+        apiUrl += `&sort=dist&order=desc`
+      }
+
       const response = await fetch(apiUrl);
       if (response.ok) {
         const data = await response.json();
@@ -25,10 +47,14 @@ function Pharmacies() {
     }
   };
 
-  // Step 3: Fetch data when the component mounts or when the page parameter changes
   useEffect(() => {
-    fetchData(pageNum);
-  }, [pageNum]);
+    fetchData(pageNum, selectedSortOption, selectedSortOrder);
+  }, [pageNum, selectedSortOption]);
+  
+  const handleSortChange = (newSortOption) => {
+    setSelectedSortOption(newSortOption);
+    setPageNum(1);
+  };
 
   // Step 4: Render data in the desired format
   const chunkArray = (arr, chunkSize) => {
@@ -45,6 +71,7 @@ function Pharmacies() {
   return (
     <div className="pharmacies-container">
       <h1>Pharmacies</h1>
+      <SortPharmacy selectedOption={selectedSortOption} onSortOptionChange={handleSortChange} />
       <p>Total Instances: {pharmacyData.length}</p>
 
       <div className="card-container">

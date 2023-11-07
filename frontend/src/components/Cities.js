@@ -1,41 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import '../css/Shelter.css';
 import CityCard from './CityModel';
-import PharmacyCard from './PharmacyModel';
-import ShelterCard from './ShelterModel';
-import { useParams } from 'react-router-dom';
-import SortMenu from './SortMenu';
+import SortCity from './SortCity';
 
 function Cities() {
     // Step 1: Define state variable to store shelter data
   const [cityData, setCityData] = useState([]);
   const [pageNum, setPageNum] = useState(1);
   const [numInstances, setMetaData] = useState(1);
-  const [selectedSortOption, setSelectedSortOption] = useState('city'); // Default sorting option
-  const [selectedSortOrder, setSelectedSortOrder] = useState('asc'); // Default sorting order
+  const [selectedSortOption, setSelectedSortOption] = useState(''); // Default sorting option
+  const [selectedSortOrder, setSelectedSortOrder] = useState(''); // Default sorting order
 
 
     // Step 2: Create an asynchronous function to fetch data
   const fetchData = async (page, sortOption) => {
-  //   try {
-  //     const apiUrl = `https://api.stormshelters.me/cities?page=${page}&per_page=${9}`;
-  //     const response = await fetch(apiUrl);
-  //     if (response.ok) {
-  //       const data = await response.json();
-  //       setCityData(data.cities);
-  //       setMetaData(data.meta)
-
-  //     } else {
-  //       console.error('Error fetching data:', response.status);
-  //     }
-  //   } catch (error) {
-  //     console.error('Error fetching data:', error);
-  //   }
-  // };
-  // // Step 3: Fetch data when the component mounts or when the page parameter changes
-  // useEffect(() => {
-  //   fetchData(pageNum);
-  // }, [pageNum]);
   try {
     let apiUrl = `https://api.stormshelters.me/cities?page=${page}&per_page=${9}`;
 
@@ -57,6 +35,12 @@ function Cities() {
     }
     else if (sortOption === 'Temperature Desc') {
       apiUrl += `&sort=temp&order=desc`;
+    }
+    else if (sortOption === 'Wind Asc'){
+      apiUrl += `&sort=wind&order=asc`;
+    }
+    else if (sortOption === 'Wind Desc'){
+      apiUrl += `&sort=wind&order=desc`;
     }
 
     const response = await fetch(apiUrl);
@@ -98,7 +82,7 @@ const handleSortChange = (newSortOption) => {
   return (
     <div className="shelters-container">
       <h1>Cities</h1>
-      <SortMenu selectedOption={selectedSortOption} onSortOptionChange={handleSortChange} />
+      <SortCity selectedOption={selectedSortOption} onSortOptionChange={handleSortChange} />
       <p>Total Instances: {cityData.length}</p>
 
       <div className="shelter-card-container">
