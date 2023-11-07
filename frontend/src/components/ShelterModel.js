@@ -21,7 +21,7 @@ const ShelterCard = ({ shelterData }) => {
         <ul className="list-group list-group-flush">
           <li className="list-group-item">Phone: {shelterData.display_phone}</li>
           <li className="list-group-item">Rating: {shelterData.rating}</li>
-          <li className="list-group-item">Closed: {shelterData.is_closed}</li>
+          <li className="list-group-item">Closed: No</li>
           <li className="list-group-item">City: {shelterData.city}</li>
           <li className="list-group-item">Address: {shelterData.display_address }</li>
         </ul>

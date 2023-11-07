@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function SortCity({ onSortOptionChange }) {
+function SortShelter({ onSortOptionChange }) {
   const [selectedOption, setSelectedOption] = useState(''); // Store the selected option
   const [selectedOrder, setSelectedOrder] = useState('asc'); // Default sorting order
 
@@ -22,13 +22,13 @@ function SortCity({ onSortOptionChange }) {
         <option value="None">Select</option>
         <option value="City Asc">City (Ascending)</option>
         <option value="City Desc">City (Descending)</option>
-        <option value="Population Asc">Population (Ascending)</option>
-        <option value="Population Desc">Population (Descending)</option>
-        <option value="Temperature Asc">Temperature (Ascending)</option>
-        <option value="Temperature Desc">Temperature (Descending)</option>
+        <option value="Name Asc">Name (Ascending)</option>
+        <option value="Name Desc">Name (Descending)</option>
+        <option value="Rating Asc">Rating (Ascending)</option>
+        <option value="Rating Desc">Rating (Descending)</option>
       </select>
     </div>
   );
 }
 
-export default SortCity;
+export default SortShelter;

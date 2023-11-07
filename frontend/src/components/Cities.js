@@ -36,12 +36,6 @@ function Cities() {
     else if (sortOption === 'Temperature Desc') {
       apiUrl += `&sort=temp&order=desc`;
     }
-    else if (sortOption === 'Wind Asc'){
-      apiUrl += `&sort=wind&order=asc`;
-    }
-    else if (sortOption === 'Wind Desc'){
-      apiUrl += `&sort=wind&order=desc`;
-    }
 
     const response = await fetch(apiUrl);
 
