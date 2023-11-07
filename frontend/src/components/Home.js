@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import SearchBar from './SearchBar';
 import '../css/Home.css';
 
 
@@ -21,9 +22,15 @@ function Home() {
     <div className="home-container">
         <div className="bg">
         <div className="text-container">
+
           <h1>Prepare for the Storms.</h1>
           <button className="button" id="scrollButton">Find Resources</button>
+          <div className='home-search'>
+            <h2>Search for resources</h2>
+            <SearchBar model={'all'} />
+          </div>
         </div>
+
       </div>
         
       <div className="shelter-card-container" id="shelterCardContainer">

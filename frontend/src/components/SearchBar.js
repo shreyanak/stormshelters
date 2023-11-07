@@ -1,35 +1,38 @@
-import React, { Component, Redirect } from 'react';
+import {withRouter} from 'react-router-dom'
+import React, { Component, Redirect, useState } from 'react';
+
 import '../css/Navbar.css';
 
 
-class SearchBar extends Component {
-  constructor(props) {
-    super(props);
-    this.model = this.props.model;
+const SearchBar = ({ model }) => {
+  const [formInput, formValue] = useState('');
+
+  const formInputChange = (inputVar) => {
+    formValue(inputVar.target.value);
+  };
+  
+  function backendSearch(event) {
+    event.preventDefault();
+    if (model == 'cities') model = 'city';
+    var url = "/SearchDisplay/" + model + "/" + formInput;
+    console.log("try to redirect to: " + url);
+    // JRS - I did this because the React useHistory had some conflict with our site configuration.
+    window.location.href= url;
   }
 
-  backendSearch(model, query) {
-    var url = "/SearchDisplay/$" + model + " $" + query;
-    <Redirect to={url} />
-  }
-
-  render() {
-    return (
-      <div class="input-group">
-      <div class="form-outline">
-        <input type="search" id="form1" class="form-control" 
-          value={formInput}
-          onChange={(e) => backendSearch(this.model, e.target.value)}
-        />
-        <label class="form-label" for="form1">Search</label>
-      </div>
-      <button type="button" class="btn btn-primary" OnClick={(e) => backendSearch(this.model, e.target.value)}>
-        <i class="fas fa-search"></i>
-      </button>
+  return (
+    <div class="input-group">
+    <div class="form-outline">
+      <form onSubmit ={backendSearch}>
+        <input type="text" value={formInput} onChange={formInputChange} placeholder="Search..." />
+        <button type="submit">Search</button>
+      </form>
     </div>
 
-    );
-  }
+  </div>
+
+  );
+  
 }
 
 export default SearchBar;

@@ -1,90 +1,67 @@
 import React, { useState, useEffect } from 'react';
 import '../css/Shelter.css';
-import CityCard from './CityModel';
-import PharmacyCard from './PharmacyModel';
-import ShelterCard from './ShelterModel';
-import SearchBar from './SearchBar';
+import SearchCard from './SearchCard';
 import { useParams } from 'react-router-dom';
-import SearchBar from './SearchBar';
 
-var cardList;
-var model, query, searchJSON;
-function backendSearch(model, query){
+// This will become a list of React components for each query result
+var cardList = new Array();
+
+
+function SearchDisplay() {
+  var { model, query } = useParams();
+  // When we direct to SearchDisplay, we include the query and model in the URL.
   var mainURL = `https://api.stormshelters.me/search/${model}/${query}`;
+  console.log(mainURL);
   var mainreq = new XMLHttpRequest();
   mainreq.open('GET', mainURL, false); 
   mainreq.send(null);
-  searchJSON = (JSON.parse(mainreq.responseText).model);
-}
-function Cities() {
-  model = useParams({ model });
-  query = useParams({ query });
-  backendSearch(model, query);
-
-  for (model in searchJSON) {
-    // Model is the key in the JSON dict
-    // searchJSON[model] is a list
-    if (searchJSON[model].length > 0) {
-      // now, entry is a dictionary that we want to hand to the card generator
-      var index = 0;
-      for (entry in searchJSON[model]) {
-        cardList[index] = <SearchCard data ={ entry } />
-        index++;
+  // Display an error message upon query failure.
+  if (mainreq.status == 200) {
+    if (model == 'city') model = 'cities';
+    // If the model is 'all', results becomes a dictionary with all of the parsed out JSON data (dictionaries)
+    // If the model is specific, results will just contain the data for the model (also a dictionary)
+    var results = model == 'all' ? {"city": (JSON.parse(mainreq.responseText).cities), 
+                                    "pharmacies": (JSON.parse(mainreq.responseText).pharmacies), 
+                                    "shelters": (JSON.parse(mainreq.responseText).shelters)}
+                                  : (JSON.parse(mainreq.responseText).data);
+    if (model == 'all') {
+      for (var modelSelect in results) {
+          for (var value of results[modelSelect]) {
+            // Create a new SearchCard based on the JSON data for an individual instance of a model
+            cardList.push((<SearchCard model = {modelSelect} data = {value} />));
+          }
+      }
+    } else {
+      // The user queried a single model, so the computation is a lot simpler.
+      for (var value of results) {
+        cardList.push(<SearchCard model ={ model } data = { value } />);
       }
     }
-  }
-  const chunkedSearchData = chunkArray(searchJSON, 1);
-  
 
-  // Step 5: Use React Router to handle navigation
-  return (
-    <div className="shelters-container">
-      <h1>Cities</h1>
-      <p>Total Instances: {searchJSON.length}</p>
-
-      <div className="shelter-card-container">
-        {chunkedSearchData.map((chunk, rowIndex) => (
-          <div className="row" key={rowIndex}>
-            {chunk.map((id, colIndex) => (
-              <div className="col-sm-4" key={colIndex}>
-                cardList[id]
-              </div>
-            ))}
-          </div>
-        ))}
-      </div>
-
-      <div className="show-more">
-        <div className="button-group">
-        <button
-            onClick={() => setPageNum((prev) => prev - 1)}
-        
-            disabled={pageNum === 1}
-            className="shelter-button prev-button"
-          >
-            Previous
-          </button>
-
-          <button
-            onClick={() => {
-              if (cityData.length > 0) {
-                setPageNum((prev) => prev + 1);
-              }
-            }
-          }
-            disabled={pageNum === Math.ceil(numInstances.count / 9)}
-
-            className="shelter-button next-button"
-          >
-            Next
-            
-          </button>
-
+    // Print the content of the SearchDisplay page
+    return (
+      <div className="shelters-container">
+        <h1>Search Results</h1>
+        <div className="shelter-card-container">
+          {/* This prints out each ShelterCard stored in the cardList structure */}
+          {cardList.map((card, index) => (
+            <div key="index">{card}</div>
+          ))}
         </div>
-        <h3 class="text-center">Page {pageNum} of {Math.ceil(numInstances.count / 9)}</h3>
       </div>
-    </div>
-  );
+    );
+  } else {
+    console.log("Internal error.");
+    // Since the request was bad, display an error message.
+    return (
+      <div className="shelters-container">
+        <h1>Internal error</h1>
+      </div>
+    );
+  }
+
+
+  
 }
 
-export default Cities;
+export default SearchDisplay;
