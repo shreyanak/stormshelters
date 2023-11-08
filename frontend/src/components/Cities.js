@@ -27,7 +27,7 @@ function Cities() {
   // Step 2: Create an asynchronous function to fetch data
   const fetchData = async (page, sortOption, cond, precip) => {
     try {
-      let apiUrl = `https://api.stormshelters.me/cities?page=${page}`;
+      let apiUrl = `https://api.stormshelters.me/cities?page=${page}&per_page=${9}`;
       // Determine the sorting order based on the selected option
       if (sortOption === 'City Asc') {
         apiUrl += `&sort=city&order=asc`

@@ -22,7 +22,7 @@ function Shelters() {
   // Step 2: Create an asynchronous function to fetch data
   const fetchData = async (page, sortOption, isClosed, shelterRating) => {
     try {
-      let apiUrl = `https://api.stormshelters.me/shelters?page=${page}`;
+      let apiUrl = `https://api.stormshelters.me/shelters?page=${page}&per_page=${9}`;
       
       if (sortOption === 'Name Asc') {
         apiUrl += `&sort=name&order=asc`
@@ -50,6 +50,8 @@ function Shelters() {
       if (shelterRating !== "") {
         apiUrl += `&rating=${shelterRating}`;
       }
+
+      console.log(apiUrl);
 
       const response = await fetch(apiUrl);
       if (response.ok) {
