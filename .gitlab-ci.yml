@@ -12,7 +12,6 @@ frontend-build:
   script:
     - cd frontend
     - npm install -g npm@latest
-    - npm install
     - CI=false npm run build
   artifacts:
     paths:
@@ -57,5 +56,5 @@ selenium-tests:
 jest-test:
   image: node:14
   script:
-    - npm install
+    - npm install -g npm@latest
     - npm test
