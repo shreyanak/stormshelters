@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../css/Shelter.css';
 import ShelterCard from './ShelterModel';
 import SortShelter from './SortShelter';
+import SearchBar from './SearchBar';
 
 function Shelters() {
   // Step 1: Define state variable to store shelter data
@@ -75,6 +76,7 @@ function Shelters() {
       <h1>Shelters & Food pantries</h1>
       <SortShelter selectedOption={selectedSortOption} onSortOptionChange={handleSortChange} />
       <p>Total Instances: {shelterData.length}</p>
+      <SearchBar model='shelter' />;
 
       <div className="shelter-card-container">
         {chunkedShelterData.map((chunk, rowIndex) => (

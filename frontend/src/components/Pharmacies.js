@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../css/Pharmacy.css';
 import PharmacyCard from './PharmacyModel';
 import SortPharmacy from './SortPharmacy';
+import SearchBar from './SearchBar';
 
 function Pharmacies() {
   // Step 1: Define state variable to store city data
@@ -73,6 +74,8 @@ function Pharmacies() {
       <h1>Pharmacies</h1>
       <SortPharmacy selectedOption={selectedSortOption} onSortOptionChange={handleSortChange} />
       <p>Total Instances: {pharmacyData.length}</p>
+      <SearchBar model='pharmacies' />;
+
 
       <div className="card-container">
         {chunkedPharmacyData.map((chunk, rowIndex) => (

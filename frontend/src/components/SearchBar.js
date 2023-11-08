@@ -12,7 +12,7 @@ const SearchBar = ({ model }) => {
   };
   
   function backendSearch(event) {
-    event.preventDefault();
+    event.preventDefault(); 
     if (model == 'cities') model = 'city';
     var url = "/SearchDisplay/" + model + "/" + formInput;
     console.log("try to redirect to: " + url);
@@ -24,7 +24,7 @@ const SearchBar = ({ model }) => {
     <div class="input-group">
     <div class="form-outline">
       <form onSubmit ={backendSearch}>
-        <input type="text" value={formInput} onChange={formInputChange} placeholder="Search..." />
+        <input type="search" id="form1" class="form-control1" value={formInput} onChange={formInputChange} placeholder="Search..." />
         <button type="submit">Search</button>
       </form>
     </div>

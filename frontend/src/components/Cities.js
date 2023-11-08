@@ -75,7 +75,6 @@ const handleSortChange = (newSortOption) => {
   };
 
   const chunkedCityData = chunkArray(cityData, 1);
-  const searchCity = <SearchBar model='city' />;
   
 
   // Step 5: Use React Router to handle navigation
