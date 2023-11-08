@@ -3,6 +3,7 @@ import '../css/Shelter.css';
 import CityCard from './CityModel';
 import PharmacyCard from './PharmacyModel';
 import ShelterCard from './ShelterModel';
+import SearchBar from './SearchBar';
 import { useParams } from 'react-router-dom';
 
 function Cities() {
@@ -45,12 +46,15 @@ function Cities() {
   };
 
   const chunkedCityData = chunkArray(cityData, 1);
+  const searchCity = <SearchBar model='city' />;
+  
 
   // Step 5: Use React Router to handle navigation
   return (
     <div className="shelters-container">
       <h1>Cities</h1>
       <p>Total Instances: {cityData.length}</p>
+      <SearchBar model='city' />
 
       <div className="shelter-card-container">
         {chunkedCityData.map((chunk, rowIndex) => (
