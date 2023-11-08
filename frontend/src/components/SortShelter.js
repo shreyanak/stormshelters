@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../css/sort.css'
 
 function SortShelter({ onSortOptionChange }) {
   const [selectedOption, setSelectedOption] = useState(''); // Store the selected option
@@ -18,7 +19,7 @@ function SortShelter({ onSortOptionChange }) {
   return (
     <div>
       <label>Sort By: </label>
-      <select value={selectedOption} onChange={handleOptionChange}>
+      <select className='sort-dropdown' value={selectedOption} onChange={handleOptionChange}>
         <option value="None">Select</option>
         <option value="City Asc">City (Ascending)</option>
         <option value="City Desc">City (Descending)</option>
