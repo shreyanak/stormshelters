@@ -4,7 +4,6 @@ import '../css/Shelter.css';
 
 
 
-
 const CityCard = ({ cityData }) => {
   const { id, name, pop, temp_in_f, wind_mph, cond, precip_in, image } = cityData;
   return (
