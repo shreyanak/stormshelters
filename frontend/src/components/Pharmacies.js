@@ -11,6 +11,10 @@ function Pharmacies() {
   const [numInstances, setMetaData ] = useState(1);
   const [selectedSortOption, setSelectedSortOption] = useState(''); // Default sorting option
   const [selectedSortOrder, setSelectedSortOrder] = useState(''); // Default sorting order
+  const [category, setClosed] = useState('');
+  const [rating, setRating] = useState('');
+
+
   // Step 2: Create an asynchronous function to fetch data
   const fetchData = async (page, sortOption) => {
     try {
@@ -34,6 +38,8 @@ function Pharmacies() {
       else if (sortOption === 'Distance Desc'){
         apiUrl += `&sort=dist&order=desc`
       }
+
+      
 
       const response = await fetch(apiUrl);
       if (response.ok) {
