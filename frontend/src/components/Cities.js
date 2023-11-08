@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../css/Shelter.css';
 import CityCard from './CityModel';
+import SortCity from './SortCity';
 import PharmacyCard from './PharmacyModel';
 import ShelterCard from './ShelterModel';
 import SearchBar from './SearchBar';
@@ -10,30 +11,58 @@ function Cities() {
     // Step 1: Define state variable to store shelter data
   const [cityData, setCityData] = useState([]);
   const [pageNum, setPageNum] = useState(1);
-  const [numInstances, setMetaData ] = useState(1);
+  const [numInstances, setMetaData] = useState(1);
+  const [selectedSortOption, setSelectedSortOption] = useState(''); // Default sorting option
+  const [selectedSortOrder, setSelectedSortOrder] = useState(''); // Default sorting order
 
 
     // Step 2: Create an asynchronous function to fetch data
-  const fetchData = async (page) => {
-    try {
-      const apiUrl = `https://api.stormshelters.me/cities?page=${page}`;
-      const response = await fetch(apiUrl);
-      if (response.ok) {
-        const data = await response.json();
-        setCityData(data.cities);
-        setMetaData(data.meta)
+  const fetchData = async (page, sortOption) => {
+  try {
+    let apiUrl = `https://api.stormshelters.me/cities?page=${page}&per_page=${9}`;
 
-      } else {
-        console.error('Error fetching data:', response.status);
-      }
-    } catch (error) {
-      console.error('Error fetching data:', error);
+    // Determine the sorting order based on the selected option
+    if (sortOption === 'City Asc') {
+      apiUrl += `&sort=city&order=asc`
     }
-  };
-  // Step 3: Fetch data when the component mounts or when the page parameter changes
-  useEffect(() => {
-    fetchData(pageNum);
-  }, [pageNum]);
+    else if (sortOption === 'City Desc'){
+      apiUrl += `&sort=city&order=desc`
+    }
+    else if (sortOption === 'Population Asc') {
+      apiUrl += `&sort=pop&order=asc`;
+    }
+    else if (sortOption === 'Population Desc'){
+      apiUrl += `&sort=pop&order=desc`;
+    }
+    else if (sortOption === 'Temperature Asc'){
+      apiUrl += `&sort=temp&order=asc`;
+    }
+    else if (sortOption === 'Temperature Desc') {
+      apiUrl += `&sort=temp&order=desc`;
+    }
+
+    const response = await fetch(apiUrl);
+
+    if (response.ok) {
+      const data = await response.json();
+      setCityData(data.cities);
+      setMetaData(data.meta.count);
+    } else {
+      console.error('Error fetching data:', response.status);
+    }
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+};
+
+useEffect(() => {
+  fetchData(pageNum, selectedSortOption, selectedSortOrder);
+}, [pageNum, selectedSortOption]);
+
+const handleSortChange = (newSortOption) => {
+  setSelectedSortOption(newSortOption);
+  setPageNum(1);
+};
 
 
   // chunk the shelter data into groups of three for grid
@@ -53,6 +82,7 @@ function Cities() {
   return (
     <div className="shelters-container">
       <h1>Cities</h1>
+      <SortCity selectedOption={selectedSortOption} onSortOptionChange={handleSortChange} />
       <p>Total Instances: {cityData.length}</p>
       <SearchBar model='city' />
 
@@ -95,7 +125,7 @@ function Cities() {
           </button>
 
         </div>
-        <h3 class="text-center">Page {pageNum} of {Math.ceil(numInstances.count / 9)}</h3>
+        <h3 class="text-center">Page {pageNum} of {Math.ceil(numInstances / 9)}</h3>
       </div>
     </div>
   );

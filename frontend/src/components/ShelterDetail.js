@@ -73,7 +73,7 @@ const ShelterDetail = () => {
         <p className="city-detail-card">City: {currentShelter.city}</p>
         <p className="city-detail-card">Rating: {currentShelter.rating}</p>
         <p className="city-detail-card">Address: {currentShelter.display_address}</p>
-        <p className="city-detail-card">Closed: {currentShelter.closed_display}</p>
+        <p className="city-detail-card">Closed: No</p>
       </div>
 
 
