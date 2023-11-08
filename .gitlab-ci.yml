@@ -43,7 +43,7 @@ frontend-build:
   image: node:18.18.0
   script:
     - cd frontend
-    - npm install
+    - npm install -g npm@10.2.3
     - CI=false npm run build
 
 backend-build:
@@ -84,5 +84,5 @@ selenium-tests:
 jest-test:
   image: node:14
   script:
-    - npm install
+    - npm install -g npm@10.2.3
     - npm test
