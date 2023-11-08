@@ -7,14 +7,12 @@
 
 
   
-
-
   .input-group {
     width: 500px;
     height: 500px;
   }
   /* Style the search box inside the navigation bar */
-  input[type=search] {
+  /* input[type=search] {
     height: 500px;
     /* float: right;
     padding: 6px;
@@ -24,5 +22,5 @@
     font-size: 17px;
     width: 50%;
     height: 100px; */
-  }
+    /* } */
   

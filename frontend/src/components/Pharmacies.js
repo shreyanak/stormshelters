@@ -74,7 +74,7 @@ function Pharmacies() {
       <h1>Pharmacies</h1>
       <SortPharmacy selectedOption={selectedSortOption} onSortOptionChange={handleSortChange} />
       <p>Total Instances: {pharmacyData.length}</p>
-      <SearchBar model='pharmacies' />;
+      <SearchBar model='pharmacies' />
 
 
       <div className="card-container">
