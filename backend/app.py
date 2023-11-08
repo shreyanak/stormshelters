@@ -85,7 +85,6 @@ def get_pharmacy():
         query = query.filter(Pharmacy.categories.like("%" + category + "%"))
     if city is not None:
         query = query.filter(Pharmacy.city.like("%" + city + "%"))
-
     
     #sorting
     if sort == 'name' and order == 'asc':
