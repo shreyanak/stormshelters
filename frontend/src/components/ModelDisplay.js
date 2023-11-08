@@ -17,10 +17,17 @@ const ModelDisplay = ({ modelSelect, results, displayAll }) => {
 
     return (
         <div>
-            <h1> Results from {modelSelect} </h1>
-            {modelResultList.map((card, index) => (
+            <h1> Results from {modelSelect.charAt(0).toUpperCase() + modelSelect.slice(1)} </h1>
+            
+            {/* Either display the results found in the list of SearchCards, or display a message
+            letting the user know that the query rendered no results. */}
+            {modelResultList.length > 0 ? (
+            modelResultList.map((card, index) => (
                 <div key="index">{card}</div>
-            ))}
+            ))
+            ) : (
+                <h3>No results found.</h3>
+            )}
         </div>
     );
      

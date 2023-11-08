@@ -3,7 +3,6 @@ import React, { Component, Redirect, useState } from 'react';
 
 import '../css/Navbar.css';
 
-
 const SearchBar = ({ model }) => {
   const [formInput, formValue] = useState('');
 
@@ -22,13 +21,10 @@ const SearchBar = ({ model }) => {
 
   return (
     <div class="input-group">
-    <div class="form-outline">
       <form onSubmit ={backendSearch}>
         <input type="search" id="form1" class="form-control1" value={formInput} onChange={formInputChange} placeholder="Search..." />
-        <button type="submit">Search</button>
+        <button className = "buttonSmall" type="submit">Search</button>
       </form>
-    </div>
-
   </div>
 
   );

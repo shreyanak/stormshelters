@@ -44,9 +44,11 @@ function SearchDisplay() {
         <h1>Search Results</h1>
         <div className="card-container">
           {/* This prints out each ShelterCard stored in the cardList structure */}
-          {modelDisplayList.map((card, index) => (
-            <div key="index">{card}</div>
-          ))}
+          {
+          model == "all" ? (
+            modelDisplayList.map((card, index) => (
+            <div key="index">{card}</div>)
+          )) : model == "cities" ? (modelDisplayList[0]) : model == "pharmacies" ? (modelDisplayList[1]) : model == "shelters" ? (modelDisplayList[2]) : <h2>NO results!</h2> }
           {/* {modelDisplayList[2]} */}
         </div>
       </div>
