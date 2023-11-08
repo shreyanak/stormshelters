@@ -49,5 +49,34 @@ class Tests(unittest.TestCase):
             self.assertEqual(data["name"], "CVS Pharmacy")
             self.assertEqual(data["city"], "Jacinto City")
 
+    def test_search_1(self):
+        with client:
+            response = client.get("/search/city/cloudy")
+            self.assertEqual(response.status_code, 200)
+            data = response.json["data"]
+            self.assertEqual(data[0]["cond"], "Partly cloudy")
+    
+    def test_search_2(self):
+        with client:
+            response = client.get("/search/all/houston")
+            self.assertEqual(response.status_code, 200)
+            city_data = response.json["cities"]
+            self.assertEqual(city_data[0]["name"], "Houston")
+            shelter_data = response.json["shelters"]
+            self.assertEqual(shelter_data[0]["city"], "Houston")
+
+    def test_sort_1(self):
+        with client:
+            response = client.get("/cities?sort=city&order=asc")
+            data = response.json["cities"]
+            self.assertEqual(data[0]["name"], "Aldine")
+
+    def test_sort_2(self):
+        with client:
+            response = client.get("/shelers?sort=rating&order=desc")
+            data = response.json["shelters"]
+            self.assertEqual(data[0]["rating"], 5.0)
+
+
 if __name__ == "__main__":
     unittest.main()
