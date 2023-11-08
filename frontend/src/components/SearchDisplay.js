@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from 'react';
+// import React, { useState, useEffect } from 'react';
 import '../css/Shelter.css';
 import SearchCard from './SearchCard';
 import { useParams } from 'react-router-dom';
+import ModelDisplay from './ModelDisplay';
 
 // This will become a list of React components for each query result
-var cardList = new Array();
-
-
 function SearchDisplay() {
+  var modelDisplayList = new Array();
   var { model, query } = useParams();
   // When we direct to SearchDisplay, we include the query and model in the URL.
   var mainURL = `https://api.stormshelters.me/search/${model}/${query}`;
@@ -26,27 +25,29 @@ function SearchDisplay() {
                                   : (JSON.parse(mainreq.responseText).data);
     if (model == 'all') {
       for (var modelSelect in results) {
-          for (var value of results[modelSelect]) {
-            // Create a new SearchCard based on the JSON data for an individual instance of a model
-            cardList.push((<SearchCard model = {modelSelect} data = {value} />));
-          }
+        console.log("push1");
+        modelDisplayList.push(<ModelDisplay modelSelect = {modelSelect} results = {results} displayAll={true}/>);
       }
     } else {
       // The user queried a single model, so the computation is a lot simpler.
-      for (var value of results) {
-        cardList.push(<SearchCard model ={ model } data = { value } />);
-      }
+      // for (var value of results) {
+        // modelResultList.push(<SearchCard model ={ model } data = { value } />);
+        console.log("push2");
+
+        modelDisplayList.push(<ModelDisplay modelSelect = {model} results = {results} displayAll={false}/>);
+      // }
     }
 
     // Print the content of the SearchDisplay page
     return (
       <div className="shelters-container">
         <h1>Search Results</h1>
-        <div className="shelter-card-container">
+        <div className="card-container">
           {/* This prints out each ShelterCard stored in the cardList structure */}
-          {cardList.map((card, index) => (
+          {modelDisplayList.map((card, index) => (
             <div key="index">{card}</div>
           ))}
+          {/* {modelDisplayList[2]} */}
         </div>
       </div>
     );
