@@ -3,10 +3,6 @@ import '../css/Pharmacy.css';
 import PharmacyCard from './PharmacyModel';
 import SortPharmacy from './SortPharmacy';
 import SearchBar from './SearchBar';
-import FilterDropdown from './FilterDropdown';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
-import Container from 'react-bootstrap/Container';
 
 function Pharmacies() {
   // Step 1: Define state variable to store city data
@@ -15,12 +11,12 @@ function Pharmacies() {
   const [numInstances, setMetaData ] = useState(1);
   const [selectedSortOption, setSelectedSortOption] = useState(''); // Default sorting option
   const [selectedSortOrder, setSelectedSortOrder] = useState(''); // Default sorting order
-  const [category, setCategory] = useState('');
-  const [city, setCity] = useState('');
+  const [category, setClosed] = useState('');
+  const [rating, setRating] = useState('');
 
 
   // Step 2: Create an asynchronous function to fetch data
-  const fetchData = async (page, sortOption, pharmCat, pharmCity) => {
+  const fetchData = async (page, sortOption) => {
     try {
       let apiUrl = `https://api.stormshelters.me/pharmacies?page=${page}`
       
@@ -43,13 +39,7 @@ function Pharmacies() {
         apiUrl += `&sort=dist&order=desc`
       }
 
-      if (pharmCat !== "") {
-        apiUrl += `&category=${pharmCat}`;
-      }
-
-      if (pharmCity !== "") {
-        apiUrl += `&city=${pharmCity}`;
-      }
+      
 
       const response = await fetch(apiUrl);
       if (response.ok) {
@@ -65,20 +55,12 @@ function Pharmacies() {
   };
 
   useEffect(() => {
-    fetchData(pageNum, selectedSortOption, category, city);
-  }, [pageNum, selectedSortOption, category, city]);
+    fetchData(pageNum, selectedSortOption, selectedSortOrder);
+  }, [pageNum, selectedSortOption]);
   
   const handleSortChange = (newSortOption) => {
     setSelectedSortOption(newSortOption);
     setPageNum(1);
-  };
-
-  const handleCategoryFilter = (value) => {
-    setCategory(value);
-  };
-
-  const handleCityFilter = (value) => {
-    setCity(value);
   };
 
   // Step 4: Render data in the desired format
@@ -94,63 +76,9 @@ function Pharmacies() {
 
   // Step 5: Use React Router to handle navigation
   return (
-    <Container>
-      <div className="pharmacies-container">
-        {/* <div> */}
-        <h1>Pharmacies</h1>
-        <Container>
-          <Row style={{display: "flex", justifyContent: "space-evenly"}}>
-            <Col>
-              <SortPharmacy selectedOption={selectedSortOption} onSortOptionChange={handleSortChange} />
-            </Col>
-            {/* filtering start*/}
-            <Col>
-              <FilterDropdown
-                title="Category"
-                items={[
-                  "healthcare"
-                ]}
-                onChange={handleCategoryFilter}
-              />
-            </Col>
-            <Col>
-              <FilterDropdown
-                title="City"
-                items={[
-                  "Aldine",
-                  "Atascocita",
-                  "Barrett",
-                  "Bellaire",
-                  "Bunker Hill Village",
-                  "Cloverleaf",
-                  "Cypress",
-                  "Deer Park",
-                  "El Lago",
-                  "Galena Park",
-                  "Hedwig Village",
-                  "Highlands",
-                  "Houston",
-                  "Huffman",
-                  "Humble",
-                  "Jersey Village",
-                  "Katy",
-                  "Kingwood",
-                  "La Porte",
-                  "Morgans Point",
-                  "Pasadena",
-                  "Sheldon",
-                  "Southside Place",
-                  "Spring",
-                  "Tomball",
-                  "Waller",
-                  "Webster"
-                ]}
-                onChange={handleCityFilter}
-              />
-            </Col>
-            {/* filtering end*/}
-          </Row>
-        </Container>
+    <div className="pharmacies-container">
+      <h1>Pharmacies</h1>
+      <SortPharmacy selectedOption={selectedSortOption} onSortOptionChange={handleSortChange} />
       <p>Total Instances: {pharmacyData.length}</p>
       <SearchBar model='pharmacies' />
 
@@ -196,7 +124,6 @@ function Pharmacies() {
         <h3 class="text-center">Page {pageNum} of {Math.ceil(numInstances.count / 9)}</h3>
       </div>
     </div>
-    </Container>
     
   );
 }
