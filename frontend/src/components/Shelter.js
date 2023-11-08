@@ -76,7 +76,7 @@ function Shelters() {
       <h1>Shelters & Food pantries</h1>
       <SortShelter selectedOption={selectedSortOption} onSortOptionChange={handleSortChange} />
       <p>Total Instances: {shelterData.length}</p>
-      <SearchBar model='shelter' />;
+      <SearchBar model='shelter' />
 
       <div className="shelter-card-container">
         {chunkedShelterData.map((chunk, rowIndex) => (

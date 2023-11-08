@@ -73,7 +73,7 @@ class Tests(unittest.TestCase):
 
     def test_sort_2(self):
         with client:
-            response = client.get("/shelers?sort=rating&order=desc")
+            response = client.get("/shelters?sort=rating&order=desc")
             data = response.json["shelters"]
             self.assertEqual(data[0]["rating"], 5.0)
 

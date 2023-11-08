@@ -2,6 +2,7 @@ from flask import jsonify, request
 from models import db, app, Pharmacy, Shelter, City
 from schema import city_schema, pharmacy_schema, shelter_schema
 from sqlalchemy import or_
+from sqlalchemy import and_
 
 
 @app.route('/')
@@ -15,10 +16,27 @@ def get_cities():
     query = db.session.query(City)
     page = request.args.get('page', type=int, default=1)
     per_page = request.args.get('per_page', type=int, default=9)
+
     # city, pop, temp
     sort = request.args.get('sort')
     # asc, dec
     order = request.args.get('order')
+
+    # conditions, precipitation
+    condition = request.args.get('condition', default=None)
+    precipitation = request.args.get('precipitation', default=None)
+
+    if condition is not None:
+        query = query.filter(City.cond.like("%" + condition + "%"))
+    if precipitation is not None:
+        if precipitation == "Light":
+            query = query.filter((City.precip_in < 2))
+        elif precipitation == "Medium":
+            query = query.filter(City.precip_in < 5)
+            query = query.filter(City.precip_in >= 2)
+        else: #precipitation == "Heavy"
+            query = query.filter(City.precip_in >= 5)
+
 
     # sort every entry by city name in asc
     if sort == 'city' and order == 'asc':
@@ -53,10 +71,23 @@ def get_pharmacy():
     query = db.session.query(Pharmacy)
     page = request.args.get('page', 1, int)
     per_page = request.args.get('per_page', 9, int)
-  
+    
+    #name, city, dist
     sort = request.args.get('sort')
     order = request.args.get('order')
 
+    #category and city
+    category = request.args.get('category')
+    city = request.args.get('city')
+
+    #filtering
+    if category is not None:
+        query = query.filter(Pharmacy.categories.like("%" + category + "%"))
+    if city is not None:
+        query = query.filter(Pharmacy.city.like("%" + city + "%"))
+
+    
+    #sorting
     if sort == 'name' and order == 'asc':
         query = query.order_by(Pharmacy.name)
     elif sort == 'name' and order == 'desc':
@@ -86,6 +117,16 @@ def get_shelters():
     query = db.session.query(Shelter)
     sort = request.args.get('sort')
     order = request.args.get('order')
+
+    closed = request.args.get('closed')
+    rating = request.args.get('rating')
+
+    #filtering
+    if closed is not None:
+        query = query.filter(Shelter.is_closed.like("%" + closed + "%"))
+    if rating is not None:
+        query = query.filter(Shelter.rating.like("%" + rating + "%"))
+
 
     if sort == 'name' and order == 'asc':
         query = query.order_by(Shelter.name)
