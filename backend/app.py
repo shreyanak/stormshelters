@@ -123,9 +123,25 @@ def get_shelters():
 
     #filtering
     if closed is not None:
-        query = query.filter(Shelter.is_closed.like("%" + closed + "%"))
+        if closed == 'Yes':
+            query = query.filter(Shelter.is_closed == True)
+        if closed == 'No':
+            query = query.filter(Shelter.is_closed != True)
     if rating is not None:
-        query = query.filter(Shelter.rating.like("%" + rating + "%"))
+        if rating == '0-1':
+            query = query.filter(Shelter.rating <= 1)
+        elif rating == '1-2':
+            query = query.filter(Shelter.rating <= 2)
+            query = query.filter(Shelter.rating > 1)
+        elif rating == '2-3':
+            query = query.filter(Shelter.rating <= 3)
+            query = query.filter(Shelter.rating > 2)
+        elif rating == '3-4':
+            query = query.filter(Shelter.rating <= 4)
+            query = query.filter(Shelter.rating > 3)
+        elif rating == '4-5':
+            query = query.filter(Shelter.rating > 4)
+        
 
 
     if sort == 'name' and order == 'asc':
