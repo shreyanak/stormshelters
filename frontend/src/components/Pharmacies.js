@@ -14,7 +14,7 @@ function Pharmacies() {
   // Step 2: Create an asynchronous function to fetch data
   const fetchData = async (page, sortOption) => {
     try {
-      let apiUrl = `https://api.stormshelters.me/pharmacies?page=${page}`;
+      let apiUrl = `https://api.stormshelters.me/pharmacies?page=${page}`
       
       if (sortOption === 'Name Asc') {
         apiUrl += `&sort=name&order=asc`

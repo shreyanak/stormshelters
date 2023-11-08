@@ -71,11 +71,11 @@ class Tests(unittest.TestCase):
             data = response.json["cities"]
             self.assertEqual(data[0]["name"], "Aldine")
 
-    # def test_sort_2(self):
-    #     with client:
-    #         response = client.get("/shelers?sort=rating&order=desc")
-    #         data = response.json["shelters"]
-    #         self.assertEqual(data[0]["rating"], 5.0)
+    def test_sort_2(self):
+        with client:
+            response = client.get("/shelters?sort=rating&order=desc")
+            data = response.json["shelters"]
+            self.assertEqual(data[0]["rating"], 5.0)
 
 
 if __name__ == "__main__":
