@@ -15,12 +15,12 @@ function Pharmacies() {
   const [numInstances, setMetaData ] = useState(1);
   const [selectedSortOption, setSelectedSortOption] = useState(''); // Default sorting option
   const [selectedSortOrder, setSelectedSortOrder] = useState(''); // Default sorting order
-  const [category, setCategory] = useState('');
+  const [name, setName] = useState('');
   const [city, setCity] = useState('');
 
 
   // Step 2: Create an asynchronous function to fetch data
-  const fetchData = async (page, sortOption, pharmCat, pharmCity) => {
+  const fetchData = async (page, sortOption, pharmName, pharmCity) => {
     try {
       let apiUrl = `https://api.stormshelters.me/pharmacies?page=${page}`
       
@@ -43,8 +43,8 @@ function Pharmacies() {
         apiUrl += `&sort=dist&order=desc`
       }
 
-      if (pharmCat !== "") {
-        apiUrl += `&category=${pharmCat}`;
+      if (pharmName !== "") {
+        apiUrl += `&name=${pharmName}`;
       }
 
       if (pharmCity !== "") {
@@ -65,16 +65,16 @@ function Pharmacies() {
   };
 
   useEffect(() => {
-    fetchData(pageNum, selectedSortOption, category, city);
-  }, [pageNum, selectedSortOption, category, city]);
+    fetchData(pageNum, selectedSortOption, name, city);
+  }, [pageNum, selectedSortOption, name, city]);
   
   const handleSortChange = (newSortOption) => {
     setSelectedSortOption(newSortOption);
     setPageNum(1);
   };
 
-  const handleCategoryFilter = (value) => {
-    setCategory(value);
+  const handleNameFilter = (value) => {
+    setName(value);
   };
 
   const handleCityFilter = (value) => {
@@ -106,11 +106,26 @@ function Pharmacies() {
             {/* filtering start*/}
             <Col>
               <FilterDropdown
-                title="Category"
+                title="Name"
                 items={[
-                  "healthcare"
+                  "Brookshire Brothers Pharmacy",
+                  "Campbell's Compounding",
+                  "CVS Pharmacy",
+                  "East End Pharmacy",
+                  "H-E-B Pharmacy",
+                  "Iridium Pharmacy",
+                  "Kelsey-Seybold Pharmacy",
+                  "Kroger Pharmacy",
+                  "Market Street Pharmacy",
+                  "Mid Town Specialty RX Pharmacy",
+                  "Randalls Pharmacy",
+                  "Tayco Farms",
+                  "Tidwell Professional Pharmacy",
+                  "Walgreens",
+                  "Walmart Pharmacy",
+                  "Westside Drug"
                 ]}
-                onChange={handleCategoryFilter}
+                onChange={handleNameFilter}
               />
             </Col>
             <Col>

@@ -77,12 +77,12 @@ def get_pharmacy():
     order = request.args.get('order')
 
     #category and city
-    category = request.args.get('category')
+    name = request.args.get('name')
     city = request.args.get('city')
 
     #filtering
-    if category is not None:
-        query = query.filter(Pharmacy.categories.like("%" + category + "%"))
+    if name is not None:
+        query = query.filter(Pharmacy.name.like("%" + name + "%"))
     if city is not None:
         query = query.filter(Pharmacy.city.like("%" + city + "%"))
     
