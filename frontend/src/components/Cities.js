@@ -28,7 +28,7 @@ function Cities() {
   const fetchData = async (page, sortOption, cond, precip) => {
     try {
       let apiUrl = `https://api.stormshelters.me/cities?page=${page}&per_page=${9}`;
-
+      // let apiUrl = `localhost:8000/cities?page=${page}&per_page=${9}`
       // Determine the sorting order based on the selected option
       if (sortOption === 'City Asc') {
         apiUrl += `&sort=city&order=asc`
@@ -118,7 +118,7 @@ function Cities() {
               <FilterDropdown
                 title="Condition"
                 items={[
-                  "Party cloudy",
+                  "Partly cloudy",
                   "Sunny"
                 ]}
                 onChange={handleConditionFilter}

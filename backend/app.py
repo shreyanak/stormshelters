@@ -2,6 +2,7 @@ from flask import jsonify, request
 from models import db, app, Pharmacy, Shelter, City
 from schema import city_schema, pharmacy_schema, shelter_schema
 from sqlalchemy import or_
+from sqlalchemy import and_
 
 
 @app.route('/')
@@ -22,16 +23,17 @@ def get_cities():
     order = request.args.get('order')
 
     # conditions, precipitation
-    conditions = request.args.get('condition')
-    precipitation = request.args.get('precipitation')
+    condition = request.args.get('condition', default=None)
+    precipitation = request.args.get('precipitation', default=None)
 
-    if conditions is not None:
-        query = query.filter(City.cond.like("%" + conditions + "%"))
+    if condition is not None:
+        query = query.filter(City.cond.like("%" + condition + "%"))
     if precipitation is not None:
         if precipitation == "Light":
             query = query.filter((City.precip_in < 2))
         elif precipitation == "Medium":
-            query = query.filter(City.precip_in < 5 & (City.precip_in >= 2))
+            query = query.filter(City.precip_in < 5)
+            query = query.filter(City.precip_in >= 2)
         else: #precipitation == "Heavy"
             query = query.filter(City.precip_in >= 5)
 
