@@ -1,33 +1,31 @@
 import React, { useState } from "react";
-// import '../css/filter.css'
-
-import Dropdown from "react-bootstrap/Dropdown";
-import DropdownButton from "react-bootstrap/DropdownButton";
-import Container from "react-bootstrap/Container";
+import "../css/filter.css";
 
 const FilterDropdown = (props) => {
   const { title, items, scroll, onChange } = props;
+  const [showOptions, setShowOptions] = useState(false);
   const [choice, setChoice] = useState(title);
 
   const handleClick = (value) => {
     setChoice(value);
     onChange(value);
+    setShowOptions(false);
   };
 
   return (
-    <DropdownButton title={choice}>
-      <Container style={scroll ? { height: "20rem", overflowY: "scroll"} : {}}>
-        {items.map((item) => {
-          return (
-            <Dropdown.Item onClick={() => handleClick(item)}>
+    <div className="filter-container" onClick={() => setShowOptions(!showOptions)}>
+      {choice}
+      {showOptions && (
+        <div className="filter-content" style={scroll ? { maxHeight: "20rem" } : {}}>
+          {items.map((item, index) => (
+            <div key={index} onClick={() => handleClick(item)}>
               {item}
-            </Dropdown.Item>
-          );
-        })}
-      </Container>
-    </DropdownButton>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
   );
-
 };
 
 export default FilterDropdown;

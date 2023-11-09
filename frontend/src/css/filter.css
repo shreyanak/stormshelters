@@ -1,14 +1,26 @@
-.dropdown {
-  padding: 8px;
-  border: 0.5px solid #ccc;
-  border-radius: 10px;
-  font-size: 14px;
+.filter-container {
+  position: relative;
+  display: inline-block;
   background-color: #007bff;
-  color: white;
+  border: 1px solid #ffffff;
+  border-radius: 8px;
+  padding: 5px 10px;
+  color: #ffffff;
   cursor: pointer;
-  }
-  
-.dropdown:hover {
-  background-color: #007bff;
 }
-  
+
+.filter-content {
+  position: absolute;
+  background-color: #007bff;
+  min-width: 160px;
+  max-height: 200px;
+  overflow-y: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 12px 16px;
+  z-index: 1;
+  border-radius: 8px;
+}
+
+.filter-container.active .filter-content {
+  display: block;
+}
