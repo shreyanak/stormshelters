@@ -76,6 +76,18 @@ class Tests(unittest.TestCase):
             response = client.get("/shelters?sort=rating&order=desc")
             data = response.json["shelters"]
             self.assertEqual(data[0]["rating"], 5.0)
+    
+    def test_filter_1(self):
+        with client:
+            response = client.get("/pharmacies?city=Houston")
+            data = response.json["pharmacy"]
+            self.assertEqual(data[0]["name"], "CVS Pharmacy")
+
+    def test_filter_2(self):
+        with client:
+            response = client.get("/shelters?rating=1-2")
+            data = response.json["shelters"]
+            self.assertEqual(data[0]["name"], "Star of Hope Cornerstone Community")
 
 
 if __name__ == "__main__":
