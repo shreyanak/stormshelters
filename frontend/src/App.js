@@ -9,6 +9,9 @@ import Cities from './components/Cities';
 import CityDetail from './components/CityDetail';
 import ShelterDetail from './components/ShelterDetail';
 import PharmacyDetail from './components/PharmacyDetail';
+import SearchDisplay from './components/SearchDisplay';
+
+
 
 
 function App() {
@@ -24,6 +27,7 @@ function App() {
         <Route path="/cities/:id" element={<CityDetail />} />
         <Route path="/shelter/:id" element={<ShelterDetail />} />
         <Route path="/pharmacies/:id" element={<PharmacyDetail />} />
+        <Route path="/SearchDisplay/:model/:query" element={<SearchDisplay />} />
       </Routes>
     </Router>
   );

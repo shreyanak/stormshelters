@@ -1,17 +1,58 @@
 import React, { useState, useEffect } from 'react';
 import '../css/Shelter.css';
 import ShelterCard from './ShelterModel';
+import SortShelter from './SortShelter';
+import SearchBar from './SearchBar';
+import FilterDropdown from './FilterDropdown';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import Container from 'react-bootstrap/Container';
 
 function Shelters() {
   // Step 1: Define state variable to store shelter data
   const [shelterData, setShelterData] = useState([]);
   const [pageNum, setPageNum] = useState(1);
   const [numInstances, setMetaData ] = useState(1);
+  const [selectedSortOption, setSelectedSortOption] = useState(''); // Default sorting option
+  const [selectedSortOrder, setSelectedSortOrder] = useState(''); // Default sorting order
+  const [closed, setClosed] = useState('');
+  const [rating, setRating] = useState('');
+
 
   // Step 2: Create an asynchronous function to fetch data
-  const fetchData = async (page) => {
+  const fetchData = async (page, sortOption, isClosed, shelterRating) => {
     try {
-      const apiUrl = `https://api.stormshelters.me/shelters?page=${page}`;
+      let apiUrl = `https://api.stormshelters.me/shelters?page=${page}&per_page=${9}`;
+      
+      if (sortOption === 'Name Asc') {
+        apiUrl += `&sort=name&order=asc`
+      }
+      else if (sortOption === 'Name Desc') {
+        apiUrl += `&sort=name&order=desc`
+      }
+      else if (sortOption === 'City Asc') {
+        apiUrl += `&sort=city&order=asc`
+      }
+      else if (sortOption === 'City Desc') {
+        apiUrl += `&sort=city&order=desc`
+      }
+      else if (sortOption === 'Rating Asc') {
+        apiUrl += `&sort=rating&order=asc`
+      }
+      else if (sortOption === 'Rating Desc') {
+        apiUrl += `&sort=rating&order=desc`
+      }
+
+      if (isClosed !== "") {
+        apiUrl += `&closed=${isClosed}`;
+      }
+
+      if (shelterRating !== "") {
+        apiUrl += `&rating=${shelterRating}`;
+      }
+
+      console.log(apiUrl);
+
       const response = await fetch(apiUrl);
       if (response.ok) {
         const data = await response.json();
@@ -25,10 +66,22 @@ function Shelters() {
     }
   };
 
-  // Step 3: Fetch data when the component mounts or when the page parameter changes
   useEffect(() => {
-    fetchData(pageNum);
-  }, [pageNum]);
+    fetchData(pageNum, selectedSortOption, closed, rating);
+  }, [pageNum, selectedSortOption, closed, rating]);
+  
+  const handleSortChange = (newSortOption) => {
+    setSelectedSortOption(newSortOption);
+    setPageNum(1);
+  };
+
+  const handleClosedFilter = (value) => {
+    setClosed(value);
+  };
+
+  const handleRatingFilter = (value) => {
+    setRating(value);
+  };
 
   
   // chunk the shelter data into groups of three for grid
@@ -46,7 +99,40 @@ function Shelters() {
   return (
     <div className="shelters-container">
       <h1>Shelters & Food pantries</h1>
-      <p>Total Instances: {shelterData.length}</p>
+      <Container>
+          <Row style={{display: "flex", justifyContent: "space-evenly"}}>
+            <Col>
+              <SortShelter selectedOption={selectedSortOption} onSortOptionChange={handleSortChange} />
+            </Col>
+            {/* filtering start*/}
+            <Col>
+              <FilterDropdown
+                title="Closed"
+                items={[
+                  "Yes",
+                  "No"
+                ]}
+                onChange={handleClosedFilter}
+              />
+            </Col>
+            <Col>
+              <FilterDropdown
+                title="Rating"
+                items={[
+                  "0-1",
+                  "1-2",
+                  "2-3",
+                  "3-4",
+                  "4-5"
+                ]}
+                onChange={handleRatingFilter}
+              />
+            </Col>
+            {/* filtering end*/}
+          </Row>
+        </Container>
+      <p>Total Instances: {36}</p>
+      <SearchBar model='shelter' />
 
       <div className="shelter-card-container">
         {chunkedShelterData.map((chunk, rowIndex) => (

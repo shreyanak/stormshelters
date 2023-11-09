@@ -1,17 +1,56 @@
 import React, { useState, useEffect } from 'react';
 import '../css/Pharmacy.css';
 import PharmacyCard from './PharmacyModel';
+import SortPharmacy from './SortPharmacy';
+import SearchBar from './SearchBar';
+import FilterDropdown from './FilterDropdown';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import Container from 'react-bootstrap/Container';
 
 function Pharmacies() {
   // Step 1: Define state variable to store city data
   const [pharmacyData, setPharmacyData] = useState([]);
   const [pageNum, setPageNum] = useState(1);
   const [numInstances, setMetaData ] = useState(1);
+  const [selectedSortOption, setSelectedSortOption] = useState(''); // Default sorting option
+  const [selectedSortOrder, setSelectedSortOrder] = useState(''); // Default sorting order
+  const [name, setName] = useState('');
+  const [city, setCity] = useState('');
+
 
   // Step 2: Create an asynchronous function to fetch data
-  const fetchData = async (page) => {
+  const fetchData = async (page, sortOption, pharmName, pharmCity) => {
     try {
-      const apiUrl = `https://api.stormshelters.me/pharmacies?page=${page}`;
+      let apiUrl = `https://api.stormshelters.me/pharmacies?page=${page}`
+      
+      if (sortOption === 'Name Asc') {
+        apiUrl += `&sort=name&order=asc`
+      }
+      else if (sortOption === 'Name Desc') {
+        apiUrl += `&sort=name&order=desc`
+      }
+      else if (sortOption === 'City Asc'){
+        apiUrl += `&sort=city&order=asc`
+      }
+      else if (sortOption === 'City Desc'){
+        apiUrl += `&sort=city&order=desc`
+      }
+      else if (sortOption === 'Distance Asc'){
+        apiUrl += `&sort=dist&order=asc`
+      }
+      else if (sortOption === 'Distance Desc'){
+        apiUrl += `&sort=dist&order=desc`
+      }
+
+      if (pharmName !== "") {
+        apiUrl += `&name=${pharmName}`;
+      }
+
+      if (pharmCity !== "") {
+        apiUrl += `&city=${pharmCity}`;
+      }
+
       const response = await fetch(apiUrl);
       if (response.ok) {
         const data = await response.json();
@@ -25,10 +64,22 @@ function Pharmacies() {
     }
   };
 
-  // Step 3: Fetch data when the component mounts or when the page parameter changes
   useEffect(() => {
-    fetchData(pageNum);
-  }, [pageNum]);
+    fetchData(pageNum, selectedSortOption, name, city);
+  }, [pageNum, selectedSortOption, name, city]);
+  
+  const handleSortChange = (newSortOption) => {
+    setSelectedSortOption(newSortOption);
+    setPageNum(1);
+  };
+
+  const handleNameFilter = (value) => {
+    setName(value);
+  };
+
+  const handleCityFilter = (value) => {
+    setCity(value);
+  };
 
   // Step 4: Render data in the desired format
   const chunkArray = (arr, chunkSize) => {
@@ -43,9 +94,81 @@ function Pharmacies() {
 
   // Step 5: Use React Router to handle navigation
   return (
-    <div className="pharmacies-container">
-      <h1>Pharmacies</h1>
-      <p>Total Instances: {pharmacyData.length}</p>
+    <Container>
+      <div className="pharmacies-container">
+        {/* <div> */}
+        <h1>Pharmacies</h1>
+        <Container>
+          <Row style={{display: "flex", justifyContent: "space-evenly"}}>
+            <Col>
+              <SortPharmacy selectedOption={selectedSortOption} onSortOptionChange={handleSortChange} />
+            </Col>
+            {/* filtering start*/}
+            <Col>
+              <FilterDropdown
+                title="Name"
+                items={[
+                  "Brookshire Brothers Pharmacy",
+                  "Campbell's Compounding",
+                  "CVS Pharmacy",
+                  "East End Pharmacy",
+                  "H-E-B Pharmacy",
+                  "Iridium Pharmacy",
+                  "Kelsey-Seybold Pharmacy",
+                  "Kroger Pharmacy",
+                  "Market Street Pharmacy",
+                  "Mid Town Specialty RX Pharmacy",
+                  "Randalls Pharmacy",
+                  "Tayco Farms",
+                  "Tidwell Professional Pharmacy",
+                  "Walgreens",
+                  "Walmart Pharmacy",
+                  "Westside Drug"
+                ]}
+                onChange={handleNameFilter}
+              />
+            </Col>
+            <Col>
+              <FilterDropdown
+                title="City"
+                items={[
+                  "Aldine",
+                  "Atascocita",
+                  "Barrett",
+                  "Bellaire",
+                  "Bunker Hill Village",
+                  "Cloverleaf",
+                  "Cypress",
+                  "Deer Park",
+                  "El Lago",
+                  "Galena Park",
+                  "Hedwig Village",
+                  "Highlands",
+                  "Houston",
+                  "Huffman",
+                  "Humble",
+                  "Jersey Village",
+                  "Katy",
+                  "Kingwood",
+                  "La Porte",
+                  "Morgans Point",
+                  "Pasadena",
+                  "Sheldon",
+                  "Southside Place",
+                  "Spring",
+                  "Tomball",
+                  "Waller",
+                  "Webster"
+                ]}
+                onChange={handleCityFilter}
+              />
+            </Col>
+            {/* filtering end*/}
+          </Row>
+        </Container>
+      <p>Total Instances: {124}</p>
+      <SearchBar model='pharmacies' />
+
 
       <div className="card-container">
         {chunkedPharmacyData.map((chunk, rowIndex) => (
@@ -88,6 +211,7 @@ function Pharmacies() {
         <h3 class="text-center">Page {pageNum} of {Math.ceil(numInstances.count / 9)}</h3>
       </div>
     </div>
+    </Container>
     
   );
 }

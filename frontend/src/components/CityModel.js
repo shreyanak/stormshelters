@@ -4,16 +4,15 @@ import '../css/Shelter.css';
 
 
 
-
 const CityCard = ({ cityData }) => {
   const { id, name, pop, temp_in_f, wind_mph, cond, precip_in, image } = cityData;
-  console.log(image)
   return (
     <Link style={{textDecoration: 'none'}} to ={`/cities/${id}`}>
 
     <div className="shelter-card">
       <div className="shelter-image-container">
       <img className="shelter-card-img-top" src={image}></img>
+      {/* <img className="shelter-card-img-top" src={url}></img> */}
       </div>
       <div className="shelter-card-body">
         {/* <Link to={`/city/${id}`} > */}
