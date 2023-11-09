@@ -166,7 +166,7 @@ function Pharmacies() {
             {/* filtering end*/}
           </Row>
         </Container>
-      <p>Total Instances: {pharmacyData.length}</p>
+      <p>Total Instances: {124}</p>
       <SearchBar model='pharmacies' />
 
 

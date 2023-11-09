@@ -131,7 +131,7 @@ function Shelters() {
             {/* filtering end*/}
           </Row>
         </Container>
-      <p>Total Instances: {shelterData.length}</p>
+      <p>Total Instances: {36}</p>
       <SearchBar model='shelter' />
 
       <div className="shelter-card-container">

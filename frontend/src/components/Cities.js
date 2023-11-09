@@ -59,11 +59,11 @@ function Cities() {
 
 
       const response = await fetch(apiUrl);
-
       if (response.ok) {
         const data = await response.json();
         setCityData(data.cities);
         setMetaData(data.meta.count);
+        
       } else {
         console.error('Error fetching data:', response.status);
       }
@@ -137,7 +137,7 @@ function Cities() {
             {/* filtering end*/}
           </Row>
         </Container>
-        <p>Total Instances: {cityData.length}</p>
+        <p>Total Instances: {28}</p>
         <SearchBar model='city' />
 
 
