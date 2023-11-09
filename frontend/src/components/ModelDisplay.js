@@ -1,17 +1,17 @@
 import React from 'react';
 import SearchCard from './SearchCard';
 
-const ModelDisplay = ({ modelSelect, results, displayAll }) => {
+const ModelDisplay = ({ modelSelect, results, displayAll, query }) => {
     var modelResultList = new Array();
 
      if (displayAll) {
          // Create a new SearchCard based on the JSON data for an individual instance of a model
          for (var value of results[modelSelect]) {
-            modelResultList.push((<SearchCard model = {modelSelect} data = {value} />));
+            modelResultList.push((<SearchCard model = {modelSelect} data = {value} query = {query}/>));
             }
      } else {
         for (var value of results) {
-            modelResultList.push(<SearchCard model ={ modelSelect } data = { value } />);  
+            modelResultList.push(<SearchCard model ={ modelSelect } data = { value } query = {query}/>);  
         }
      }
 

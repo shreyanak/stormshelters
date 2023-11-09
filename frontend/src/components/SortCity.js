@@ -18,7 +18,7 @@ function SortCity({ onSortOptionChange }) {
   return (
     <div>
       <label>Sort By: </label>
-      <select className='sort-dropdown' value={selectedOption} onChange={handleOptionChange}>
+      <select id='sort' className='sort-dropdown' value={selectedOption} onChange={handleOptionChange}>
         <option value="None">Select</option>
         <option value="City Asc">City (Ascending)</option>
         <option value="City Desc">City (Descending)</option>

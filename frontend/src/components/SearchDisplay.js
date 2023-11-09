@@ -26,29 +26,39 @@ function SearchDisplay() {
     if (model == 'all') {
       for (var modelSelect in results) {
         console.log("push1");
-        modelDisplayList.push(<ModelDisplay modelSelect = {modelSelect} results = {results} displayAll={true}/>);
+        modelDisplayList.push(<ModelDisplay modelSelect = {modelSelect} results = {results} displayAll={true} query={query}/>);
       }
-    } else {
+    } else { 
       // The user queried a single model, so the computation is a lot simpler.
       // for (var value of results) {
         // modelResultList.push(<SearchCard model ={ model } data = { value } />);
-        console.log("push2");
+        console.log("query");
 
-        modelDisplayList.push(<ModelDisplay modelSelect = {model} results = {results} displayAll={false}/>);
+        modelDisplayList.push(<ModelDisplay modelSelect = {model} results = {results} displayAll={false} query = {query}/>);
       // }
     }
-
+    var content;
+    var display = 'shelter-card';
+    if (model === 'all') {
+      display = 'card-container';
+      content = modelDisplayList.map((card, index) => (
+        <div key={index}>{card}</div>
+      ));
+    } else {
+      content = modelDisplayList[0];
+    }
     // Print the content of the SearchDisplay page
     return (
       <div className="shelters-container">
         <h1>Search Results</h1>
-        <div className="card-container">
+        <div className={display}>
           {/* This prints out each ShelterCard stored in the cardList structure */}
-          {
+          {/* {
           model == "all" ? (
             modelDisplayList.map((card, index) => (
             <div key="index">{card}</div>)
-          )) : model == "cities" ? (modelDisplayList[0]) : model == "pharmacies" ? (modelDisplayList[1]) : model == "shelters" ? (modelDisplayList[2]) : <h2>NO results!</h2> }
+          )) : model === "cities" ? (modelDisplayList[0]) : model == "pharmacies" ? (modelDisplayList[0]) : model === "shelters" ? (modelDisplayList[0]) : <h2>NO results!</h2> } */}
+          {content}
           {/* {modelDisplayList[2]} */}
         </div>
       </div>
