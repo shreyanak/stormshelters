@@ -80,7 +80,7 @@ class Tests(unittest.TestCase):
     def test_filter_1(self):
         with client:
             response = client.get("/pharmacies?city=Houston")
-            data = response.json["pharmacy"]
+            data = response.json["pharmacies"]
             self.assertEqual(data[0]["name"], "CVS Pharmacy")
 
     def test_filter_2(self):
