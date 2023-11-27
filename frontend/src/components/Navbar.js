@@ -30,6 +30,16 @@ function Navbar() {
             Pharmacies
           </a>
         </li>
+        <li className="nav-item">
+          <a href="/our-visualizations" className="nav-link">
+            Visualizations
+          </a>
+        </li>
+        <li className="nav-item">
+          <a href="/provider-visualizations" className="nav-link">
+            Provider Visualizations
+          </a>
+        </li>
       </ul>
     </nav>
   );

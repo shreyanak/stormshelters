@@ -1,5 +1,6 @@
 import React from 'react';
 import SearchCard from './SearchCard';
+import '../css/Search.css'
 
 const ModelDisplay = ({ modelSelect, results, displayAll, query }) => {
     var modelResultList = new Array();
@@ -23,7 +24,7 @@ const ModelDisplay = ({ modelSelect, results, displayAll, query }) => {
             letting the user know that the query rendered no results. */}
             {modelResultList.length > 0 ? (
             modelResultList.map((card, index) => (
-                <div key="index">{card}</div>
+                <div className="model-css" key="index">{card}</div>
             ))
             ) : (
                 <h3>No results found.</h3>
