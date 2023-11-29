@@ -46,12 +46,12 @@ const PharmaciesPerCity = () => {
           </Row>
           <Row className="justify-content-center">
             <Col xs={12} md={8}>
-              <ResponsiveContainer width="100%" height={400}>
-                <BarChart data={data}>
+              <ResponsiveContainer width="100%" height={450}>
+                <BarChart data={data} margin={{ bottom: 80 }}>
                   <XAxis dataKey="city" interval={0} angle={45} textAnchor="start" />
                   <YAxis />
                   <Tooltip />
-                  <Bar dataKey="count" fill="#8884d8" />
+                  <Bar dataKey="count" fill="#add8e6" />
                 </BarChart>
               </ResponsiveContainer>
             </Col>
