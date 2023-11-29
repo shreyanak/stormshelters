@@ -1,4 +1,3 @@
-// import React, { useState, useEffect } from 'react';
 import '../css/Shelter.css';
 import SearchCard from './SearchCard';
 import { useParams } from 'react-router-dom';
@@ -10,7 +9,6 @@ function SearchDisplay() {
   var { model, query } = useParams();
   // When we direct to SearchDisplay, we include the query and model in the URL.
   var mainURL = `https://api.stormshelters.me/search/${model}/${query}`;
-  console.log(mainURL);
   var mainreq = new XMLHttpRequest();
   mainreq.open('GET', mainURL, false); 
   mainreq.send(null);
@@ -25,17 +23,11 @@ function SearchDisplay() {
                                   : (JSON.parse(mainreq.responseText).data);
     if (model == 'all') {
       for (var modelSelect in results) {
-        console.log("push1");
         modelDisplayList.push(<ModelDisplay modelSelect = {modelSelect} results = {results} displayAll={true} query={query}/>);
       }
     } else { 
       // The user queried a single model, so the computation is a lot simpler.
-      // for (var value of results) {
-        // modelResultList.push(<SearchCard model ={ model } data = { value } />);
-        console.log("query");
-
         modelDisplayList.push(<ModelDisplay modelSelect = {model} results = {results} displayAll={false} query = {query}/>);
-      // }
     }
     var content;
     var display = 'shelter-card';
@@ -52,14 +44,7 @@ function SearchDisplay() {
       <div className="shelters-container">
         <h1>Search Results</h1>
         <div className={display}>
-          {/* This prints out each ShelterCard stored in the cardList structure */}
-          {/* {
-          model == "all" ? (
-            modelDisplayList.map((card, index) => (
-            <div key="index">{card}</div>)
-          )) : model === "cities" ? (modelDisplayList[0]) : model == "pharmacies" ? (modelDisplayList[0]) : model === "shelters" ? (modelDisplayList[0]) : <h2>NO results!</h2> } */}
           {content}
-          {/* {modelDisplayList[2]} */}
         </div>
       </div>
     );
@@ -71,10 +56,7 @@ function SearchDisplay() {
         <h1>Internal error</h1>
       </div>
     );
-  }
-
-
-  
+  }  
 }
 
 export default SearchDisplay;
