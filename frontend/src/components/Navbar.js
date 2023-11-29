@@ -31,12 +31,12 @@ function Navbar() {
           </a>
         </li>
         <li className="nav-item">
-          <a href="/our-visualizations" className="nav-link">
+          <a href="/ourVisualizations" className="nav-link">
             Visualizations
           </a>
         </li>
         <li className="nav-item">
-          <a href="/provider-visualizations" className="nav-link">
+          <a href="/providerVisualizations" className="nav-link">
             Provider Visualizations
           </a>
         </li>
