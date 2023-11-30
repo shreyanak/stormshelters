@@ -90,7 +90,7 @@ function ProviderVis() {
     return (
         // Display for Number of TEsting Centers Per Borough
         <Container>
-            <h1 className="text-center">MetroPulse visualizations</h1>
+            <h1 className="text-center">MetroPulse Visualizations</h1>
 
             <h2 className="text-center">Number of Testing Centers Per Borough</h2>
 
