@@ -115,8 +115,9 @@ function Cities() {
             {/* filtering start*/}
             <Col>
               <FilterDropdown
-                title="Condition"
+                title="Filter by Condition"
                 items={[
+                  "Filter by Condition",
                   "Partly cloudy",
                   "Sunny"
                 ]}
@@ -125,8 +126,9 @@ function Cities() {
             </Col>
             <Col>
               <FilterDropdown
-                title="Precipitation"
+                title="Filter by Precipitation"
                 items={[
+                  "Filter by Precipitation",
                   "Light",
                   "Medium",
                   "Heavy"
