@@ -33,7 +33,6 @@ const PharmaciesPerCity = () => {
             // list of dictionaries
             const city_data = Array.from(cities, ([city, count]) => ({ city, count }));
             setData(city_data);
-            console.log('city array', city_data);
         };
 
         fetchData();
