@@ -29,6 +29,7 @@ https://documenter.getpostman.com/view/29974721/2s9YR6aDwG
 | Phase 1| 536deb8f9b81a8c9debce70c2fbe8efc71b266d1 |
 | Phase 2| 0765bceb39fe142aea94d8a33fdf0a27c7d00bc1 |
 | Phase 3| c99079cc |
+| Phase 4|  |
 
 # Phase Leaders
 
@@ -71,3 +72,13 @@ https://documenter.getpostman.com/view/29974721/2s9YR6aDwG
 |Aaron Kulkarni|15 | 15|
 |John Smith    |10-15 | 15|
 |Adriana Reyes | 10 | 10|
+
+# Phase 4 Completion Times
+|Team Member| Estimated (hours) | Actual (hours)|
+| ----------|-------------------| --------------|
+|Shreya Nakka |3-5 | 2.5|
+|Rohit Chawla |3-5| 2|
+|Aaron Kulkarni|3 | 2|
+|John Smith    |4 | 2.5|
+|Adriana Reyes | 4 | 2|
+
