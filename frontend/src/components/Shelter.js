@@ -43,11 +43,11 @@ function Shelters() {
         apiUrl += `&sort=rating&order=desc`
       }
 
-      if (isClosed !== "") {
+      if (isClosed !== "" && isClosed != "Filter by Closed") {
         apiUrl += `&closed=${isClosed}`;
       }
 
-      if (shelterRating !== "") {
+      if (shelterRating !== "" && shelterRating != "Filter by Rating") {
         apiUrl += `&rating=${shelterRating}`;
       }
 
@@ -107,8 +107,9 @@ function Shelters() {
             {/* filtering start*/}
             <Col>
               <FilterDropdown
-                title="Closed"
+                title="Filter by Closed"
                 items={[
+                  "Filter by Closed",
                   "Yes",
                   "No"
                 ]}
@@ -117,8 +118,9 @@ function Shelters() {
             </Col>
             <Col>
               <FilterDropdown
-                title="Rating"
+                title="Filter by Rating"
                 items={[
+                  "Filter by Rating",
                   "0-1",
                   "1-2",
                   "2-3",
