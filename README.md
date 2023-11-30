@@ -38,10 +38,12 @@ https://documenter.getpostman.com/view/29974721/2s9YR6aDwG
 | Phase 1| Aaron Kulkarni |
 | Phase 2| Shreya Nakka |
 | Phase 3| John Smith |
+| Phase 3| Rohit Chawla |
 
 * In Phase 2, Shreya was responsible for orchestrating the overarching design of the technical aspects of the site. She helped assign roles to people, connect loose elements (i.e database to backend API) together, and move us steadily towards completion. 
 
 * In Phase 3, John was responsible for delegating tasks, and ensured that we got everything completed on time.
+
 
 # Phase 1 Completion Times
 
