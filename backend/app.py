@@ -302,8 +302,6 @@ def search_pharmacies(terms):
     return freq
 
 
-
-
     
 
 

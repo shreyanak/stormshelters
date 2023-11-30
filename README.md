@@ -29,6 +29,7 @@ https://documenter.getpostman.com/view/29974721/2s9YR6aDwG
 | Phase 1| 536deb8f9b81a8c9debce70c2fbe8efc71b266d1 |
 | Phase 2| 0765bceb39fe142aea94d8a33fdf0a27c7d00bc1 |
 | Phase 3| c99079cc |
+| Phase 4| 5d22c9eecae7acb418cef50fa8e1486e30565330 |
 
 # Phase Leaders
 
@@ -37,10 +38,12 @@ https://documenter.getpostman.com/view/29974721/2s9YR6aDwG
 | Phase 1| Aaron Kulkarni |
 | Phase 2| Shreya Nakka |
 | Phase 3| John Smith |
+| Phase 3| Rohit Chawla |
 
 * In Phase 2, Shreya was responsible for orchestrating the overarching design of the technical aspects of the site. She helped assign roles to people, connect loose elements (i.e database to backend API) together, and move us steadily towards completion. 
 
 * In Phase 3, John was responsible for delegating tasks, and ensured that we got everything completed on time.
+
 
 # Phase 1 Completion Times
 
@@ -71,3 +74,13 @@ https://documenter.getpostman.com/view/29974721/2s9YR6aDwG
 |Aaron Kulkarni|15 | 15|
 |John Smith    |10-15 | 15|
 |Adriana Reyes | 10 | 10|
+
+# Phase 4 Completion Times
+|Team Member| Estimated (hours) | Actual (hours)|
+| ----------|-------------------| --------------|
+|Shreya Nakka |3-5 | 2.5|
+|Rohit Chawla |3-5| 2|
+|Aaron Kulkarni|3 | 2|
+|John Smith    |4 | 2.5|
+|Adriana Reyes | 4 | 2|
+

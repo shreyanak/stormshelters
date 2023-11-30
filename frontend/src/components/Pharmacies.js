@@ -43,11 +43,11 @@ function Pharmacies() {
         apiUrl += `&sort=dist&order=desc`
       }
 
-      if (pharmName !== "") {
+      if (pharmName !== "" && pharmName != "Filter by Name") {
         apiUrl += `&name=${pharmName}`;
       }
 
-      if (pharmCity !== "") {
+      if (pharmCity !== "" && pharmCity != "Filter by City") {
         apiUrl += `&city=${pharmCity}`;
       }
 
@@ -106,8 +106,9 @@ function Pharmacies() {
             {/* filtering start*/}
             <Col>
               <FilterDropdown
-                title="Name"
+                title="Filter by Name"
                 items={[
+                  "Filter by Name",
                   "Brookshire Brothers Pharmacy",
                   "Campbell's Compounding",
                   "CVS Pharmacy",
@@ -130,8 +131,9 @@ function Pharmacies() {
             </Col>
             <Col>
               <FilterDropdown
-                title="City"
+                title="Filter by City"
                 items={[
+                  "Filter by City",
                   "Aldine",
                   "Atascocita",
                   "Barrett",
